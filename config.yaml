@@ -1,0 +1,167 @@
+# ===========================================================================
+# MALCOMp — single source of truth for the multi-agent pipeline.
+#
+# - `models:`        the LLM variants you can run against. Pick one with
+#                    `--model <key>` (run.py / run_single_agent) or the
+#                    MALCOMP_MODEL env var; defaults to `default_model`.
+#                    run_evaluation sweeps every key listed here.
+# - provider secrets come from .env (OPENAI_API_KEY / OPENAI_API_BASE, or
+#   ANTHROPIC_API_KEY for `api_type: anthropic`).
+# - `stages:`        the pipeline definition, shared by every model.
+# - all paths are resolved relative to THIS file's directory (the repo root),
+#   so the active case study lives under case_studies/<name>/.
+# ===========================================================================
+
+default_model: deepseek_v4
+
+# Per-phase artefact verification gate (structural + traceability). When enabled,
+# the CLI runner halts before the next phase if the current phase fails.
+verification:
+  enabled: true
+  max_repair_attempts: 5   # repair loop retries until FDR passes, up to this many attempts (safety cap against a non-fixable model)
+  # Optional deep behaviour check: generate CSP from the RoboChart .rct (FORGE's
+  # standalone RoboChart CSP generator), tame numeric type ranges to [0..1], and
+  # run FDR4 (refines.exe) for deadlock-/divergence-freedom. Opt-in: off by
+  # default (each check launches the JVM generator + FDR4). Toolchain absent =>
+  # the fdr4_refinement check is `unverifiable` (warn, never blocks); a real
+  # refinement violation hard-gates the phase and triggers Behaviour_Repair_Agent.
+  fdr4:
+    enabled: true
+    robochart_gen_dir: "MALCOMj/lib/robochart"   # vendored RoboChart CSP generator jars (repo-relative)
+    fdr4_path: "C:/Program Files/fdr/bin/refines.exe"   # name on PATH, or absolute path
+    check_determinism: false   # RoboChart models are non-deterministic by construction; skip :[deterministic] (deadlock/divergence only)
+    memory_limit_mb: 8192
+    timeout: 600
+    type_ranges: {}           # optional per-type override, e.g. {int: {lower: 0, upper: 2}}; default [0..1]
+
+# Requirement feeding: "batch" (default — all requirements in one pass, far fewer
+# LLM calls) or "sequential" (one at a time). Override per-run with --feed-mode /
+# the web toggle. (Behaviour always processes the whole document at once.)
+feed_mode: batch
+
+models:
+  # Evaluated set (paper Section 4.2): GPT-5, Claude Opus 4.8, Gemini 2.5 Pro
+  # (closed) + DeepSeek-V4 (open). Each model names the env var holding its key
+  # via api_key_env (resolved by MALCOMp/llm_keys.py; falls back to OPENAI_API_KEY).
+  gpt_5:
+    name: "gpt-5"
+    api_type: "openai"
+    api_base_url: "https://api.openai.com/v1"
+    api_key_env: "OPENAI_API_KEY"
+    supports_temperature: false   # GPT-5 is a reasoning model: omit the temperature param
+  claude_opus_48:
+    name: "claude-opus-4-8"
+    api_type: "anthropic"
+    api_key_env: "ANTHROPIC_API_KEY"
+    supports_temperature: false   # Claude Opus 4.8 deprecates the temperature param
+    max_tokens: 32000             # long concept dumps were truncating at the 8192 default
+  claude_sonnet_46:
+    name: "claude-sonnet-4-6"
+    api_type: "anthropic"
+    api_key_env: "ANTHROPIC_API_KEY"
+    supports_temperature: false   # omit temperature to avoid a 400 (matches Opus); flip if Sonnet 4.6 accepts it
+    max_tokens: 20000             # >8192 (avoid concept truncation), <=21333 (Sonnet's non-streaming ceiling)
+  gemini_25_pro:
+    name: "gemini-2.5-pro"
+    temperature: 0.5
+    api_type: "openai"
+    api_base_url: "https://generativelanguage.googleapis.com/v1beta/openai/"
+    api_key_env: "GEMINI_API_KEY"
+  deepseek_v4:
+    name: "deepseek-v4-pro"
+    temperature: 0.0
+    api_type: "openai"
+    api_base_url: "https://api.deepseek.com"
+    api_key_env: "DEEPSEEK_API_KEY"
+  qwen3_max:
+    name: "qwen3-max"
+    temperature: 0.0
+    api_type: "openai"   # DashScope OpenAI-compatible endpoint
+    api_base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+    api_key_env: "DASHSCOPE_API_KEY"
+
+# Active case study (override with --case-study <name> or MALCOMP_CASE_STUDY).
+# Resolves to case_studies/<case_study>/ (requirements/, system_description/,
+# and the generated output/). Prompts are shared, under prompts_dir.
+case_study: "auv"
+prompts_dir: "prompts"
+
+stages:
+  concept_extraction:
+    requirement_file: "requirements/requirement_architecture.json"
+    max_rounds: 100
+    asset_files:
+      system_description: "system_description/system_description.txt"
+      few_shot_example: "concept/few_shot_example.txt"
+      chain_of_thought_extraction: "concept/chain_of_thought_extraction.txt"
+      chain_of_thought_checker: "concept/chain_of_thought_checker.txt"
+      chain_of_thought_trace: "concept/chain_of_thought_trace.txt"
+    output:
+      json_file: "result_concept_trace.json"   # req -> concept traceability (term_trace)
+      json_tag: "term_trace"
+      json_agent: "Trace_Generation_Agent"
+      # The extracted concept model (deduplicated Concepts + Instances), derived
+      # deterministically from the trace. No code_agent: it is computed, not
+      # produced by an LLM, so Base.run does not try to write it from an agent.
+      code_file: "result_concept_model.json"
+
+  dsml_creation:
+    requirement_file: "requirements/requirement_architecture.json"
+    max_rounds: 500
+    asset_files:
+      system_description: "system_description/system_description.txt"
+      few_shot_dsl_extraction: "dsml/few_shot_extraction.txt"
+      few_shot_dsl_checker: "dsml/few_shot_checker.txt"
+      chain_of_thought_extraction: "dsml/chain_of_thought_extraction.txt"
+      chain_of_thought_checker: "dsml/chain_of_thought_checker.txt"
+      extracted_terms: "result_concept_model.json"
+      emfatic_rules: "dsml/emfatic.txt"
+    output:
+      json_file: "result_dsml_trace.json"
+      json_tag: "dsl_trace"
+      json_agent: "Trace_Generation_Agent"
+      code_file: "result_dsml.emf"
+      code_agent: "DSML_Refactoring_Agent"
+
+  emf_model_creation:
+    requirement_file: "requirements/requirement_architecture.json"
+    max_rounds: 1000
+    execution_repair:
+      enabled: true
+      max_attempts: 5
+      timeout_seconds: 60
+      knowledge_file: "model/eol_repair_knowledge.md"
+    asset_files:
+      system_description: "system_description/system_description.txt"
+      few_shot_model_creation: "model/few_shot_creation.txt"
+      few_shot_model_checker: "model/few_shot_checker.txt"
+      chain_of_thought_creation: "model/chain_of_thought_creation.txt"
+      chain_of_thought_checker: "model/chain_of_thought_checker.txt"
+      chain_of_thought_trace: "model/chain_of_thought_trace.txt"
+      extracted_terms: "result_concept_model.json"
+      dsl_source: "result_dsml.emf"
+    output:
+      json_file: "result_model_trace.json"
+      json_tag: "model_trace"
+      json_agent: "Trace_Generation_Agent"
+      code_file: "result_model.eol"
+      code_agent: "Model_Refactorer"
+
+  behaviour_model_creation:
+    requirement_file: "requirements/requirement_behaviour.json"
+    max_rounds: 500
+    asset_files:
+      extracted_terms: "result_concept_model.json"   # Phase 2 output
+      dsl_source:      "result_dsml.emf"                # Phase 3 output
+      model_source:    "result_model.eol"        # Phase 4 output
+      robochart_ecore: "behaviour/RoboChart_ecore.txt"
+      xtext: "behaviour/Xtext.txt"
+      code_snippet_1: "behaviour/code_snippet_1.txt"
+      code_snippet_2: "behaviour/code_snippet_2.txt"
+      semantic: "behaviour/semantic.txt"
+    output:
+      json_file: "result_behaviour_trace.json"
+      json_tag: "stm_trace"
+      json_agent: "Trace_Generation_Agent"
+      code_file: "result_behaviour_model.rct"
+      code_agent: "Behaviour_Checker_Agent"

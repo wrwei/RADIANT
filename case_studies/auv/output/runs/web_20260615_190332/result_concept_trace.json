@@ -1,0 +1,827 @@
+{
+    "term_trace": [
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "SD1",
+                "id": "SD1",
+                "description": "The AUV system is developed as a Module named \"AUV_Module\".",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "SD1",
+            "Concept": "Module",
+            "Concept_description": "A component of the system architecture.",
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "Instance_description": "The main module of the AUV system.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:SD1",
+                "char_start": 47,
+                "char_end": 57,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "SD2",
+                "id": "SD2",
+                "description": "\"AUV_Module\" should contain a Robotic Platform named \"AUV_Platform\", it should use the Interfaces \"Sensors\" and \"Actuators\" (defined by \"AUV_Module\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "SD2",
+            "Concept": "RoboticPlatform",
+            "Concept_description": "A physical or logical platform for robotic operations.",
+            "Instance": "AUV_Platform",
+            "Instance_of": "RoboticPlatform",
+            "Instance_description": "The robotic platform of the AUV system.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:SD2",
+                "char_start": 54,
+                "char_end": 66,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "SD2",
+                "id": "SD2",
+                "description": "\"AUV_Module\" should contain a Robotic Platform named \"AUV_Platform\", it should use the Interfaces \"Sensors\" and \"Actuators\" (defined by \"AUV_Module\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "SD2",
+            "Concept": "Interface",
+            "Concept_description": "A point of interaction between components.",
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "Instance_description": "An interface for sensor data.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:SD2",
+                "char_start": 99,
+                "char_end": 106,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "SD2",
+                "id": "SD2",
+                "description": "\"AUV_Module\" should contain a Robotic Platform named \"AUV_Platform\", it should use the Interfaces \"Sensors\" and \"Actuators\" (defined by \"AUV_Module\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "SD2",
+            "Concept": "Interface",
+            "Concept_description": "A point of interaction between components.",
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "Instance_description": "An interface for actuator commands.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:SD2",
+                "char_start": 113,
+                "char_end": 122,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "SD3",
+                "id": "SD3",
+                "description": "\"AUV_Module\" should contain a Controller named \"AUV_Operator\", it should use the Interface \"Inputs\" (defined by \"AUV_Module\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "SD3",
+            "Concept": "Controller",
+            "Concept_description": "A component that controls system behavior.",
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "Instance_description": "The operator controller of the AUV system.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:SD3",
+                "char_start": 48,
+                "char_end": 60,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "SD3",
+                "id": "SD3",
+                "description": "\"AUV_Module\" should contain a Controller named \"AUV_Operator\", it should use the Interface \"Inputs\" (defined by \"AUV_Module\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "SD3",
+            "Concept": "Interface",
+            "Concept_description": "A point of interaction between components.",
+            "Instance": "Inputs",
+            "Instance_of": "Interface",
+            "Instance_description": "An interface for input events.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:SD3",
+                "char_start": 92,
+                "char_end": 98,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "SD4",
+                "id": "SD4",
+                "description": "\"AUV_Module\" should contain a Controller named \"LRE_Ctrl\" (for Last Response Engine), it should use the Interfaces \"Inputs\" and \"Outputs\" (defined by \"AUV_Module\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "SD4",
+            "Concept": "Controller",
+            "Concept_description": "A component that controls system behavior.",
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "Instance_description": "The Last Response Engine controller.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:SD4",
+                "char_start": 48,
+                "char_end": 56,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "SD4",
+                "id": "SD4",
+                "description": "\"AUV_Module\" should contain a Controller named \"LRE_Ctrl\" (for Last Response Engine), it should use the Interfaces \"Inputs\" and \"Outputs\" (defined by \"AUV_Module\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "SD4",
+            "Concept": "Interface",
+            "Concept_description": "A point of interaction between components.",
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "Instance_description": "An interface for output events.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:SD4",
+                "char_start": 129,
+                "char_end": 136,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "SD5",
+                "id": "SD5",
+                "description": "\"AUV_Module\" should contain a Controller named \"AUV_Autopilot\", it should use the Interface \"Outputs\" (defined by \"AUV_Module\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "SD5",
+            "Concept": "Controller",
+            "Concept_description": "A component that controls system behavior.",
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "Instance_description": "The autopilot controller of the AUV system.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:SD5",
+                "char_start": 48,
+                "char_end": 61,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "PT1",
+                "id": "PT1",
+                "description": "The \"AUV_Module\" should define a Primitive Type named \"nat\" (for natural numbers).",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "PT1",
+            "Concept": "PrimitiveType",
+            "Concept_description": "A basic data type.",
+            "Instance": "nat",
+            "Instance_of": "PrimitiveType",
+            "Instance_description": "A primitive type for natural numbers.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:PT1",
+                "char_start": 55,
+                "char_end": 58,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "PT2",
+                "id": "PT2",
+                "description": "The \"AUV_Module\" should define a Primitive Type named \"int\" (for integers).",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "PT2",
+            "Concept": "PrimitiveType",
+            "Concept_description": "A basic data type.",
+            "Instance": "int",
+            "Instance_of": "PrimitiveType",
+            "Instance_description": "A primitive type for integers.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:PT2",
+                "char_start": 55,
+                "char_end": 58,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "PT3",
+                "id": "PT3",
+                "description": "The \"AUV_Module\" should define a Primitive Type named \"string\" (for string values).",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "PT3",
+            "Concept": "PrimitiveType",
+            "Concept_description": "A basic data type.",
+            "Instance": "string",
+            "Instance_of": "PrimitiveType",
+            "Instance_description": "A primitive type for string values.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:PT3",
+                "char_start": 55,
+                "char_end": 61,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "PT4",
+                "id": "PT4",
+                "description": "The \"AUV_Module\" should define a Primitive Type named \"boolean\" (for boolean values).",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "PT4",
+            "Concept": "PrimitiveType",
+            "Concept_description": "A basic data type.",
+            "Instance": "boolean",
+            "Instance_of": "PrimitiveType",
+            "Instance_description": "A primitive type for boolean values.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:PT4",
+                "char_start": 55,
+                "char_end": 62,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "PT5",
+                "id": "PT5",
+                "description": "The \"AUV_Module\" should define a Primitive Type named \"real\" (for real numbers).",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "PT5",
+            "Concept": "PrimitiveType",
+            "Concept_description": "A basic data type.",
+            "Instance": "real",
+            "Instance_of": "PrimitiveType",
+            "Instance_description": "A primitive type for real numbers.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:PT5",
+                "char_start": 55,
+                "char_end": 59,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "CT1",
+                "id": "CT1",
+                "description": "The \"AUV_Module\" should define a Composite Type named \"SVec\" (Spherical Vector), to record values such as \"radial\" (of type \"real\"), \"polar\" (of type \"real\"), and \"azimuth\" (of type \"real\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "CT1",
+            "Concept": "CompositeType",
+            "Concept_description": "A data type composed of multiple fields.",
+            "Instance": "SVec",
+            "Instance_of": "CompositeType",
+            "Instance_description": "A composite type for spherical vectors.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:CT1",
+                "char_start": 55,
+                "char_end": 59,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "CT2",
+                "id": "CT2",
+                "description": "The \"AUV_Module\" should define a Composite Type named \"Obstacle\", to record the following values: \"ns_rel_dist\" (of type \"real\"), \"ew_rel_dist\" (of type real), \"depth\" (of type \"real\"), \"id\" (of type \"real\"), \"obs_hdng\" (of type \"SVec\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "CT2",
+            "Concept": "CompositeType",
+            "Concept_description": "A data type composed of multiple fields.",
+            "Instance": "Obstacle",
+            "Instance_of": "CompositeType",
+            "Instance_description": "A composite type for obstacle data.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:CT2",
+                "char_start": 55,
+                "char_end": 63,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "Interface1",
+                "id": "Interface1",
+                "description": "The \"AUV_Module\" should define an Interface named \"Sensors\", which contains the following Values: \"depth\" (of type \"real\"), \"hdng\" (of type \"SVec\") and \"obs\" (of type \"Obstacle\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "Interface1",
+            "Concept": "Value",
+            "Concept_description": "A data element within an interface.",
+            "Instance": "depth",
+            "Instance_of": "Value",
+            "Instance_description": "A value representing depth.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:Interface1",
+                "char_start": 99,
+                "char_end": 104,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "Interface1",
+                "id": "Interface1",
+                "description": "The \"AUV_Module\" should define an Interface named \"Sensors\", which contains the following Values: \"depth\" (of type \"real\"), \"hdng\" (of type \"SVec\") and \"obs\" (of type \"Obstacle\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "Interface1",
+            "Concept": "Value",
+            "Concept_description": "A data element within an interface.",
+            "Instance": "hdng",
+            "Instance_of": "Value",
+            "Instance_description": "A value representing heading.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:Interface1",
+                "char_start": 125,
+                "char_end": 129,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "Interface1",
+                "id": "Interface1",
+                "description": "The \"AUV_Module\" should define an Interface named \"Sensors\", which contains the following Values: \"depth\" (of type \"real\"), \"hdng\" (of type \"SVec\") and \"obs\" (of type \"Obstacle\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "Interface1",
+            "Concept": "Value",
+            "Concept_description": "A data element within an interface.",
+            "Instance": "obs",
+            "Instance_of": "Value",
+            "Instance_description": "A value representing obstacle data.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:Interface1",
+                "char_start": 153,
+                "char_end": 156,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "Interface2",
+                "id": "Interface2",
+                "description": "The \"AUV_Module\" should define an Interface named \"Intpus\", which defines the following Events: \"endTask\" (with no Parameters and no Return Value), \"reqOCM\" (with no Parameters and no Return Value), \"reqMOM\" (with no Parameters and no Return Value), \"reqHCM\" (with no Parameters and no Return Value), \"reqVel\" (with no Parameters, but with a Return Value of type \"real\"), and \"reqHdng\" (with no Parameters, but with a Return Value of type \"real\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "Interface2",
+            "Concept": "Event",
+            "Concept_description": "An occurrence that triggers a response.",
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "Instance_description": "An event to end a task.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:Interface2",
+                "char_start": 97,
+                "char_end": 104,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "Interface2",
+                "id": "Interface2",
+                "description": "The \"AUV_Module\" should define an Interface named \"Intpus\", which defines the following Events: \"endTask\" (with no Parameters and no Return Value), \"reqOCM\" (with no Parameters and no Return Value), \"reqMOM\" (with no Parameters and no Return Value), \"reqHCM\" (with no Parameters and no Return Value), \"reqVel\" (with no Parameters, but with a Return Value of type \"real\"), and \"reqHdng\" (with no Parameters, but with a Return Value of type \"real\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "Interface2",
+            "Concept": "Event",
+            "Concept_description": "An occurrence that triggers a response.",
+            "Instance": "reqOCM",
+            "Instance_of": "Event",
+            "Instance_description": "An event to request OCM.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:Interface2",
+                "char_start": 149,
+                "char_end": 155,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "Interface2",
+                "id": "Interface2",
+                "description": "The \"AUV_Module\" should define an Interface named \"Intpus\", which defines the following Events: \"endTask\" (with no Parameters and no Return Value), \"reqOCM\" (with no Parameters and no Return Value), \"reqMOM\" (with no Parameters and no Return Value), \"reqHCM\" (with no Parameters and no Return Value), \"reqVel\" (with no Parameters, but with a Return Value of type \"real\"), and \"reqHdng\" (with no Parameters, but with a Return Value of type \"real\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "Interface2",
+            "Concept": "Event",
+            "Concept_description": "An occurrence that triggers a response.",
+            "Instance": "reqMOM",
+            "Instance_of": "Event",
+            "Instance_description": "An event to request MOM.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:Interface2",
+                "char_start": 200,
+                "char_end": 206,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "Interface2",
+                "id": "Interface2",
+                "description": "The \"AUV_Module\" should define an Interface named \"Intpus\", which defines the following Events: \"endTask\" (with no Parameters and no Return Value), \"reqOCM\" (with no Parameters and no Return Value), \"reqMOM\" (with no Parameters and no Return Value), \"reqHCM\" (with no Parameters and no Return Value), \"reqVel\" (with no Parameters, but with a Return Value of type \"real\"), and \"reqHdng\" (with no Parameters, but with a Return Value of type \"real\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "Interface2",
+            "Concept": "Event",
+            "Concept_description": "An occurrence that triggers a response.",
+            "Instance": "reqHCM",
+            "Instance_of": "Event",
+            "Instance_description": "An event to request HCM.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:Interface2",
+                "char_start": 251,
+                "char_end": 257,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "Interface2",
+                "id": "Interface2",
+                "description": "The \"AUV_Module\" should define an Interface named \"Intpus\", which defines the following Events: \"endTask\" (with no Parameters and no Return Value), \"reqOCM\" (with no Parameters and no Return Value), \"reqMOM\" (with no Parameters and no Return Value), \"reqHCM\" (with no Parameters and no Return Value), \"reqVel\" (with no Parameters, but with a Return Value of type \"real\"), and \"reqHdng\" (with no Parameters, but with a Return Value of type \"real\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "Interface2",
+            "Concept": "Event",
+            "Concept_description": "An occurrence that triggers a response.",
+            "Instance": "reqVel",
+            "Instance_of": "Event",
+            "Instance_description": "An event to request velocity.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:Interface2",
+                "char_start": 302,
+                "char_end": 308,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "Interface2",
+                "id": "Interface2",
+                "description": "The \"AUV_Module\" should define an Interface named \"Intpus\", which defines the following Events: \"endTask\" (with no Parameters and no Return Value), \"reqOCM\" (with no Parameters and no Return Value), \"reqMOM\" (with no Parameters and no Return Value), \"reqHCM\" (with no Parameters and no Return Value), \"reqVel\" (with no Parameters, but with a Return Value of type \"real\"), and \"reqHdng\" (with no Parameters, but with a Return Value of type \"real\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "Interface2",
+            "Concept": "Event",
+            "Concept_description": "An occurrence that triggers a response.",
+            "Instance": "reqHdng",
+            "Instance_of": "Event",
+            "Instance_description": "An event to request heading.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:Interface2",
+                "char_start": 377,
+                "char_end": 384,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "Interface3",
+                "id": "Interface3",
+                "description": "The \"AUV_Module\" should define an Interface named \"Outputs\", which defines the following Events: \"advVel\" (which takes one Parameters of type \"real\", and no Return Value) and \"advHdng\" (which takes one Parameters of type \"real\", and no Return Value).",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "Interface3",
+            "Concept": "Event",
+            "Concept_description": "An occurrence that triggers a response.",
+            "Instance": "advVel",
+            "Instance_of": "Event",
+            "Instance_description": "An event to advise velocity.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:Interface3",
+                "char_start": 98,
+                "char_end": 104,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "Interface3",
+                "id": "Interface3",
+                "description": "The \"AUV_Module\" should define an Interface named \"Outputs\", which defines the following Events: \"advVel\" (which takes one Parameters of type \"real\", and no Return Value) and \"advHdng\" (which takes one Parameters of type \"real\", and no Return Value).",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "Interface3",
+            "Concept": "Event",
+            "Concept_description": "An occurrence that triggers a response.",
+            "Instance": "advHdng",
+            "Instance_of": "Event",
+            "Instance_description": "An event to advise heading.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:Interface3",
+                "char_start": 176,
+                "char_end": 183,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "Interface4",
+                "id": "Interface4",
+                "description": "The \"AUV_Module\" should define an Interface named \"Actuators\", which should remain empty at this point.",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "Interface4",
+            "Concept": "Interface",
+            "Concept_description": "A point of interaction between components.",
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "Instance_description": "An interface for actuator commands (empty).",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:Interface4",
+                "char_start": 51,
+                "char_end": 60,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Non-Functional Requirement",
+                "name": "CT3",
+                "id": "CF3",
+                "description": "The \"AUV_Module\" should define a Composite Type named \"Close\", to record the following values: \"horiz_cda\" (of type \"real\"), \"vert_cda\" (of type \"real\"), and \"id\" (of type \"nat\").",
+                "priority": "6",
+                "types": [
+                    "architecture"
+                ]
+            },
+            "GID": "CF3",
+            "Concept": "CompositeType",
+            "Concept_description": "A data type composed of multiple fields.",
+            "Instance": "Close",
+            "Instance_of": "CompositeType",
+            "Instance_description": "A composite type for close proximity data.",
+            "Requirement_kind": "Non-Functional",
+            "Non-Requirement_type": "architecture",
+            "source": {
+                "file": "requirement:CF3",
+                "char_start": 55,
+                "char_end": 60,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Functional Requirement",
+                "name": "Function1",
+                "id": "Platform-F1",
+                "description": "The \"AUV_Module\" shall define a Function named \"odist\", which takes an \"Obstacle\" as input, that returns the distance from the AUV to the Obstacle (as \"real\").",
+                "priority": "5"
+            },
+            "GID": "Platform-F1",
+            "Concept": "Function",
+            "Concept_description": "A named operation that performs a computation.",
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "Instance_description": "A function that calculates the distance from the AUV to an obstacle.",
+            "Requirement_kind": "Functional",
+            "Non-Requirement_type": null,
+            "source": {
+                "file": "requirement:Platform-F1",
+                "char_start": 48,
+                "char_end": 53,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Functional Requirement",
+                "name": "Function2",
+                "id": "Platform-F2",
+                "description": "The \"AUV_Module\" shall define a Function named \"hdist\", which takes an \"Obstacle\" as input, that returns the horizontal distance from the AUV to the Obstacle (as \"real\").",
+                "priority": "5"
+            },
+            "GID": "Platform-F2",
+            "Concept": "Function",
+            "Concept_description": "A named operation that performs a computation.",
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "Instance_description": "A function that calculates the horizontal distance from the AUV to an obstacle.",
+            "Requirement_kind": "Functional",
+            "Non-Requirement_type": null,
+            "source": {
+                "file": "requirement:Platform-F2",
+                "char_start": 48,
+                "char_end": 53,
+                "resolved": true
+            }
+        },
+        {
+            "Requirement": {
+                "kind": "Functional Requirement",
+                "name": "Function3",
+                "id": "Platform-F3",
+                "description": "The \"AUV_Module\" shall define a Function named \"vdist\", which takes an \"Obstacle\" as input, that returns the vertical distance from the AUV to the Obstacle (as \"real\").",
+                "priority": "5"
+            },
+            "GID": "Platform-F3",
+            "Concept": "Function",
+            "Concept_description": "A named operation that performs a computation.",
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "Instance_description": "A function that calculates the vertical distance from the AUV to an obstacle.",
+            "Requirement_kind": "Functional",
+            "Non-Requirement_type": null,
+            "source": {
+                "file": "requirement:Platform-F3",
+                "char_start": 48,
+                "char_end": 53,
+                "resolved": true
+            }
+        }
+    ]
+}

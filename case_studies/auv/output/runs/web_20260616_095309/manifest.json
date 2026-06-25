@@ -1,0 +1,52 @@
+{
+  "run_id": "web_20260616_095309",
+  "config_path": "C:\\Users\\willr\\AppData\\Local\\Temp\\tmpn3_5ab_l.yaml",
+  "model": {
+    "api_base_url": "https://api.deepseek.com/v1",
+    "api_type": "openai",
+    "name": "deepseek-chat",
+    "temperature": 0.5
+  },
+  "created_at": "2026-06-16T08:53:43.907088+00:00",
+  "updated_at": "2026-06-16T08:58:02.888712+00:00",
+  "stages": {
+    "concept_extraction": {
+      "artifacts": [
+        {
+          "file": "result_concept_trace.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\result_concept_trace.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\runs\\web_20260616_095309\\result_concept_trace.json",
+          "size": 16225,
+          "updated_at": "2026-06-16T08:53:43.931191+00:00"
+        },
+        {
+          "file": "result_concept_model.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\result_concept_model.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\runs\\web_20260616_095309\\result_concept_model.json",
+          "size": 4320,
+          "updated_at": "2026-06-16T08:53:43.937190+00:00"
+        }
+      ],
+      "updated_at": "2026-06-16T08:53:43.937190+00:00"
+    },
+    "dsml_creation": {
+      "artifacts": [
+        {
+          "file": "result_dsml_trace.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\result_dsml_trace.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\runs\\web_20260616_095309\\result_dsml_trace.json",
+          "size": 9394,
+          "updated_at": "2026-06-16T08:58:02.881708+00:00"
+        },
+        {
+          "file": "result_dsml.emf",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\result_dsml.emf",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\runs\\web_20260616_095309\\result_dsml.emf",
+          "size": 1107,
+          "updated_at": "2026-06-16T08:58:02.888712+00:00"
+        }
+      ],
+      "updated_at": "2026-06-16T08:58:02.888712+00:00"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# MALCOM-web reuses MALCOMp's stage classes in-process (PipelineBridge
+# imports from `stages` after putting MALCOMP_DIR on sys.path), so its
+# runtime deps are a superset of MALCOMp's plus the FastAPI stack.
+pyautogen>=0.2
+python-dotenv>=1.0
+pyyaml>=6.0
+fastapi>=0.100
+uvicorn[standard]>=0.20
+websockets>=11.0

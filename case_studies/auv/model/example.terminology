@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="ASCII"?>
+<terminology_:TerminologyPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:terminology_="http://www.sawg.org/terminology">
+  <name content="Req"/>
+  <terminologyElement xsi:type="terminology_:Concept">
+    <name content="Module"/>
+    <description>
+      <content>
+        <value lang="English" content="A structural element of the system."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.0">
+    <name content="AUV_Module"/>
+    <description>
+      <content>
+        <value lang="English" content="The main module of the AUV system."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Concept">
+    <name content="Robotic Platform"/>
+    <description>
+      <content>
+        <value lang="English" content="A physical platform for the AUV."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.2">
+    <name content="AUV_Platform"/>
+    <description>
+      <content>
+        <value lang="English" content="The robotic platform within the AUV module."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Concept">
+    <name content="Controller"/>
+    <description>
+      <content>
+        <value lang="English" content="A component that manages operations."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.4">
+    <name content="AUV_Operator"/>
+    <description>
+      <content>
+        <value lang="English" content="The operator controller in the AUV module."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.4">
+    <name content="LRE_Ctrl"/>
+    <description>
+      <content>
+        <value lang="English" content="The Last Response Engine controller."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.4">
+    <name content="AUV_Autopilot"/>
+    <description>
+      <content>
+        <value lang="English" content="The autopilot controller in the AUV module."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Concept">
+    <name content="Primitive Type"/>
+    <description>
+      <content>
+        <value lang="English" content="A basic data type."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.8">
+    <name content="nat"/>
+    <description>
+      <content>
+        <value lang="English" content="Primitive type for natural numbers."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.8">
+    <name content="int"/>
+    <description>
+      <content>
+        <value lang="English" content="Primitive type for integers."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.8">
+    <name content="string"/>
+    <description>
+      <content>
+        <value lang="English" content="Primitive type for string values."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.8">
+    <name content="boolean"/>
+    <description>
+      <content>
+        <value lang="English" content="Primitive type for boolean values."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.8">
+    <name content="real"/>
+    <description>
+      <content>
+        <value lang="English" content="Primitive type for real numbers."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Concept">
+    <name content="Composite Type"/>
+    <description>
+      <content>
+        <value lang="English" content="A data type composed of multiple fields."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.14">
+    <name content="SVec"/>
+    <description>
+      <content>
+        <value lang="English" content="Spherical Vector composite type."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.14">
+    <name content="Obstacle"/>
+    <description>
+      <content>
+        <value lang="English" content="Obstacle composite type."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Concept">
+    <name content="Interface"/>
+    <description>
+      <content>
+        <value lang="English" content="A point of interaction between components."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.17">
+    <name content="Sensors"/>
+    <description>
+      <content>
+        <value lang="English" content="Interface containing sensor values."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.17">
+    <name content="Intpus"/>
+    <description>
+      <content>
+        <value lang="English" content="Interface defining input events."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.17">
+    <name content="Outputs"/>
+    <description>
+      <content>
+        <value lang="English" content="Interface defining output events."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.17">
+    <name content="Actuators"/>
+    <description>
+      <content>
+        <value lang="English" content="Interface for actuators, initially empty."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.14">
+    <name content="Close"/>
+    <description>
+      <content>
+        <value lang="English" content="Composite type for close proximity data."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Concept">
+    <name content="Function"/>
+    <description>
+      <content>
+        <value lang="English" content="A named operation that performs a computation."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.23">
+    <name content="odist"/>
+    <description>
+      <content>
+        <value lang="English" content="Function to compute distance to obstacle."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.23">
+    <name content="hdist"/>
+    <description>
+      <content>
+        <value lang="English" content="Function to compute horizontal distance to obstacle."/>
+      </content>
+    </description>
+  </terminologyElement>
+  <terminologyElement xsi:type="terminology_:Instance" concept="//@terminologyElement.23">
+    <name content="vdist"/>
+    <description>
+      <content>
+        <value lang="English" content="Function to compute vertical distance to obstacle."/>
+      </content>
+    </description>
+  </terminologyElement>
+</terminology_:TerminologyPackage>

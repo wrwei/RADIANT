@@ -1,0 +1,40 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Build / cache artefacts
+.gradle/
+.cache/
+build/
+dist/
+*.egg-info/
+
+# Pipeline runtime outputs (keep archived multi-run results)
+**/output/*
+!**/output/runs/
+!**/output/runs/**
+*.session.json
+
+# Local automation logs (not for repo)
+.codex-run/
+*.log
+
+# Generated evaluation reports
+malcom.evaluation/metrics/results/
+malcom.evaluation/metrics/*/result/
+
+# Eclipse build output
+bin/

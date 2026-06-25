@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:auv="http://auv/">
+  <auv:Module name="AUV_Module">
+    <interfaces name="Sensors">
+      <values name="depth" type="/0/@primitiveTypes.4"/>
+      <values name="hdng" type="/0/@compositeTypes.0"/>
+      <values name="obs" type="/0/@compositeTypes.1"/>
+    </interfaces>
+    <interfaces name="Actuators"/>
+    <interfaces name="Intpus">
+      <events name="endTask"/>
+      <events name="reqOCM"/>
+      <events name="reqMOM"/>
+      <events name="reqHCM"/>
+      <events name="reqVel" returnType="/0/@primitiveTypes.4"/>
+      <events name="reqHdng" returnType="/0/@primitiveTypes.4"/>
+    </interfaces>
+    <interfaces name="Outputs">
+      <events name="advVel">
+        <parameters xsi:type="auv:Value" name="param0" type="/0/@primitiveTypes.4"/>
+      </events>
+      <events name="advHdng">
+        <parameters xsi:type="auv:Value" name="param0" type="/0/@primitiveTypes.4"/>
+      </events>
+    </interfaces>
+    <interfaces name="Inputs"/>
+    <primitiveTypes name="nat"/>
+    <primitiveTypes name="int"/>
+    <primitiveTypes name="string"/>
+    <primitiveTypes name="boolean"/>
+    <primitiveTypes name="real"/>
+    <compositeTypes name="SVec">
+      <values name="radial" type="/0/@primitiveTypes.4"/>
+      <values name="polar" type="/0/@primitiveTypes.4"/>
+      <values name="azimuth" type="/0/@primitiveTypes.4"/>
+    </compositeTypes>
+    <compositeTypes name="Obstacle">
+      <values name="ns_rel_dist" type="/0/@primitiveTypes.4"/>
+      <values name="ew_rel_dist" type="/0/@primitiveTypes.4"/>
+      <values name="depth" type="/0/@primitiveTypes.4"/>
+      <values name="id" type="/0/@primitiveTypes.4"/>
+      <values name="obs_hdng" type="/0/@compositeTypes.0"/>
+    </compositeTypes>
+    <compositeTypes name="Close">
+      <values name="horiz_cda" type="/0/@primitiveTypes.4"/>
+      <values name="vert_cda" type="/0/@primitiveTypes.4"/>
+      <values name="id" type="/0/@primitiveTypes.0"/>
+    </compositeTypes>
+  </auv:Module>
+  <auv:RoboticPlatform name="AUV_Platform"/>
+</xmi:XMI>

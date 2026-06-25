@@ -1,0 +1,134 @@
+{
+  "requirements": [
+    {
+      "id": "SR-FR1",
+      "name": "StateMoving",
+      "kind": "Functional Requirement",
+      "priority": "1",
+      "types": [
+        "state"
+      ],
+      "description": "Moving is the initial mode on power-up. In Moving the robot drives forward: on entering Moving, the controller issues Move(moveVel, 0) to the actuator (linear velocity only, zero angular)."
+    },
+    {
+      "id": "SR-FR2",
+      "name": "StateTurning",
+      "kind": "Functional Requirement",
+      "priority": "1",
+      "types": [
+        "state"
+      ],
+      "description": "In Turning the robot rotates in place. On entering Turning the controller issues Move(0, turnVel) to the actuator (zero linear, angular only) and records the current time in clockResetTime."
+    },
+    {
+      "id": "SR-FR3",
+      "name": "StateFinal",
+      "kind": "Functional Requirement",
+      "priority": "1",
+      "types": [
+        "state"
+      ],
+      "description": "Final is the terminal mode entered when the operator issues endTask. On entering Final the controller issues Move(0, 0) to the actuator (full stop)."
+    },
+    {
+      "id": "SR-GP1",
+      "name": "GuardPredicate_obstacleDetected",
+      "kind": "Functional Requirement",
+      "priority": "1",
+      "types": [
+        "guard_predicate"
+      ],
+      "description": "The controller evaluates a condition obstacleDetected reflecting whether the IR sensor reads a distance at or below the obstacle-detection threshold (distance <= obstacleThreshold). The condition is used as the guard on the Moving \u2192 Turning transition."
+    },
+    {
+      "id": "SR-GP2",
+      "name": "GuardPredicate_turnDurationElapsed",
+      "kind": "Functional Requirement",
+      "priority": "1",
+      "types": [
+        "guard_predicate"
+      ],
+      "description": "The controller evaluates a condition turnDurationElapsed reflecting whether the elapsed time since clockResetTime is at or above the configured turn duration. The condition is used as the guard on the Turning \u2192 Moving transition."
+    },
+    {
+      "id": "SR-Beh1",
+      "name": "InitialState",
+      "kind": "Functional Requirement",
+      "priority": "1",
+      "types": [
+        "transition"
+      ],
+      "description": "On power-up, the SRanger controller begins in Moving."
+    },
+    {
+      "id": "SR-Beh2",
+      "name": "Moving_to_Turning",
+      "kind": "Functional Requirement",
+      "priority": "1",
+      "types": [
+        "transition"
+      ],
+      "description": "The SRanger controller transitions from Moving to Turning when the obstacle event is received. On this transition, set clockResetTime to the current time and issue Move(0, turnVel) as the entry action of Turning (per SR-FR2)."
+    },
+    {
+      "id": "SR-Beh3",
+      "name": "Moving_to_Final",
+      "kind": "Functional Requirement",
+      "priority": "1",
+      "types": [
+        "transition"
+      ],
+      "description": "The SRanger controller transitions from Moving to Final when the endTask event is received. On this transition, issue Move(0, 0) as the entry action of Final (per SR-FR3)."
+    },
+    {
+      "id": "SR-Beh4",
+      "name": "Moving_to_Moving_tick",
+      "kind": "Functional Requirement",
+      "priority": "1",
+      "types": [
+        "transition"
+      ],
+      "description": "The SRanger controller transitions from Moving to Moving (no mode change) when the tick event is received. The controller performs no action on this transition."
+    },
+    {
+      "id": "SR-Beh5",
+      "name": "Turning_to_Moving",
+      "kind": "Functional Requirement",
+      "priority": "1",
+      "types": [
+        "transition"
+      ],
+      "description": "The SRanger controller transitions from Turning to Moving when the turnDurationElapsed condition becomes true \u2014 i.e., when the time since clockResetTime is at or above turnDuration (autonomous, no event required). On this transition, issue Move(moveVel, 0) as the entry action of Moving (per SR-FR1)."
+    },
+    {
+      "id": "SR-Beh6",
+      "name": "Turning_to_Final",
+      "kind": "Functional Requirement",
+      "priority": "1",
+      "types": [
+        "transition"
+      ],
+      "description": "The SRanger controller transitions from Turning to Final when the endTask event is received. On this transition, issue Move(0, 0) as the entry action of Final (per SR-FR3)."
+    },
+    {
+      "id": "SR-Beh7",
+      "name": "Turning_to_Turning_tick",
+      "kind": "Functional Requirement",
+      "priority": "1",
+      "types": [
+        "transition"
+      ],
+      "description": "The SRanger controller transitions from Turning to Turning (no mode change) when the tick event is received. The controller performs no action on this transition."
+    },
+    {
+      "id": "SR-DC1",
+      "name": "UniqueTransitions",
+      "kind": "Non-Functional Requirement",
+      "priority": "2",
+      "types": [
+        "constraint"
+      ],
+      "description": "Each behavioural requirement (SR-Beh1 through SR-Beh7) maps to exactly one transition in the state machine. There are no duplicate transitions for the same source mode and trigger event combination."
+    }
+  ]
+}

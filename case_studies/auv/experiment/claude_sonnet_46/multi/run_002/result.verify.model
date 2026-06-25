@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:auv="http://auv/">
+  <auv:Module name="AUV_Module">
+    <primitiveTypes name="nat"/>
+    <primitiveTypes name="int"/>
+    <primitiveTypes name="string"/>
+    <primitiveTypes name="boolean"/>
+    <primitiveTypes name="real"/>
+    <compositeTypes name="SVec"/>
+  </auv:Module>
+  <auv:Field name="radial"/>
+</xmi:XMI>

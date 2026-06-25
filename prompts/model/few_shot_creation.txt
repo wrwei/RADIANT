@@ -1,0 +1,47 @@
+For the following JSON requirement: {"kind": "Non-Functional Requirement", "name":"SD1", "id": "SD1", "description": "The system A is developed as a Module named \"A_Module\".", "priority": "6", "types": ["architecture"]}, the EOL source code to create would be:
+{
+var a_module = new M!Module;
+a_module.name = "A_Module";
+}.
+
+For the following JSON requirements:
+{"kind": "Non-Functional Requirement", "name":"SD1", "id": "SD1", "description": "The system A is developed as a Module named \"A_Module\".", "priority": "6", "types": ["architecture"]},
+{"kind": "Non-Functional Requirement", "name":"SD2", "id": "SD2", "description": "\"A_Module\" should contain a Platform named \"A_Platform\", it should use the Interfaces \"S\" and \"Actors\" (defined by \"A_Module\").", "priority": "6", "types": ["architecture"]},
+{"kind": "Non-Functional Requirement", "name":"PT1", "id": "PT1", "description": "The \"A_Module\" should define a Primitive Type named \"nat\" (for natural numbers).", "priority": "6", "types": ["architecture"]}, the EOL source code to create would be:
+{
+var a_module = new M!Module;
+a_module.name = "A_Module";
+var a_platform = new M!Platform;
+a_platform.name = "A_Platform";
+var nat = new M!PrimitiveType;
+nat.name = "nat";
+}.
+
+For the following JSON requirements:
+{"kind": "Non-Functional Requirement", "name":"PT5", "id": "PT5", "description": "The \"A_Module\" should define a Primitive Type named \"real\" (for real numbers).", "priority": "6", "types": ["architecture"]},
+{"kind": "Non-Functional Requirement", "name":"CT1", "id": "CT1", "description": "The \"A_Module\" should define a Composite Type named \"SVec\" (a vector type), to record values such as \"radial\" (of type \"real\"), \"polar\" (of type \"real\"), and \"azimuth\" (of type \"real\").", "priority": "6", "types": ["architecture"]}, the EOL source code to create would be:
+{
+var real = new M!PrimitiveType;
+real.name = "real";
+a_platform.primitiveTypes.add(real);
+
+var svec = new M!CompositeType;
+svec.name = "SVec";
+
+var radial = new M!Value;
+radial.name = "radial";
+radial.type = real;
+
+var polar = new M!Value;
+polar.name = "polar";
+polar.type = real;
+
+var azimuth = new M!Value;
+azimuth.name = "azimuth";
+azimuth.type = real;
+
+svec.values.add(radial);
+svec.values.add(polar);
+svec.values.add(azimuth);
+
+}.

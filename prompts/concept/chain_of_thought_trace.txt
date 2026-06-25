@@ -1,0 +1,25 @@
+Here are some steps to help you create the Req2Concept traceability JSON, given (a) the requirement statements from User and (b) the validated Concepts and Instances from Term_checker.
+
+1. Use the chat history. Each requirement is provided by User as a JSON object with at least a "gid" and a "description"; Term_Extractor and Term_checker have produced the corresponding Concept/Instance entries.
+2. For every Concept or Instance that originates from a requirement, emit one trace entry. The "GID" field MUST equal the requirement's gid that introduced it.
+3. Concepts are nouns in singular form; if a Concept name has multiple words, concatenate them with each word Capitalised (e.g. RoboticPlatform). Instances are the quoted strings.
+4. Instance_of MUST name a Concept that appears earlier in the trace, OR null if the Instance is primitive (e.g. "real", "boolean").
+5. If a single requirement introduces multiple Concept/Instance pairs, emit one JSON object per pair (i.e. expand the requirement into N entries with the same GID).
+6. Do not invent Concepts or Instances that were not produced by Term_checker. Do not drop any that Term_checker confirmed as correct.
+7. Requirement_kind is "Functional" or "Non-Functional"; Non-Requirement_type is null for Functional requirements, otherwise a comma-separated list of Non-Functional subtypes (e.g. "performance, safety").
+8. Your answer must be in the following JSON format:
+{"Requirement": ${requirement statement},
+ "GID": ${GID of the requirement statement},
+ "Concept": ${Concept}, "Concept_description": ${Concept description},
+ "Instance": ${Instance that conforms to the Concept}, "Instance_of": ${Concept of which the Instance is an instance}, "Instance_description": ${Instance description},
+ "Requirement_kind": ${Functional | Non-Functional},
+ "Non-Requirement_type": ${comma-separated Non-Functional subtypes, or null for Functional}
+}
+9. For multiple entries, return a JSON list:
+[
+    $JSON entry,
+    $JSON entry,
+    ...
+    $JSON entry
+]
+10. Output JSON only. No markdown (no ```), no explanation, no commentary.

@@ -1,0 +1,26 @@
+In a state, an Action runs on entry, during, or exit. Events are SYNCHRONISATIONS and
+carry NO data — never write `!` or `?` with an event.
+
+To signal the event "advise" when entering state S1, the generated code is:
+state S1 {
+	entry advise
+}
+
+A transition fires on an event trigger and/or a boolean guard. For "the system shall
+transition from S0 to S1 when the event 'request' occurs and the boolean variable
+'ready' holds", the generated code is:
+transition t1 {
+	from S0
+	to S1
+	trigger request
+	condition ready
+}
+
+To record a value, assign a state variable in an action — do NOT pass data on an event.
+For "when 'setSpeed' occurs, set the variable 'speed' to 1", the generated code is:
+transition t2 {
+	from S0
+	to S0
+	trigger setSpeed
+	action speed = 1
+}

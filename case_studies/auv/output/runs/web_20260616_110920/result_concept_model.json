@@ -1,0 +1,134 @@
+{
+    "concepts": [
+        {
+            "Concept": "Module",
+            "description": "A module is a component of the system architecture."
+        },
+        {
+            "Concept": "Robotic Platform",
+            "description": "A robotic platform is a physical or logical entity that performs autonomous operations."
+        },
+        {
+            "Concept": "Controller",
+            "description": "A controller is a component that manages or directs other parts of the system."
+        },
+        {
+            "Concept": "Primitive Type",
+            "description": "A primitive type is a basic data type provided by the system."
+        },
+        {
+            "Concept": "Composite Type",
+            "description": "A composite type is a data type composed of multiple fields."
+        },
+        {
+            "Concept": "Interface",
+            "description": "An interface defines a set of values or events that a component provides or requires."
+        },
+        {
+            "Concept": "Function",
+            "description": "A function is a named operation that performs a computation."
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": "The module representing the AUV system."
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "Robotic Platform",
+            "description": "The robotic platform within the AUV module."
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": "The operator controller within the AUV module."
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "The Last Response Engine controller within the AUV module."
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": "The autopilot controller within the AUV module."
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "Primitive Type",
+            "description": "A primitive type representing natural numbers."
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "Primitive Type",
+            "description": "A primitive type representing integers."
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "Primitive Type",
+            "description": "A primitive type representing string values."
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "Primitive Type",
+            "description": "A primitive type representing boolean values."
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "Primitive Type",
+            "description": "A primitive type representing real numbers."
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "Composite Type",
+            "description": "A composite type representing a spherical vector with fields radial, polar, and azimuth."
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "Composite Type",
+            "description": "A composite type representing an obstacle with fields ns_rel_dist, ew_rel_dist, depth, id, and obs_hdng."
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": "An interface containing sensor values: depth, hdng, and obs."
+        },
+        {
+            "Instance": "Intpus",
+            "Instance_of": "Interface",
+            "description": "An interface defining events: endTask, reqOCM, reqMOM, reqHCM, reqVel, and reqHdng."
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": "An interface defining events: advVel and advHdng."
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": "An interface for actuators, currently empty."
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "Composite Type",
+            "description": "A composite type representing a close object with fields horiz_cda, vert_cda, and id."
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "A function that calculates the distance from the AUV to an obstacle."
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "A function that calculates the horizontal distance from the AUV to an obstacle."
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "A function that calculates the vertical distance from the AUV to an obstacle."
+        }
+    ]
+}

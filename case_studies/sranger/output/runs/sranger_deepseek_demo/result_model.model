@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sranger="http://sranger/1.0">
+  <sranger:Move/>
+  <sranger:Controller name="SRangerController" moveOutputType="/0">
+    <sensor name="sensor"/>
+    <actuator name="actuator"/>
+    <constants name="moveVel" defaultValue="1.0"/>
+    <constants name="turnVel" defaultValue="2.0"/>
+    <constants name="obstacleThreshold" defaultValue="0.5"/>
+    <constants name="turnDuration" defaultValue="2.0"/>
+    <variables name="clockResetTime"/>
+    <stateMachine name="StateMachine">
+      <modes xsi:type="sranger:Moving" name="Moving" moveVel="/1/@constants.0"/>
+      <modes xsi:type="sranger:Turning" name="Turning" turnVel="/1/@constants.1" turnDuration="/1/@constants.3" clockResetTime="/1/@variables"/>
+      <modes xsi:type="sranger:Final" name="Final"/>
+    </stateMachine>
+    <inputEvents name="obstacle"/>
+    <inputEvents name="tick"/>
+    <inputEvents name="endTask"/>
+  </sranger:Controller>
+</xmi:XMI>

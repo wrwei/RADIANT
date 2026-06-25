@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ASCII"?>
+<robotics:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:robotics="http://generated/robotics" name="AUV_Module">
+  <platforms name="AUV_Platform" usedInterfaces="//@interfaces.0 //@interfaces.3"/>
+  <controllers name="AUV_Operator" usedInterfaces="//@interfaces.1"/>
+  <controllers name="LRE_Ctrl" usedInterfaces="//@interfaces.1 //@interfaces.2"/>
+  <controllers name="AUV_Autopilot" usedInterfaces="//@interfaces.2"/>
+  <primitiveTypes name="nat"/>
+  <primitiveTypes name="int"/>
+  <primitiveTypes name="string"/>
+  <primitiveTypes name="boolean"/>
+  <primitiveTypes name="real"/>
+  <compositeTypes name="SVec">
+    <values name="radial" type="real"/>
+    <values name="polar" type="real"/>
+    <values name="azimuth" type="real"/>
+  </compositeTypes>
+  <compositeTypes name="Obstacle">
+    <values name="ns_rel_dist" type="real"/>
+    <values name="ew_rel_dist" type="real"/>
+    <values name="depth" type="real"/>
+    <values name="id" type="real"/>
+    <values name="obs_hdng" type="SVec"/>
+  </compositeTypes>
+  <compositeTypes name="Close">
+    <values name="horiz_cda" type="real"/>
+    <values name="vert_cda" type="real"/>
+    <values name="id" type="nat"/>
+  </compositeTypes>
+  <interfaces name="Sensors">
+    <values name="depth" type="real"/>
+    <values name="hdng" type="SVec"/>
+    <values name="obs" type="Obstacle"/>
+  </interfaces>
+  <interfaces name="Intpus">
+    <events name="endTask" returnType=""/>
+    <events name="reqOCM" returnType=""/>
+    <events name="reqMOM" returnType=""/>
+    <events name="reqHCM" returnType=""/>
+    <events name="reqVel" returnType="real"/>
+    <events name="reqHdng" returnType="real"/>
+  </interfaces>
+  <interfaces name="Outputs">
+    <events name="advVel" returnType="">
+      <parameters name="param" type="real"/>
+    </events>
+    <events name="advHdng" returnType="">
+      <parameters name="param" type="real"/>
+    </events>
+  </interfaces>
+  <interfaces name="Actuators"/>
+  <functions name="odist" inputType="Obstacle" returnType="real"/>
+  <functions name="hdist" inputType="Obstacle" returnType="real"/>
+  <functions name="vdist" inputType="Obstacle" returnType="real"/>
+</robotics:Module>

@@ -1,0 +1,197 @@
+{
+    "concepts": [
+        {
+            "Concept": "Module",
+            "description": "a self-contained component of the AUV system"
+        },
+        {
+            "Concept": "Robotic Platform",
+            "description": "a hardware platform for the AUV"
+        },
+        {
+            "Concept": "Controller",
+            "description": "a control unit within the AUV module"
+        },
+        {
+            "Concept": "Primitive Type",
+            "description": "a basic data type"
+        },
+        {
+            "Concept": "Composite Type",
+            "description": "a structured data type composed of multiple fields"
+        },
+        {
+            "Concept": "Interface",
+            "description": "a set of communication endpoints"
+        },
+        {
+            "Concept": "Value",
+            "description": "a data element within an interface"
+        },
+        {
+            "Concept": "Event",
+            "description": "an occurrence that can be triggered in the system"
+        },
+        {
+            "Concept": "Function",
+            "description": "a callable operation in the AUV system"
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": "the primary module encapsulating the entire AUV system"
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "Robotic Platform",
+            "description": "the robotic platform of the AUV"
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": "the operator controller for the AUV"
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "the last response engine controller"
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": "the autopilot controller"
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "Primitive Type",
+            "description": "the type for natural numbers"
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "Primitive Type",
+            "description": "the type for integers"
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "Primitive Type",
+            "description": "the type for string values"
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "Primitive Type",
+            "description": "the type for boolean values"
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "Primitive Type",
+            "description": "the type for real numbers"
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "Composite Type",
+            "description": "the spherical vector type for direction representation"
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "Composite Type",
+            "description": "the obstacle type for obstacle data"
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": "the sensors interface containing sensor values"
+        },
+        {
+            "Instance": "depth",
+            "Instance_of": "Value",
+            "description": "the depth value"
+        },
+        {
+            "Instance": "hdng",
+            "Instance_of": "Value",
+            "description": "the heading value"
+        },
+        {
+            "Instance": "obs",
+            "Instance_of": "Value",
+            "description": "the obstacle value"
+        },
+        {
+            "Instance": "Intpus",
+            "Instance_of": "Interface",
+            "description": "the input interface defining events"
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": "event to end a task"
+        },
+        {
+            "Instance": "reqOCM",
+            "Instance_of": "Event",
+            "description": "event to request obstacle collision map"
+        },
+        {
+            "Instance": "reqMOM",
+            "Instance_of": "Event",
+            "description": "event to request MOM"
+        },
+        {
+            "Instance": "reqHCM",
+            "Instance_of": "Event",
+            "description": "event to request heading collision map"
+        },
+        {
+            "Instance": "reqVel",
+            "Instance_of": "Event",
+            "description": "event to request velocity"
+        },
+        {
+            "Instance": "reqHdng",
+            "Instance_of": "Event",
+            "description": "event to request heading"
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": "the output interface"
+        },
+        {
+            "Instance": "advVel",
+            "Instance_of": "Event",
+            "description": "event to advise velocity"
+        },
+        {
+            "Instance": "advHdng",
+            "Instance_of": "Event",
+            "description": "event to advise heading"
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": "the actuators interface, currently empty"
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "Composite Type",
+            "description": "a composite type for close object data"
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "function to compute distance to obstacle"
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "function to compute horizontal distance to obstacle"
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "function to compute vertical distance to obstacle"
+        }
+    ]
+}

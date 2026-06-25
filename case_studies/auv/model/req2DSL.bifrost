@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="ASCII"?>
+<bifrost_:TracePackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bifrost_="http://www.sawg.org/bifrost" gid="RBP1" name="Req2DSL">
+  <traceElement xsi:type="bifrost_:Trace" name="SD1_TO_Module">
+    <source location="AUV.requirement" type="EMF" version="1417199897">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD1&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="-1984916852">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;Module&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD2_TO_RoboticPlatform">
+    <source location="AUV.requirement" type="EMF" version="1601919603">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD2&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="-814693001">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;RoboticPlatform&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD3_TO_Controller">
+    <source location="AUV.requirement" type="EMF" version="-1257214377">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD3&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="-1664073796">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;Controller&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD4_TO_Controller">
+    <source location="AUV.requirement" type="EMF" version="509567154">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD4&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="-1664073796">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;Controller&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD5_TO_Controller">
+    <source location="AUV.requirement" type="EMF" version="-239075931">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD5&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="-1664073796">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;Controller&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="PT1_TO_PrimitiveType">
+    <source location="AUV.requirement" type="EMF" version="1292886418">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;PT1&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="1857778849">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;PrimitiveType&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="PT2_TO_PrimitiveType">
+    <source location="AUV.requirement" type="EMF" version="1424075572">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;PT2&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="1857778849">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;PrimitiveType&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="PT3_TO_PrimitiveType">
+    <source location="AUV.requirement" type="EMF" version="-343006832">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;PT3&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="1857778849">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;PrimitiveType&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="PT4_TO_PrimitiveType">
+    <source location="AUV.requirement" type="EMF" version="1054833220">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;PT4&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="1857778849">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;PrimitiveType&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="PT5_TO_PrimitiveType">
+    <source location="AUV.requirement" type="EMF" version="466350498">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;PT5&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="1857778849">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;PrimitiveType&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT1_TO_CompositeType">
+    <source location="AUV.requirement" type="EMF" version="492299269">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT1&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="2042497601">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;CompositeType&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_CompositeType">
+    <source location="AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="2042497601">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;CompositeType&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface1_TO_Interface">
+    <source location="AUV.requirement" type="EMF" version="719971294">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface1&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="-1788375783">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;Interface&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Interface">
+    <source location="AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="-1788375783">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;Interface&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface3_TO_Interface">
+    <source location="AUV.requirement" type="EMF" version="231282656">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface3&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="-1788375783">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;Interface&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface4_TO_Interface">
+    <source location="AUV.requirement" type="EMF" version="1884957540">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface4&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="-1788375783">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;Interface&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CF3_TO_CompositeType">
+    <source location="AUV.requirement" type="EMF" version="-822538904">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CF3&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="2042497601">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;CompositeType&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F1_TO_Function">
+    <source location="AUV.requirement" type="EMF" version="-1875558247">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F1&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="1445582840">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;Function&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F2_TO_Function">
+    <source location="AUV.requirement" type="EMF" version="2092194160">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F2&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="1445582840">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;Function&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F3_TO_Function">
+    <source location="AUV.requirement" type="EMF" version="-374763246">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F3&quot;).first();</constraints>
+    </source>
+    <target location="../metamodel/auv.ecore" type="EMF" version="1445582840">
+      <metadata>http://www.eclipse.org/emf/2002/Ecore</metadata>
+      <constraints>T!EClass.all.select(c|c.name = &quot;Function&quot;).first();</constraints>
+    </target>
+  </traceElement>
+</bifrost_:TracePackage>

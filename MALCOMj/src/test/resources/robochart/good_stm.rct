@@ -1,0 +1,10 @@
+stm Machine {
+	event tick
+	var count : real
+	const Limit : real
+	initial i0
+	state Running { }
+	transition t0 { from i0 to Running }
+	transition t1 { from Running to Running trigger tick condition count < Limit }
+	transition t2 { from Running to Running trigger tick condition count >= Limit }
+}

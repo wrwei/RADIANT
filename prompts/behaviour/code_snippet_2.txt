@@ -1,0 +1,23 @@
+This is a second example — a mode-switching controller. Note how domain predicates are
+captured as boolean variables (e.g. `nearObstacle`), NOT as function calls, and how
+values are recorded by assigning state variables in actions rather than passing data on
+events:
+
+stm ModeController {
+	event request
+	event reset
+	event avoiding
+	var nearObstacle : boolean
+	var atGoal : boolean
+	var dist : real
+	const SafeDist : real
+	initial i0
+	state Cruise { }
+	state Avoid { entry avoiding }
+	state Stop { }
+	transition t0 { from i0 to Cruise }
+	transition t1 { from Cruise to Avoid trigger request condition nearObstacle /\ dist < SafeDist }
+	transition t2 { from Cruise to Stop condition atGoal }
+	transition t3 { from Avoid to Cruise condition not nearObstacle }
+	transition t4 { from Stop to Cruise trigger reset }
+}

@@ -1,0 +1,14 @@
+# Gradle
+.gradle/
+build/
+bin/
+
+# IDE
+.idea/
+*.iml
+.settings/
+.project
+.classpath
+
+# JVM crash logs
+hs_err_pid*.log

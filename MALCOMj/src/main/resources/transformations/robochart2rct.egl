@@ -1,0 +1,1960 @@
+[%
+// robochart2rct.egl
+// Generates complete RoboChart textual notation (.rct) from a RoboChart state machine model.
+// Produces: diagram, interfaces, stm (with uses/requires), controller, module.
+// Output is compatible with the standalone RoboChart CSP generator.
+
+// =============================================================================
+// Pre-render setup: load model, classify events, collect guard variables
+// =============================================================================
+
+// Load model elements
+var pkg = RoboChart!RCPackage.all.first();
+
+// Validate that every machine has an Initial node + initial transition.
+// Catches malformed XMI early so generation fails fast with a clear
+// message instead of late with an undefined-access error.
+for (sm in pkg.machines) {
+    var ini = sm.nodes.selectOne(n | n.isKindOf(RoboChart!Initial));
+    if (not ini.isDefined()) {
+        throw "RCT generation: no Initial node found in state machine '" + sm.name +
+              "'. Check the ETL produced one (Java2RoboChartTransformer initialises this from the controller's currentMode field initialiser).";
+    }
+    var iTr = sm.transitions.selectOne(t | t.source = ini);
+    if (not iTr.isDefined()) {
+        throw "RCT generation: no outgoing transition from the Initial node in state machine '" + sm.name +
+              "'. The ETL must produce an InitialToX transition; check Java2RoboChartTransformer.";
+    }
+}
+
+// --- Aggregate event/guard data across ALL machines ---
+// Ctrl_State, Constants, and the combined Inputs/Outputs interfaces are
+// shared across machines, so we union events and guard-name collections.
+// Per-machine classification (which events are triggers vs. actions) is
+// recomputed inside the per-machine emission loop further down.
+var allGuardNames = new OrderedSet;
+for (sm in pkg.machines) {
+    for (t in sm.transitions) {
+        if (t.condition.isDefined()) {
+            collectCallExpNamesHelper(t.condition, allGuardNames);
+        }
+        // Action expressions also reference constants (e.g.
+        // `wait(evadeTime)`, `move(lv, a)`). Without this scan, the
+        // CSP generator can't resolve those names because the
+        // Constants interface wouldn't declare them.
+        if (t.action.isDefined()) {
+            collectActionNames(t.action, allGuardNames);
+        }
+    }
+}
+// Also scan operation transitions for named references (constants in action RHS)
+for (op in pkg.operations) {
+    for (t in op.transitions) {
+        if (t.action.isDefined()) {
+            collectActionNames(t.action, allGuardNames);
+        }
+    }
+}
+// Combine transitions from ALL state machines and operations for classification
+var allTransitionsForClassify = new Sequence;
+for (sm in pkg.machines) {
+    allTransitionsForClassify.addAll(sm.transitions);
+}
+for (op in pkg.operations) {
+    allTransitionsForClassify.addAll(op.transitions);
+}
+
+// --- Enum literal awareness ---
+// Build a map of literal-name -> enum-type-name across all declared
+// Enumerations. Lets the classifier (a) skip literals entirely (they're
+// neither state variables nor numeric constants — they're enum values
+// visible globally through their enumeration declaration), and
+// (b) infer the enum type for variables that appear in `var == literal`
+// comparisons. Without this, `sts == noGas` from a Status enum becomes
+// `var sts : real` + `const noGas : real = 1`, which is structurally
+// wrong (`noGas` is a Status literal, not a real constant).
+var enumLiteralToType = new Map;
+for (et in pkg.types) {
+    if (et.isKindOf(RoboChart!Enumeration)) {
+        for (lit in et.literals) {
+            enumLiteralToType.put(lit.name, et.name);
+        }
+    }
+}
+
+// Walk all Equals/Different conditions. When one side is a known enum
+// literal, the OTHER side is enum-typed. Populates a name -> enum-type
+// map consulted by the classifier below.
+var enumTypedVars = new Map;
+for (t in allTransitionsForClassify) {
+    if (t.condition.isDefined()) {
+        findEnumTypedVars(t.condition, enumLiteralToType, enumTypedVars);
+    }
+}
+
+// Names that should NOT be classified into Ctrl_State / Constants:
+// already-declared functions, sensor-interface variables, the
+// typed-trigger local `v`, and clock names. Without these filters,
+// action-expression collection (e.g. `wait(evadeTime)`,
+// `d0 = odometer`) would otherwise add bogus `var odometer : real`
+// and `var v : real` entries to Ctrl_State.
+var declaredFunctionNames = new OrderedSet;
+for (f in pkg.functions) { declaredFunctionNames.add(f.name); }
+// `since` is a RoboChart built-in; we generate `since(C)` directly but
+// it must never appear as a Ctrl_State/Constants entry either.
+declaredFunctionNames.add("since");
+// Variables declared in other interfaces (Sensors, Actuators) — these
+// are zero-arg sensor methods promoted by Phase 6b. They reference
+// real RoboChart entities; Ctrl_State must not redeclare them.
+for (iface in pkg.interfaces) {
+    if (iface.name == "Sensors" or iface.name == "Actuators") {
+        for (vl in iface.variableList) {
+            for (v in vl.vars) { declaredFunctionNames.add(v.name); }
+        }
+    }
+}
+// `v` is the typed-trigger local declared inside each stm body
+// (`var v : real`) — it must not also be declared in Ctrl_State.
+var triggerLocalNames = new OrderedSet;
+triggerLocalNames.add("v");
+
+var stateVarEntries = new Sequence;   // Sequence of Map{name, type}
+var constantEntries = new Sequence;   // Sequence of Map{name, type}
+for (name in allGuardNames) {
+    // Skip enum literals — they're declared by `enumeration ... { ... }`
+    // and don't belong in Ctrl_State or Constants.
+    if (enumLiteralToType.containsKey(name)) { continue; }
+    // Skip declared functions / built-ins / typed-trigger locals.
+    if (declaredFunctionNames.includes(name)) { continue; }
+    if (triggerLocalNames.includes(name)) { continue; }
+
+    var info = classifyGuardVar(name, allTransitionsForClassify);
+    var entry = new Map;
+    entry.put("name", name);
+    // Override the inferred type when this name is the LHS/RHS of an
+    // enum-literal comparison (e.g. `sts == noGas` → sts : Status).
+    if (enumTypedVars.containsKey(name)) {
+        entry.put("type", enumTypedVars.get(name));
+    } else {
+        entry.put("type", info.get("type"));
+    }
+    // Names with an ETL-injected default value are constants — even if
+    // they appear only as a Wait duration or function argument
+    // (positions the heuristic classifier treats as variable usage).
+    var isInjectedConst = constantDefaults.isDefined()
+            and constantDefaults.containsKey(name);
+    if (info.get("kind") = "const" or isInjectedConst) {
+        constantEntries.add(entry);
+    } else {
+        stateVarEntries.add(entry);
+    }
+}
+
+// Add operation output variables to stateVarEntries if not already present.
+// Operations write to state variables (e.g., cdyn, vel) that may not appear
+// in guard expressions but must still be declared in Ctrl_State.
+var existingVarNames = new OrderedSet;
+for (entry in stateVarEntries) {
+    existingVarNames.add(entry.get("name"));
+}
+for (op in pkg.operations) {
+    for (vl in op.variableList) {
+        for (v in vl.vars) {
+            if (not existingVarNames.includes(v.name)) {
+                var entry = new Map;
+                entry.put("name", v.name);
+                // Infer type from the Variable's type
+                var typeName = "real";
+                if (v.type.isDefined()) {
+                    if (v.type.isKindOf(RoboChart!TypeRef) and v.type.ref.isDefined()) {
+                        typeName = v.type.ref.name;
+                    } else if (v.type.isKindOf(RoboChart!PrimitiveType)) {
+                        typeName = v.type.name;
+                    }
+                }
+                entry.put("type", typeName);
+                stateVarEntries.add(entry);
+                existingVarNames.add(v.name);
+            }
+        }
+    }
+}
+
+// Aggregate trigger/action events across ALL machines for the shared
+// Inputs/Outputs interface declarations. Same event name appearing in
+// multiple machines is deduplicated by event-object identity (each
+// machine has its own Event EObjects, so we key by name).
+//
+// Events that are BOTH a trigger and an action across the machine
+// population are inter-controller events (e.g. `resume`/`stop`/`turn`
+// in chemical_detector: emitted by GasAnalysis, consumed by Movement).
+// We route those to a separate `Shared` interface so the boundary
+// Inputs/Outputs interfaces stay focused on what flows in and out of
+// the system, not on internal coordination.
+var allTriggerEventNames = new OrderedSet;
+var allActionEventNames = new OrderedSet;
+var representativeEvent = new Map;   // name -> first Event EObject with that name
+for (sm in pkg.machines) {
+    for (e in sm.events) {
+        var isTrigger = sm.transitions.exists(t | t.trigger.isDefined() and t.trigger.event = e);
+        // Action usage: transition actions OR state entry/during/exit actions
+        var isAction = false;
+        for (t in sm.transitions) {
+            if (t.action.isDefined() and actionUsesEvent(t.action, e.name)) {
+                isAction = true;
+            }
+        }
+        for (st in sm.nodes) {
+            if (st.isKindOf(RoboChart!State)) {
+                for (act in st.actions) {
+                    if (act.action.isDefined() and actionUsesEvent(act.action, e.name)) {
+                        isAction = true;
+                    }
+                }
+            }
+        }
+        if (isTrigger) { allTriggerEventNames.add(e.name); }
+        if (isAction)  { allActionEventNames.add(e.name); }
+        if (not representativeEvent.containsKey(e.name)) {
+            representativeEvent.put(e.name, e);
+        }
+    }
+}
+// Partition into pure inputs, pure outputs, and shared inter-controller.
+var sharedEventNames = new OrderedSet;
+for (en in allTriggerEventNames) {
+    if (allActionEventNames.includes(en)) { sharedEventNames.add(en); }
+}
+var pureInputNames = new OrderedSet;
+for (en in allTriggerEventNames) {
+    if (not sharedEventNames.includes(en)) { pureInputNames.add(en); }
+}
+var pureOutputNames = new OrderedSet;
+for (en in allActionEventNames) {
+    if (not sharedEventNames.includes(en)) { pureOutputNames.add(en); }
+}
+
+// =============================================================================
+// Render the .rct output
+// =============================================================================
+
+// --- Diagram header ---
+// Use the package name (or the first machine's name as a sensible default)
+// for the diagram. The diagram identifier is global to the .rct file.
+var diagramName = pkg.machines.first().name;
+out.println("diagram " + diagramName);
+out.println("");
+
+// --- Enumerations ---
+// Emit before RecordTypes so record fields can reference enum-typed
+// values (e.g. `c : Chem` referencing a non-record domain type).
+for (t in pkg.types) {
+    if (t.isKindOf(RoboChart!Enumeration)) {
+        var litNames = new Sequence;
+        for (lit in t.literals) {
+            litNames.add(lit.name);
+        }
+        out.println("enumeration " + t.name + " { " + litNames.concat(" ") + " }");
+    }
+}
+if (pkg.types.exists(t | t.isKindOf(RoboChart!Enumeration))) {
+    out.println("");
+}
+
+// --- Datatypes (RecordType) ---
+for (t in pkg.types) {
+    if (t.isKindOf(RoboChart!RecordType)) {
+        out.println("datatype " + t.name + " {");
+        for (f in t.fields) {
+            // Reuse the shared type-rendering helper so SeqType, TypeRef
+            // and PrimitiveType all surface correctly (was a TypeRef-only
+            // path; SeqType fields would have fallen through to "real").
+            out.println("\t" + f.name + " : " + renderEventOrFieldType(f.type));
+        }
+        out.println("}");
+        out.println("");
+    }
+}
+
+// --- Functions ---
+// Reuse renderEventOrFieldType so SeqType params (`gs : Seq(GasSensor)`)
+// and record-typed returns render properly instead of degrading to
+// `real`. The TypeRef/PrimitiveType cases that the inline code used to
+// handle are subsumed by the helper.
+for (func in pkg.functions) {
+    var retTypeName = "real";
+    if (func.type.isDefined()) {
+        retTypeName = renderEventOrFieldType(func.type);
+    }
+    var paramParts = new Sequence;
+    for (p in func.parameters) {
+        var pTypeName = "real";
+        if (p.type.isDefined()) {
+            pTypeName = renderEventOrFieldType(p.type);
+        }
+        paramParts.add(p.name + " : " + pTypeName);
+    }
+    out.println("function " + func.name + " ( " + paramParts.concat(", ") + " ) : " + retTypeName + " { }");
+}
+if (pkg.functions.size() > 0) {
+    out.println("");
+}
+
+// --- Interface: LOperations (multi-arg vehicle/actuator methods) ---
+// Populated by buildOperationCall in the ETL. Each entry is an
+// OperationSig with parameters mirroring the Java method signature.
+// stms and controllers `requires LOperations` to call them from
+// transition actions.
+var lOpsIface = pkg.interfaces.selectOne(i | i.name == "LOperations");
+if (lOpsIface.isDefined() and not lOpsIface.operations.isEmpty()) {
+    out.println("interface LOperations {");
+    for (op in lOpsIface.operations) {
+        var paramParts = new Sequence;
+        for (p in op.parameters) {
+            var pTypeName = "real";
+            if (p.type.isDefined()) {
+                pTypeName = renderEventOrFieldType(p.type);
+            }
+            paramParts.add(p.name + " : " + pTypeName);
+        }
+        out.println("\t" + op.name + " ( " + paramParts.concat(" , ") + " )");
+    }
+    out.println("}");
+    out.println("");
+}
+
+// --- Interface: Inputs (pure boundary inputs only) ---
+// Inter-controller events live in the Shared interface below; the
+// Inputs interface declares only events the system receives from its
+// environment.
+out.println("interface Inputs {");
+for (eName in pureInputNames) {
+    var e = representativeEvent.get(eName);
+    if (e.type.isDefined()) {
+        out.println("\tevent " + e.name + " : " + getEventTypeName(e));
+    } else {
+        out.println("\tevent " + e.name);
+    }
+}
+out.println("}");
+out.println("");
+
+// --- Interface: Outputs (pure boundary outputs only) ---
+out.println("interface Outputs {");
+for (eName in pureOutputNames) {
+    var e = representativeEvent.get(eName);
+    if (e.type.isDefined()) {
+        out.println("\tevent " + e.name + " : " + getEventTypeName(e));
+    } else {
+        out.println("\tevent " + e.name);
+    }
+}
+out.println("}");
+out.println("");
+
+// --- Interface: Shared (inter-controller events) ---
+// Events that are both a trigger and an action across the package's
+// machines — they flow between controllers, not across the system
+// boundary. Declared once here so each cref can connect to others
+// without duplicate event declarations in Inputs/Outputs.
+if (not sharedEventNames.isEmpty()) {
+    out.println("interface Shared {");
+    for (eName in sharedEventNames) {
+        var e = representativeEvent.get(eName);
+        if (e.type.isDefined()) {
+            out.println("\tevent " + e.name + " : " + getEventTypeName(e));
+        } else {
+            out.println("\tevent " + e.name);
+        }
+    }
+    out.println("}");
+    out.println("");
+}
+
+// --- Interfaces: Sensors, Actuators (from model) ---
+for (iface in pkg.interfaces) {
+    if (iface.name == "Sensors" or iface.name == "Actuators") {
+        out.println("interface " + iface.name + " {");
+        for (vl in iface.variableList) {
+            for (v in vl.vars) {
+                var vTypeName = formatVariableType(v);
+                out.println("\tvar " + v.name + " : " + vTypeName);
+            }
+        }
+        out.println("}");
+        out.println("");
+    }
+}
+
+// Collect every clock name across machines so Ctrl_State emission can
+// exclude them. A name that appears as both a `clock T` declaration and
+// a `var T` declaration is a name collision; the clock declaration
+// wins (the variable would be a stale leftover from the classifier
+// picking up `since(T)` arguments as state vars).
+var clockNames = new OrderedSet;
+for (sm in pkg.machines) {
+    for (clk in sm.clocks) {
+        clockNames.add(clk.name);
+    }
+}
+
+// --- Per-machine state interfaces (was a single union `Ctrl_State`) ---
+// Merge two sources of state variables into an ORDERED list of
+// {name, type} entries (the union that the legacy `Ctrl_State` held):
+//   1. ETL-emitted vars from `pkg.interfaces.Ctrl_State.variableList`
+//      — these are declared controller fields (`a`, `d0`, `tReset`, etc.)
+//      with their authoritative Java type mapped to RoboChart.
+//   2. Classifier-derived entries from `stateVarEntries` — these are
+//      guard predicates that don't correspond to declared fields
+//      (e.g. `withinStuckPeriod`, `intensityAboveThreshold`).
+// ETL-emitted vars win on type when names collide; the classifier's
+// type inference is heuristic and can mistype enum/boolean as real.
+//
+// We then PARTITION the union by which machine references each var. In a
+// multi-controller package each machine's CSP memory process should range
+// only over the variables it actually touches — emitting the full union
+// into every machine explodes the FDR4 state space. A var referenced by
+// exactly one machine becomes a member of that machine's `<name>_State`
+// interface; a var referenced by MORE THAN ONE machine is genuine shared
+// state and goes into a single `Ctrl_State_Shared` interface that every
+// referencing machine `requires`. For a single-machine package the
+// machine's interface is exactly the old union (just renamed `<Stm>_State`),
+// so behaviour is unchanged.
+var ctrlStateIfaceModel = pkg.interfaces.selectOne(i | i.name == "Ctrl_State");
+var ctrlStateEmittedNames = new OrderedSet;   // union membership (de-dup)
+var ctrlStateEntries = new Sequence;          // Sequence of Map{name, type}, ordered
+if (ctrlStateIfaceModel.isDefined()) {
+    for (vl in ctrlStateIfaceModel.variableList) {
+        for (v in vl.vars) {
+            if (clockNames.includes(v.name)) { continue; }
+            if (ctrlStateEmittedNames.includes(v.name)) { continue; }
+            var vTypeName = "real";
+            if (v.type.isDefined()) {
+                vTypeName = renderEventOrFieldType(v.type);
+            }
+            var ce = new Map;
+            ce.put("name", v.name);
+            ce.put("type", vTypeName);
+            ctrlStateEntries.add(ce);
+            ctrlStateEmittedNames.add(v.name);
+        }
+    }
+}
+for (entry in stateVarEntries) {
+    if (ctrlStateEmittedNames.includes(entry.get("name"))) { continue; }
+    if (clockNames.includes(entry.get("name"))) { continue; }
+    var ce2 = new Map;
+    ce2.put("name", entry.get("name"));
+    ce2.put("type", entry.get("type"));
+    ctrlStateEntries.add(ce2);
+    ctrlStateEmittedNames.add(entry.get("name"));
+}
+
+// For each machine, collect the set of names it references across its
+// transition conditions, transition actions, and state entry/during/exit
+// actions. Reuses the same collectors the union assembly used.
+var machineStateRefs = new Map;   // machineName -> OrderedSet of referenced names
+for (sm in pkg.machines) {
+    var refs = new OrderedSet;
+    for (t in sm.transitions) {
+        if (t.condition.isDefined()) {
+            collectCallExpNamesHelper(t.condition, refs);
+        }
+        if (t.action.isDefined()) {
+            collectActionNames(t.action, refs);
+            // collectActionNames covers Assignment RHS / Communication /
+            // Wait / Call args, but NOT the Assignment LHS (the state var
+            // being written). A machine that only WRITES a var (never
+            // reads it in a guard) still owns it, so scan LHS names too.
+            collectAssignmentLhsNames(t.action, refs);
+        }
+    }
+    for (st in sm.nodes) {
+        if (st.isKindOf(RoboChart!State)) {
+            for (act in st.actions) {
+                if (act.action.isDefined()) {
+                    collectActionNames(act.action, refs);
+                    collectAssignmentLhsNames(act.action, refs);
+                }
+            }
+        }
+    }
+    machineStateRefs.put(sm.name, refs);
+}
+
+// Determine, for each union var, the list of machines that reference it.
+var varReferencingMachines = new Map;   // varName -> Sequence of machine names
+for (ce in ctrlStateEntries) {
+    var vname = ce.get("name");
+    var owners = new Sequence;
+    for (sm in pkg.machines) {
+        if (machineStateRefs.get(sm.name).includes(vname)) {
+            owners.add(sm.name);
+        }
+    }
+    varReferencingMachines.put(vname, owners);
+}
+
+// Shared vars: referenced by >1 machine. Orphan vars (referenced by NO
+// machine — e.g. an operation-output var that no transition mentions, or
+// a classifier artefact) are kept in the shared interface so they are not
+// silently dropped; every machine `requires` the shared interface anyway.
+var sharedStateEntries = new Sequence;
+var perMachineStateEntries = new Map;   // machineName -> Sequence of {name,type}
+for (sm in pkg.machines) {
+    perMachineStateEntries.put(sm.name, new Sequence);
+}
+for (ce in ctrlStateEntries) {
+    var owners = varReferencingMachines.get(ce.get("name"));
+    if (owners.size() == 1) {
+        perMachineStateEntries.get(owners.first()).add(ce);
+    } else {
+        // 0 owners (orphan) or >1 owners (genuine shared) → shared iface.
+        sharedStateEntries.add(ce);
+    }
+}
+
+// Emit the shared interface (only when non-empty). Single-machine packages
+// never populate it (every var has exactly one owner, OR is an orphan —
+// see below), so the legacy single-machine layout is preserved.
+var sharedStateIfaceName = "Ctrl_State_Shared";
+var hasSharedState = not sharedStateEntries.isEmpty();
+// SPECIAL CASE single-machine: route orphan vars (0 owners) into the lone
+// machine's interface rather than a separate shared interface, so a
+// one-controller study emits exactly one `<Stm>_State` containing the full
+// union — identical to the old `Ctrl_State` modulo the rename.
+if (pkg.machines.size() == 1) {
+    var onlyMachine = pkg.machines.first().name;
+    for (ce in sharedStateEntries) {
+        perMachineStateEntries.get(onlyMachine).add(ce);
+    }
+    sharedStateEntries = new Sequence;
+    hasSharedState = false;
+}
+if (hasSharedState) {
+    out.println("interface " + sharedStateIfaceName + " {");
+    for (ce in sharedStateEntries) {
+        out.println("\tvar " + ce.get("name") + " : " + ce.get("type"));
+    }
+    out.println("}");
+    out.println("");
+}
+
+// Emit one `<machine>_State` interface per machine (always emitted, even
+// if empty, so the `requires` clause below always resolves).
+for (sm in pkg.machines) {
+    out.println("interface " + sm.name + "_State {");
+    for (ce in perMachineStateEntries.get(sm.name)) {
+        out.println("\tvar " + ce.get("name") + " : " + ce.get("type"));
+    }
+    out.println("}");
+    out.println("");
+}
+
+// --- Interface: Constants ---
+// Skip names that collide with declared Ctrl_State / Sensors /
+// LOperations entries so a state variable doesn't accidentally also
+// surface as a constant (e.g. `d0` getting misclassified as cmpRight
+// when distance-progress predicates inline `d1 - d0 > stuckDist`).
+out.println("interface Constants {");
+for (entry in constantEntries) {
+    if (ctrlStateEmittedNames.includes(entry.get("name"))) { continue; }
+    if (declaredFunctionNames.includes(entry.get("name"))) { continue; }
+    if (clockNames.includes(entry.get("name"))) { continue; }
+    var constLine = "\tconst " + entry.get("name") + " : " + entry.get("type");
+    // Specification-level default: use injected value if available, else 1.
+    // Fractional values (e.g. 0.5) are ceiled to the nearest integer
+    // because the standalone CSP generator v3.0.0 cannot emit FloatExp
+    // constants — it crashes with "Case not treated by expression
+    // compiler: FloatExpImpl".
+    if (constantDefaults.isDefined() and constantDefaults.containsKey(entry.get("name"))) {
+        // constantDefaults values are strings (SpoonDiscoverer encodes
+        // doubles either as their integer form or as "0.5"-style
+        // decimals). For fractional decimals, ceil to the nearest
+        // integer because the standalone CSP generator v3.0.0 can't
+        // emit FloatExp constants.
+        var rawStr = constantDefaults.get(entry.get("name")).asString();
+        var renderedVal = rawStr;
+        if (rawStr.contains(".")) {
+            var asReal = rawStr.asReal();
+            renderedVal = asReal.ceiling().asInteger().asString();
+        }
+        constLine = constLine + " = " + renderedVal;
+    } else {
+        constLine = constLine + " = 1";
+    }
+    out.println(constLine);
+}
+out.println("}");
+out.println("");
+
+// --- Collect constant names for cross-referencing in operations ---
+var constantNames = new OrderedSet;
+for (entry in constantEntries) {
+    constantNames.add(entry.get("name"));
+}
+
+// Map each state-var name to the interface that now declares it, so the
+// operations below can `requires` the right per-machine (or shared) state
+// interface instead of the removed union `Ctrl_State`.
+var stateVarToIface = new Map;   // varName -> interface name
+for (sm in pkg.machines) {
+    for (ce in perMachineStateEntries.get(sm.name)) {
+        stateVarToIface.put(ce.get("name"), sm.name + "_State");
+    }
+}
+for (ce in sharedStateEntries) {
+    stateVarToIface.put(ce.get("name"), sharedStateIfaceName);
+}
+
+// --- Operations (from model) ---
+for (op in pkg.operations) {
+    out.println("operation " + op.name + " ( ) {");
+    // Names this operation references (action LHS/RHS, condition) — used
+    // to pick which per-machine state interface(s) it `requires` in place
+    // of the old union `Ctrl_State`.
+    var opAllRefNames = new OrderedSet;
+    for (t in op.transitions) {
+        if (t.action.isDefined()) {
+            collectActionNames(t.action, opAllRefNames);
+            collectAssignmentLhsNames(t.action, opAllRefNames);
+        }
+        if (t.condition.isDefined()) {
+            collectCallExpNamesHelper(t.condition, opAllRefNames);
+        }
+    }
+    // requires clauses
+    var reqParts = new Sequence;
+    var reqNames = new OrderedSet;
+    for (ri in op.rInterfaces) {
+        if (ri.name == "Ctrl_State") {
+            // Replace the union with the specific per-machine / shared
+            // state interface(s) the operation actually touches. Falls
+            // back to every machine's interface only if the operation
+            // references a state var we couldn't attribute (defensive —
+            // keeps the model well-formed at the cost of breadth).
+            var opStateIfaces = new OrderedSet;
+            for (n in opAllRefNames) {
+                if (stateVarToIface.containsKey(n)) {
+                    opStateIfaces.add(stateVarToIface.get(n));
+                }
+            }
+            if (opStateIfaces.isEmpty()) {
+                // No attributable state var, but the ETL flagged a
+                // Ctrl_State dependency — require all per-machine state
+                // interfaces so writes still resolve.
+                for (sm in pkg.machines) {
+                    opStateIfaces.add(sm.name + "_State");
+                }
+            }
+            for (sif in opStateIfaces) {
+                if (not reqNames.includes(sif)) {
+                    reqParts.add("requires " + sif);
+                    reqNames.add(sif);
+                }
+            }
+        } else {
+            if (not reqNames.includes(ri.name)) {
+                reqParts.add("requires " + ri.name);
+                reqNames.add(ri.name);
+            }
+        }
+    }
+    // Auto-add "requires Constants" if the operation references any constant
+    if (not reqNames.includes("Constants") and constantNames.size() > 0) {
+        if (opAllRefNames.exists(n | constantNames.includes(n))) {
+            reqParts.add("requires Constants");
+        }
+    }
+    if (reqParts.size() > 0) {
+        out.println("\t" + reqParts.concat(" "));
+    }
+    // initial and final nodes
+    var opInitial = null;
+    var opFinal = null;
+    for (n in op.nodes) {
+        if (n.isKindOf(RoboChart!Initial)) { opInitial = n; }
+        if (n.isKindOf(RoboChart!Final)) { opFinal = n; }
+    }
+    if (opInitial.isDefined()) { out.println("\tinitial " + opInitial.name); }
+    if (opFinal.isDefined()) { out.println("\tfinal " + opFinal.name); }
+    // transitions
+    for (t in op.transitions) {
+        out.println("\ttransition " + t.name + " {");
+        if (t.source.isDefined()) { out.println("\t\tfrom " + t.source.name); }
+        if (t.target.isDefined()) { out.println("\t\tto " + t.target.name); }
+        if (t.action.isDefined()) { out.println("\t\taction " + formatRctAction(t.action)); }
+        out.println("\t}");
+    }
+    out.println("}");
+    out.println("");
+}
+
+// --- Per-machine emission: one stm + controller + module per machine ---
+// Each machine has its own state/event/transition collections, its own
+// trigger/action partition, and a name-disambiguated controller/module.
+// All share the global Inputs / Outputs / Ctrl_State / Constants
+// interfaces (the union across machines, emitted above).
+var moduleIdx = 0;
+for (sm in pkg.machines) {
+    var states = sm.nodes.select(n | n.isKindOf(RoboChart!State));
+    var initial = sm.nodes.selectOne(n | n.isKindOf(RoboChart!Initial));
+    var allTransitions = sm.transitions;
+    var initTrans = allTransitions.selectOne(t | t.source = initial);
+    var initTarget = initTrans.target;
+
+    // Per-machine event classification
+    var triggerEvents = new OrderedSet;
+    var actionEvents = new OrderedSet;
+    for (e in sm.events) {
+        if (allTransitions.exists(t | t.trigger.isDefined() and t.trigger.event = e)) {
+            triggerEvents.add(e);
+        } else {
+            actionEvents.add(e);
+        }
+    }
+
+    // --- Trigger-binding rewrite pass ---
+    // For transitions of the form `trigger evt ? v ; action sv = v ; ...`
+    // (i.e. the typed-event payload is immediately stored in a state
+    // variable), the literal `v` binding would force the .rct's
+    // `var v : real` local to absorb non-real payloads (Angle, Loc,
+    // Seq(GasSensor)) and the CSP generator would refuse the type
+    // mismatch. Rewrite per transition: drop the leading `sv = v`
+    // statement from t.action, and the per-transition emission rebinds
+    // the trigger to `sv` directly. Done at model time (before entry-
+    // action lifting) so both per-transition and lifted entry actions
+    // see the rewritten form.
+    var transitionRebinds = new Map;   // transition -> rebound state var name
+    for (t in allTransitions) {
+        var rb = detectTriggerRebind(t);
+        if (rb <> "") {
+            transitionRebinds.put(t, rb);
+            // Mutate the action to drop the first statement.
+            if (t.action.isKindOf(RoboChart!SeqStatement)) {
+                if (t.action.statements.size() > 1) {
+                    t.action.statements.removeAt(0);
+                    // If only one stmt left, unwrap to a plain Statement.
+                    if (t.action.statements.size() == 1) {
+                        var lone = t.action.statements.first();
+                        t.action = lone;
+                    }
+                } else {
+                    t.action = null;
+                }
+            } else {
+                t.action = null;
+            }
+        }
+    }
+
+    var hasTypedTrigger = triggerEvents.exists(e | e.type.isDefined());
+
+    // --- Per-machine `requires` accuracy ---
+    // Decide which state interfaces, and whether Sensors / LOperations,
+    // THIS machine actually needs. A machine requires:
+    //   - its own `<name>_State` interface (always — even if empty);
+    //   - the shared state interface, only if it references a shared var;
+    //   - `Sensors`, only if it references a Sensors-interface variable;
+    //   - `LOperations`, only if it issues an operation `Call`.
+    // (`Constants` stays unconditional — the classifier may surface a
+    // constant in any machine and the union Constants interface is small.)
+    var myStateRefs = machineStateRefs.get(sm.name);
+    var stateIfaceReqs = new Sequence;
+    stateIfaceReqs.add(sm.name + "_State");
+    if (hasSharedState) {
+        var refsShared = false;
+        for (ce in sharedStateEntries) {
+            if (myStateRefs.includes(ce.get("name"))) { refsShared = true; }
+        }
+        if (refsShared) { stateIfaceReqs.add(sharedStateIfaceName); }
+    }
+
+    // Sensors usage: does this machine reference any Sensors variable name?
+    var sensorsIfaceModel = pkg.interfaces.selectOne(i | i.name == "Sensors");
+    var myUsesSensors = false;
+    if (sensorsIfaceModel.isDefined()
+            and not sensorsIfaceModel.variableList.isEmpty()) {
+        var sensorVarNames = new OrderedSet;
+        for (vl in sensorsIfaceModel.variableList) {
+            for (v in vl.vars) { sensorVarNames.add(v.name); }
+        }
+        var myRefNames = new OrderedSet;
+        for (t in sm.transitions) {
+            if (t.condition.isDefined()) {
+                collectCallExpNamesHelper(t.condition, myRefNames);
+            }
+            if (t.action.isDefined()) {
+                collectActionNames(t.action, myRefNames);
+            }
+        }
+        for (st in sm.nodes) {
+            if (st.isKindOf(RoboChart!State)) {
+                for (act in st.actions) {
+                    if (act.action.isDefined()) {
+                        collectActionNames(act.action, myRefNames);
+                    }
+                }
+            }
+        }
+        for (n in myRefNames) {
+            if (sensorVarNames.includes(n)) { myUsesSensors = true; }
+        }
+    }
+
+    // LOperations usage: does this machine issue any operation Call?
+    var myUsesLOps = false;
+    var lOpsIfaceModel2 = pkg.interfaces.selectOne(i | i.name == "LOperations");
+    if (lOpsIfaceModel2.isDefined() and not lOpsIfaceModel2.operations.isEmpty()) {
+        for (t in sm.transitions) {
+            if (t.action.isDefined() and actionContainsCall(t.action)) {
+                myUsesLOps = true;
+            }
+        }
+        for (st in sm.nodes) {
+            if (st.isKindOf(RoboChart!State)) {
+                for (act in st.actions) {
+                    if (act.action.isDefined() and actionContainsCall(act.action)) {
+                        myUsesLOps = true;
+                    }
+                }
+            }
+        }
+    }
+
+    // Per-machine entry-action computation
+    //
+    // Two sources are merged:
+    //   1. Explicit EntryAction EObjects already attached to
+    //      state.actions by the ETL (e.g. top-of-mode statements from
+    //      the controller's step() body, like `vehicle.randomWalk()` at
+    //      the head of the Waiting mode block).
+    //   2. Synthesized entries: when every non-self-loop, non-initial
+    //      incoming transition's action is identical, lift it as an
+    //      entry action and drop the per-transition copy.
+    // Source (1) wins on conflict — it's the authoritative model.
+    var entryActions = new Map;
+    for (state in states) {
+        for (act in state.actions) {
+            if (act.isKindOf(RoboChart!EntryAction) and act.action.isDefined()) {
+                var formatted = formatRctAction(act.action);
+                if (formatted <> "" and formatted <> "skip") {
+                    if (entryActions.containsKey(state.name)) {
+                        entryActions.put(state.name,
+                                entryActions.get(state.name) + " ; " + formatted);
+                    } else {
+                        entryActions.put(state.name, formatted);
+                    }
+                }
+            }
+        }
+    }
+    for (state in states) {
+        if (entryActions.containsKey(state.name)) { continue; }
+        var incoming = allTransitions.select(t |
+            t.target = state and t.source <> state and not t.source.isKindOf(RoboChart!Initial));
+        if (incoming.size() > 0 and incoming.forAll(t | t.action.isDefined())) {
+            var firstAction = formatRctAction(incoming.first().action);
+            if (firstAction <> "" and incoming.forAll(t | formatRctAction(t.action) = firstAction)) {
+                entryActions.put(state.name, firstAction);
+            }
+        }
+    }
+
+    var ctrlName = sm.name + "_Ctrl";
+    var moduleName = sm.name + "_Module";
+
+    // --- State machine ---
+    out.println("stm " + sm.name + " {");
+    // Add `uses Shared` for inter-controller events and `requires
+    // Sensors`/`requires LOperations` so action expressions can
+    // reference sensor functions and multi-arg operation calls.
+    // Without these clauses the CSP generator can't resolve the names.
+    var stmReqs = "uses Inputs uses Outputs";
+    if (not sharedEventNames.isEmpty()) {
+        stmReqs = stmReqs + " uses Shared";
+    }
+    for (sif in stateIfaceReqs) {
+        stmReqs = stmReqs + " requires " + sif;
+    }
+    stmReqs = stmReqs + " requires Constants";
+    if (myUsesSensors) {
+        stmReqs = stmReqs + " requires Sensors";
+    }
+    if (myUsesLOps) {
+        stmReqs = stmReqs + " requires LOperations";
+    }
+    out.println("\t" + stmReqs);
+
+    if (hasTypedTrigger) {
+        out.println("\tvar v : real");
+    }
+
+    // Clock declarations (e.g. `clock tReset`). Promoted from
+    // controller fields that are reset from `clock.nowMs()`.
+    for (clk in sm.clocks) {
+        out.println("\tclock " + clk.name);
+    }
+
+    for (state in states) {
+        if (entryActions.containsKey(state.name)) {
+            out.println("\tstate " + state.name + " {");
+            out.println("\t\tentry " + entryActions.get(state.name));
+            out.println("\t}");
+        } else {
+            out.println("\tstate " + state.name + " {");
+            out.println("\t}");
+        }
+    }
+
+    out.println("\tinitial " + initial.name);
+    out.println("\ttransition " + initTrans.name + " {");
+    out.println("\t\tfrom " + initial.name);
+    out.println("\t\tto " + initTarget.name);
+    out.println("\t}");
+
+    for (t in allTransitions) {
+        if (t = initTrans) { continue; }
+        var skipAction = entryActions.containsKey(t.target.name) and t.action.isDefined()
+            and (formatRctAction(t.action) = entryActions.get(t.target.name));
+        out.println("\ttransition " + t.name + " {");
+        out.println("\t\tfrom " + t.source.name);
+        out.println("\t\tto " + t.target.name);
+        if (t.trigger.isDefined()) {
+            // Use the rebound state variable (if any) so a typed
+            // event payload binds straight to the destination.
+            var bindName = transitionRebinds.containsKey(t)
+                    ? transitionRebinds.get(t) : "v";
+            out.println("\t\ttrigger " + formatRctTriggerWithBinding(t.trigger, bindName));
+        }
+        // Clock resets: emit one `# <clockName>` line per ClockReset
+        // entry. Goes BEFORE the condition/action (matches the reference
+        // RoboChart .rct emission style).
+        if (t.reset.isDefined()) {
+            for (cr in t.reset) {
+                if (cr.clock.isDefined()) {
+                    out.println("\t\t# " + cr.clock.name);
+                }
+            }
+        }
+        if (t.condition.isDefined()) {
+            out.println("\t\tcondition " + formatRctExpr(t.condition));
+        }
+        if (t.action.isDefined() and not skipAction) {
+            out.println("\t\taction " + formatRctAction(t.action));
+        }
+        out.println("\t}");
+    }
+
+    out.println("}");
+    out.println("");
+
+    // --- Controller ---
+    // The controller provides interfaces to its contained stm AND to every
+    // operation it oprefs. Its `requires` must therefore cover the stm's
+    // per-machine needs (state ifaces, Sensors, LOperations) PLUS any
+    // Sensors/Constants dependency introduced by an opref'd operation.
+    // (Operations are emitted as oprefs unconditionally below — in a
+    // single-controller study every operation belongs to the lone
+    // controller, so this preserves the legacy `requires Sensors` for LRE.)
+    var ctrlOprefsUseSensors = false;
+    if (sensorsIfaceModel.isDefined()
+            and not sensorsIfaceModel.variableList.isEmpty()
+            and not pkg.operations.isEmpty()) {
+        var sensorVarNamesC = new OrderedSet;
+        for (vl in sensorsIfaceModel.variableList) {
+            for (v in vl.vars) { sensorVarNamesC.add(v.name); }
+        }
+        for (op in pkg.operations) {
+            for (t in op.transitions) {
+                var opRefs = new OrderedSet;
+                if (t.action.isDefined()) { collectActionNames(t.action, opRefs); }
+                if (t.condition.isDefined()) { collectCallExpNamesHelper(t.condition, opRefs); }
+                for (n in opRefs) {
+                    if (sensorVarNamesC.includes(n)) { ctrlOprefsUseSensors = true; }
+                }
+            }
+        }
+    }
+    out.println("controller " + ctrlName + " {");
+    var ctrlReqs = "uses Inputs uses Outputs";
+    if (not sharedEventNames.isEmpty()) {
+        ctrlReqs = ctrlReqs + " uses Shared";
+    }
+    for (sif in stateIfaceReqs) {
+        ctrlReqs = ctrlReqs + " requires " + sif;
+    }
+    ctrlReqs = ctrlReqs + " requires Constants";
+    if (myUsesSensors or ctrlOprefsUseSensors) {
+        ctrlReqs = ctrlReqs + " requires Sensors";
+    }
+    if (myUsesLOps) {
+        ctrlReqs = ctrlReqs + " requires LOperations";
+    }
+    out.println("\t" + ctrlReqs);
+    out.println("\tsref stm_ref0 = " + sm.name);
+    var opIdx = 0;
+    for (op in pkg.operations) {
+        out.println("\topref op_ref" + opIdx.toString() + " = " + op.name);
+        opIdx = opIdx + 1;
+    }
+    for (e in triggerEvents) {
+        out.println("\tconnection " + ctrlName + " on " + e.name + " to stm_ref0 on " + e.name);
+    }
+    for (e in actionEvents) {
+        out.println("\tconnection stm_ref0 on " + e.name + " to " + ctrlName + " on " + e.name);
+    }
+    out.println("}");
+    out.println("");
+
+    moduleIdx = moduleIdx + 1;
+}
+
+// =============================================================================
+// Unified system module
+// =============================================================================
+// Emit a single module containing every controller in the package with
+// direct cref-to-cref connections for inter-controller events. This is
+// the model FDR4 can verify system-level (deadlock, divergence, etc.)
+// — the per-machine controllers above are still useful for verifying
+// a single controller in isolation, but the system-level proof needs
+// the unified module.
+//
+// Event-flow classification:
+//   producers(e) = machines whose stm has e as an action
+//   consumers(e) = machines whose stm has e as a trigger
+// - boundary input:    producers(e) = empty             → InputEnv → consumers
+// - boundary output:   consumers(e) = empty             → producers → OutputEnv
+// - inter-controller:  both non-empty, intersection
+//                      may be self-loops (handled below)
+var eventProducers = new Map;  // eventName -> Sequence of machine names
+var eventConsumers = new Map;  // eventName -> Sequence of machine names
+for (sm in pkg.machines) {
+    for (e in sm.events) {
+        var isTrigger = sm.transitions.exists(t | t.trigger.isDefined() and t.trigger.event = e);
+        var isAction = false;
+        for (t in sm.transitions) {
+            if (t.action.isDefined() and actionUsesEvent(t.action, e.name)) {
+                isAction = true;
+            }
+        }
+        // Entry/During/Exit actions on states can also reference an
+        // event (e.g. `state Waiting { entry send randomWalk }` in
+        // chemical_detector). Without this scan, the system module
+        // would miss connections like `ctrl_ref on randomWalk to
+        // OutputEnv on randomWalk` and the CSP generator would emit
+        // a module where the event is declared but never reachable.
+        for (st in sm.nodes) {
+            if (st.isKindOf(RoboChart!State)) {
+                for (act in st.actions) {
+                    if (act.action.isDefined() and actionUsesEvent(act.action, e.name)) {
+                        isAction = true;
+                    }
+                }
+            }
+        }
+        if (isTrigger) {
+            if (not eventConsumers.containsKey(e.name)) {
+                eventConsumers.put(e.name, new Sequence);
+            }
+            if (not eventConsumers.get(e.name).includes(sm.name)) {
+                eventConsumers.get(e.name).add(sm.name);
+            }
+        }
+        if (isAction) {
+            if (not eventProducers.containsKey(e.name)) {
+                eventProducers.put(e.name, new Sequence);
+            }
+            if (not eventProducers.get(e.name).includes(sm.name)) {
+                eventProducers.get(e.name).add(sm.name);
+            }
+        }
+    }
+}
+
+// Pick a system-module name. For single-machine models keep the legacy
+// "<machineName>_Module" naming (so existing LRE post_m2t feedback,
+// FDR4 assertion filenames, etc. stay stable). For multi-machine models
+// use the diagram name as the system root.
+var systemModuleName = "";
+var systemPlatformName = "";
+if (pkg.machines.size() = 1) {
+    systemModuleName = pkg.machines.first().name + "_Module";
+    systemPlatformName = pkg.machines.first().name + "_Platform";
+} else {
+    systemModuleName = diagramName + "_System_Module";
+    systemPlatformName = diagramName + "_System_Platform";
+}
+
+// Build a name→Event-object map across all machines so we can emit
+// boundary event type declarations on the robotic platform below.
+// Inter-controller and intra-controller events are NOT emitted on the
+// platform (they live on the consumer/producer machines' Inputs/Outputs
+// interfaces); only events that cross the system boundary do.
+var boundaryEventObjs = new Map;  // name -> Event object
+for (sm in pkg.machines) {
+    for (e in sm.events) {
+        if (not boundaryEventObjs.containsKey(e.name)) {
+            boundaryEventObjs.put(e.name, e);
+        }
+    }
+}
+
+out.println("module " + systemModuleName + " {");
+
+// Robotic platform — provides Sensors/Actuators/Constants AND declares
+// every boundary event (input or output) directly. This matches the
+// canonical RoboChart pattern (see e.g. the ICECCS2023 ChemicalDetector
+// reference): a robotic platform plus per-controller crefs, with
+// connections from the platform to the controllers.
+//
+// We previously emitted InputEnv and OutputEnv stub controllers as
+// `stm InputEnvSTM { initial i0 final f0 transition t0 { from i0 to f0 } }`.
+// The CSP generator translated those `initial → final` skeletons into
+// `terminate → SKIP`, which FDR4's `:[deadlock free]` check (in the
+// default failures-divergence model) flags as a deadlock because
+// SKIP → STOP after ✓. Declaring the boundary events on the platform
+// instead removes the spurious termination path and keeps the standard
+// deadlock-free assertion as a real obligation.
+out.println("\trobotic platform " + systemPlatformName + " {");
+var sysPlatformClauses = new Sequence;
+if (pkg.interfaces.exists(i | i.name == "Sensors")) {
+    sysPlatformClauses.add("provides Sensors");
+}
+if (pkg.interfaces.exists(i | i.name == "Actuators")) {
+    sysPlatformClauses.add("provides Actuators");
+}
+if (pkg.interfaces.exists(i | i.name == "Constants")) {
+    sysPlatformClauses.add("provides Constants");
+}
+if (sysPlatformClauses.size() > 0) {
+    out.println("\t\t" + sysPlatformClauses.concat(" "));
+}
+// Boundary events: declared with type when typed, without when untyped.
+var boundaryEventNames = new OrderedSet;
+for (eName in allTriggerEventNames) {
+    var producers = eventProducers.containsKey(eName) ? eventProducers.get(eName) : new Sequence;
+    if (producers.size() = 0) { boundaryEventNames.add(eName); }
+}
+for (eName in allActionEventNames) {
+    var consumers = eventConsumers.containsKey(eName) ? eventConsumers.get(eName) : new Sequence;
+    if (consumers.size() = 0) { boundaryEventNames.add(eName); }
+}
+for (eName in boundaryEventNames) {
+    if (boundaryEventObjs.containsKey(eName)) {
+        var e = boundaryEventObjs.get(eName);
+        var typeName = getEventTypeName(e);
+        if (typeName.isDefined() and typeName <> "") {
+            out.println("\t\tevent " + eName + " : " + typeName);
+        } else {
+            out.println("\t\tevent " + eName);
+        }
+    } else {
+        // Fall back to untyped declaration if the lookup failed.
+        out.println("\t\tevent " + eName);
+    }
+}
+out.println("\t}");
+
+// crefs — one per controller, named ctrl_ref0..N matching machine order
+var crefMap = new Map;   // machineName -> "ctrl_refN"
+var crefIdx = 0;
+for (sm in pkg.machines) {
+    var crefName = "ctrl_ref" + crefIdx.toString();
+    crefMap.put(sm.name, crefName);
+    out.println("\tcref " + crefName + " = " + sm.name + "_Ctrl");
+    crefIdx = crefIdx + 1;
+}
+
+// Boundary input connections: platform → consumer controller.
+// The platform now declares each boundary event directly (see the
+// `event <name> : <type>` block above), so the connection routes
+// straight from the platform to the controller rather than through
+// an InputEnv stub. Matches the ICECCS2023 ChemicalDetector reference
+// pattern (`connection Vehicle on gas to ctrl_ref1 on gas`).
+for (eName in allTriggerEventNames) {
+    var producers = eventProducers.containsKey(eName) ? eventProducers.get(eName) : new Sequence;
+    var consumers = eventConsumers.containsKey(eName) ? eventConsumers.get(eName) : new Sequence;
+    if (producers.size() = 0) {
+        // Pure boundary input — environment drives it via the platform
+        for (consumerMachine in consumers) {
+            out.println("\tconnection " + systemPlatformName + " on " + eName + " to "
+                    + crefMap.get(consumerMachine) + " on " + eName);
+        }
+    }
+}
+
+// Boundary output connections: producer controller → platform.
+for (eName in allActionEventNames) {
+    var producers = eventProducers.containsKey(eName) ? eventProducers.get(eName) : new Sequence;
+    var consumers = eventConsumers.containsKey(eName) ? eventConsumers.get(eName) : new Sequence;
+    if (consumers.size() = 0) {
+        // Pure boundary output — environment observes it on the platform
+        for (producerMachine in producers) {
+            out.println("\tconnection " + crefMap.get(producerMachine)
+                    + " on " + eName + " to " + systemPlatformName + " on " + eName);
+        }
+    }
+}
+
+// Inter-controller connections: producer cref → consumer cref
+// Emitted for every (producer, consumer) pair where producer ≠ consumer,
+// so a single event flowing from one controller into another shows up as
+// a direct channel rather than via the environment.
+for (eName in allTriggerEventNames) {
+    var producers = eventProducers.containsKey(eName) ? eventProducers.get(eName) : new Sequence;
+    var consumers = eventConsumers.containsKey(eName) ? eventConsumers.get(eName) : new Sequence;
+    if (producers.size() > 0 and consumers.size() > 0) {
+        for (producerMachine in producers) {
+            for (consumerMachine in consumers) {
+                if (producerMachine <> consumerMachine) {
+                    out.println("\tconnection " + crefMap.get(producerMachine)
+                            + " on " + eName + " to "
+                            + crefMap.get(consumerMachine) + " on " + eName);
+                }
+            }
+        }
+    }
+}
+
+out.println("}");
+out.println("");
+
+// Extract M2T trace from the generated RCT output
+extractRctTrace(out.toString());
+
+// =============================================================================
+// Helper operations
+// =============================================================================
+
+// --- Guard variable collection ---
+
+// Recursively collect all unique bare variable/constant name strings from an
+// expression tree.  A CallExp with no args is a bare variable reference
+// (e.g. `inOpez`, `cda`); a CallExp WITH args is a function call
+// (e.g. `hdist(cstc)`) whose name must NOT be collected as a state variable.
+operation collectCallExpNamesHelper(expr : Any, names : OrderedSet) {
+    if (not expr.isDefined()) { return; }
+    if (expr.isKindOf(RoboChart!CallExp)) {
+        var hasArgs = expr.args.isDefined() and not expr.args.isEmpty();
+        if (not hasArgs) {
+            // Bare variable/constant reference — collect the name
+            var funcExpr = expr.`function`;
+            if (funcExpr.isDefined() and funcExpr.isKindOf(RoboChart!StringExp)) {
+                names.add(funcExpr.value);
+            }
+        }
+        // Always recurse into arguments (collects variable refs used as function args)
+        if (expr.args.isDefined()) {
+            for (arg in expr.args) {
+                collectCallExpNamesHelper(arg, names);
+            }
+        }
+        return;
+    }
+    if (expr.isKindOf(RoboChart!And)) {
+        collectCallExpNamesHelper(expr.left, names);
+        collectCallExpNamesHelper(expr.right, names);
+        return;
+    }
+    if (expr.isKindOf(RoboChart!Or)) {
+        collectCallExpNamesHelper(expr.left, names);
+        collectCallExpNamesHelper(expr.right, names);
+        return;
+    }
+    if (expr.isKindOf(RoboChart!Not)) {
+        collectCallExpNamesHelper(expr.exp, names);
+        return;
+    }
+    if (expr.isKindOf(RoboChart!Neg)) {
+        collectCallExpNamesHelper(expr.exp, names);
+        return;
+    }
+    // Check BinaryExpression AFTER And/Or (they may extend it)
+    if (expr.isKindOf(RoboChart!BinaryExpression)) {
+        collectCallExpNamesHelper(expr.left, names);
+        collectCallExpNamesHelper(expr.right, names);
+        return;
+    }
+    // Leaf expressions (FloatExp, IntegerExp, BooleanExp, StringExp) — no sub-expressions
+}
+
+// --- Action name collection ---
+// Recursively collect all bare variable/constant names referenced in an action
+// (Assignment RHS, Communication values, SeqStatement children).
+operation collectActionNames(stmt : Any, names : OrderedSet) {
+    if (not stmt.isDefined()) { return; }
+    if (stmt.isKindOf(RoboChart!Assignment)) {
+        collectCallExpNamesHelper(stmt.right, names);
+        return;
+    }
+    if (stmt.isKindOf(RoboChart!SeqStatement)) {
+        for (s in stmt.statements) {
+            collectActionNames(s, names);
+        }
+        return;
+    }
+    if (stmt.isKindOf(RoboChart!CommunicationStmt)) {
+        if (stmt.communication.isDefined()) {
+            collectActionNames(stmt.communication, names);
+        }
+        return;
+    }
+    if (stmt.isKindOf(RoboChart!Communication)) {
+        if (stmt.value.isDefined()) {
+            collectCallExpNamesHelper(stmt.value, names);
+        }
+        return;
+    }
+    if (stmt.isKindOf(RoboChart!Wait)) {
+        if (stmt.duration.isDefined()) {
+            collectCallExpNamesHelper(stmt.duration, names);
+        }
+        return;
+    }
+    if (stmt.isKindOf(RoboChart!Call)) {
+        // Operation-call arguments may reference constants (lv) or
+        // state vars (a) — scan them so the classifier emits proper
+        // const/var declarations.
+        if (stmt.args.isDefined()) {
+            for (a in stmt.args) {
+                collectCallExpNamesHelper(a, names);
+            }
+        }
+        return;
+    }
+}
+
+// Collect the names of state variables WRITTEN (assignment LHS) in an
+// action. `collectActionNames` only scans RHS / communication values /
+// call args, so a machine that writes a var without ever reading it in a
+// guard would otherwise not be recorded as referencing — and hence
+// owning — that var. Used by the per-machine state-interface partition.
+operation collectAssignmentLhsNames(stmt : Any, names : OrderedSet) {
+    if (not stmt.isDefined()) { return; }
+    if (stmt.isKindOf(RoboChart!Assignment)) {
+        var lhs = stmt.left;
+        if (lhs.isDefined() and lhs.isKindOf(RoboChart!VarRef)
+                and lhs.name.isDefined()) {
+            names.add(lhs.name.name);
+        }
+        return;
+    }
+    if (stmt.isKindOf(RoboChart!SeqStatement)) {
+        for (s in stmt.statements) {
+            collectAssignmentLhsNames(s, names);
+        }
+        return;
+    }
+}
+
+// --- Guard variable classification ---
+
+// Check if an expression is a CallExp with a specific function name.
+operation isCallExpWithName(expr : Any, name : String) : Boolean {
+    if (not expr.isDefined()) { return false; }
+    if (not expr.isKindOf(RoboChart!CallExp)) { return false; }
+    var funcExpr = expr.`function`;
+    return funcExpr.isDefined() and funcExpr.isKindOf(RoboChart!StringExp) and funcExpr.value = name;
+}
+
+// Analyze how a named variable is used across all transition conditions.
+// Updates the usage map with keys: "boolean", "cmpLeft", "cmpRight".
+operation analyzeNameUsage(name : String, expr : Any, usage : Map) {
+    if (not expr.isDefined()) { return; }
+
+    // Action types: recurse into sub-expressions
+    if (expr.isKindOf(RoboChart!Assignment)) {
+        analyzeNameUsage(name, expr.right, usage);
+        return;
+    }
+    if (expr.isKindOf(RoboChart!SeqStatement)) {
+        for (s in expr.statements) {
+            analyzeNameUsage(name, s, usage);
+        }
+        return;
+    }
+
+    // Not(CallExp(name)) → boolean context
+    if (expr.isKindOf(RoboChart!Not)) {
+        if (isCallExpWithName(expr.exp, name)) {
+            usage.put("boolean", true);
+        }
+        analyzeNameUsage(name, expr.exp, usage);
+        return;
+    }
+
+    // And/Or: bare CallExp child → boolean context
+    if (expr.isKindOf(RoboChart!And) or expr.isKindOf(RoboChart!Or)) {
+        if (isCallExpWithName(expr.left, name)) {
+            usage.put("boolean", true);
+        }
+        if (isCallExpWithName(expr.right, name)) {
+            usage.put("boolean", true);
+        }
+        analyzeNameUsage(name, expr.left, usage);
+        analyzeNameUsage(name, expr.right, usage);
+        return;
+    }
+
+    // Neg: recurse
+    if (expr.isKindOf(RoboChart!Neg)) {
+        analyzeNameUsage(name, expr.exp, usage);
+        return;
+    }
+
+    // BinaryExpression (comparisons): check left/right position
+    if (expr.isKindOf(RoboChart!BinaryExpression)) {
+        if (isCallExpWithName(expr.left, name)) {
+            usage.put("cmpLeft", true);
+        }
+        if (isCallExpWithName(expr.right, name)) {
+            usage.put("cmpRight", true);
+        }
+        analyzeNameUsage(name, expr.left, usage);
+        analyzeNameUsage(name, expr.right, usage);
+        return;
+    }
+
+    // CallExp: check if target name appears as a function argument
+    if (expr.isKindOf(RoboChart!CallExp)) {
+        if (expr.args.isDefined()) {
+            for (arg in expr.args) {
+                if (isCallExpWithName(arg, name)) {
+                    usage.put("funcArg", true);
+                }
+                analyzeNameUsage(name, arg, usage);
+            }
+        }
+        return;
+    }
+
+    // Leaf expressions: nothing further to recurse
+}
+
+// Walk an expression tree and record every bare-variable name that
+// appears as one operand of an `==` / `!=` comparison whose other
+// operand is a known enum literal. The variable inherits the literal's
+// enum type. Used by the pre-render setup to refine Ctrl_State typing
+// from `var sts : real` to `var sts : Status` when the controller
+// compares `sts == Status.noGas`.
+operation findEnumTypedVars(expr : Any, litToType : Map, out : Map) {
+    if (not expr.isDefined()) { return; }
+    if (expr.isKindOf(RoboChart!Equals) or expr.isKindOf(RoboChart!Different)) {
+        var lhsName = extractBareCallName(expr.left);
+        var rhsName = extractBareCallName(expr.right);
+        if (lhsName.isDefined() and rhsName.isDefined()) {
+            if (litToType.containsKey(rhsName) and not litToType.containsKey(lhsName)) {
+                out.put(lhsName, litToType.get(rhsName));
+            }
+            if (litToType.containsKey(lhsName) and not litToType.containsKey(rhsName)) {
+                out.put(rhsName, litToType.get(lhsName));
+            }
+        }
+    }
+    // Recurse into composite expressions
+    if (expr.isKindOf(RoboChart!And) or expr.isKindOf(RoboChart!Or)
+            or expr.isKindOf(RoboChart!BinaryExpression)) {
+        findEnumTypedVars(expr.left, litToType, out);
+        findEnumTypedVars(expr.right, litToType, out);
+    }
+    if (expr.isKindOf(RoboChart!Not) or expr.isKindOf(RoboChart!Neg)) {
+        findEnumTypedVars(expr.exp, litToType, out);
+    }
+}
+
+// Pull the bare variable name from a CallExp(StringExp("x")) leaf, or
+// return undefined if the expression is anything else (literal, nested
+// call with arguments, etc.).
+operation extractBareCallName(expr : Any) : Any {
+    if (not expr.isDefined()) { return null; }
+    if (not expr.isKindOf(RoboChart!CallExp)) { return null; }
+    var hasArgs = expr.args.isDefined() and not expr.args.isEmpty();
+    if (hasArgs) { return null; }
+    var f = expr.`function`;
+    if (not f.isDefined()) { return null; }
+    if (not f.isKindOf(RoboChart!StringExp)) { return null; }
+    return f.value;
+}
+
+// Classify a guard variable by its usage across all transition conditions.
+// Returns Map{type: "boolean"|"real"|"nat", kind: "var"|"const"}.
+operation classifyGuardVar(name : String, transitions : Any) : Map {
+    var usage = new Map;
+    usage.put("boolean", false);
+    usage.put("cmpLeft", false);
+    usage.put("cmpRight", false);
+    usage.put("funcArg", false);
+
+    for (t in transitions) {
+        if (t.condition.isDefined()) {
+            // Top-level bare reference: condition IS the variable → boolean context
+            if (isCallExpWithName(t.condition, name)) {
+                usage.put("boolean", true);
+            }
+            analyzeNameUsage(name, t.condition, usage);
+        }
+        // Also scan action expressions (for operation transitions)
+        if (t.action.isDefined()) {
+            analyzeNameUsage(name, t.action, usage);
+        }
+    }
+
+    var result = new Map;
+    if (usage.get("boolean")) {
+        result.put("type", "boolean");
+        result.put("kind", "var");
+    } else if (usage.get("funcArg") and not usage.get("cmpLeft") and not usage.get("cmpRight") and not usage.get("boolean")) {
+        // Used only as function argument (e.g. odist(cstc)) -> nat (obstacle index)
+        result.put("type", "nat");
+        result.put("kind", "var");
+    } else if (usage.get("cmpLeft")) {
+        result.put("type", "real");
+        result.put("kind", "var");
+    } else if (usage.get("cmpRight") and not usage.get("cmpLeft")) {
+        result.put("type", "real");
+        result.put("kind", "const");
+    } else {
+        // Default: real state variable
+        result.put("type", "real");
+        result.put("kind", "var");
+    }
+    return result;
+}
+
+// --- Event type helpers ---
+
+// Get the RoboChart standard type name for a typed event.
+//
+// Handles:
+//   TypeRef      -> the underlying TypeDecl's name (with int/real/boolean
+//                   normalisation for legacy Java-typed records).
+//   SeqType      -> rendered as "Seq(<inner>)" using the same lookup
+//                   recursively. Required for events whose payload is a
+//                   Java List<X> mapped by the ETL.
+//   PrimitiveType (rare for events) -> its name directly.
+operation getEventTypeName(evt : Any) : String {
+    if (not evt.type.isDefined()) { return ""; }
+    return renderEventOrFieldType(evt.type);
+}
+
+// Shared helper: render a Type node (TypeRef / SeqType / PrimitiveType)
+// into the RoboChart-textual string the .rct lexer accepts.
+operation renderEventOrFieldType(t : Any) : String {
+    if (t.isKindOf(RoboChart!TypeRef) and t.ref.isDefined()) {
+        var decl = t.ref;
+        var typeName = decl.name;
+        if (typeName = "real" or typeName.contains("double") or typeName.contains("Double")) {
+            return "real";
+        }
+        if (typeName = "int" or typeName.contains("integer") or typeName.contains("Integer") or typeName.contains("int")) {
+            return "int";
+        }
+        if (typeName = "boolean") { return "boolean"; }
+        return typeName;
+    }
+    if (t.isKindOf(RoboChart!SeqType)) {
+        var inner = "real";
+        if (t.domain.isDefined()) {
+            inner = renderEventOrFieldType(t.domain);
+        }
+        return "Seq(" + inner + ")";
+    }
+    if (t.isKindOf(RoboChart!PrimitiveType)) {
+        return t.name;
+    }
+    return "real";
+}
+
+// Format variable type for rendering (handles PrimitiveType, TypeRef, FunctionType).
+operation formatVariableType(v : Any) : String {
+    if (not v.type.isDefined()) { return "real"; }
+    var t = v.type;
+    if (t.isKindOf(RoboChart!FunctionType)) {
+        var domName = "nat";
+        if (t.domain.isDefined()) {
+            if (t.domain.isKindOf(RoboChart!TypeRef) and t.domain.ref.isDefined()) {
+                domName = t.domain.ref.name;
+            }
+        }
+        var rangeName = "real";
+        if (t.range.isDefined()) {
+            if (t.range.isKindOf(RoboChart!TypeRef) and t.range.ref.isDefined()) {
+                rangeName = t.range.ref.name;
+            }
+        }
+        return domName + " -> " + rangeName;
+    }
+    if (t.isKindOf(RoboChart!TypeRef) and t.ref.isDefined()) {
+        return t.ref.name;
+    }
+    if (t.isKindOf(RoboChart!PrimitiveType)) {
+        return t.name;
+    }
+    return "real";
+}
+
+// --- Expression formatting ---
+
+// Format a RoboChart expression as RCT text (top-level, no outer parens)
+operation formatRctExpr(expr : Any) : String {
+    return formatRctExprPrec(expr, 0);
+}
+
+// Format with precedence tracking to minimise parentheses.
+// Precedence levels (higher = tighter binding):
+//   0 = top-level (no wrapping needed)
+//   1 = inside \/ (wrap \/ if parent is /\)
+//   2 = inside /\ (wrap /\ if parent is not — but not() uses 0 since its parens group)
+//   4 = operand of comparison (atomic)
+operation formatRctExprPrec(expr : Any, prec : Integer) : String {
+    if (expr.isKindOf(RoboChart!And)) {
+        var parts = flattenAnd(expr);
+        var result = parts.collect(p | formatRctExprPrec(p, 2)).concat(" /\\ ");
+        if (prec > 2) { return "(" + result + ")"; }
+        return result;
+    }
+    if (expr.isKindOf(RoboChart!Or)) {
+        var parts = flattenOr(expr);
+        var result = parts.collect(p | formatRctExprPrec(p, 1)).concat(" \\/ ");
+        if (prec > 1) { return "(" + result + ")"; }
+        return result;
+    }
+    if (expr.isKindOf(RoboChart!Not)) {
+        // not ( ... ) provides its own grouping, so inner uses prec=0
+        return "not ( " + formatRctExprPrec(expr.exp, 0) + " )";
+    }
+    if (expr.isKindOf(RoboChart!Neg)) {
+        return "-" + formatRctExprPrec(expr.exp, 4);
+    }
+    if (expr.isKindOf(RoboChart!BinaryExpression)) {
+        var op = getRctOperator(expr);
+        return formatRctExprPrec(expr.left, 4) + " " + op + " " + formatRctExprPrec(expr.right, 4);
+    }
+    if (expr.isKindOf(RoboChart!CallExp)) {
+        return formatRctCallExp(expr);
+    }
+    if (expr.isKindOf(RoboChart!FloatExp)) {
+        return formatRctFloat(expr.value);
+    }
+    if (expr.isKindOf(RoboChart!IntegerExp)) {
+        return expr.value.asString();
+    }
+    if (expr.isKindOf(RoboChart!BooleanExp)) {
+        return expr.value.asString();
+    }
+    if (expr.isKindOf(RoboChart!StringExp)) {
+        return expr.value;
+    }
+    return "UNKNOWN";
+}
+
+// Flatten nested And nodes into a flat list of conjuncts.
+// And(And(A, B), C) -> Sequence{A, B, C}
+operation flattenAnd(expr : Any) : Sequence {
+    if (expr.isKindOf(RoboChart!And)) {
+        return flattenAnd(expr.left).includingAll(flattenAnd(expr.right));
+    }
+    return Sequence{expr};
+}
+
+// Flatten nested Or nodes into a flat list of disjuncts.
+// Or(Or(A, B), C) -> Sequence{A, B, C}
+operation flattenOr(expr : Any) : Sequence {
+    if (expr.isKindOf(RoboChart!Or)) {
+        return flattenOr(expr.left).includingAll(flattenOr(expr.right));
+    }
+    return Sequence{expr};
+}
+
+// Format a CallExp: name ( arg1, arg2 ) or just name
+operation formatRctCallExp(expr : Any) : String {
+    var funcExpr = expr.`function`;
+    var name = "UNKNOWN";
+    if (funcExpr.isDefined() and funcExpr.isKindOf(RoboChart!StringExp)) {
+        name = funcExpr.value;
+    }
+    if (expr.args.isDefined() and not expr.args.isEmpty()) {
+        return name + " ( " + expr.args.collect(a | formatRctExprPrec(a, 0)).concat(", ") + " )";
+    }
+    return name;
+}
+
+// Format a float value as integer.
+// Whole numbers: drop decimal (5.0 -> "5").
+// Fractional values: ceiling to nearest integer (0.1 -> "1") because the
+// standalone CSP generator v3.0.0 cannot handle FloatExp nodes produced by
+// the textual parser v3.1.0 for float literals.
+operation formatRctFloat(val : Real) : String {
+    if (val = val.floor()) {
+        return val.asInteger().asString();
+    }
+    return val.ceiling().asInteger().asString();
+}
+
+// Map RoboChart expression class to textual operator symbol
+operation getRctOperator(expr : Any) : String {
+    var className = expr.eClass().getName();
+    if (className = "Equals") { return "=="; }
+    if (className = "Different") { return "!="; }
+    if (className = "LessThan") { return "<"; }
+    if (className = "GreaterThan") { return ">"; }
+    if (className = "LessOrEqual") { return "<="; }
+    if (className = "GreaterOrEqual") { return ">="; }
+    if (className = "Plus") { return "+"; }
+    if (className = "Minus") { return "-"; }
+    if (className = "Mult") { return "*"; }
+    if (className = "Div") { return "/"; }
+    return className;
+}
+
+// --- Trigger/action formatting ---
+
+// Format trigger: eventName ? <binding> (typed) or eventName (untyped).
+// `binding` defaults to "v" (the typed-trigger local). When a transition's
+// first action statement is `<sv> = v` (capturing the payload into a
+// state variable), the caller passes the state variable's name so the
+// .rct binds the payload directly to the state var — required for
+// non-real event payloads (Angle, Loc, Seq(GasSensor)) because
+// `var v : real` would create a CSP type mismatch.
+operation formatRctTrigger(trigger : Any) : String {
+    return formatRctTriggerWithBinding(trigger, "v");
+}
+operation formatRctTriggerWithBinding(trigger : Any, binding : String) : String {
+    var evtName = trigger.event.name;
+    if (trigger.event.type.isDefined()) {
+        return evtName + " ? " + binding;
+    }
+    return evtName;
+}
+
+// If a transition is `trigger evt ? v ; action sv = v ; <rest>`, return
+// the name of the state variable (`sv`) so the caller can rebind the
+// trigger to that variable and drop the first assignment. Returns "" if
+// the pattern doesn't match.
+operation detectTriggerRebind(trans : Any) : String {
+    if (not trans.trigger.isDefined()) { return ""; }
+    if (not trans.trigger.event.type.isDefined()) { return ""; }
+    if (not trans.action.isDefined()) { return ""; }
+    var firstStmt = trans.action;
+    if (firstStmt.isKindOf(RoboChart!SeqStatement)) {
+        if (firstStmt.statements.isEmpty()) { return ""; }
+        firstStmt = firstStmt.statements.first();
+    }
+    if (not firstStmt.isKindOf(RoboChart!Assignment)) { return ""; }
+    var lhsAssignable = firstStmt.left;
+    if (not lhsAssignable.isKindOf(RoboChart!VarRef)) { return ""; }
+    var lhsName = lhsAssignable.name.name;
+    var rhs = firstStmt.right;
+    if (not rhs.isKindOf(RoboChart!CallExp)) { return ""; }
+    var rhsArgs = rhs.args.isDefined() ? rhs.args : new Sequence;
+    if (not rhsArgs.isEmpty()) { return ""; }
+    var rhsFunc = rhs.`function`;
+    if (not rhsFunc.isDefined()) { return ""; }
+    if (not rhsFunc.isKindOf(RoboChart!StringExp)) { return ""; }
+    if (rhsFunc.value <> "v") { return ""; }
+    return lhsName;
+}
+
+// Format a transition's action, optionally dropping the first statement
+// (used when the first stmt was rewritten away as a trigger rebind).
+operation formatRctActionSkippingFirst(stmt : Any, skipFirst : Boolean) : String {
+    if (not skipFirst) { return formatRctAction(stmt); }
+    if (not stmt.isKindOf(RoboChart!SeqStatement)) { return ""; }
+    if (stmt.statements.size() <= 1) { return ""; }
+    var parts = new Sequence;
+    var idx = 0;
+    for (s in stmt.statements) {
+        if (idx > 0) { parts.add(formatRctAction(s)); }
+        idx = idx + 1;
+    }
+    return parts.concat(" ; ");
+}
+
+// Walk an action statement and return true iff any nested Communication
+// references the given event name. Used by the system-module emission to
+// classify events as inter-controller vs boundary.
+operation actionUsesEvent(stmt : Any, eventName : String) : Boolean {
+    if (not stmt.isDefined()) { return false; }
+    if (stmt.isKindOf(RoboChart!CommunicationStmt)) {
+        if (stmt.communication.isDefined() and stmt.communication.event.isDefined()
+                and stmt.communication.event.name = eventName) {
+            return true;
+        }
+    }
+    if (stmt.isKindOf(RoboChart!Communication)) {
+        if (stmt.event.isDefined() and stmt.event.name = eventName) {
+            return true;
+        }
+    }
+    if (stmt.isKindOf(RoboChart!SeqStatement)) {
+        for (s in stmt.statements) {
+            if (actionUsesEvent(s, eventName)) { return true; }
+        }
+    }
+    return false;
+}
+
+// True if an action statement (or any of its nested statements) issues an
+// operation Call — i.e. invokes an LOperations operation. Used to decide
+// per-machine `requires LOperations`.
+operation actionContainsCall(stmt : Any) : Boolean {
+    if (not stmt.isDefined()) { return false; }
+    if (stmt.isKindOf(RoboChart!Call)) { return true; }
+    if (stmt.isKindOf(RoboChart!SeqStatement)) {
+        for (s in stmt.statements) {
+            if (actionContainsCall(s)) { return true; }
+        }
+    }
+    return false;
+}
+
+// Format action statement as RCT text
+operation formatRctAction(stmt : Any) : String {
+    if (stmt.isKindOf(RoboChart!CommunicationStmt)) {
+        return formatRctComm(stmt.communication);
+    }
+    if (stmt.isKindOf(RoboChart!Communication)) {
+        return formatRctComm(stmt);
+    }
+    if (stmt.isKindOf(RoboChart!Assignment)) {
+        var rhsStr = formatRctExprPrec(stmt.right, 0);
+        // Wrap boolean/comparison RHS in parentheses to avoid parser ambiguity
+        // with the assignment operator (e.g. x = a /= b parses incorrectly).
+        if (stmt.right.isKindOf(RoboChart!And) or stmt.right.isKindOf(RoboChart!Or)
+            or stmt.right.isKindOf(RoboChart!Not) or stmt.right.isKindOf(RoboChart!Different)
+            or stmt.right.isKindOf(RoboChart!Equals)) {
+            rhsStr = "( " + rhsStr + " )";
+        }
+        return formatAssignable(stmt.left) + " = " + rhsStr;
+    }
+    if (stmt.isKindOf(RoboChart!SeqStatement)) {
+        return stmt.statements.collect(s | formatRctAction(s)).concat(" ; ");
+    }
+    if (stmt.isKindOf(RoboChart!Wait)) {
+        // Time-passing statement: `wait ( N )` in RCT textual notation.
+        // Emitted from `vehicle.pause(N)` and similar timing primitives
+        // detected by buildWaitStatement in the ETL.
+        return "wait ( " + formatRctExprPrec(stmt.duration, 0) + " )";
+    }
+    if (stmt.isKindOf(RoboChart!Call)) {
+        // Operation call: `opName ( arg1 , arg2 , ... )`. Emitted from
+        // multi-arg actuator/vehicle method invocations (e.g.
+        // `vehicle.move(LV, a)`) that can't be modelled as single-payload
+        // events. The `operation` feature is keyword-named in EOL, so
+        // access via the reflection helper.
+        var opRef = stmt.eGet(stmt.eClass().getEStructuralFeature("operation"));
+        var opName = "UNKNOWN";
+        if (opRef.isDefined()) { opName = opRef.name; }
+        if (stmt.args.isDefined() and not stmt.args.isEmpty()) {
+            return opName + " ( " + stmt.args.collect(a | formatRctExprPrec(a, 0)).concat(" , ") + " )";
+        }
+        return opName + " ( )";
+    }
+    if (stmt.isKindOf(RoboChart!Skip)) {
+        return "skip";
+    }
+    return "skip";
+}
+
+// Format an Assignable (left-hand side of an assignment)
+operation formatAssignable(a : Any) : String {
+    if (a.isKindOf(RoboChart!VarRef)) {
+        return a.name.name;
+    }
+    return "?";
+}
+
+// Format a Communication: send event (no value) or event ! expr (with value)
+operation formatRctComm(comm : Any) : String {
+    var name = comm.event.name;
+    if (comm.value.isDefined()) {
+        return name + " ! " + formatRctExprPrec(comm.value, 0);
+    }
+    return "send " + name;
+}
+
+// =============================================================================
+// M2T Trace extraction
+// =============================================================================
+// Parses the generated RCT output to map RoboChart elements to RCT line ranges.
+// Populates the injected `traceEntries` list (Java ArrayList from
+// RoboChart2RctTransformer).
+
+operation extractRctTrace(fullText : String) {
+    var outputLines = fullText.split("\n");
+    var curBlockType = "";
+    var curBlockName = "";
+    var curBlockStart = 0;
+
+    for (lineIdx in Sequence{0..outputLines.size() - 1}) {
+        var line = outputLines.at(lineIdx);
+        var trimmed = line.trim();
+        var lineNum = lineIdx + 1;
+
+        // Detect interface block: "interface X {"
+        if (trimmed.startsWith("interface ") and trimmed.endsWith("{")) {
+            var name = trimmed.substring(10, trimmed.length() - 2).trim();
+            curBlockType = "Interface";
+            curBlockName = name;
+            curBlockStart = lineNum;
+        }
+
+        // Detect state block: "state X {"
+        if (trimmed.startsWith("state ") and trimmed.endsWith("{")) {
+            var name = trimmed.substring(6, trimmed.length() - 2).trim();
+            curBlockType = "State";
+            curBlockName = name;
+            curBlockStart = lineNum;
+        }
+
+        // Detect transition block: "transition tN {"
+        if (trimmed.startsWith("transition ") and trimmed.endsWith("{")) {
+            var name = trimmed.substring(11, trimmed.length() - 2).trim();
+            curBlockType = "Transition";
+            curBlockName = name;
+            curBlockStart = lineNum;
+        }
+
+        // Detect controller block: "controller X {"
+        if (trimmed.startsWith("controller ") and trimmed.endsWith("{")) {
+            var name = trimmed.substring(11, trimmed.length() - 2).trim();
+            curBlockType = "Controller";
+            curBlockName = name;
+            curBlockStart = lineNum;
+        }
+
+        // Detect module block: "module X {"
+        if (trimmed.startsWith("module ") and trimmed.endsWith("{")) {
+            var name = trimmed.substring(7, trimmed.length() - 2).trim();
+            curBlockType = "Module";
+            curBlockName = name;
+            curBlockStart = lineNum;
+        }
+
+        // Detect initial node: "initial i0"
+        if (trimmed.startsWith("initial ") and not trimmed.endsWith("{")) {
+            var name = trimmed.substring(8).trim();
+            var te = new Map;
+            te.put("robochart_type", "Initial");
+            te.put("robochart_element", name);
+            te.put("rct_line_start", lineNum.asString());
+            te.put("rct_line_end", lineNum.asString());
+            traceEntries.add(te);
+        }
+
+        // Detect closing brace "}" — ends current block
+        if (trimmed = "}" and curBlockType <> "") {
+            var te = new Map;
+            te.put("robochart_type", curBlockType);
+            te.put("robochart_element", curBlockName);
+            te.put("rct_line_start", curBlockStart.asString());
+            te.put("rct_line_end", lineNum.asString());
+            traceEntries.add(te);
+            curBlockType = "";
+            curBlockName = "";
+        }
+    }
+}
+
+%]

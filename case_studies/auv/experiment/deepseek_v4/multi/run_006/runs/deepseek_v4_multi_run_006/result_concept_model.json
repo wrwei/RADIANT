@@ -1,0 +1,247 @@
+{
+    "concepts": [
+        {
+            "Concept": "Module",
+            "description": "The AUV system is developed as a Module"
+        },
+        {
+            "Concept": "RoboticPlatform",
+            "description": "should contain a Robotic Platform"
+        },
+        {
+            "Concept": "Interface",
+            "description": "should use the Interfaces"
+        },
+        {
+            "Concept": "Controller",
+            "description": "should contain a Controller"
+        },
+        {
+            "Concept": "PrimitiveType",
+            "description": "should define a Primitive Type"
+        },
+        {
+            "Concept": "CompositeType",
+            "description": "should define a Composite Type"
+        },
+        {
+            "Concept": "Value",
+            "description": "to record values such as"
+        },
+        {
+            "Concept": "Event",
+            "description": "defines the following Events"
+        },
+        {
+            "Concept": "Function",
+            "description": "shall define a Function"
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": "named \"AUV_Module\""
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "RoboticPlatform",
+            "description": "named \"AUV_Platform\""
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": "\"Sensors\" (defined by \"AUV_Module\")"
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": "\"Actuators\" (defined by \"AUV_Module\")"
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": "named \"AUV_Operator\""
+        },
+        {
+            "Instance": "Inputs",
+            "Instance_of": "Interface",
+            "description": "\"Inputs\" (defined by \"AUV_Module\")"
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "named \"LRE_Ctrl\" (for Last Response Engine)"
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": "\"Outputs\" (defined by \"AUV_Module\")"
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": "named \"AUV_Autopilot\""
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "PrimitiveType",
+            "description": "named \"nat\" (for natural numbers)"
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "PrimitiveType",
+            "description": "named \"int\" (for integers)"
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "PrimitiveType",
+            "description": "named \"string\" (for string values)"
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "PrimitiveType",
+            "description": "named \"boolean\" (for boolean values)"
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "PrimitiveType",
+            "description": "named \"real\" (for real numbers)"
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "CompositeType",
+            "description": "named \"SVec\" (Spherical Vector), to record values such as \"radial\", \"polar\", and \"azimuth\""
+        },
+        {
+            "Instance": "radial",
+            "Instance_of": "Value",
+            "description": "\"radial\" (of type \"real\")"
+        },
+        {
+            "Instance": "polar",
+            "Instance_of": "Value",
+            "description": "\"polar\" (of type \"real\")"
+        },
+        {
+            "Instance": "azimuth",
+            "Instance_of": "Value",
+            "description": "\"azimuth\" (of type \"real\")"
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "CompositeType",
+            "description": "named \"Obstacle\", to record the following values: \"ns_rel_dist\", \"ew_rel_dist\", \"depth\", \"id\", \"obs_hdng\""
+        },
+        {
+            "Instance": "ns_rel_dist",
+            "Instance_of": "Value",
+            "description": "\"ns_rel_dist\" (of type \"real\")"
+        },
+        {
+            "Instance": "ew_rel_dist",
+            "Instance_of": "Value",
+            "description": "\"ew_rel_dist\" (of type real)"
+        },
+        {
+            "Instance": "depth",
+            "Instance_of": "Value",
+            "description": "\"depth\" (of type \"real\")"
+        },
+        {
+            "Instance": "id",
+            "Instance_of": "Value",
+            "description": "\"id\" (of type \"real\")"
+        },
+        {
+            "Instance": "obs_hdng",
+            "Instance_of": "Value",
+            "description": "\"obs_hdng\" (of type \"SVec\")"
+        },
+        {
+            "Instance": "hdng",
+            "Instance_of": "Value",
+            "description": "\"hdng\" (of type \"SVec\")"
+        },
+        {
+            "Instance": "obs",
+            "Instance_of": "Value",
+            "description": "\"obs\" (of type \"Obstacle\")"
+        },
+        {
+            "Instance": "Intpus",
+            "Instance_of": "Interface",
+            "description": "named \"Intpus\", which defines Events"
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": "\"endTask\" (with no Parameters and no Return Value)"
+        },
+        {
+            "Instance": "reqOCM",
+            "Instance_of": "Event",
+            "description": "\"reqOCM\" (with no Parameters and no Return Value)"
+        },
+        {
+            "Instance": "reqMOM",
+            "Instance_of": "Event",
+            "description": "\"reqMOM\" (with no Parameters and no Return Value)"
+        },
+        {
+            "Instance": "reqHCM",
+            "Instance_of": "Event",
+            "description": "\"reqHCM\" (with no Parameters and no Return Value)"
+        },
+        {
+            "Instance": "reqVel",
+            "Instance_of": "Event",
+            "description": "\"reqVel\" (with no Parameters, but with a Return Value of type \"real\")"
+        },
+        {
+            "Instance": "reqHdng",
+            "Instance_of": "Event",
+            "description": "\"reqHdng\" (with no Parameters, but with a Return Value of type \"real\")"
+        },
+        {
+            "Instance": "advVel",
+            "Instance_of": "Event",
+            "description": "\"advVel\" (takes one Parameter of type \"real\", no Return Value)"
+        },
+        {
+            "Instance": "advHdng",
+            "Instance_of": "Event",
+            "description": "\"advHdng\" (takes one Parameter of type \"real\", no Return Value)"
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "CompositeType",
+            "description": "named \"Close\", to record values: \"horiz_cda\", \"vert_cda\", and \"id\""
+        },
+        {
+            "Instance": "horiz_cda",
+            "Instance_of": "Value",
+            "description": "\"horiz_cda\" (of type \"real\")"
+        },
+        {
+            "Instance": "vert_cda",
+            "Instance_of": "Value",
+            "description": "\"vert_cda\" (of type \"real\")"
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "named \"odist\", takes an \"Obstacle\" as input, returns a \"real\""
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "named \"hdist\", takes an \"Obstacle\" as input, returns a \"real\""
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "named \"vdist\", takes an \"Obstacle\" as input, returns a \"real\""
+        }
+    ]
+}

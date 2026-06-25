@@ -1,0 +1,29 @@
+This is a complete, generator-ready RoboChart state machine. Note its form, which you
+must follow:
+- it is ONE bare `stm` — there is NO module, controller, robotic platform, interface, or
+  `uses`/`requires` clause (those are added automatically afterwards);
+- it declares every event it uses, an `enumeration` for each domain type, and its
+  variables/constants;
+- events are plain synchronisations — never `!` or `?`;
+- boolean operators are `/\` (and), `\/` (or), `not`;
+- there are NO trailing semicolons on declarations;
+- there is exactly one `initial` node (i0) with one initial transition out of it.
+
+enumeration Mode { idle active }
+
+stm Controller {
+	event start
+	event stop
+	event tick
+	event activated
+	var mode : Mode
+	var count : real
+	const Limit : real
+	initial i0
+	state Idle { }
+	state Active { entry activated }
+	transition t0 { from i0 to Idle }
+	transition t1 { from Idle to Active trigger start condition count < Limit }
+	transition t2 { from Active to Idle trigger stop }
+	transition t3 { from Active to Active trigger tick condition count >= Limit }
+}

@@ -1,0 +1,76 @@
+// Create Sensor
+var sensor = new M!Sensor();
+sensor.name = "sensor";
+
+// Create Actuator
+var actuator = new M!Actuator();
+actuator.name = "actuator";
+actuator.lastLv = 0.0d;
+actuator.lastAv = 0.0d;
+
+// Create Constants
+var moveVel = new M!Constant();
+moveVel.name = "moveVel";
+moveVel.defaultValue = 1.0d;
+
+var turnVel = new M!Constant();
+turnVel.name = "turnVel";
+turnVel.defaultValue = 2.0d;
+
+var obstacleThreshold = new M!Constant();
+obstacleThreshold.name = "obstacleThreshold";
+obstacleThreshold.defaultValue = 0.5d;
+
+var turnDuration = new M!Constant();
+turnDuration.name = "turnDuration";
+turnDuration.defaultValue = 2.0d;
+
+// Create Variable
+var clockResetTime = new M!Variable();
+clockResetTime.name = "clockResetTime";
+clockResetTime.value = 0.0d;
+
+// Create Events
+var obstacle = new M!Event();
+obstacle.name = "obstacle";
+
+var tick = new M!Event();
+tick.name = "tick";
+
+var endTask = new M!Event();
+endTask.name = "endTask";
+
+// Create Move output type
+var moveCmd = new M!Move();
+moveCmd.lv = 0.0d;
+moveCmd.av = 0.0d;
+
+// Create Modes
+var moving = new M!Moving();
+moving.name = "Moving";
+moving.moveVel = moveVel;
+
+var turning = new M!Turning();
+turning.name = "Turning";
+turning.turnVel = turnVel;
+turning.turnDuration = turnDuration;
+turning.clockResetTime = clockResetTime;
+
+var finalMode = new M!Final();
+finalMode.name = "Final";
+
+// Create StateMachine
+var sm = new M!StateMachine();
+sm.name = "StateMachine";
+sm.modes = Sequence{moving, turning, finalMode};
+
+// Create Controller
+var controller = new M!Controller();
+controller.name = "SRangerController";
+controller.sensor = sensor;
+controller.actuator = actuator;
+controller.constants = Sequence{moveVel, turnVel, obstacleThreshold, turnDuration};
+controller.variables = clockResetTime;
+controller.stateMachine = sm;
+controller.inputEvents = Sequence{obstacle, tick, endTask};
+controller.moveOutputType = moveCmd;

@@ -1,0 +1,197 @@
+{
+    "concepts": [
+        {
+            "Concept": "Module",
+            "description": "A component of the system architecture."
+        },
+        {
+            "Concept": "RoboticPlatform",
+            "description": "A physical or logical platform for robotic operations."
+        },
+        {
+            "Concept": "Interface",
+            "description": "A point of interaction between components."
+        },
+        {
+            "Concept": "Controller",
+            "description": "A component that controls system behavior."
+        },
+        {
+            "Concept": "PrimitiveType",
+            "description": "A basic data type."
+        },
+        {
+            "Concept": "CompositeType",
+            "description": "A data type composed of multiple fields."
+        },
+        {
+            "Concept": "Value",
+            "description": "A data element within an interface."
+        },
+        {
+            "Concept": "Event",
+            "description": "An occurrence that triggers a response."
+        },
+        {
+            "Concept": "Function",
+            "description": "A named operation that performs a computation."
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": "The main module of the AUV system."
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "RoboticPlatform",
+            "description": "The robotic platform of the AUV system."
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": "An interface for sensor data."
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": "An interface for actuator commands."
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": "The operator controller of the AUV system."
+        },
+        {
+            "Instance": "Inputs",
+            "Instance_of": "Interface",
+            "description": "An interface for input events."
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "The Last Response Engine controller."
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": "An interface for output events."
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": "The autopilot controller of the AUV system."
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type for natural numbers."
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type for integers."
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type for string values."
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type for boolean values."
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type for real numbers."
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "CompositeType",
+            "description": "A composite type for spherical vectors."
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "CompositeType",
+            "description": "A composite type for obstacle data."
+        },
+        {
+            "Instance": "depth",
+            "Instance_of": "Value",
+            "description": "A value representing depth."
+        },
+        {
+            "Instance": "hdng",
+            "Instance_of": "Value",
+            "description": "A value representing heading."
+        },
+        {
+            "Instance": "obs",
+            "Instance_of": "Value",
+            "description": "A value representing obstacle data."
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": "An event to end a task."
+        },
+        {
+            "Instance": "reqOCM",
+            "Instance_of": "Event",
+            "description": "An event to request OCM."
+        },
+        {
+            "Instance": "reqMOM",
+            "Instance_of": "Event",
+            "description": "An event to request MOM."
+        },
+        {
+            "Instance": "reqHCM",
+            "Instance_of": "Event",
+            "description": "An event to request HCM."
+        },
+        {
+            "Instance": "reqVel",
+            "Instance_of": "Event",
+            "description": "An event to request velocity."
+        },
+        {
+            "Instance": "reqHdng",
+            "Instance_of": "Event",
+            "description": "An event to request heading."
+        },
+        {
+            "Instance": "advVel",
+            "Instance_of": "Event",
+            "description": "An event to advise velocity."
+        },
+        {
+            "Instance": "advHdng",
+            "Instance_of": "Event",
+            "description": "An event to advise heading."
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "CompositeType",
+            "description": "A composite type for close proximity data."
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "A function that calculates the distance from the AUV to an obstacle."
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "A function that calculates the horizontal distance from the AUV to an obstacle."
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "A function that calculates the vertical distance from the AUV to an obstacle."
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "concepts": [
+        {
+            "Concept": "Module",
+            "description": "A structural unit in the system architecture that encapsulates related components, types, interfaces, and functions."
+        },
+        {
+            "Concept": "RoboticPlatform",
+            "description": "A physical or logical platform that embodies robotic capabilities and interacts with sensors and actuators."
+        },
+        {
+            "Concept": "Interface",
+            "description": "A defined set of values or events through which components interact."
+        },
+        {
+            "Concept": "Controller",
+            "description": "A component responsible for managing or coordinating system behavior based on inputs."
+        },
+        {
+            "Concept": "PrimitiveType",
+            "description": "A basic data type predefined by the system, not composed of other types."
+        },
+        {
+            "Concept": "CompositeType",
+            "description": "A user-defined data type composed of multiple fields of specified types."
+        },
+        {
+            "Concept": "Function",
+            "description": "A callable unit of behavior that performs a computation and may return a result."
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": "The main architectural module representing the entire AUV system."
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "RoboticPlatform",
+            "description": "The robotic platform within the AUV system that uses sensor and actuator interfaces."
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": "An interface providing access to sensor data such as depth, heading, and obstacle information."
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": "An interface for controlling actuators; currently empty."
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": "A controller handling operator-related inputs via the Inputs interface."
+        },
+        {
+            "Instance": "Inputs",
+            "Instance_of": "Interface",
+            "description": "An interface defining input events such as task termination and mode requests."
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "A controller implementing the Last Response Engine logic using Inputs and Outputs interfaces."
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": "An interface defining output events such as velocity and heading commands."
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": "A controller managing autopilot functionality using the Outputs interface."
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type representing natural numbers."
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type representing integer numbers."
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type representing textual data."
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type representing true/false values."
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type representing real (floating-point) numbers."
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "CompositeType",
+            "description": "A composite type representing a spherical vector with radial, polar, and azimuth components."
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "CompositeType",
+            "description": "A composite type representing an obstacle with relative position, depth, ID, and heading."
+        },
+        {
+            "Instance": "Intpus",
+            "Instance_of": "Interface",
+            "description": "An interface (note: likely typo for 'Inputs') defining input events including task control and data requests."
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "CompositeType",
+            "description": "A composite type representing close proximity data with horizontal and vertical coordinates and an identifier."
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "A function that computes the Euclidean distance from the AUV to a given obstacle."
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "A function that computes the horizontal distance from the AUV to a given obstacle."
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "A function that computes the vertical distance from the AUV to a given obstacle."
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "term_trace": [
+        {
+            "GID": "T-001",
+            "Concept": "Term",
+            "source": {
+                "file": "requirement:T-001",
+                "resolved": false
+            }
+        }
+    ]
+}

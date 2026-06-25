@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<auv_:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:auv_="http://www.sawg.org/auv" name="AUV_Module">
+  <robotic_platforms name="AUV_Platform"/>
+  <interfaces name="Sensors">
+    <values name="depth" type="//@preimitive_types.4"/>
+    <values name="hdng" compositeType="//@composite_types.0"/>
+    <values name="obs" compositeType="//@composite_types.1"/>
+  </interfaces>
+  <interfaces name="Actuators"/>
+  <interfaces name="Inputs">
+    <events name="endTask"/>
+    <events name="reqOCM"/>
+    <events name="reqMOM"/>
+    <events name="reqHCM"/>
+    <events name="reqVel" returnType="//@preimitive_types.4"/>
+    <events name="reqHdng" returnType="//@preimitive_types.4"/>
+  </interfaces>
+  <interfaces name="Outputs">
+    <events name="advVel">
+      <parameters xsi:type="auv_:Value" name="parameter" type="//@preimitive_types.4"/>
+    </events>
+    <events name="advHdng">
+      <parameters xsi:type="auv_:Value" name="parameter" type="//@preimitive_types.4"/>
+    </events>
+  </interfaces>
+  <controllers name="AUV_Operator" interfaces="//@interfaces.2"/>
+  <controllers name="LRE_Ctrl" interfaces="//@interfaces.2 //@interfaces.3"/>
+  <controllers name="AUV_Autopilot" interfaces="//@interfaces.3"/>
+  <functions name="odist" returnType="//@preimitive_types.4">
+    <parameters xsi:type="auv_:Value" name="parameter" compositeType="//@composite_types.1"/>
+  </functions>
+  <functions name="hdist" returnType="//@preimitive_types.4">
+    <parameters xsi:type="auv_:Value" name="parameter" compositeType="//@composite_types.1"/>
+  </functions>
+  <functions name="vdist" returnType="//@preimitive_types.4">
+    <parameters xsi:type="auv_:Value" name="parameter" compositeType="//@composite_types.1"/>
+  </functions>
+  <preimitive_types name="nat"/>
+  <preimitive_types name="int"/>
+  <preimitive_types name="string"/>
+  <preimitive_types name="boolean"/>
+  <preimitive_types name="real"/>
+  <composite_types name="SVec">
+    <values name="radial" type="//@preimitive_types.4"/>
+    <values name="polar" type="//@preimitive_types.4"/>
+    <values name="azimuth" type="//@preimitive_types.4"/>
+  </composite_types>
+  <composite_types name="Obstacle">
+    <values name="ns_rel_dist" type="//@preimitive_types.4"/>
+    <values name="ew_rel_dist" type="//@preimitive_types.4"/>
+    <values name="depth" type="//@preimitive_types.4"/>
+    <values name="id" type="//@preimitive_types.4"/>
+    <values name="obs_hdng" compositeType="//@composite_types.0"/>
+  </composite_types>
+  <composite_types name="Close">
+    <values name="horiz_cda" type="//@preimitive_types.4"/>
+    <values name="vert_cda" type="//@preimitive_types.4"/>
+    <values name="id" type="//@preimitive_types.0"/>
+  </composite_types>
+</auv_:Module>

@@ -1,0 +1,236 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+// JDK 17+ required (Epsilon 2.8.0 baseline). Default 17 to match the
+// CI/published-paper environment; pass -PjavaVersion=21 to use a newer JDK
+// without editing this file (e.g. when the local box only ships JDK 21).
+def javaVersion = (project.findProperty('javaVersion') ?: '17') as Integer
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(javaVersion)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+def epsilonVersion = '2.8.0'
+
+dependencies {
+    implementation "org.eclipse.epsilon:org.eclipse.epsilon.eol.engine:${epsilonVersion}"
+    implementation "org.eclipse.epsilon:org.eclipse.epsilon.evl.engine:${epsilonVersion}"
+    implementation "org.eclipse.epsilon:org.eclipse.epsilon.egl.engine:${epsilonVersion}"
+    implementation "org.eclipse.epsilon:org.eclipse.epsilon.emc.emf:${epsilonVersion}"
+    implementation "org.eclipse.epsilon:org.eclipse.epsilon.emc.json:${epsilonVersion}"
+
+    // Eclipse Emfatic compiler — used by the EmfaticHelper task to parse .emf
+    // source files into Ecore models for the D5 evaluation metrics package.
+    implementation 'org.eclipse.emfatic:org.eclipse.emfatic.core:1.1.0'
+    implementation 'org.eclipse.emfatic:org.eclipse.gymnast.runtime.core:1.1.0'
+
+    // Vendored official RoboChart toolchain (Xtext language + CSP generator +
+    // assertions). Used by RoboChartAssembler (parse .rct -> model, run the
+    // vendored robochart2rct.egl) and by the FDR4 verifier's CSP generation.
+    // See lib/robochart/PROVENANCE.md. REMEDIATE and FORGE are separate workspaces.
+    implementation fileTree(dir: 'lib/robochart', include: '*.jar')
+}
+
+application {
+    mainClass = 'org.sawg.malcomj.TransformationRunner'
+}
+
+// Assemble a complete, generator-ready RoboChart .rct from a bare stm:
+//   gradle roboChartAssemble -Pinput=<bare.rct> -Pegl=<robochart2rct.egl> -Poutput=<complete.rct>
+tasks.register('roboChartAssemble', JavaExec) {
+    group = 'malcomj'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.sawg.malcomj.RoboChartAssembler'
+    doFirst {
+        args '--input', project.property('input'),
+             '--egl', project.property('egl'),
+             '--output', project.property('output')
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Example transformation tasks. The engine and transformations are generic;
+// case-study data lives under ../case_studies/<name>. Default: auv;
+// override with -PcaseStudy=<name>.
+// ---------------------------------------------------------------------------
+
+def caseStudy = (project.findProperty('caseStudy') ?: 'auv')
+def caseDir = "${projectDir}/../case_studies/${caseStudy}"
+def txDir = "${projectDir}/src/main/resources/transformations"
+def coreMetamodel = "${projectDir}/src/main/resources/metamodel"
+
+// Helper: create a JavaExec task that runs TransformationRunner with arguments
+def runTransformation(String taskName, String description, List<String> runArgs) {
+    tasks.register(taskName, JavaExec) {
+        it.description = description
+        it.group = 'transformations'
+        it.classpath = sourceSets.main.runtimeClasspath
+        it.mainClass = 'org.sawg.malcomj.TransformationRunner'
+        it.args = runArgs
+    }
+}
+
+// --- Simple EMF-only transformations ---
+
+runTransformation('runAuvEmfCreation',
+    'Create AUV EMF model instance',
+    ['--script', "${caseDir}/transformation/auv_emf_creation.eol",
+     '--emf', "M=${caseDir}/model/AUV.model;${caseDir}/metamodel/auv.ecore;readOnLoad=false,storeOnDisposal=true"])
+
+runTransformation('runAuvValidation',
+    'Validate AUV model constraints',
+    ['--script', "${caseDir}/transformation/auv_validation.evl",
+     '--emf', "M=${caseDir}/model/AUV.model;${caseDir}/metamodel/auv.ecore"])
+
+runTransformation('runEmf2Robochart',
+    'Generate RoboChart DSL from AUV model',
+    ['--script', "${txDir}/emf2robochart.egl",
+     '--emf', "M=${caseDir}/model/AUV.model;${caseDir}/metamodel/auv.ecore"])
+
+runTransformation('runTestEcore',
+    'Run testEcore.eol against AUV metamodel',
+    ['--script', "${caseDir}/transformation/testEcore.eol",
+     '--emf', "M=${caseDir}/metamodel/auv.ecore;meta:http://www.eclipse.org/emf/2002/Ecore"])
+
+runTransformation('runRequirementGen',
+    'Generate requirement documents',
+    ['--script', "${txDir}/requirement_generation.egl",
+     '--emf', "M=${caseDir}/model/project.requirement;${coreMetamodel}/base.ecore,${coreMetamodel}/requirement.ecore"])
+
+// --- Traceability transformations (EMF + JSON) ---
+
+runTransformation('runReq2Concept',
+    'Create requirement-to-concept traceability bridges',
+    ['--script', "${txDir}/req2concept_traceability.eol",
+     '--emf', "S=${caseDir}/model/AUV.requirement;${coreMetamodel}/base.ecore,${coreMetamodel}/requirement.ecore",
+     '--emf', "T=${caseDir}/model/example.terminology;${coreMetamodel}/base.ecore,${coreMetamodel}/terminology.ecore;readOnLoad=false,storeOnDisposal=true",
+     '--emf', "B=${caseDir}/model/req2concept.bifrost;${coreMetamodel}/bifrost.ecore;readOnLoad=false,storeOnDisposal=true",
+     '--json', "J=${caseDir}/model/result_concept_trace.json"])
+
+runTransformation('runReq2Ecore',
+    'Create requirement-to-ecore traceability bridges',
+    ['--script', "${txDir}/req2ecore_traceability.eol",
+     '--emf', "S=${caseDir}/model/AUV.requirement;${coreMetamodel}/base.ecore,${coreMetamodel}/requirement.ecore",
+     '--emf', "T=${caseDir}/metamodel/auv.ecore;meta:http://www.eclipse.org/emf/2002/Ecore",
+     '--emf', "B=${caseDir}/model/req2DSL.bifrost;${coreMetamodel}/bifrost.ecore;readOnLoad=false,storeOnDisposal=true",
+     '--json', "J=${caseDir}/model/result_dsml_trace.json"])
+
+runTransformation('runReq2EmfModel',
+    'Create requirement-to-model traceability bridges',
+    ['--script', "${txDir}/req2emf_model_traceability.eol",
+     '--emf', "S=${caseDir}/model/AUV.requirement;${coreMetamodel}/base.ecore,${coreMetamodel}/requirement.ecore",
+     '--emf', "T=${caseDir}/model/AUV.model;${coreMetamodel}/base.ecore,${caseDir}/metamodel/auv.ecore",
+     '--emf', "B=${caseDir}/model/req2model.bifrost;${coreMetamodel}/bifrost.ecore;readOnLoad=false,storeOnDisposal=true",
+     '--json', "J=${caseDir}/model/result_model_trace.json"])
+
+// Parse the RoboChart text output (result_behaviour_model.rct) from MALCOMp into an EMF model
+// (.robochart) so EOL traceability scripts can resolve State and Transition
+// elements by name. Required prerequisite for runReq2StateMachine.
+tasks.register('runRobochartParse', JavaExec) {
+    description = 'Parse RoboChart text (result_behaviour_model.rct) into AUV.robochart EMF model'
+    group = 'transformations'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.sawg.malcomj.RoboChartTextParser'
+    args = [
+        '--input',     "${caseDir}/model/result_behaviour_model.rct",
+        '--output',    "${caseDir}/model/AUV.robochart",
+        '--metamodel', "${coreMetamodel}/robochart.ecore",
+    ]
+}
+
+runTransformation('runReq2StateMachine',
+    'Create requirement-to-state-machine traceability bridges',
+    ['--script', "${txDir}/req2state_machine_traceability.eol",
+     '--emf', "S=${caseDir}/model/AUV.requirement;${coreMetamodel}/base.ecore,${coreMetamodel}/requirement.ecore",
+     '--emf', "T=${caseDir}/model/AUV.robochart;${coreMetamodel}/robochart.ecore",
+     '--emf', "B=${caseDir}/model/req2statemachine.bifrost;${coreMetamodel}/bifrost.ecore;readOnLoad=false,storeOnDisposal=true",
+     '--json', "J=${caseDir}/model/result_behaviour_trace.json"])
+
+tasks.named('runReq2StateMachine').configure { dependsOn 'runRobochartParse' }
+// Req2Model needs the AUV EMF model instance (AUV.model) to exist first.
+tasks.named('runReq2EmfModel').configure { dependsOn 'runAuvEmfCreation' }
+
+// Build all Bifrost traceability models in one step: create the EMF model
+// instance + parse the RoboChart text (prerequisites), then run the four
+// requirement->element traceability transforms.
+tasks.register('buildBifrost') {
+    description = 'Build all Req2X Bifrost traceability models (with prerequisites)'
+    group = 'transformations'
+    dependsOn 'runReq2Concept', 'runReq2Ecore', 'runReq2EmfModel', 'runReq2StateMachine'
+}
+
+// --- Evaluation helpers (D5 metrics) ---
+
+// Parse an Emfatic file via the Eclipse Emfatic compiler and emit a normalised
+// JSON description used by the evaluation metrics package. Run as:
+//   gradle runEmfaticParse -PinputFile=<path> [-PoutputFile=<path>]
+tasks.register('runEmfaticParse', JavaExec) {
+    description = 'Parse an Emfatic file and emit normalised JSON AST for D5 metrics'
+    group = 'transformations'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.sawg.malcomj.EmfaticHelper'
+    doFirst {
+        def input = project.findProperty('inputFile')
+        if (input == null) {
+            throw new GradleException("Provide -PinputFile=<path-to-.emf>")
+        }
+        def args = [input.toString()]
+        def output = project.findProperty('outputFile')
+        if (output != null) args.add(output.toString())
+        it.args = args
+    }
+}
+
+// Parse-only smoke check for an EOL file (no model loading, no execution).
+// Used by the D5 eol_syntax_check metric. Returns JSON {syntax_ok, errors}
+// to stdout.
+tasks.register('runEolParseOnly', JavaExec) {
+    description = 'Parse-only check for an EOL file; emit JSON syntax result'
+    group = 'transformations'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.sawg.malcomj.EolParseOnly'
+    doFirst {
+        def input = project.findProperty('inputFile')
+        if (input == null) {
+            throw new GradleException("Provide -PinputFile=<path-to-.eol>")
+        }
+        it.args = [input.toString()]
+    }
+}
+
+// Parameterised RoboChart text parse for the D5 csp_syntax_check fallback.
+// Honours -PinputFile=<path-to-.txt> [-PoutputFile=<path-to-.robochart>].
+tasks.register('runRobochartParseFile', JavaExec) {
+    description = 'Parse an arbitrary RoboChart text file via RoboChartTextParser'
+    group = 'transformations'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'org.sawg.malcomj.RoboChartTextParser'
+    doFirst {
+        def input = project.findProperty('inputFile')
+        if (input == null) {
+            throw new GradleException("Provide -PinputFile=<path-to-.txt>")
+        }
+        def output = project.findProperty('outputFile') ?: "${caseDir}/model/_test_parse.robochart"
+        it.args = [
+            '--input',     input.toString(),
+            '--output',    output.toString(),
+            '--metamodel', "${coreMetamodel}/robochart.ecore",
+        ]
+    }
+}
+
+// --- Aggregate task ---
+
+tasks.register('runAll') {
+    description = 'Run all transformations for the selected case study'
+    group = 'transformations'
+    dependsOn 'runRequirementGen', 'runAuvEmfCreation', 'runAuvValidation', 'runEmf2Robochart',
+              'runReq2Concept', 'runReq2Ecore', 'runReq2EmfModel', 'runReq2StateMachine'
+}
