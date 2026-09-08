@@ -49,6 +49,7 @@ from run_single_agent import (
     _build_openai_client,
     _load_config,
     run_stage_single_agent,
+    run_stage_single_agent_with_repair,
     select_model,
 )
 import token_usage
@@ -58,7 +59,12 @@ logger = logging.getLogger(__name__)
 # Multi-agent variant: the production stage class registered for each Layer.
 MULTI_STAGES = {key: spec.cls for key, spec in LAYERS.items()}
 
-VARIANTS = ("single", "multi")
+# single        one direct call per phase, no checking, no repair
+# single_repair one direct call per phase PLUS the deterministic gate and the
+#               same repair loop the multi-agent phases use — the control arm
+#               that separates iterative repair from role decomposition
+# multi         the full cooperating-agent pipeline
+VARIANTS = ("single", "single_repair", "multi")
 DEFAULT_CONFIG = Path(__file__).resolve().parent.parent / "config.yaml"
 
 
@@ -71,6 +77,15 @@ def _run_single(stage: str, config_path: Path, run_dir: Path, client, config) ->
         logger.warning("stage %s not registered for single-agent variant; skipping", stage)
         return None
     return run_stage_single_agent(stage, config_path, run_dir, client, config)
+
+
+def _run_single_repair(stage: str, config_path: Path, run_dir: Path, client,
+                       config) -> Path | None:
+    if stage not in SINGLE_STAGES:
+        logger.warning("stage %s not registered for single-agent variant; skipping", stage)
+        return None
+    return run_stage_single_agent_with_repair(stage, config_path, run_dir,
+                                              client, config)
 
 
 def _run_multi(stage: str, config_path: Path, run_dir: Path, run_label: str) -> Path | None:
@@ -111,7 +126,8 @@ def run_sweep(
         os.environ["MALCOMP_MODEL"] = model
         config = _load_config(config_path)
         select_model(config, model)
-        client = _build_openai_client(config) if "single" in variants else None
+        needs_client = any(v in ("single", "single_repair") for v in variants)
+        client = _build_openai_client(config) if needs_client else None
         logger.info("==== model %s ====", model)
         for variant in variants:
             if variant not in VARIANTS:
@@ -126,6 +142,9 @@ def run_sweep(
                     try:
                         if variant == "single":
                             out = _run_single(stage, config_path, run_dir, client, config)
+                        elif variant == "single_repair":
+                            out = _run_single_repair(stage, config_path, run_dir,
+                                                     client, config)
                         else:
                             out = _run_multi(stage, config_path, run_dir, run_label)
                         results[key] = out
@@ -147,7 +166,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--models", nargs="+", default=None,
                         help="model keys from the config's models: map (default: all of them)")
     parser.add_argument("--variants", nargs="+", default=["multi"], choices=list(VARIANTS),
-                        help="single (direct call), multi (full pipeline), or both")
+                        help="single (direct call, no checking), single_repair "
+                             "(direct call + gate + repair loop), multi (full "
+                             "cooperating pipeline); any combination")
     parser.add_argument("--stages", nargs="+", default=list(LAYERS.keys()),
                         help=f"stages to run (any of {sorted(LAYERS)}); default: all")
     parser.add_argument("--n-runs", type=int, default=50, help="runs per (model, variant)")

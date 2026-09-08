@@ -286,6 +286,92 @@ def run_stage_single_agent(
     return out_path
 
 
+def run_stage_single_agent_with_repair(
+    stage_name: str,
+    config_path: Path,
+    output_dir: Path,
+    client: "OpenAI",
+    config: dict,
+) -> Path:
+    """Single-agent generation plus the deterministic gate and repair loop.
+
+    This is the control arm that separates the two things the multi-agent
+    configuration bundles together. The plain single-agent variant has no
+    checking and no repair, so comparing it against the full pipeline measures
+    role decomposition AND iterative repair at once. This variant keeps the
+    single generating call but adds the *same* gate and the same
+    repair-on-hard-failure loop the multi-agent phases use, so:
+
+        multi          vs  single_repair   isolates role decomposition
+        single_repair  vs  single          isolates iterative repair
+
+    The repair prompt is deliberately identical in structure to
+    ``Base._repair_code``: the failing artefact plus the gate's own diagnostics,
+    with an instruction to return only the corrected artefact.
+    """
+    import verification
+    from base import Base
+
+    out_path = run_stage_single_agent(stage_name, config_path, output_dir,
+                                      client, config)
+
+    # Reuse Base's stage->gate mapping rather than restating it, so the two
+    # paths cannot drift apart.
+    phase_key = Base._VERIFY_PHASE.get(stage_name)
+    if phase_key is None:
+        return out_path
+
+    verify_cfg = config.get("verification", {}) or {}
+    if not verify_cfg.get("enabled", True):
+        return out_path
+    max_attempts = int(verify_cfg.get("max_repair_attempts", 2))
+    strict = bool(verify_cfg.get("strict", False))
+    fdr4_cfg = verify_cfg.get("fdr4")
+
+    def _verify():
+        return verification.verify(
+            phase_key, output_dir,
+            malcomj_runner=config.get("malcomj_runner"),
+            requirement_data=None, fdr4_config=fdr4_cfg, strict=strict)
+
+    result = _verify()
+    for attempt in range(1, max_attempts + 1):
+        if result.passed:
+            break
+        target = output_dir / out_path.name
+        if not target.is_file():
+            break
+        detail = "\n".join(f"- {c.name}: {c.detail}" for c in result.hard_failures)
+        if not detail:
+            break
+        content = target.read_text(encoding="utf-8")
+        logger.info("[%s] gate failed (attempt %d/%d): %s",
+                    stage_name, attempt, max_attempts,
+                    "; ".join(c.name for c in result.hard_failures))
+        prompt = (
+            "The following artefact failed verification. Fix it so the checks "
+            "pass; preserve everything unrelated; output ONLY the corrected "
+            "artefact, with no explanation and no markdown fences.\n\n"
+            f"Failures:\n{detail}\n\nArtefact:\n{content}"
+        )
+        raw, usage = _complete(
+            client, config,
+            "You repair generated modelling artefacts so that they pass "
+            "deterministic verification.", prompt)
+        token_usage.record(output_dir, f"{stage_name}_repair", usage[0], usage[1])
+        fixed = _strip_fences(raw).strip()
+        if not fixed or fixed == content.strip():
+            logger.info("[%s] repair produced no change; stopping", stage_name)
+            break
+        target.write_text(fixed + "\n", encoding="utf-8")
+        result = _verify()
+
+    logger.info("[%s] gate %s%s", stage_name,
+                "passed" if result.passed else "FAILED",
+                "" if result.fully_verified else " (some checks could not run)")
+    return out_path
+
+
 def _update_manifest(
     run_dir: Path,
     run_id: str,
