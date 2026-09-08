@@ -1,0 +1,244 @@
+{
+    "concepts": [
+        {
+            "Concept": "System",
+            "description": "the overall AUV system"
+        },
+        {
+            "Concept": "Module",
+            "description": "a component of the system"
+        },
+        {
+            "Concept": "RoboticPlatform",
+            "description": "a robotic platform used in the AUV system"
+        },
+        {
+            "Concept": "Interface",
+            "description": "a communication interface used by the platform"
+        },
+        {
+            "Concept": "Controller",
+            "description": "a component that manages and directs the behavior of the AUV module"
+        },
+        {
+            "Concept": "PrimitiveType",
+            "description": "a basic data type used in the module"
+        },
+        {
+            "Concept": "CompositeType",
+            "description": "a user-defined data type composed of multiple fields"
+        },
+        {
+            "Concept": "Value",
+            "description": "a data value contained in an interface"
+        },
+        {
+            "Concept": "Event",
+            "description": "a signal or action that triggers behavior in the system"
+        },
+        {
+            "Concept": "Composite Type",
+            "description": "a user-defined data type composed of multiple fields"
+        },
+        {
+            "Concept": "Primitive Type",
+            "description": "a basic data type used in the module"
+        },
+        {
+            "Concept": "Function",
+            "description": "a function defined in the module"
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": "a module representing the AUV system"
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "RoboticPlatform",
+            "description": "the specific robotic platform contained in AUV_Module"
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": "the interface for sensors"
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": "the interface for actuators"
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": "the controller that operates the AUV module"
+        },
+        {
+            "Instance": "Inputs",
+            "Instance_of": "Interface",
+            "description": "the interface providing inputs to the controller"
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "the Last Response Engine controller"
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": "the interface providing outputs from the controller"
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": "the autopilot controller for the AUV module"
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "PrimitiveType",
+            "description": "a primitive type for natural numbers"
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "PrimitiveType",
+            "description": "a primitive type for integers"
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "PrimitiveType",
+            "description": "a primitive type for string values"
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "PrimitiveType",
+            "description": "a primitive type for boolean values"
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "PrimitiveType",
+            "description": "a primitive type for real numbers"
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "CompositeType",
+            "description": "a spherical vector composite type"
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "CompositeType",
+            "description": "a composite type for obstacles"
+        },
+        {
+            "Instance": "depth",
+            "Instance_of": "Value",
+            "description": "the depth value"
+        },
+        {
+            "Instance": "hdng",
+            "Instance_of": "Value",
+            "description": "the heading value"
+        },
+        {
+            "Instance": "obs",
+            "Instance_of": "Value",
+            "description": "the obstacle value"
+        },
+        {
+            "Instance": "Intpus",
+            "Instance_of": "Interface",
+            "description": "the interface providing input events to the controller"
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": "event with no parameters and no return value"
+        },
+        {
+            "Instance": "reqOCM",
+            "Instance_of": "Event",
+            "description": "event with no parameters and no return value"
+        },
+        {
+            "Instance": "reqMOM",
+            "Instance_of": "Event",
+            "description": "event with no parameters and no return value"
+        },
+        {
+            "Instance": "reqHCM",
+            "Instance_of": "Event",
+            "description": "event with no parameters and no return value"
+        },
+        {
+            "Instance": "reqVel",
+            "Instance_of": "Event",
+            "description": "event with no parameters but returns a real value"
+        },
+        {
+            "Instance": "reqHdng",
+            "Instance_of": "Event",
+            "description": "event with no parameters but returns a real value"
+        },
+        {
+            "Instance": "advVel",
+            "Instance_of": "Event",
+            "description": "event that takes a real parameter and returns no value"
+        },
+        {
+            "Instance": "advHdng",
+            "Instance_of": "Event",
+            "description": "event that takes a real parameter and returns no value"
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "Composite Type",
+            "description": "a composite type for close values"
+        },
+        {
+            "Instance": "horiz_cda",
+            "Instance_of": "Value",
+            "description": "a horizontal coordinate value"
+        },
+        {
+            "Instance": "vert_cda",
+            "Instance_of": "Value",
+            "description": "a vertical coordinate value"
+        },
+        {
+            "Instance": "id",
+            "Instance_of": "Value",
+            "description": "an identifier value"
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "a function that computes the distance from the AUV to an obstacle"
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "a function that computes the horizontal distance from the AUV to an obstacle"
+        },
+        {
+            "Instance": "ns_rel_dist",
+            "Instance_of": "Value",
+            "description": "a north-south relative distance value"
+        },
+        {
+            "Instance": "ew_rel_dist",
+            "Instance_of": "Value",
+            "description": "an east-west relative distance value"
+        },
+        {
+            "Instance": "obs_hdng",
+            "Instance_of": "Value",
+            "description": "the obstacle heading value"
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "a function that computes the vertical distance from the AUV to an obstacle"
+        }
+    ]
+}

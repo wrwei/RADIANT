@@ -43,6 +43,11 @@ def _stage_or_skip(cls):
     try:
         return cls(config_path=str(CONFIG))
     except FileNotFoundError as ex:
+        # Only a MISSING GENERATED ASSET is a legitimate skip. Any other
+        # FileNotFoundError (a mis-set case study, a deleted prompt asset) is a
+        # real failure and must not hide behind this helper.
+        if "asset" not in str(ex):
+            raise
         pytest.skip(f"requires a prior pipeline run: {ex}")
 
 

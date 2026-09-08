@@ -197,6 +197,58 @@ def enrich_file(trace_path: Path, spec: dict, requirements: dict,
     return rep
 
 
+def rebuild_concept_model(trace_path: Path, write: bool = False) -> dict:
+    """Reconstruct phase 2's concept-model artefact from its trace file.
+
+    `result_concept_model.json` is the deduplicated Concepts and Instances of
+    the concept trace, derived **deterministically** by
+    ``ConceptExtraction._store_concept_model`` — no model call is involved. It
+    is nonetheless a generated output that was never committed, so phases 3-5,
+    which load it as a prompt asset, cannot be constructed in a fresh checkout.
+
+    Rather than reimplement the dedup (which would drift), this calls the phase
+    method itself on an object carrying only the two attributes it touches.
+    """
+    rep = dict(path=trace_path, concepts=0, instances=0, out=None, skipped="")
+    try:
+        data = json.loads(trace_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as ex:
+        rep["skipped"] = f"unreadable: {ex}"
+        return rep
+    entries = None
+    for tag in ("term_trace", "req"):
+        if isinstance(data.get(tag), list):
+            entries = data[tag]
+            break
+    if entries is None:
+        rep["skipped"] = "no concept trace array"
+        return rep
+
+    from phases.concept import ConceptExtraction
+
+    class _Shim:
+        """Carries only what _store_concept_model reads: stage_config and
+        output_dir. Constructing the real stage would build LLM agents."""
+
+        def __init__(self, output_dir: Path):
+            self.output_dir = output_dir
+            self.stage_config = {"output": {"code_file": "result_concept_model.json"}}
+
+        def _record_artifact(self, path):    # no manifest outside a real run
+            pass
+
+    shim = _Shim(trace_path.parent)
+    ConceptExtraction._store_concept_model(shim, entries)
+    out = trace_path.parent / "result_concept_model.json"
+    model = json.loads(out.read_text(encoding="utf-8"))
+    rep.update(concepts=len(model["concepts"]), instances=len(model["instances"]),
+               out=out)
+    if not write:
+        out.unlink()          # dry run: leave the tree untouched
+        rep["out"] = None
+    return rep
+
+
 def discover(root: Path) -> list[tuple[Path, dict]]:
     """(trace file, layer spec) pairs under `root`, including `root` itself."""
     dirs = [root] + [p for p in sorted(root.rglob("*")) if p.is_dir()]
@@ -222,6 +274,8 @@ def main(argv=None) -> int:
                     help="modify files in place (default: dry run)")
     ap.add_argument("--keep-legacy-tag", action="store_true",
                     help="do not rename the concept tag req -> term_trace")
+    ap.add_argument("--no-concept-model", action="store_true",
+                    help="skip reconstructing result_concept_model.json")
     args = ap.parse_args(argv)
 
     logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
@@ -277,6 +331,22 @@ def main(argv=None) -> int:
         totals["files"] += 1
         for k in ("entries", "resolved", "unresolved", "already"):
             totals[k] += rep[k]
+
+    if not args.no_concept_model:
+        print()
+        for path, spec in targets:
+            if spec["layer"] != "concept":
+                continue
+            rep = rebuild_concept_model(path, write=args.write)
+            rel = (path.parent.relative_to(root)
+                   if path.parent.is_relative_to(root) else path.parent)
+            if rep["skipped"]:
+                print(f"  skip  {rel}/result_concept_model.json ({rep['skipped']})")
+            else:
+                print(f"  {'write' if args.write else 'would'} "
+                      f"{rel}/result_concept_model.json  "
+                      f"[concept model] {rep['concepts']} concepts, "
+                      f"{rep['instances']} instances (derived from the trace)")
 
     print(f"\n{totals['files']} files, {totals['entries']} entries: "
           f"{totals['resolved']} resolved, {totals['unresolved']} unresolved"
