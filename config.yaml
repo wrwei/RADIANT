@@ -19,6 +19,11 @@ default_model: deepseek_v4
 verification:
   enabled: true
   max_repair_attempts: 5   # repair loop retries until FDR passes, up to this many attempts (safety cap against a non-fixable model)
+  # strict: when true, a check that cannot RUN (external tool absent) is treated
+  # as a failure rather than a warning, so no artefact is accepted unless every
+  # gate actually executed. Leave false for day-to-day runs on a partial
+  # toolchain; set true to reproduce the reported results, where every check ran.
+  strict: false
   # Optional deep behaviour check: generate CSP from the RoboChart .rct (FORGE's
   # standalone RoboChart CSP generator), tame numeric type ranges to [0..1], and
   # run FDR4 (refines.exe) for deadlock-/divergence-freedom. Opt-in: off by
@@ -28,7 +33,13 @@ verification:
   fdr4:
     enabled: true
     robochart_gen_dir: "MALCOMj/lib/robochart"   # vendored RoboChart CSP generator jars (repo-relative)
-    fdr4_path: "C:/Program Files/fdr/bin/refines.exe"   # name on PATH, or absolute path
+    # Resolved on PATH by default, so the same config works on Linux/macOS and
+    # Windows. Override with an absolute path if refines is not on PATH, e.g.
+    #   Windows: "C:/Program Files/fdr/bin/refines.exe"
+    #   macOS:   "/Applications/FDR.app/Contents/MacOS/refines"
+    # A path that does not resolve makes the fdr4_refinement check UNVERIFIED
+    # (logged at WARNING); with verification.strict=true it fails the phase.
+    fdr4_path: "refines"
     check_determinism: false   # RoboChart models are non-deterministic by construction; skip :[deterministic] (deadlock/divergence only)
     memory_limit_mb: 8192
     timeout: 600

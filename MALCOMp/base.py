@@ -496,10 +496,18 @@ class Base:
             malcomj_runner=runner,
             requirement_data=getattr(self.user, "data", None),
             fdr4_config=getattr(self, "_fdr4_config", None),
+            strict=bool(self.config.get("verification", {}).get("strict", False)),
         )
         result = self.verification_result
         stream = IOStream.get_default()
-        mark = "passed" if result.passed else "FAILED"
+        # Distinguish "verified" from "accepted with checks that never ran":
+        # collapsing the two is what makes an incomplete toolchain look clean.
+        if not result.passed:
+            mark = "FAILED"
+        elif result.unverified:
+            mark = f"passed with {len(result.unverified)} UNVERIFIED check(s)"
+        else:
+            mark = "passed"
         msg = f"Verification {mark} for phase '{phase_key}':\n{result.summary()}"
         if stream is not None and hasattr(stream, "send_agent_message"):
             try:

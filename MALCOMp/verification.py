@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import json
 import logging
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
@@ -24,22 +24,60 @@ class Check:
 
 @dataclass(frozen=True)
 class VerificationResult:
+    """The outcome of one phase's gate.
+
+    A phase has THREE distinguishable outcomes, and callers that report
+    verification status must not collapse them:
+
+    * ``passed`` and no ``unverified`` checks — every check ran and succeeded.
+      This is the only state in which the artefact has actually been verified.
+    * ``passed`` with a non-empty ``unverified`` — the artefact was accepted
+      because the checks that did run succeeded, but one or more checks could
+      not run at all (external tool absent). Nothing was proved about those
+      properties. Use ``fully_verified`` to test for this.
+    * not ``passed`` — a check ran and failed; ``hard_failures`` drives repair.
+
+    ``strict=True`` promotes unrunnable checks to failures, so a run can be
+    configured to refuse to accept an artefact whose checks never executed.
+    """
+
     phase: str
     checks: list[Check] = field(default_factory=list)
+    strict: bool = False
 
     @property
     def passed(self) -> bool:
+        if self.strict:
+            return all(c.ok for c in self.checks)
         return all(c.ok or c.unverifiable for c in self.checks)
 
     @property
     def hard_failures(self) -> list[Check]:
+        if self.strict:
+            return [c for c in self.checks if not c.ok]
         return [c for c in self.checks if not c.ok and not c.unverifiable]
+
+    @property
+    def unverified(self) -> list[Check]:
+        """Checks that could not run (external tool absent). Non-empty means
+        the phase was accepted without those properties being established."""
+        return [c for c in self.checks if c.unverifiable]
+
+    @property
+    def fully_verified(self) -> bool:
+        """True only when every check actually ran and succeeded."""
+        return bool(self.checks) and all(c.ok for c in self.checks)
 
     def summary(self) -> str:
         marks = []
         for c in self.checks:
-            mark = "OK" if c.ok else ("warn" if c.unverifiable else "FAIL")
+            mark = "OK" if c.ok else ("UNVERIFIED" if c.unverifiable else "FAIL")
             marks.append(f"[{mark}] {c.name}" + (f" — {c.detail}" if c.detail else ""))
+        if self.unverified and not self.strict:
+            marks.append(
+                f"NOTE: {len(self.unverified)} check(s) could not run; this phase was "
+                "accepted WITHOUT verifying those properties "
+                "(set verification.strict=true to refuse such artefacts).")
         return "\n".join(marks)
 
 
@@ -47,13 +85,29 @@ def _read_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def trace_resolution_check(trace_path: Path, tag: str) -> Check:
+def _entries_under_tag(data, tag: str, legacy=(), fname: str = "") -> list:
+    """Entries under `tag`, falling back to a `legacy` tag with a warning (the
+    concept phase emitted "req" before the tag was renamed "term_trace")."""
+    if not isinstance(data, dict):
+        return []
+    if isinstance(data.get(tag), list):
+        return data[tag]
+    for old in legacy:
+        if isinstance(data.get(old), list):
+            logger.warning("%s uses the legacy trace tag %r (current: %r) — "
+                           "regenerate this artefact.", fname, old, tag)
+            return data[old]
+    return []
+
+
+def trace_resolution_check(trace_path: Path, tag: str, legacy=()) -> Check:
     """Traceability: every entry under `tag` has source.resolved == true."""
     if not trace_path.is_file():
         return Check("trace_resolved", "traceability", False, False,
                      f"missing trace file {trace_path.name}")
     try:
-        entries = _read_json(trace_path).get(tag, [])
+        entries = _entries_under_tag(_read_json(trace_path), tag, legacy,
+                                     trace_path.name)
     except json.JSONDecodeError as ex:
         return Check("trace_resolved", "traceability", False, False, f"invalid JSON: {ex}")
     if not entries:
@@ -73,7 +127,8 @@ def verify_concept(output_dir: Path, **_) -> VerificationResult:
     model = output_dir / "result_concept_model.json"
     # structural: both JSONs parse; trace entries have GID + Concept/Instance
     try:
-        entries = _read_json(trace).get("term_trace", []) if trace.is_file() else None
+        entries = (_entries_under_tag(_read_json(trace), "term_trace", ("req",),
+                                      trace.name) if trace.is_file() else None)
         _read_json(model) if model.is_file() else None
         if entries is None or not model.is_file():
             checks.append(Check("artefacts_present", "structural", False, False,
@@ -85,7 +140,7 @@ def verify_concept(output_dir: Path, **_) -> VerificationResult:
                                 "" if not bad else f"{len(bad)} entries missing GID/Concept/Instance"))
     except json.JSONDecodeError as ex:
         checks.append(Check("json_valid", "structural", False, False, f"invalid JSON: {ex}"))
-    checks.append(trace_resolution_check(trace, "term_trace"))
+    checks.append(trace_resolution_check(trace, "term_trace", legacy=("req",)))
     return VerificationResult("concept", checks)
 
 
@@ -223,10 +278,29 @@ _VERIFIERS = {
 
 
 def verify(phase_key: str, output_dir: Path, *, malcomj_runner=None,
-           requirement_data=None, fdr4_config=None) -> VerificationResult:
+           requirement_data=None, fdr4_config=None,
+           strict: bool = False) -> VerificationResult:
+    """Run `phase_key`'s gate over `output_dir`.
+
+    `strict=True` refuses artefacts whose checks could not run (external tool
+    absent) instead of accepting them with a warning; see VerificationResult.
+    Unrunnable checks are always logged at WARNING so a run on an incomplete
+    toolchain cannot look silently clean.
+    """
     try:
         fn = _VERIFIERS[phase_key]
     except KeyError:
         raise ValueError(f"unknown phase {phase_key!r}")
-    return fn(output_dir, malcomj_runner=malcomj_runner,
-              requirement_data=requirement_data, fdr4_config=fdr4_config)
+    result = fn(output_dir, malcomj_runner=malcomj_runner,
+                requirement_data=requirement_data, fdr4_config=fdr4_config)
+    if strict:
+        result = replace(result, strict=True)
+    if result.unverified:
+        logger.warning(
+            "phase %s: %d check(s) could not run (%s). The phase is %s; the "
+            "corresponding properties were NOT verified.",
+            result.phase, len(result.unverified),
+            "; ".join(f"{c.name}: {c.detail}" for c in result.unverified),
+            "REJECTED (strict)" if strict else "accepted anyway",
+        )
+    return result
