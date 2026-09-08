@@ -70,12 +70,31 @@ def _behaviour_label(e):
     return f"{t} ({src} -> {dst})" if src and dst else t
 
 
+# (phase, filename, current tag, legacy tags, label builder). The legacy tags let
+# this tool read trace files written by earlier versions of the pipeline (the
+# concept phase emitted "req" before it was renamed "term_trace"); a legacy hit is
+# logged so stale artefacts are visible rather than silently contributing nothing.
 _TRACE_SPECS = [
-    ("concept", "result_concept_trace.json", "term_trace", _concept_label),
-    ("dsml", "result_dsml_trace.json", "dsl_trace", _dsml_label),
-    ("model", "result_model_trace.json", "model_trace", _model_label),
-    ("behaviour", "result_behaviour_trace.json", "stm_trace", _behaviour_label),
+    ("concept", "result_concept_trace.json", "term_trace", ("req",), _concept_label),
+    ("dsml", "result_dsml_trace.json", "dsl_trace", (), _dsml_label),
+    ("model", "result_model_trace.json", "model_trace", (), _model_label),
+    ("behaviour", "result_behaviour_trace.json", "stm_trace", (), _behaviour_label),
 ]
+
+
+def _trace_entries(data: dict, tag: str, legacy: tuple, fname: str) -> list:
+    """Entries under `tag`, falling back to any `legacy` tag with a warning."""
+    if not isinstance(data, dict):
+        return []
+    if isinstance(data.get(tag), list):
+        return data[tag]
+    for old in legacy:
+        if isinstance(data.get(old), list):
+            logger.warning(
+                "%s uses the legacy trace tag %r (current: %r) — this artefact "
+                "predates the current pipeline; regenerate it.", fname, old, tag)
+            return data[old]
+    return []
 
 
 def load_links(output_dir) -> list[Link]:
@@ -83,7 +102,7 @@ def load_links(output_dir) -> list[Link]:
     unparseable files are skipped (a phase may not have run)."""
     out = Path(output_dir)
     links: list[Link] = []
-    for phase, fname, tag, labeller in _TRACE_SPECS:
+    for phase, fname, tag, legacy, labeller in _TRACE_SPECS:
         p = out / fname
         if not p.is_file():
             continue
@@ -92,7 +111,7 @@ def load_links(output_dir) -> list[Link]:
         except (json.JSONDecodeError, OSError) as ex:
             logger.warning("skipping %s: %s", fname, ex)
             continue
-        for e in data.get(tag, []) if isinstance(data, dict) else []:
+        for e in _trace_entries(data, tag, legacy, fname):
             if not isinstance(e, dict):
                 continue
             gid = _canonical_gid(e.get("GID") or e.get("requirement_gid"))
@@ -100,6 +119,27 @@ def load_links(output_dir) -> list[Link]:
                 continue
             links.append(Link(gid, phase, labeller(e), e.get("source") or {}))
     return links
+
+
+def _requirement_items(data, fname: str) -> list:
+    """The requirements array from a requirement file.
+
+    Reads the documented ``requirements`` key rather than "whichever value
+    happens to be a list", so adding an unrelated list-valued key (metadata,
+    tags) cannot silently make the tool read the wrong array.
+    """
+    if isinstance(data, list):
+        return data
+    if not isinstance(data, dict):
+        return []
+    if isinstance(data.get("requirements"), list):
+        return data["requirements"]
+    fallback = next((k for k, v in data.items() if isinstance(v, list)), None)
+    if fallback is None:
+        logger.warning("%s has no 'requirements' array; ignoring it", fname)
+        return []
+    logger.warning("%s has no 'requirements' key; falling back to %r", fname, fallback)
+    return data[fallback]
 
 
 def load_requirements(case_dir) -> dict:
@@ -116,18 +156,25 @@ def load_requirements(case_dir) -> dict:
         except (json.JSONDecodeError, OSError) as ex:
             logger.warning("skipping %s: %s", fname, ex)
             continue
-        if isinstance(data, list):
-            items = data
-        elif isinstance(data, dict):
-            items = next((v for v in data.values() if isinstance(v, list)), [])
-        else:
-            items = []
+        items = _requirement_items(data, fname)
         for r in items:
             if not isinstance(r, dict):
                 continue
-            gid = _canonical_gid(r.get("gid") or r.get("GID") or r.get("id") or r.get("name"))
-            if gid:
-                reqs[gid] = r.get("description", "")
+            raw = r.get("gid") or r.get("GID") or r.get("id") or r.get("name")
+            gid = _canonical_gid(raw)
+            if not gid:
+                continue
+            # Canonicalisation folds case and strips punctuation, so distinct raw
+            # ids can collide ("LRE-Beh6" / "lre_beh_6"). Silently overwriting
+            # would drop a requirement from every downstream impact set.
+            if gid in reqs and reqs[gid] != r.get("description", ""):
+                logger.warning(
+                    "requirement id collision: %r canonicalises to %r, which is "
+                    "already used by another requirement; keeping the first and "
+                    "IGNORING this one. Disambiguate the requirement ids.",
+                    raw, gid)
+                continue
+            reqs[gid] = r.get("description", "")
     return reqs
 
 
@@ -238,12 +285,7 @@ def _req_nodes(case_dir) -> list:
             data = json.loads(p.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
             continue
-        if isinstance(data, list):
-            items = data
-        elif isinstance(data, dict):
-            items = next((v for v in data.values() if isinstance(v, list)), [])
-        else:
-            items = []
+        items = _requirement_items(data, fname)
         for r in items:
             if not isinstance(r, dict):
                 continue

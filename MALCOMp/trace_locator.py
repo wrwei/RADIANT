@@ -38,14 +38,26 @@ def _block_span(text: str, header_start: int) -> tuple[int, int]:
     return line_start, _line_of_offset(text, len(text) - 1)
 
 
-def locate_requirement(text: str, element_id: str) -> tuple[int, int] | None:
-    """Char span (start, end) of element_id within a requirement description."""
+def _word_search(text: str, element_id: str):
+    """First whole-identifier occurrence of `element_id`, or None.
+
+    A bare ``str.find`` matches inside longer identifiers ("dist" inside
+    "ns_rel_dist", "Type" inside "PrimitiveType"), silently yielding a trace
+    span that points at a *different* element. Requiring identifier boundaries
+    means an element that is not present simply does not resolve — which the
+    trace machinery already represents faithfully as ``resolved: False`` —
+    rather than resolving to the wrong place.
+    """
     if not element_id:
         return None
-    idx = text.find(element_id)
-    if idx == -1:
-        return None
-    return idx, idx + len(element_id)
+    m = re.search(rf"(?<![0-9A-Za-z_]){re.escape(element_id)}(?![0-9A-Za-z_])", text)
+    return (m.start(), m.end()) if m else None
+
+
+def locate_requirement(text: str, element_id: str) -> tuple[int, int] | None:
+    """Char span (start, end) of element_id within a requirement description."""
+    span = _word_search(text, element_id)
+    return span if span else None
 
 
 def locate_emfatic_class(text: str, element_id: str) -> tuple[int, int] | None:
@@ -57,13 +69,23 @@ def locate_emfatic_class(text: str, element_id: str) -> tuple[int, int] | None:
 
 
 def locate_eol_element(text: str, element_id: str) -> tuple[int, int] | None:
-    """Line of the first occurrence of element_id in an EOL program."""
+    """Line of `element_id` in an EOL program.
+
+    Prefers the element's declaration (``var <id> = ...``) over any earlier
+    mention, and matches on identifier boundaries so a short id cannot resolve
+    to a longer identifier that contains it.
+    """
     if not element_id:
         return None
-    idx = text.find(element_id)
-    if idx == -1:
+    decl = re.search(
+        rf"(?m)^[ \t]*var\s+{re.escape(element_id)}(?![0-9A-Za-z_])", text)
+    if decl:
+        line = _line_of_offset(text, decl.start())
+        return line, line
+    span = _word_search(text, element_id)
+    if not span:
         return None
-    line = _line_of_offset(text, idx)
+    line = _line_of_offset(text, span[0])
     return line, line
 
 
