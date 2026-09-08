@@ -315,9 +315,16 @@ def run_stage_single_agent_with_repair(
     out_path = run_stage_single_agent(stage_name, config_path, output_dir,
                                       client, config)
 
-    # Reuse Base's stage->gate mapping rather than restating it, so the two
-    # paths cannot drift apart.
-    phase_key = Base._VERIFY_PHASE.get(stage_name)
+    # Base._VERIFY_PHASE is keyed by the PIPELINE's stage names
+    # ("emf_model_creation"), while this module uses the short STAGES keys
+    # ("model") — which are exactly verification.verify's phase tokens. Accept
+    # either, so the arm gates the same stages the pipeline gates without
+    # restating the mapping.
+    phase_key = Base._VERIFY_PHASE.get(stage_name, stage_name)
+    if phase_key not in verification._VERIFIERS:
+        logger.warning("[%s] no verification gate for this stage; "
+                       "generation only, no repair", stage_name)
+        return out_path
     if phase_key is None:
         return out_path
 
@@ -331,17 +338,37 @@ def run_stage_single_agent_with_repair(
     def _verify():
         return verification.verify(
             phase_key, output_dir,
-            malcomj_runner=config.get("malcomj_runner"),
+            malcomj_runner=(verify_cfg.get("malcomj_runner")
+                            or config.get("malcomj_runner")
+                            or os.environ.get("MALCOMJ_RUNNER")),
             requirement_data=None, fdr4_config=fdr4_cfg, strict=strict)
 
+    # The single-agent path writes EITHER a code artefact OR a trace JSON per
+    # stage, never both (see run_stage_single_agent), so a gate check that
+    # inspects the artefact this arm did not produce can never pass here and is
+    # not something regenerating the artefact could fix. Repair is therefore
+    # driven only by failures the arm can actually act on: those naming the
+    # artefact it wrote. The unsatisfiable checks are reported, not silently
+    # dropped, so the arm's gate status stays comparable to the pipeline's.
+    def _actionable(res):
+        return [c for c in res.hard_failures
+                if "missing trace file" not in (c.detail or "")]
+
     result = _verify()
+    unsatisfiable = [c.name for c in result.hard_failures
+                     if c not in _actionable(result)]
+    if unsatisfiable:
+        logger.info("[%s] gate checks not applicable to the single-agent arm "
+                    "(no trace artefact is produced): %s",
+                    stage_name, ", ".join(unsatisfiable))
     for attempt in range(1, max_attempts + 1):
-        if result.passed:
+        actionable = _actionable(result)
+        if not actionable:
             break
         target = output_dir / out_path.name
         if not target.is_file():
             break
-        detail = "\n".join(f"- {c.name}: {c.detail}" for c in result.hard_failures)
+        detail = "\n".join(f"- {c.name}: {c.detail}" for c in actionable)
         if not detail:
             break
         content = target.read_text(encoding="utf-8")

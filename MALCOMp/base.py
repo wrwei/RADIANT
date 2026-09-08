@@ -9,6 +9,8 @@ from datetime import datetime, timezone
 
 import autogen
 import yaml
+
+import llm_keys
 from autogen import ConversableAgent
 from autogen.io import IOStream
 from dotenv import load_dotenv
@@ -142,17 +144,28 @@ class Base:
         return self._config_dir / p
 
     def _validate_env(self):
-        api_type = self.config["model"].get("api_type", "openai")
-        if api_type == "anthropic":
-            if not os.environ.get("ANTHROPIC_API_KEY"):
+        """Check that the active model's key is present.
+
+        The key is resolved through llm_keys.resolve_api_key, which reads the
+        env var named by the model's own ``api_key_env`` (falling back to
+        OPENAI_API_KEY). Checking OPENAI_API_KEY directly would reject a fully
+        configured model whose key lives elsewhere — e.g. a `models:` entry
+        declaring api_key_env: DEEPSEEK_API_KEY — even though generation would
+        then have succeeded.
+        """
+        model_cfg = self.config["model"]
+        if model_cfg.get("api_type", "openai") == "anthropic":
+            if not os.environ.get(
+                    model_cfg.get("api_key_env", "ANTHROPIC_API_KEY")):
                 raise EnvironmentError(
-                    "ANTHROPIC_API_KEY not set. Add it to your .env file."
+                    f"{model_cfg.get('api_key_env', 'ANTHROPIC_API_KEY')} not "
+                    "set. Add it to your .env file."
                 )
-        else:
-            if not os.environ.get("OPENAI_API_KEY"):
-                raise EnvironmentError(
-                    "OPENAI_API_KEY not set. Add it to your .env file."
-                )
+            return
+        try:
+            llm_keys.resolve_api_key(model_cfg)
+        except Exception as ex:
+            raise EnvironmentError(str(ex)) from ex
 
     @staticmethod
     def _load_config(config_path):
@@ -490,7 +503,14 @@ class Base:
         phase_key = self._VERIFY_PHASE.get(self.stage_name)
         if phase_key is None:
             return
-        runner = getattr(self, "malcomj_runner", None)
+        # The runner may be set on the instance (tests) or, normally, declared
+        # in config under verification.malcomj_runner / malcomj_runner. Reading
+        # only the instance attribute meant a configured runner was ignored and
+        # eol_executes reported UNVERIFIED even on a machine that had it built.
+        runner = (getattr(self, "malcomj_runner", None)
+                  or (self.config.get("verification", {}) or {}).get("malcomj_runner")
+                  or self.config.get("malcomj_runner")
+                  or os.environ.get("MALCOMJ_RUNNER"))
         self.verification_result = verification.verify(
             phase_key, self.output_dir,
             malcomj_runner=runner,

@@ -45,8 +45,19 @@ class EMFModelCreation(Base):
         self.max_repair_attempts = int(repair_cfg.get("max_attempts", 2))
         self.execution_timeout_seconds = int(repair_cfg.get("timeout_seconds", 60))
         repo_root = Path(__file__).resolve().parents[2]
-        default_runner = repo_root / "MALCOMj" / "build" / "install" / "MALCOMj" / "bin" / "MALCOMj.bat"
-        self.malcomj_runner = Path(repair_cfg.get("runner", str(default_runner)))
+        # `gradle installDist` produces both a POSIX launcher (MALCOMj) and a
+        # Windows one (MALCOMj.bat). Defaulting to the .bat made the EOL
+        # execution check unrunnable off Windows — it degraded to a soft warn
+        # and the phase was accepted with no execution having been attempted.
+        # Prefer an explicit setting, then the env var, then whichever launcher
+        # this platform can actually run.
+        install_bin = repo_root / "MALCOMj" / "build" / "install" / "MALCOMj" / "bin"
+        configured = repair_cfg.get("runner") or os.environ.get("MALCOMJ_RUNNER")
+        if configured:
+            self.malcomj_runner = Path(configured)
+        else:
+            posix, windows = install_bin / "MALCOMj", install_bin / "MALCOMj.bat"
+            self.malcomj_runner = windows if os.name == "nt" else posix
         self.dsl_source_path = self.resolve_asset("dsl_source")
         knowledge_file = repair_cfg.get("knowledge_file", "model/eol_repair_knowledge.md")
         self.repair_knowledge_path = self.find_asset(knowledge_file)
