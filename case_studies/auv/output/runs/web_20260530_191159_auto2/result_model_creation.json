@@ -7,7 +7,13 @@
             "Model_attribute": "name",
             "Attribute_value": "AUV_Module",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD2",
@@ -16,7 +22,13 @@
             "Model_attribute": "name",
             "Attribute_value": "AUV_Module",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD2",
@@ -25,7 +37,13 @@
             "Model_attribute": "name",
             "Attribute_value": "AUV_Platform",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 38,
+                "line_end": 38,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD2",
@@ -34,7 +52,13 @@
             "Model_attribute": "name",
             "Attribute_value": "Sensors",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 7,
+                "line_end": 7,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD2",
@@ -43,7 +67,13 @@
             "Model_attribute": "name",
             "Attribute_value": "Actuators",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 13,
+                "line_end": 13,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD2",
@@ -52,7 +82,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "roboticPlatform",
-            "Reference_value": "AUV_Platform"
+            "Reference_value": "AUV_Platform",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD2",
@@ -61,7 +97,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "interfaces",
-            "Reference_value": "Sensors"
+            "Reference_value": "Sensors",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD2",
@@ -70,7 +112,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "interfaces",
-            "Reference_value": "Actuators"
+            "Reference_value": "Actuators",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD2",
@@ -79,7 +127,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "usedInterfaces",
-            "Reference_value": "Sensors"
+            "Reference_value": "Sensors",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 38,
+                "line_end": 38,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD2",
@@ -88,7 +142,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "usedInterfaces",
-            "Reference_value": "Actuators"
+            "Reference_value": "Actuators",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 38,
+                "line_end": 38,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD3",
@@ -97,7 +157,13 @@
             "Model_attribute": "name",
             "Attribute_value": "Inputs",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 19,
+                "line_end": 19,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD3",
@@ -106,7 +172,13 @@
             "Model_attribute": "name",
             "Attribute_value": "AUV_Operator",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 51,
+                "line_end": 51,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD3",
@@ -115,7 +187,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "controllers",
-            "Reference_value": "AUV_Operator"
+            "Reference_value": "AUV_Operator",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD3",
@@ -124,7 +202,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "interfaces",
-            "Reference_value": "Inputs"
+            "Reference_value": "Inputs",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD3",
@@ -133,7 +217,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "usedInterfaces",
-            "Reference_value": "Inputs"
+            "Reference_value": "Inputs",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 51,
+                "line_end": 51,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD4",
@@ -142,7 +232,13 @@
             "Model_attribute": "name",
             "Attribute_value": "Outputs",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 25,
+                "line_end": 25,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD4",
@@ -151,7 +247,13 @@
             "Model_attribute": "name",
             "Attribute_value": "LRE_Ctrl",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 61,
+                "line_end": 61,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD4",
@@ -160,7 +262,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "controllers",
-            "Reference_value": "LRE_Ctrl"
+            "Reference_value": "LRE_Ctrl",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD4",
@@ -169,7 +277,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "interfaces",
-            "Reference_value": "Outputs"
+            "Reference_value": "Outputs",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD4",
@@ -178,7 +292,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "usedInterfaces",
-            "Reference_value": "Inputs"
+            "Reference_value": "Inputs",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 61,
+                "line_end": 61,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD4",
@@ -187,7 +307,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "usedInterfaces",
-            "Reference_value": "Outputs"
+            "Reference_value": "Outputs",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 61,
+                "line_end": 61,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD5",
@@ -196,7 +322,13 @@
             "Model_attribute": "name",
             "Attribute_value": "AUV_Autopilot",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 74,
+                "line_end": 74,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD5",
@@ -205,7 +337,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "controllers",
-            "Reference_value": "AUV_Autopilot"
+            "Reference_value": "AUV_Autopilot",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD5",
@@ -214,7 +352,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "usedInterfaces",
-            "Reference_value": "Outputs"
+            "Reference_value": "Outputs",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 74,
+                "line_end": 74,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "PT1",
@@ -223,7 +367,13 @@
             "Model_attribute": "name",
             "Attribute_value": "nat",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 84,
+                "line_end": 84,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "PT1",
@@ -232,7 +382,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "primitiveTypes",
-            "Reference_value": "nat"
+            "Reference_value": "nat",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "PT2",
@@ -241,7 +397,13 @@
             "Model_attribute": "name",
             "Attribute_value": "int",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 90,
+                "line_end": 90,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "PT2",
@@ -250,7 +412,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "primitiveTypes",
-            "Reference_value": "int"
+            "Reference_value": "int",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "PT3",
@@ -259,7 +427,13 @@
             "Model_attribute": "name",
             "Attribute_value": "string",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 96,
+                "line_end": 96,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "PT3",
@@ -268,7 +442,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "primitiveTypes",
-            "Reference_value": "string"
+            "Reference_value": "string",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "PT4",
@@ -277,7 +457,13 @@
             "Model_attribute": "name",
             "Attribute_value": "boolean",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 102,
+                "line_end": 102,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "PT4",
@@ -286,7 +472,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "primitiveTypes",
-            "Reference_value": "boolean"
+            "Reference_value": "boolean",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "PT5",
@@ -295,7 +487,13 @@
             "Model_attribute": "name",
             "Attribute_value": "real",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 108,
+                "line_end": 108,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "PT5",
@@ -304,7 +502,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "primitiveTypes",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT1",
@@ -313,7 +517,13 @@
             "Model_attribute": "name",
             "Attribute_value": "SVec",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 115,
+                "line_end": 115,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT1",
@@ -322,7 +532,13 @@
             "Model_attribute": "name",
             "Attribute_value": "radial",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 121,
+                "line_end": 121,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT1",
@@ -331,7 +547,13 @@
             "Model_attribute": "name",
             "Attribute_value": "polar",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 128,
+                "line_end": 128,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT1",
@@ -340,7 +562,13 @@
             "Model_attribute": "name",
             "Attribute_value": "azimuth",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 135,
+                "line_end": 135,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT1",
@@ -349,7 +577,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "compositeTypes",
-            "Reference_value": "SVec"
+            "Reference_value": "SVec",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT1",
@@ -358,7 +592,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "values",
-            "Reference_value": "radial"
+            "Reference_value": "radial",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 115,
+                "line_end": 115,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT1",
@@ -367,7 +607,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "values",
-            "Reference_value": "polar"
+            "Reference_value": "polar",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 115,
+                "line_end": 115,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT1",
@@ -376,7 +622,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "values",
-            "Reference_value": "azimuth"
+            "Reference_value": "azimuth",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 115,
+                "line_end": 115,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT1",
@@ -385,7 +637,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 121,
+                "line_end": 121,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT1",
@@ -394,7 +652,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 128,
+                "line_end": 128,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT1",
@@ -403,7 +667,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 135,
+                "line_end": 135,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -412,7 +682,13 @@
             "Model_attribute": "name",
             "Attribute_value": "Obstacle",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 143,
+                "line_end": 143,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -421,7 +697,13 @@
             "Model_attribute": "name",
             "Attribute_value": "ns_rel_dist",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 149,
+                "line_end": 149,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -430,7 +712,13 @@
             "Model_attribute": "name",
             "Attribute_value": "ew_rel_dist",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 156,
+                "line_end": 156,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -439,7 +727,13 @@
             "Model_attribute": "name",
             "Attribute_value": "depth",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 163,
+                "line_end": 163,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -448,7 +742,13 @@
             "Model_attribute": "name",
             "Attribute_value": "id",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 170,
+                "line_end": 170,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -457,7 +757,13 @@
             "Model_attribute": "name",
             "Attribute_value": "obs_hdng",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 177,
+                "line_end": 177,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -466,7 +772,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "compositeTypes",
-            "Reference_value": "Obstacle"
+            "Reference_value": "Obstacle",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -475,7 +787,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "values",
-            "Reference_value": "ns_rel_dist"
+            "Reference_value": "ns_rel_dist",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 143,
+                "line_end": 143,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -484,7 +802,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "values",
-            "Reference_value": "ew_rel_dist"
+            "Reference_value": "ew_rel_dist",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 143,
+                "line_end": 143,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -493,7 +817,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "values",
-            "Reference_value": "depth"
+            "Reference_value": "depth",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 143,
+                "line_end": 143,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -502,7 +832,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "values",
-            "Reference_value": "id"
+            "Reference_value": "id",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 143,
+                "line_end": 143,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -511,7 +847,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "values",
-            "Reference_value": "obs_hdng"
+            "Reference_value": "obs_hdng",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 143,
+                "line_end": 143,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -520,7 +862,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 149,
+                "line_end": 149,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -529,7 +877,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 156,
+                "line_end": 156,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -538,7 +892,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 163,
+                "line_end": 163,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -547,7 +907,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 170,
+                "line_end": 170,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -556,7 +922,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "SVec"
+            "Reference_value": "SVec",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 177,
+                "line_end": 177,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface1",
@@ -565,7 +937,13 @@
             "Model_attribute": "name",
             "Attribute_value": "Sensors",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 7,
+                "line_end": 7,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface1",
@@ -574,7 +952,13 @@
             "Model_attribute": "name",
             "Attribute_value": "depth",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 163,
+                "line_end": 163,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface1",
@@ -583,7 +967,13 @@
             "Model_attribute": "name",
             "Attribute_value": "hdng",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 220,
+                "line_end": 220,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface1",
@@ -592,7 +982,13 @@
             "Model_attribute": "name",
             "Attribute_value": "obs",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 227,
+                "line_end": 227,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface1",
@@ -601,7 +997,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "values",
-            "Reference_value": "depth"
+            "Reference_value": "depth",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 7,
+                "line_end": 7,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface1",
@@ -610,7 +1012,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "values",
-            "Reference_value": "hdng"
+            "Reference_value": "hdng",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 7,
+                "line_end": 7,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface1",
@@ -619,7 +1027,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "values",
-            "Reference_value": "obs"
+            "Reference_value": "obs",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 7,
+                "line_end": 7,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface1",
@@ -628,7 +1042,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 163,
+                "line_end": 163,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface1",
@@ -637,7 +1057,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "SVec"
+            "Reference_value": "SVec",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 220,
+                "line_end": 220,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface1",
@@ -646,7 +1072,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "Obstacle"
+            "Reference_value": "Obstacle",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 227,
+                "line_end": 227,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -655,7 +1087,13 @@
             "Model_attribute": "name",
             "Attribute_value": "Intpus",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 31,
+                "line_end": 31,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -664,7 +1102,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "interfaces",
-            "Reference_value": "Intpus"
+            "Reference_value": "Intpus",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -673,7 +1117,13 @@
             "Model_attribute": "name",
             "Attribute_value": "endTask",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 235,
+                "line_end": 235,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -682,7 +1132,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "events",
-            "Reference_value": "endTask"
+            "Reference_value": "endTask",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 31,
+                "line_end": 31,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -691,7 +1147,13 @@
             "Model_attribute": "name",
             "Attribute_value": "reqOCM",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 241,
+                "line_end": 241,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -700,7 +1162,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "events",
-            "Reference_value": "reqOCM"
+            "Reference_value": "reqOCM",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 31,
+                "line_end": 31,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -709,7 +1177,13 @@
             "Model_attribute": "name",
             "Attribute_value": "reqMOM",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 247,
+                "line_end": 247,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -718,7 +1192,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "events",
-            "Reference_value": "reqMOM"
+            "Reference_value": "reqMOM",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 31,
+                "line_end": 31,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -727,7 +1207,13 @@
             "Model_attribute": "name",
             "Attribute_value": "reqHCM",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 253,
+                "line_end": 253,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -736,7 +1222,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "events",
-            "Reference_value": "reqHCM"
+            "Reference_value": "reqHCM",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 31,
+                "line_end": 31,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -745,7 +1237,13 @@
             "Model_attribute": "name",
             "Attribute_value": "reqVel",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 259,
+                "line_end": 259,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -754,7 +1252,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "events",
-            "Reference_value": "reqVel"
+            "Reference_value": "reqVel",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 31,
+                "line_end": 31,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -763,7 +1267,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "returnType",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 259,
+                "line_end": 259,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -772,7 +1282,13 @@
             "Model_attribute": "name",
             "Attribute_value": "reqHdng",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 266,
+                "line_end": 266,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -781,7 +1297,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "events",
-            "Reference_value": "reqHdng"
+            "Reference_value": "reqHdng",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 31,
+                "line_end": 31,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -790,7 +1312,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "returnType",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 266,
+                "line_end": 266,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface3",
@@ -799,7 +1327,13 @@
             "Model_attribute": "name",
             "Attribute_value": "Outputs",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 25,
+                "line_end": 25,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface3",
@@ -808,7 +1342,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "interfaces",
-            "Reference_value": "Outputs"
+            "Reference_value": "Outputs",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface3",
@@ -817,7 +1357,13 @@
             "Model_attribute": "name",
             "Attribute_value": "advVel",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 274,
+                "line_end": 274,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface3",
@@ -826,7 +1372,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "events",
-            "Reference_value": "advVel"
+            "Reference_value": "advVel",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 25,
+                "line_end": 25,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface3",
@@ -835,7 +1387,13 @@
             "Model_attribute": "name",
             "Attribute_value": "velocity",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 282,
+                "line_end": 282,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface3",
@@ -844,7 +1402,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "parameters",
-            "Reference_value": "velocity"
+            "Reference_value": "velocity",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 274,
+                "line_end": 274,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface3",
@@ -853,7 +1417,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 282,
+                "line_end": 282,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface3",
@@ -862,7 +1432,13 @@
             "Model_attribute": "name",
             "Attribute_value": "advHdng",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 286,
+                "line_end": 286,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface3",
@@ -871,7 +1447,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "events",
-            "Reference_value": "advHdng"
+            "Reference_value": "advHdng",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 25,
+                "line_end": 25,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface3",
@@ -880,7 +1462,13 @@
             "Model_attribute": "name",
             "Attribute_value": "heading",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 294,
+                "line_end": 294,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface3",
@@ -889,7 +1477,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "parameters",
-            "Reference_value": "heading"
+            "Reference_value": "heading",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 286,
+                "line_end": 286,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface3",
@@ -898,7 +1492,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 294,
+                "line_end": 294,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface4",
@@ -907,7 +1507,13 @@
             "Model_attribute": "name",
             "Attribute_value": "Actuators",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 13,
+                "line_end": 13,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface4",
@@ -916,7 +1522,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "interfaces",
-            "Reference_value": "Actuators"
+            "Reference_value": "Actuators",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CF3",
@@ -925,7 +1537,13 @@
             "Model_attribute": "name",
             "Attribute_value": "Close",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 185,
+                "line_end": 185,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CF3",
@@ -934,7 +1552,13 @@
             "Model_attribute": "name",
             "Attribute_value": "horiz_cda",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 191,
+                "line_end": 191,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CF3",
@@ -943,7 +1567,13 @@
             "Model_attribute": "name",
             "Attribute_value": "vert_cda",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 198,
+                "line_end": 198,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CF3",
@@ -952,7 +1582,13 @@
             "Model_attribute": "name",
             "Attribute_value": "id",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 170,
+                "line_end": 170,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CF3",
@@ -961,7 +1597,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "compositeTypes",
-            "Reference_value": "Close"
+            "Reference_value": "Close",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CF3",
@@ -970,7 +1612,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "values",
-            "Reference_value": "horiz_cda"
+            "Reference_value": "horiz_cda",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 185,
+                "line_end": 185,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CF3",
@@ -979,7 +1627,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "values",
-            "Reference_value": "vert_cda"
+            "Reference_value": "vert_cda",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 185,
+                "line_end": 185,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CF3",
@@ -988,7 +1642,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "values",
-            "Reference_value": "id"
+            "Reference_value": "id",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 185,
+                "line_end": 185,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CF3",
@@ -997,7 +1657,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 191,
+                "line_end": 191,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CF3",
@@ -1006,7 +1672,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 198,
+                "line_end": 198,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CF3",
@@ -1015,7 +1687,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "nat"
+            "Reference_value": "nat",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 170,
+                "line_end": 170,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F1",
@@ -1024,7 +1702,13 @@
             "Model_attribute": "name",
             "Attribute_value": "odist",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 299,
+                "line_end": 299,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F1",
@@ -1033,7 +1717,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "functions",
-            "Reference_value": "odist"
+            "Reference_value": "odist",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F1",
@@ -1042,7 +1732,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "returnType",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 299,
+                "line_end": 299,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F1",
@@ -1051,7 +1747,13 @@
             "Model_attribute": "name",
             "Attribute_value": "obstacle",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 143,
+                "line_end": 143,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F1",
@@ -1060,7 +1762,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "Obstacle"
+            "Reference_value": "Obstacle",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 143,
+                "line_end": 143,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F1",
@@ -1069,7 +1777,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "parameters",
-            "Reference_value": "obstacle"
+            "Reference_value": "obstacle",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 299,
+                "line_end": 299,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F2",
@@ -1078,7 +1792,13 @@
             "Model_attribute": "name",
             "Attribute_value": "hdist",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 313,
+                "line_end": 313,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F2",
@@ -1087,7 +1807,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "functions",
-            "Reference_value": "hdist"
+            "Reference_value": "hdist",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F2",
@@ -1096,7 +1822,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "returnType",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 313,
+                "line_end": 313,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F2",
@@ -1105,7 +1837,13 @@
             "Model_attribute": "name",
             "Attribute_value": "obstacle",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 143,
+                "line_end": 143,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F2",
@@ -1114,7 +1852,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "Obstacle"
+            "Reference_value": "Obstacle",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 143,
+                "line_end": 143,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F2",
@@ -1123,7 +1867,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "parameters",
-            "Reference_value": "obstacle"
+            "Reference_value": "obstacle",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 313,
+                "line_end": 313,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F3",
@@ -1132,7 +1882,13 @@
             "Model_attribute": "name",
             "Attribute_value": "vdist",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 327,
+                "line_end": 327,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F3",
@@ -1141,7 +1897,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "functions",
-            "Reference_value": "vdist"
+            "Reference_value": "vdist",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F3",
@@ -1150,7 +1912,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "returnType",
-            "Reference_value": "real"
+            "Reference_value": "real",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 327,
+                "line_end": 327,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F3",
@@ -1159,7 +1927,13 @@
             "Model_attribute": "name",
             "Attribute_value": "obstacle",
             "Model_reference": null,
-            "Reference_value": null
+            "Reference_value": null,
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 143,
+                "line_end": 143,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F3",
@@ -1168,7 +1942,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "type",
-            "Reference_value": "Obstacle"
+            "Reference_value": "Obstacle",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 143,
+                "line_end": 143,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F3",
@@ -1177,7 +1957,13 @@
             "Model_attribute": null,
             "Attribute_value": null,
             "Model_reference": "parameters",
-            "Reference_value": "obstacle"
+            "Reference_value": "obstacle",
+            "source": {
+                "file": "result_eol_program.eol",
+                "line_start": 327,
+                "line_end": 327,
+                "resolved": true
+            }
         }
     ]
 }

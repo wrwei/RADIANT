@@ -14,7 +14,13 @@
                 "interfaces",
                 "functions"
             ],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 46,
+                "line_end": 53,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD2",
@@ -25,7 +31,13 @@
             "Emfatic_references": [
                 "usedInterfaces"
             ],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 42,
+                "line_end": 42,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD3",
@@ -36,7 +48,13 @@
             "Emfatic_references": [
                 "usedInterfaces"
             ],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 44,
+                "line_end": 44,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD4",
@@ -47,7 +65,13 @@
             "Emfatic_references": [
                 "usedInterfaces"
             ],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 44,
+                "line_end": 44,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "SD5",
@@ -58,7 +82,13 @@
             "Emfatic_references": [
                 "usedInterfaces"
             ],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 44,
+                "line_end": 44,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "PT1",
@@ -67,7 +97,13 @@
                 "name"
             ],
             "Emfatic_references": [],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 23,
+                "line_end": 23,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "PT2",
@@ -76,7 +112,13 @@
                 "name"
             ],
             "Emfatic_references": [],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 23,
+                "line_end": 23,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "PT3",
@@ -85,7 +127,13 @@
                 "name"
             ],
             "Emfatic_references": [],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 23,
+                "line_end": 23,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "PT4",
@@ -94,7 +142,13 @@
                 "name"
             ],
             "Emfatic_references": [],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 23,
+                "line_end": 23,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "PT5",
@@ -103,7 +157,13 @@
                 "name"
             ],
             "Emfatic_references": [],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 23,
+                "line_end": 23,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT1",
@@ -114,7 +174,13 @@
             "Emfatic_references": [
                 "fields"
             ],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 25,
+                "line_end": 27,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CT2",
@@ -125,7 +191,13 @@
             "Emfatic_references": [
                 "fields"
             ],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 25,
+                "line_end": 27,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface1",
@@ -137,7 +209,13 @@
                 "values",
                 "events"
             ],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 37,
+                "line_end": 40,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface2",
@@ -149,7 +227,13 @@
                 "values",
                 "events"
             ],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 37,
+                "line_end": 40,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface3",
@@ -161,7 +245,13 @@
                 "values",
                 "events"
             ],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 37,
+                "line_end": 40,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Interface4",
@@ -173,7 +263,13 @@
                 "values",
                 "events"
             ],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 37,
+                "line_end": 40,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "CF3",
@@ -184,7 +280,13 @@
             "Emfatic_references": [
                 "fields"
             ],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 25,
+                "line_end": 27,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F1",
@@ -196,7 +298,13 @@
                 "parameters",
                 "returnType"
             ],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 35,
+                "line_end": 35,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F2",
@@ -208,7 +316,13 @@
                 "parameters",
                 "returnType"
             ],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 35,
+                "line_end": 35,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "Platform-F3",
@@ -220,7 +334,13 @@
                 "parameters",
                 "returnType"
             ],
-            "Emfatic_operations": []
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_DSL.emf",
+                "line_start": 35,
+                "line_end": 35,
+                "resolved": true
+            }
         }
     ]
 }

@@ -4,109 +4,217 @@
             "requirement_gid": "LRE-Beh1",
             "source_state": "i0",
             "end_state": "OCM",
-            "transition": "t0"
+            "transition": "t0",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 35,
+                "line_end": 38,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh2",
             "source_state": "OCM",
             "end_state": "OCM",
-            "transition": "t1"
+            "transition": "t1",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 39,
+                "line_end": 45,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh3",
             "source_state": "OCM",
             "end_state": "OCM",
-            "transition": "t2"
+            "transition": "t2",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 46,
+                "line_end": 52,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh4",
             "source_state": "OCM",
             "end_state": "MOM",
-            "transition": "t3"
+            "transition": "t3",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 53,
+                "line_end": 59,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh5",
             "source_state": "MOM",
             "end_state": "OCM",
-            "transition": "t4"
+            "transition": "t4",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 60,
+                "line_end": 64,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh6",
             "source_state": "MOM",
             "end_state": "OCM",
-            "transition": "t5"
+            "transition": "t5",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 65,
+                "line_end": 70,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh7",
             "source_state": "MOM",
             "end_state": "OCM",
-            "transition": "t6"
+            "transition": "t6",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 71,
+                "line_end": 77,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh8",
             "source_state": "MOM",
             "end_state": "CAM",
-            "transition": "t7"
+            "transition": "t7",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 78,
+                "line_end": 82,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh9",
             "source_state": "MOM",
             "end_state": "HCM",
-            "transition": "t8"
+            "transition": "t8",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 83,
+                "line_end": 87,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh10",
             "source_state": "MOM",
             "end_state": "HCM",
-            "transition": "t9"
+            "transition": "t9",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 88,
+                "line_end": 92,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh11",
             "source_state": "MOM",
             "end_state": "HCM",
-            "transition": "t10"
+            "transition": "t10",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 93,
+                "line_end": 97,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh12",
             "source_state": "MOM",
             "end_state": "HCM",
-            "transition": "t11"
+            "transition": "t11",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 98,
+                "line_end": 103,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh13",
             "source_state": "HCM",
             "end_state": "MOM",
-            "transition": "t12"
+            "transition": "t12",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 104,
+                "line_end": 108,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh14",
             "source_state": "HCM",
             "end_state": "CAM",
-            "transition": "t13"
+            "transition": "t13",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 109,
+                "line_end": 113,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh15",
             "source_state": "HCM",
             "end_state": "OCM",
-            "transition": "t14"
+            "transition": "t14",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 114,
+                "line_end": 119,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh16",
             "source_state": "HCM",
             "end_state": "OCM",
-            "transition": "t15"
+            "transition": "t15",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 120,
+                "line_end": 124,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh17",
             "source_state": "CAM",
             "end_state": "OCM",
-            "transition": "t16"
+            "transition": "t16",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 125,
+                "line_end": 130,
+                "resolved": true
+            }
         },
         {
             "requirement_gid": "LRE-Beh18",
             "source_state": "CAM",
             "end_state": "OCM",
-            "transition": "t17"
+            "transition": "t17",
+            "source": {
+                "file": "STM.txt",
+                "line_start": 131,
+                "line_end": 135,
+                "resolved": true
+            }
         }
     ]
 }

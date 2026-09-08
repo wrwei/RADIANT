@@ -38,3 +38,8 @@ malcom.evaluation/metrics/*/result/
 
 # Eclipse build output
 bin/
+
+# scratch artefact written by the Emfatic gate during verification
+*.verify.ecore
+*.verify.model
+*.verify.accepted.model
