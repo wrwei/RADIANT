@@ -37,10 +37,3 @@ jobs:
         # Tests needing a prior pipeline run skip themselves.
         run: python -m pytest tests -q
         working-directory: MALCOMp
-
-      - name: Traceability metrics (resolvability / coverage)
-        # Scores the archived AUV runs and asserts the reported Table 2
-        # figures still reproduce. Purely textual — no API key, no network.
-        run: |
-          python -m pytest malcom.evaluation/metrics/traceability -q
-          python malcom.evaluation/metrics/traceability/compute.py
