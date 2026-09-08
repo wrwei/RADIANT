@@ -1,6 +1,23 @@
-pyautogen>=0.2
+# Runtime dependencies for the MALCOMp pipeline.
+#
+# NOTE on the AutoGen dependency: the pipeline uses the classic `autogen` API
+# (ConversableAgent, GroupChat, GroupChatManager, gather_usage_summary,
+# autogen.io.IOStream). That API is published as `ag2`; the `pyautogen`
+# distribution no longer provides an importable `autogen` module on current
+# releases (it installs a `pyautogen` package instead), so an unpinned
+# `pyautogen>=0.2` install breaks every phase at import time. Pin `ag2`.
+ag2>=0.9,<1.0
 python-dotenv>=1.0
 pyyaml>=6.0
+
+# LLM clients used by the single-pass baseline (run_single_agent.py).
+openai>=1.0
+anthropic>=0.34
+
+# Cross-process lock guarding concurrent FDR4 (refines) invocations (fdr4.py).
+filelock>=3.12
+
+# Web UI (MALCOM-web) — imported by the FastAPI bridge, not by the pipeline.
 fastapi>=0.100
 uvicorn[standard]>=0.20
 websockets>=11.0
