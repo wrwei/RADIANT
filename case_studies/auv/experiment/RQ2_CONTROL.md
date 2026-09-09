@@ -17,11 +17,18 @@ Pass/fail is recomputed from each artefact by
 
 ## Result
 
-| arm | `eol_executes` | pass rate | runs repaired | total tokens (mean) |
+| arm | `eol_executes` | pass rate | runs with recorded repair | total tokens (mean) |
 |---|---|---:|---:|---:|
-| `single` | 0/10 | 0.00 | 0 | 14,809 |
+| `single` | 0/10 | 0.00 | 0 (no repair path) | 14,809 |
 | `single_repair` | **8/10** | **0.80** | 10 | 47,853 |
-| `multi` | 6/10 | 0.60 | 10 | 76,615 |
+| `multi` | 6/10 | 0.60 | not separable — see caveat 4 | 76,615 |
+
+The repair column counts runs with a separately recorded `<stage>_repair` token entry.
+The multi arm has none: its AutoGen usage summary folds the repair agent into one
+figure, so **no per-run repair count is derivable for it** from the recorded data. Its
+repair loop did run — the sweep log shows repair-agent activity throughout — but the
+number of runs that invoked it is not recoverable, and is left unstated rather than
+inferred.
 
 | contrast | isolates | | Fisher exact |
 |---|---|---|---:|
