@@ -278,12 +278,42 @@ def run_stage_single_agent(
             json.dumps({spec["json_tag"]: payload}, indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
+        if stage_name == "concept":
+            _write_concept_model(output_dir, payload)
     else:
         out_path = output_dir / spec["code_filename"]
         out_path.write_text(_strip_fences(raw), encoding="utf-8")
 
     logger.info("[%s] wrote %s (%d chars)", stage_name, out_path, len(raw))
     return out_path
+
+
+def _write_concept_model(output_dir: Path, entries: list) -> None:
+    """Derive phase 2's concept-model artefact from its trace entries.
+
+    Phases 3-5 load `result_concept_model.json` as a prompt asset, so without
+    it the single-agent variants cannot run a full cascade — they would stop
+    after concept extraction. The multi-agent path writes it via
+    ConceptExtraction._store_concept_model; that method is a DETERMINISTIC
+    deduplication of the trace entries with no model call, so producing it here
+    is not importing a multi-agent advantage into the baseline — it is giving
+    the baseline the same mechanical derivation.
+
+    Calls the phase method itself rather than reimplementing the dedup, so the
+    two paths cannot drift apart.
+    """
+    from phases.concept import ConceptExtraction
+
+    class _Shim:
+        def __init__(self, out: Path):
+            self.output_dir = out
+            self.stage_config = {
+                "output": {"code_file": "result_concept_model.json"}}
+
+        def _record_artifact(self, path):
+            pass
+
+    ConceptExtraction._store_concept_model(_Shim(Path(output_dir)), entries)
 
 
 def run_stage_single_agent_with_repair(
