@@ -22,18 +22,34 @@ generation is held fixed and only the repair budget differs:
 
 | repair cap | executes | repair candidates (mean/run) |
 |---|---:|---:|
-| 2 (shipped) | 3/10 | 3.0 |
-| 6 (diagnostic) | **8/10** | **4.9** |
+| 2 (shipped) | 3/10 | 3.0 (= 2.0 repairs) |
+| 6 (diagnostic) | **8/10** | **4.9** (= 3.9 repairs) |
 
 Fisher exact p = 0.070 on the pass rates (n=10 per arm; the effect is large but at this
 sample size not conventionally significant).
 
-The decisive number is the repair count. `FINDINGS.md` records the original sweep's
-gate-triggered repairs as **"model/EOL 48"** across 10 multi runs — a mean of 4.8. My
-cap-6 run produced **49** candidates, mean 4.9. My cap-2 run produced 30, which is
-exactly what a cap of 2 forces (initial attempt plus two repairs, times 10 runs). **The
-published run cannot have been produced under the shipped cap of 2** — 48 repairs across
-10 runs is arithmetically impossible when the ceiling is 2 per run.
+The decisive argument is the repair count, and it is an impossibility argument rather
+than a match. `FINDINGS.md` records the original sweep's gate-triggered repairs as
+**"model/EOL 48"** across 10 multi runs. Counting the recorded attempt artefacts (each
+run writes `eol_execution_attempts/candidate_NNN.eol`, so repairs = candidates − 1):
+
+| cap | candidates | **repairs** | runs hitting the cap |
+|---|---:|---:|---:|
+| 2 (shipped) | 30 | **20** | 10/10 |
+| 6 (diagnostic) | 49 | **39** | 0/10 |
+
+**Under a ceiling of 2, ten runs can perform at most 20 repairs. The recorded figure is
+48. The published run therefore cannot have been produced with the shipped config** —
+this is arithmetic, not inference, and it is the load-bearing claim here.
+
+Cap 6 yields 39 repairs, the same regime as the recorded 48 but not identical. No cap-6
+run exhausted its budget (the most any run used was 5), so raising the cap further would
+not close the residual gap; that difference is attributable to run-to-run variation and
+possibly to model drift since May 2026, neither of which this experiment isolates.
+
+*(An earlier version of this note compared 49 candidates against 48 repairs and claimed
+they matched. They are different quantities — 49 candidates is 39 repairs — and the
+comparison was wrong. The impossibility argument above does not depend on it.)*
 
 ## What this means
 

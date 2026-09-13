@@ -127,7 +127,19 @@ stages:
     max_rounds: 1000
     execution_repair:
       enabled: true
-      max_attempts: 2
+      # Was 2, which does NOT reproduce the reported results. Under a ceiling
+      # of 2, ten runs can perform at most 20 repairs, but the recorded sweep
+      # (case_studies/auv/experiment/FINDINGS.md) logged 48 model/EOL repairs
+      # across 10 multi runs — so the published figures were not produced with
+      # a cap of 2. With the cap at 2 every run exhausted its budget still
+      # failing and construction execution scored 3/10 against the published
+      # 10/10; raising the cap recovers 8/10.
+      # See case_studies/auv/experiment/TABLE1_DISCREPANCY.md.
+      #
+      # Set to 5 to agree with the global verification.max_repair_attempts, so
+      # the single-agent and multi-agent paths receive the SAME repair budget
+      # and RQ2 comparisons between them are budget-matched.
+      max_attempts: 5
       timeout_seconds: 60
       knowledge_file: "model/eol_repair_knowledge.md"
     asset_files:
