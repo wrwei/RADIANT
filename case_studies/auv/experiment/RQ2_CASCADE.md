@@ -34,12 +34,17 @@ Pass/fail is recomputed from each artefact by
 > budget-matched**: `single_repair` used the global `verification.max_repair_attempts: 5`,
 > while `multi` was capped at 2 by the per-stage
 > `emf_model_creation.execution_repair.max_attempts`. All 10 multi runs exhausted that
-> cap. Raising it to 6 — generation held fixed — moves multi from 3/10 to **8/10**, at or
-> above `single_repair`'s 7/10. **The "decomposition adds nothing" reading below is
-> therefore not supported by matched evidence and should not be cited.** What survives
-> unaffected: `single` is 0/10 under every configuration (it has no repair path), and only
-> the multi arm emits trace models (10/10 vs 0/10). A budget-matched re-run is the
-> outstanding experiment.
+> cap. A budget-matched head-to-head has since been run (`rq2_matched`, both arms at a
+> non-binding cap of 5): **multi 4/10 vs `single_repair` 6/10, Fisher p = 0.66 — the arms
+> are statistically indistinguishable.** **The "decomposition adds nothing" reading below
+> is therefore NOT supported and should not be cited**; nor is the opposite. Variance at
+> this phase is large enough that n=10 cannot separate them (two non-binding blocks of the
+> multi arm alone returned 4/10 and 8/10).
+>
+> What survives unaffected: `single` is 0/10 under every configuration tested (it has no
+> repair path at all), so repair-drives-validity holds; and only the multi arm emits trace
+> models, 10/10 vs 0/10, which is independent of repair budget and remains the strongest
+> argument for the multi-agent design.
 
 ## What this shows
 

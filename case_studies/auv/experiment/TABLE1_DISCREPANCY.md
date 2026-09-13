@@ -33,10 +33,11 @@ than a match. `FINDINGS.md` records the original sweep's gate-triggered repairs 
 **"model/EOL 48"** across 10 multi runs. Counting the recorded attempt artefacts (each
 run writes `eol_execution_attempts/candidate_NNN.eol`, so repairs = candidates − 1):
 
-| cap | candidates | **repairs** | runs hitting the cap |
-|---|---:|---:|---:|
-| 2 (shipped) | 30 | **20** | 10/10 |
-| 6 (diagnostic) | 49 | **39** | 0/10 |
+| cap | candidates | **repairs** | runs hitting the cap | executes |
+|---|---:|---:|---:|---:|
+| 2 (shipped) | 30 | **20** | 10/10 | 3/10 |
+| 5 (reconciled) | 42 | **32** | 0/10 | 4/10 |
+| 6 (diagnostic) | 49 | **39** | 0/10 | 8/10 |
 
 **Under a ceiling of 2, ten runs can perform at most 20 repairs. The recorded figure is
 48. The published run therefore cannot have been produced with the shipped config** —
@@ -53,11 +54,17 @@ comparison was wrong. The impossibility argument above does not depend on it.)*
 
 ## What this means
 
-1. **The paper's 10/10 is not fabricated and the harness is not broken.** With a repair
-   budget consistent with the recorded 48 repairs, the multi arm reaches 8/10 here — the
-   same regime as the published figure, and the remaining gap to 10/10 is within run-to-run
-   variation at n=10 (plus possible model drift since May 2026, which this experiment does
-   not isolate and cannot exclude).
+1. **The paper's 10/10 is not fabricated and the harness is not broken.** Under a
+   non-binding budget the multi arm reaches 4/10 and 8/10 in two separate ten-run blocks
+   (pooled 12/20 = 0.60), against 3/10 when the budget binds. The published 10/10 sits
+   above even the better block, so model drift since May 2026 cannot be excluded — but
+   the shipped cap is demonstrably part of the gap.
+
+   **Caution on effect size.** Caps 5 and 6 are *both* non-binding here (maximum repairs
+   actually used: 4 and 5), so they impose the same effective budget — yet they returned
+   4/10 and 8/10. That spread cannot be a cap effect; it is run-to-run variance, and it
+   is large. Treat the binding-vs-non-binding comparison (3/10 vs 12/20, p = 0.25) as
+   directional only.
 2. **The replication package as shipped does not reproduce the paper.** A referee who
    runs it today gets 3/10, and nothing in the repository explains why. This is a
    reproducibility defect, and it is the single highest-value fix available.
@@ -77,9 +84,11 @@ The published cascade comparison was **not budget-matched**:
 | `multi` | 2 (`emf_model_creation.execution_repair.max_attempts`) |
 
 `single_repair`'s 7/10 was obtained with 2.5x the multi arm's repair budget. With the
-budget raised, multi reaches 8/10 — at or above `single_repair`'s figure. **The
-"decomposition adds nothing" reading is therefore no longer supported by matched
-evidence, and the cascade record's headline must be read with this correction.**
+budget matched at 5 and run head to head, the arms are statistically indistinguishable:
+**multi 4/10 vs `single_repair` 6/10, Fisher p = 0.66.** **The "decomposition adds
+nothing" reading is therefore not supported by matched evidence — but neither is any
+claim that decomposition helps. The honest statement is that this experiment cannot
+separate them at n=10.**
 
 What still holds unambiguously:
 
@@ -90,20 +99,24 @@ What still holds unambiguously:
   arms. This is independent of repair budget and remains the strongest argument for the
   multi-agent design.
 
-What is now open: whether decomposition adds construction validity *at matched repair
-budget*. The cap-6 point estimate (8/10 multi vs 7/10 single_repair at cap 5) suggests
-parity rather than either direction, but the arms were not run head-to-head under
-matched caps, so this is not a result yet.
+**Resolved by the matched run (`rq2_matched`):** at an identical, non-binding budget of
+5 for both arms, multi scores 4/10 and `single_repair` 6/10 (p = 0.66). Decomposition
+neither helps nor hurts construction validity detectably. Given the variance measured
+above, n=10 per arm is simply too small to resolve a difference at this phase; a
+meaningful answer needs roughly 40-50 runs per arm, which is a ~US$40 experiment.
 
 ## Recommended fixes
 
 1. **Reconcile `config.yaml` with the published runs** — set the model-stage cap to
    whatever produced the reported figures (6 reproduces the recorded repair count), or
    document the value used. Without this the package contradicts the paper.
-2. **Re-run the RQ2 comparison at matched budgets** before drafting any Results revision.
-   ~3 h, ~US$4.
-3. **Record the repair budget in Methods.** It is a load-bearing parameter — it moves the
-   headline cell from 3/10 to 8/10 — and the paper does not currently state it.
+2. ~~Re-run the RQ2 comparison at matched budgets~~ **— done (`rq2_matched`): the arms
+   are indistinguishable, p = 0.66.** The open question is now statistical power, not
+   configuration.
+3. **Record the repair budget in Methods.** It is load-bearing — a binding budget of 2
+   truncates every run and roughly halves the pass rate — and the paper does not state
+   it. State the mean under a non-binding budget (0.6) rather than the best single block
+   (0.8), and disclose the variance.
 
 ## Reproduce
 

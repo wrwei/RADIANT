@@ -133,7 +133,8 @@ stages:
       # across 10 multi runs — so the published figures were not produced with
       # a cap of 2. With the cap at 2 every run exhausted its budget still
       # failing and construction execution scored 3/10 against the published
-      # 10/10; raising the cap recovers 8/10.
+      # 10/10; under a non-binding budget it recovers to a mean of 0.6 (two
+      # ten-run blocks gave 4/10 and 8/10 — variance at this phase is high).
       # See case_studies/auv/experiment/TABLE1_DISCREPANCY.md.
       #
       # Set to 5 to agree with the global verification.max_repair_attempts, so
