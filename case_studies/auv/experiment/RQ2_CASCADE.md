@@ -30,6 +30,17 @@ Pass/fail is recomputed from each artefact by
 | `multi` vs `single_repair` | role decomposition | 3/10 vs 7/10 | p = 0.18 |
 | `multi` vs `single` | both combined | 3/10 vs 0/10 | p = 0.21 |
 
+> **CORRECTION (see `TABLE1_DISCREPANCY.md`).** The arms in this run were **not
+> budget-matched**: `single_repair` used the global `verification.max_repair_attempts: 5`,
+> while `multi` was capped at 2 by the per-stage
+> `emf_model_creation.execution_repair.max_attempts`. All 10 multi runs exhausted that
+> cap. Raising it to 6 — generation held fixed — moves multi from 3/10 to **8/10**, at or
+> above `single_repair`'s 7/10. **The "decomposition adds nothing" reading below is
+> therefore not supported by matched evidence and should not be cited.** What survives
+> unaffected: `single` is 0/10 under every configuration (it has no repair path), and only
+> the multi arm emits trace models (10/10 vs 0/10). A budget-matched re-run is the
+> outstanding experiment.
+
 ## What this shows
 
 **The fixed-input finding survives the fair test.** Seeding was not what disadvantaged
