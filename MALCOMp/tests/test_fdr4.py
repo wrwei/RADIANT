@@ -376,3 +376,28 @@ def test_run_fdr4_check_real_toolchain(tmp_path):
     c = fdr4.run_fdr4_check(rct, config=config)
     assert c.name == "fdr4_refinement"
     assert c.ok or c.unverifiable, c.detail
+
+
+def test_do_fdr4_check_vacuous_pass_is_unverified(monkeypatch, tmp_path):
+    """refines returning NO assertion results must not pass the gate.
+
+    An unlicensed or misconfigured refines exits without emitting framed-JSON
+    verdicts; every generated coreassertions file contains assertions, so an
+    empty result set means nothing was verified. This was a vacuous-pass hole:
+    the check reported ok=True with '0 assertion(s) hold'.
+    """
+    import fdr4
+
+    monkeypatch.setattr(fdr4, "_generate_csp", lambda *a, **k: tmp_path)
+    monkeypatch.setattr(fdr4, "_apply_type_range_corrections", lambda *a, **k: None)
+    core = tmp_path / "X_coreassertions.csp"
+    core.write_text("assert P :[deadlock-free]\n", encoding="utf-8")
+    monkeypatch.setattr(fdr4, "_discover_coreassertions", lambda _: core)
+    empty = {"assertions": [], "passed": [], "failed": [], "inconclusive": [],
+             "errors": [], "counterexamples": [], "env_error": None}
+    monkeypatch.setattr(fdr4, "_run_refines", lambda *a, **k: empty)
+
+    chk = fdr4._do_fdr4_check(tmp_path / "m.rct", config={})
+    assert not chk.ok
+    assert chk.unverifiable          # environmental, not a model failure
+    assert "no assertion results" in (chk.detail or "")

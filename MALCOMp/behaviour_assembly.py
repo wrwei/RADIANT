@@ -101,8 +101,29 @@ def normalise_stm(text: str) -> str:
 
 
 def _run_assembler(bare: Path, egl: Path, out: Path) -> bool:
-    """Invoke the MALCOMj `roboChartAssemble` Gradle task. Returns True iff the
-    task succeeds and the output file is produced."""
+    """Invoke MALCOMj's RoboChartAssembler. Returns True iff the output file is
+    produced.
+
+    Prefers the installed distribution (`gradle installDist` output) invoked
+    directly with `java -cp`, because the Gradle *runtime* needs a local
+    socket for its file-lock service and is blocked in some sandboxed or CI
+    environments even when the build itself would succeed. Falls back to the
+    Gradle task when no installed distribution exists."""
+    lib = _MALCOMJ_DIR / "build" / "install" / "MALCOMj" / "lib"
+    java = Path(os.environ.get("JAVA_HOME", "")) / "bin" / "java"
+    if not java.is_file():
+        java = Path(shutil.which("java") or "java")
+    if lib.is_dir():
+        cmd = [str(java), "-cp", str(lib / "*"),
+               "org.sawg.malcomj.RoboChartAssembler",
+               "--input", str(bare.resolve()), "--egl", str(egl.resolve()),
+               "--output", str(out.resolve())]
+        res = subprocess.run(cmd, cwd=str(_MALCOMJ_DIR), capture_output=True,
+                             text=True, timeout=600, env=os.environ.copy())
+        if res.returncode == 0 and out.is_file():
+            return True
+        logger.warning("direct RoboChartAssembler failed (rc=%s): %s — trying gradle",
+                       res.returncode, (res.stderr or res.stdout or "")[:300])
     gradle = shutil.which("gradle") or "gradle"
     cmd = [
         gradle, "-p", str(_MALCOMJ_DIR), "roboChartAssemble",

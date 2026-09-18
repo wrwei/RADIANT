@@ -452,5 +452,15 @@ def _do_fdr4_check(rct_path, *, config: dict) -> Check:
         return Check(name, "structural", False, False, "; ".join(parts))
 
     n = len(res["passed"])
+    if n == 0:
+        # No assertion ran at all. Every generated coreassertions file contains
+        # deadlock/divergence assertions, so an empty result set means refines
+        # produced no verdicts (unlicensed copy prompting for a licence key,
+        # wrapper script, truncated output) — NOT that the model verified.
+        # Reporting this as a pass was a vacuous-pass hole: the gate went green
+        # with no property checked.
+        return Check(name, "structural", False, True,
+                     "refines returned no assertion results (unlicensed or "
+                     "misconfigured FDR?) — nothing was verified")
     return Check(name, "structural", True, False,
                  f"{n} assertion(s) hold (deadlock/divergence-free)")
