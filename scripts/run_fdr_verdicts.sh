@@ -33,16 +33,23 @@ if [ ! -d MALCOMj/build/install/MALCOMj/lib ]; then
 fi
 
 # --- 1. licence check (interactive on first run) ----------------------------
+# Unlicensed refines says "A valid license is required" / "license is invalid"
+# or prompts "Select an option". A LICENSED run prints a banner containing
+# "License: Academic license ..." — so match the failure phrases specifically,
+# not the bare word "license".
 TMPCSP=$(mktemp -t lictest).csp
-echo 'assert STOP :[deadlock-free]' > "$TMPCSP"
-if "$REFINES" "$TMPCSP" 2>&1 | grep -q "license"; then
+echo 'assert SKIP :[deadlock-free]' > "$TMPCSP"   # SKIP is deadlock-free: expect a pass
+unlicensed() {
+  "$REFINES" --format framed_json "$TMPCSP" 2>&1 | \
+    grep -qiE "valid license is required|license is invalid|Select an option"
+}
+if unlicensed; then
   echo
   echo ">>> FDR is not licensed on this machine. Answer its prompts once"
   echo ">>> (option 2 = academic licence), then the verdicts run starts."
   echo
   "$REFINES" "$TMPCSP" || true
-  # verify it took
-  if "$REFINES" "$TMPCSP" 2>&1 | grep -q "license"; then
+  if unlicensed; then
     echo "Licence still not recorded — aborting."; rm -f "$TMPCSP"; exit 1
   fi
 fi
