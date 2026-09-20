@@ -43,3 +43,6 @@ bin/
 *.verify.ecore
 *.verify.model
 *.verify.accepted.model
+
+# FDR verdict scratch dir (fdr_results.json is the deliverable)
+malcom.evaluation/fdr_work/

@@ -1,0 +1,30 @@
+{
+  "generated": "2026-09-20T10:59:25+0800",
+  "fdr": "/Applications/FDR4.app/Contents/MacOS/refines",
+  "note": "Refinement verdicts for the archived May 2026 AUV runs, produced by the pipeline's own gate (MALCOMp/fdr4.py). Runs whose archived behaviour model does not parse as RoboChart are recorded as assembled=false rather than skipped silently.",
+  "runs": {
+    "web_20260530_182240_auto1": {
+      "run": "web_20260530_182240_auto1",
+      "stm": "case_studies/auv/output/runs/web_20260530_182240_auto1/STM.txt",
+      "assembled": true,
+      "check": "fdr4_refinement",
+      "ok": true,
+      "unverified": false,
+      "detail": "6 assertion(s) hold (deadlock/divergence-free)",
+      "seconds": 51.0,
+      "status": "verified"
+    },
+    "web_20260530_191159_auto2": {
+      "run": "web_20260530_191159_auto2",
+      "stm": "case_studies/auv/output/runs/web_20260530_191159_auto2/STM.txt",
+      "assembled": false,
+      "status": "assembly failed: archived model does not parse as RoboChart"
+    },
+    "web_20260530_195147_auto3": {
+      "run": "web_20260530_195147_auto3",
+      "stm": "case_studies/auv/output/runs/web_20260530_195147_auto3/STM.txt",
+      "assembled": false,
+      "status": "assembly failed: archived model does not parse as RoboChart"
+    }
+  }
+}
