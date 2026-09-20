@@ -33,23 +33,16 @@ if [ ! -d MALCOMj/build/install/MALCOMj/lib ]; then
 fi
 
 # --- 1. licence check (interactive on first run) ----------------------------
-# Unlicensed refines says "A valid license is required" / "license is invalid"
-# or prompts "Select an option". A LICENSED run prints a banner containing
-# "License: Academic license ..." — so match the failure phrases specifically,
-# not the bare word "license".
 TMPCSP=$(mktemp -t lictest).csp
-echo 'assert SKIP :[deadlock-free]' > "$TMPCSP"   # SKIP is deadlock-free: expect a pass
-unlicensed() {
-  "$REFINES" --format framed_json "$TMPCSP" 2>&1 | \
-    grep -qiE "valid license is required|license is invalid|Select an option"
-}
-if unlicensed; then
+echo 'assert STOP :[deadlock-free]' > "$TMPCSP"
+if "$REFINES" "$TMPCSP" 2>&1 | grep -q "license"; then
   echo
   echo ">>> FDR is not licensed on this machine. Answer its prompts once"
   echo ">>> (option 2 = academic licence), then the verdicts run starts."
   echo
   "$REFINES" "$TMPCSP" || true
-  if unlicensed; then
+  # verify it took
+  if "$REFINES" "$TMPCSP" 2>&1 | grep -q "license"; then
     echo "Licence still not recorded — aborting."; rm -f "$TMPCSP"; exit 1
   fi
 fi
@@ -57,20 +50,8 @@ rm -f "$TMPCSP"
 echo "FDR licence OK."
 
 # --- 2. run the verdicts ----------------------------------------------------
-# Uses the pipeline's own gate code; writes malcom.evaluation/fdr_results.json.
-# Prefer an interpreter that has the repo's dependencies installed.
-PY=python3
-for cand in /Users/ranwei/.claude-science/conda/envs/radiant-audit/bin/python python3; do
-  if "$cand" -c "import filelock" >/dev/null 2>&1; then PY="$cand"; break; fi
-done
-if ! "$PY" -c "import filelock" >/dev/null 2>&1; then
-  echo "No python with the repo's dependencies found."
-  echo "Either: pip3 install filelock   (only module this script needs beyond stdlib)"
-  echo "or:     python3 -m pip install -r MALCOMp/requirements.txt"
-  exit 1
-fi
-echo "using $PY"
-"$PY" scripts/fdr_verdicts.py
+# Uses the pipeline's own gate code; writes malcom.evaluation/fdr_results.json
+python3 scripts/fdr_verdicts.py
 echo
 echo "Done. Review malcom.evaluation/fdr_results.json, then commit it:"
 echo "  git add malcom.evaluation/fdr_results.json scripts/"
