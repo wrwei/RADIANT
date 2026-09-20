@@ -124,6 +124,27 @@ def main(argv=None) -> int:
     for arm in ARMS:
         rows = []
         for d in sorted((root / arm).glob("run_*")):
+            # A run directory's PATH is not its identity: prefer the manifest
+            # the sweep stamps (run_manifest.json), and refuse to score a run
+            # under an arm directory whose manifest names a different arm —
+            # that is another experiment's data, not this arm's.
+            mf = d / "run_manifest.json"
+            if mf.is_file():
+                try:
+                    owner = json.loads(mf.read_text(encoding="utf-8"))
+                except (json.JSONDecodeError, OSError) as ex:
+                    print(f"ERROR: unreadable manifest {mf}: {ex} — run skipped",
+                          file=sys.stderr)
+                    continue
+                if owner.get("variant") != arm:
+                    print(f"ERROR: {d} manifest says variant="
+                          f"{owner.get('variant')!r} but it sits under {arm!r} "
+                          f"— cross-arm contamination, run skipped",
+                          file=sys.stderr)
+                    continue
+            else:
+                print(f"note: {d} has no run_manifest.json (pre-manifest run); "
+                      f"arm inferred from its path", file=sys.stderr)
             r = score_run(d, args.stage, args.runner)
             if r:
                 r["arm"] = arm

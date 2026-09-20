@@ -34,8 +34,10 @@ sweep, run the per-stage drivers in malcom.evaluation/metrics/.
 from __future__ import annotations
 
 import argparse
+import json
 import logging
 import os
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -104,6 +106,59 @@ def _run_multi(stage: str, config_path: Path, run_dir: Path, run_label: str) -> 
     return run_dir / name if name else None
 
 
+def _instrument_commit() -> str | None:
+    """The repo's HEAD commit, or None outside a git checkout."""
+    try:
+        out = subprocess.run(
+            ["git", "-C", str(Path(__file__).resolve().parents[1]),
+             "rev-parse", "HEAD"],
+            capture_output=True, text=True, timeout=10)
+        return out.stdout.strip() or None
+    except (OSError, subprocess.SubprocessError):
+        return None
+
+
+def write_or_check_manifest(run_dir: Path, model: str, variant: str,
+                            stage: str, config_path: Path) -> None:
+    """Stamp the run directory with the arm that owns it; refuse a mismatch.
+
+    A run directory's identity (which model, which variant) previously existed
+    only in its PATH, so a sweep pointed at the wrong root — or a scoring pass
+    over mixed directories — recorded or scored the wrong arm silently. The
+    manifest makes the run directory self-describing, and this guard turns the
+    silent wrong-arm write into a hard error. (Same failure class as a
+    prompt-driven runner defaulting to another experiment's worktree: the
+    capability to isolate arms is worthless if nothing checks it at the point
+    of use.)
+    """
+    run_dir.mkdir(parents=True, exist_ok=True)
+    mf = run_dir / "run_manifest.json"
+    if mf.is_file():
+        try:
+            m = json.loads(mf.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError) as ex:
+            raise SystemExit(f"unreadable run manifest {mf}: {ex}")
+        owner = (m.get("model"), m.get("variant"))
+        if owner != (model, variant):
+            raise SystemExit(
+                f"ARM MISMATCH: {run_dir} is owned by model={owner[0]!r} "
+                f"variant={owner[1]!r} but this sweep is model={model!r} "
+                f"variant={variant!r}. Refusing to record into another arm's "
+                f"run directory — use a fresh --output-root or run number.")
+    else:
+        m = {
+            "model": model,
+            "variant": variant,
+            "config": str(config_path),
+            "instrument_commit": _instrument_commit(),
+            "created_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "stages": [],
+        }
+    if stage not in m["stages"]:
+        m["stages"].append(stage)
+    mf.write_text(json.dumps(m, indent=2) + "\n", encoding="utf-8")
+
+
 def run_sweep(
     models: list[str],
     variants: list[str],
@@ -138,6 +193,8 @@ def run_sweep(
                 run_label = f"{model}_{variant}_run_{run_idx:03d}"
                 for stage in stages:
                     key = (model, variant, run_idx, stage)
+                    write_or_check_manifest(run_dir, model, variant, stage,
+                                            config_path)
                     t0 = time.monotonic()
                     try:
                         if variant == "single":

@@ -124,3 +124,34 @@ def test_legacy_concept_trace_tag_is_still_read(tmp_path, caplog):
         links = CI.load_links(tmp_path)
     assert [l.phase for l in links] == ["concept"]
     assert any("legacy trace tag" in r.getMessage() for r in caplog.records)
+
+
+# --- run-directory identity (manifest + arm guard) ---------------------------
+
+def test_manifest_written_and_updated(tmp_path):
+    """First stage stamps the manifest; later stages append, not overwrite."""
+    import run_evaluation as R
+
+    d = tmp_path / "run_001"
+    R.write_or_check_manifest(d, "deepseek_v4", "multi", "concept", Path("config.yaml"))
+    R.write_or_check_manifest(d, "deepseek_v4", "multi", "model", Path("config.yaml"))
+    m = json.loads((d / "run_manifest.json").read_text())
+    assert m["model"] == "deepseek_v4" and m["variant"] == "multi"
+    assert m["stages"] == ["concept", "model"]
+
+
+def test_manifest_refuses_other_arms_run_dir(tmp_path):
+    """Recording into a run directory owned by another arm is a hard error.
+
+    A run directory's identity previously lived only in its path, so a sweep
+    pointed at the wrong root silently recorded into another experiment's
+    data. The manifest guard turns that into SystemExit at the point of use.
+    """
+    import pytest
+    import run_evaluation as R
+
+    d = tmp_path / "run_001"
+    R.write_or_check_manifest(d, "deepseek_v4", "multi", "concept", Path("config.yaml"))
+    with pytest.raises(SystemExit, match="ARM MISMATCH"):
+        R.write_or_check_manifest(d, "deepseek_v4", "single_repair", "concept",
+                                  Path("config.yaml"))
