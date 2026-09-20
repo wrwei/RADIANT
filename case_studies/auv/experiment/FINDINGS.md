@@ -2,6 +2,12 @@
 
 _Experiment run started 2026-06-18. AUV case study. Single-agent vs Multi-agent, 10 reps each._
 
+> **September 2026 note.** FDR verdicts for the archived runs were regenerated on a
+> licensed FDR 4.2.7: 1 of 3 archived behaviour models verifies; the other two do not
+> parse as RoboChart in their archived form, so the 10/10 FDR figure below cannot be
+> confirmed against the archived text. See `FDR_VERDICTS.md` in this directory.
+
+
 ## Decision: DeepSeek-only
 
 Per the latest direction, **this experiment is DeepSeek-V4 only.** Opus/GPT-5/Gemini
