@@ -57,8 +57,20 @@ rm -f "$TMPCSP"
 echo "FDR licence OK."
 
 # --- 2. run the verdicts ----------------------------------------------------
-# Uses the pipeline's own gate code; writes malcom.evaluation/fdr_results.json
-python3 scripts/fdr_verdicts.py
+# Uses the pipeline's own gate code; writes malcom.evaluation/fdr_results.json.
+# Prefer an interpreter that has the repo's dependencies installed.
+PY=python3
+for cand in /Users/ranwei/.claude-science/conda/envs/radiant-audit/bin/python python3; do
+  if "$cand" -c "import filelock" >/dev/null 2>&1; then PY="$cand"; break; fi
+done
+if ! "$PY" -c "import filelock" >/dev/null 2>&1; then
+  echo "No python with the repo's dependencies found."
+  echo "Either: pip3 install filelock   (only module this script needs beyond stdlib)"
+  echo "or:     python3 -m pip install -r MALCOMp/requirements.txt"
+  exit 1
+fi
+echo "using $PY"
+"$PY" scripts/fdr_verdicts.py
 echo
 echo "Done. Review malcom.evaluation/fdr_results.json, then commit it:"
 echo "  git add malcom.evaluation/fdr_results.json scripts/"

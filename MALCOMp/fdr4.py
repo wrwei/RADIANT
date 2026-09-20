@@ -335,9 +335,20 @@ _REPO_ROOT = Path(__file__).resolve().parents[1]
 # Serialise the FDR step across processes: concurrent sweeps must not run two
 # ~8 GB refines instances at once or contend for the toolchain. filelock uses
 # OS locks that release automatically when the holding process exits.
-import filelock as _filelock
+# The dependency is declared (requirements.txt) but optional at import time:
+# single-process use (one verdict run, one sweep) is safe without the lock,
+# and a missing optional dep must not make the whole gate module unimportable.
 import tempfile as _tempfile
-_FDR_LOCK = _filelock.FileLock(str(Path(_tempfile.gettempdir()) / "remediate_fdr4.lock"))
+try:
+    import filelock as _filelock
+    _FDR_LOCK = _filelock.FileLock(
+        str(Path(_tempfile.gettempdir()) / "remediate_fdr4.lock"))
+except ImportError:                                   # pragma: no cover
+    _filelock = None
+    _FDR_LOCK = None
+    logging.getLogger(__name__).warning(
+        "filelock not installed — FDR runs are NOT serialised across "
+        "processes; avoid concurrent sweeps, or pip install filelock")
 _DEFAULT_GEN_DIR = _REPO_ROOT / "MALCOMj" / "lib" / "robochart"
 
 
@@ -392,6 +403,8 @@ def run_fdr4_check(rct_path, *, config: dict) -> Check:
     Holds a file lock for the duration so concurrent sweeps run FDR one at a
     time. Falls back to running without the lock if the wait is excessive
     (a hung holder is bounded by FDR's own timeout)."""
+    if _FDR_LOCK is None:
+        return _do_fdr4_check(rct_path, config=config)
     wait = int(config.get("timeout", 600)) * 2 + 60
     try:
         with _FDR_LOCK.acquire(timeout=wait):
