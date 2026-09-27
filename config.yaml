@@ -55,12 +55,6 @@ models:
     api_key_env: "ANTHROPIC_API_KEY"
     supports_temperature: false   # Claude Opus 4.8 deprecates the temperature param
     max_tokens: 32000             # long concept dumps were truncating at the 8192 default
-  claude_sonnet_46:
-    name: "claude-sonnet-4-6"
-    api_type: "anthropic"
-    api_key_env: "ANTHROPIC_API_KEY"
-    supports_temperature: false   # omit temperature to avoid a 400 (matches Opus); flip if Sonnet 4.6 accepts it
-    max_tokens: 20000             # >8192 (avoid concept truncation), <=21333 (Sonnet's non-streaming ceiling)
   gemini_25_pro:
     name: "gemini-2.5-pro"
     temperature: 0.5
@@ -73,12 +67,6 @@ models:
     api_type: "openai"
     api_base_url: "https://api.deepseek.com"
     api_key_env: "DEEPSEEK_API_KEY"
-  qwen3_max:
-    name: "qwen3-max"
-    temperature: 0.0
-    api_type: "openai"   # DashScope OpenAI-compatible endpoint
-    api_base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
-    api_key_env: "DASHSCOPE_API_KEY"
 
 # Active case study (override with --case-study <name> or MALCOMP_CASE_STUDY).
 # Resolves to case_studies/<case_study>/ (requirements/, system_description/,
@@ -128,7 +116,7 @@ stages:
     max_rounds: 1000
     execution_repair:
       enabled: true
-      max_attempts: 5
+      max_attempts: 2
       timeout_seconds: 60
       knowledge_file: "model/eol_repair_knowledge.md"
     asset_files:

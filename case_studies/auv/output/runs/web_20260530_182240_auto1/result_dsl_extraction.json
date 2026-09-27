@@ -1,0 +1,226 @@
+{
+    "dsl_trace": [
+        {
+            "requirement_gid": "SD1",
+            "Emfatic_class": "Module",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "platforms",
+                "controllers",
+                "primitiveTypes",
+                "compositeTypes",
+                "interfaces",
+                "functions"
+            ],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "SD2",
+            "Emfatic_class": "RoboticPlatform",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "usedInterfaces"
+            ],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "SD3",
+            "Emfatic_class": "Controller",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "usedInterfaces"
+            ],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "SD4",
+            "Emfatic_class": "Controller",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "usedInterfaces"
+            ],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "SD5",
+            "Emfatic_class": "Controller",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "usedInterfaces"
+            ],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "PT1",
+            "Emfatic_class": "PrimitiveType",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "PT2",
+            "Emfatic_class": "PrimitiveType",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "PT3",
+            "Emfatic_class": "PrimitiveType",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "PT4",
+            "Emfatic_class": "PrimitiveType",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "PT5",
+            "Emfatic_class": "PrimitiveType",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "CT1",
+            "Emfatic_class": "CompositeType",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "fields"
+            ],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "CT2",
+            "Emfatic_class": "CompositeType",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "fields"
+            ],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Emfatic_class": "Interface",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "values",
+                "events"
+            ],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Emfatic_class": "Interface",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "values",
+                "events"
+            ],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Emfatic_class": "Interface",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "values",
+                "events"
+            ],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "Interface4",
+            "Emfatic_class": "Interface",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "values",
+                "events"
+            ],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "CF3",
+            "Emfatic_class": "CompositeType",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "fields"
+            ],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "Platform-F1",
+            "Emfatic_class": "Function",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "parameters",
+                "returnType"
+            ],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "Platform-F2",
+            "Emfatic_class": "Function",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "parameters",
+                "returnType"
+            ],
+            "Emfatic_operations": []
+        },
+        {
+            "requirement_gid": "Platform-F3",
+            "Emfatic_class": "Function",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "parameters",
+                "returnType"
+            ],
+            "Emfatic_operations": []
+        }
+    ]
+}

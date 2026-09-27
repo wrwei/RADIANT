@@ -808,15 +808,20 @@ class PipelineBridge:
         ]
 
     def _copy_outputs_to_malcomj(self) -> None:
-        """Copy MALCOMp output JSON/rct files to the case study's model directory,
-        where MALCOMj's transformation tasks read them."""
+        """Copy MALCOMp output JSON files to MALCOMj's expected model directory."""
         output_dir = self._get_output_dir()
         if not output_dir:
             return
 
-        # MALCOMj reads case-study models from case_studies/<study>/model/,
-        # the sibling of the MALCOMp output/ directory.
-        target_dir = output_dir.parent / "model"
+        # Active case study (MALCOMP_CASE_STUDY env wins, then config).
+        try:
+            with open(self.config_path, encoding="utf-8") as f:
+                case_study_name = self.case_study
+        except Exception:
+            case_study_name = Path(self.config_path).resolve().parent.name
+
+        # MALCOMj expects JSON files at src/main/resources/examples/<study>/model/
+        target_dir = _MALCOMJ_DIR / "src" / "main" / "resources" / "examples" / case_study_name / "model"
         if not target_dir.exists():
             return
 

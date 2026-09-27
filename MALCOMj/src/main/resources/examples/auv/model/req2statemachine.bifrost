@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="ASCII"?>
+<bifrost_:TracePackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bifrost_="http://www.sawg.org/bifrost" gid="RBP1" name="Req2StateMachine">
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh1_TO_t0">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="395071544">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="3644">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t0&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh1_TO_i0(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="395071544">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="3303">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;i0&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh1_TO_OCM(end)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="395071544">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="78073">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;OCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh2_TO_t1">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1365966504">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="3645">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t1&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh2_TO_OCM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1365966504">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="78073">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;OCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh3_TO_t2">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-191970400">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="3646">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t2&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh3_TO_OCM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-191970400">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="78073">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;OCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh4_TO_t3">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="644920790">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh4&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="3647">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t3&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh4_TO_OCM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="644920790">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh4&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="78073">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;OCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh4_TO_MOM(end)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="644920790">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh4&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="76523">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;MOM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh5_TO_t4">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1360561334">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh5&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="3648">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t4&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh5_TO_MOM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1360561334">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh5&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="76523">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;MOM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh5_TO_OCM(end)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1360561334">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh5&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="78073">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;OCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh6_TO_t5">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1120805748">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh6&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="3649">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t5&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh6_TO_MOM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1120805748">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh6&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="76523">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;MOM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh6_TO_OCM(end)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1120805748">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh6&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="78073">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;OCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh7_TO_t6">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-828227494">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh7&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="3650">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t6&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh7_TO_MOM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-828227494">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh7&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="76523">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;MOM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh7_TO_OCM(end)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-828227494">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh7&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="78073">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;OCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh8_TO_t7">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="65148874">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh8&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="3651">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t7&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh8_TO_MOM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="65148874">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh8&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="76523">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;MOM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh8_TO_CAM(end)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="65148874">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh8&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="66479">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;CAM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh9_TO_t8">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1897284664">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh9&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="3652">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t8&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh9_TO_MOM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1897284664">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh9&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="76523">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;MOM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh9_TO_HCM(end)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1897284664">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh9&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="71346">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;HCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh10_TO_t8">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1288418799">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh10&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="3652">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t8&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh10_TO_MOM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1288418799">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh10&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="76523">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;MOM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh10_TO_HCM(end)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1288418799">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh10&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="71346">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;HCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh11_TO_t8">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1572879005">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh11&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="3652">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t8&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh11_TO_MOM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1572879005">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh11&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="76523">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;MOM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh11_TO_HCM(end)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1572879005">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh11&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="71346">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;HCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh12_TO_t9">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="778838768">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh12&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="3653">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t9&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh12_TO_MOM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="778838768">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh12&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="76523">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;MOM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh12_TO_HCM(end)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="778838768">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh12&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="71346">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;HCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh13_TO_t10">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1369319351">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh13&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="113043">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t10&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh13_TO_HCM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1369319351">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh13&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="71346">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;HCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh13_TO_MOM(end)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1369319351">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh13&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="76523">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;MOM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh14_TO_t11">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1875328061">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh14&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="113044">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t11&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh14_TO_HCM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1875328061">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh14&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="71346">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;HCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh14_TO_CAM(end)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1875328061">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh14&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="66479">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;CAM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh15_TO_t12">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1009812753">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh15&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="113045">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t12&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh15_TO_HCM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1009812753">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh15&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="71346">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;HCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh15_TO_OCM(end)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1009812753">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh15&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="78073">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;OCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh16_TO_t13">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1230060005">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh16&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="113046">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t13&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh16_TO_HCM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1230060005">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh16&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="71346">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;HCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh16_TO_OCM(end)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1230060005">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh16&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="78073">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;OCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh17_TO_t14">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-438374672">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh17&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="113047">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t14&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh17_TO_CAM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-438374672">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh17&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="66479">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;CAM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh17_TO_OCM(end)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-438374672">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh17&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="78073">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;OCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh18_TO_t15">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1653400389">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh18&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="113048">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Transition.all.select(x|x.name = &quot;t15&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh18_TO_CAM(source)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1653400389">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh18&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="66479">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;CAM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="LRE-Beh18_TO_OCM(end)">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1653400389">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;LRE-Beh18&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.robochart" type="EMF" version="78073">
+      <metadata>\metamodel\robochart.ecore</metadata>
+      <constraints>T!Node.all.select(x|x.name = &quot;OCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+</bifrost_:TracePackage>

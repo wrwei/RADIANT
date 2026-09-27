@@ -1,0 +1,1683 @@
+<?xml version="1.0" encoding="ASCII"?>
+<bifrost_:TracePackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bifrost_="http://www.sawg.org/bifrost" gid="RBP1" name="Req2EmfModel">
+  <traceElement xsi:type="bifrost_:Trace" name="SD1_TO_Module.AUV_Module">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1417199897">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Module.all.select(c|c.name = &quot;AUV_Module&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD1_TO_Module.AUV_Module">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1417199897">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Module.all.select(c|c.name = &quot;AUV_Module&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD2_TO_RoboticPlatform.AUV_Platform">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1601919603">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!RoboticPlatform.all.select(c|c.name = &quot;AUV_Platform&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD2_TO_RoboticPlatform.AUV_Platform">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1601919603">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!RoboticPlatform.all.select(c|c.name = &quot;AUV_Platform&quot;).first().usedInterfaces.at(Sensors);</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD2_TO_RoboticPlatform.AUV_Platform">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1601919603">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!RoboticPlatform.all.select(c|c.name = &quot;AUV_Platform&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD2_TO_RoboticPlatform.AUV_Platform">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1601919603">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!RoboticPlatform.all.select(c|c.name = &quot;AUV_Platform&quot;).first().usedInterfaces.at(Actuators);</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD3_TO_Controller.AUV_Operator">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1257214377">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Controller.all.select(c|c.name = &quot;AUV_Operator&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD3_TO_Controller.AUV_Operator">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1257214377">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Controller.all.select(c|c.name = &quot;AUV_Operator&quot;).first().usedInterfaces.at(Intpus);</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD4_TO_Controller.LRE_Ctrl">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="509567154">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD4&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Controller.all.select(c|c.name = &quot;LRE_Ctrl&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD4_TO_Controller.LRE_Ctrl">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="509567154">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD4&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Controller.all.select(c|c.name = &quot;LRE_Ctrl&quot;).first().usedInterfaces.at(Intpus);</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD4_TO_Controller.LRE_Ctrl">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="509567154">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD4&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Controller.all.select(c|c.name = &quot;LRE_Ctrl&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD4_TO_Controller.LRE_Ctrl">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="509567154">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD4&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Controller.all.select(c|c.name = &quot;LRE_Ctrl&quot;).first().usedInterfaces.at(Outputs);</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD5_TO_Controller.AUV_Autopilot">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-239075931">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD5&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Controller.all.select(c|c.name = &quot;AUV_Autopilot&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="SD5_TO_Controller.AUV_Autopilot">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-239075931">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;SD5&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Controller.all.select(c|c.name = &quot;AUV_Autopilot&quot;).first().usedInterfaces.at(Outputs);</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="PT1_TO_PrimitiveType.nat">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1292886418">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;PT1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!PrimitiveType.all.select(c|c.name = &quot;nat&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="PT1_TO_PrimitiveType.nat">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1292886418">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;PT1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!PrimitiveType.all.select(c|c.name = &quot;nat&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="PT2_TO_PrimitiveType.int">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1424075572">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;PT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!PrimitiveType.all.select(c|c.name = &quot;int&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="PT2_TO_PrimitiveType.int">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1424075572">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;PT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!PrimitiveType.all.select(c|c.name = &quot;int&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="PT3_TO_PrimitiveType.string">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-343006832">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;PT3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!PrimitiveType.all.select(c|c.name = &quot;string&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="PT3_TO_PrimitiveType.string">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-343006832">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;PT3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!PrimitiveType.all.select(c|c.name = &quot;string&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="PT4_TO_PrimitiveType.boolean">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1054833220">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;PT4&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!PrimitiveType.all.select(c|c.name = &quot;boolean&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="PT4_TO_PrimitiveType.boolean">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1054833220">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;PT4&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!PrimitiveType.all.select(c|c.name = &quot;boolean&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="PT5_TO_PrimitiveType.real">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="466350498">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;PT5&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!PrimitiveType.all.select(c|c.name = &quot;real&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="PT5_TO_PrimitiveType.real">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="466350498">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;PT5&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!PrimitiveType.all.select(c|c.name = &quot;real&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT1_TO_CompositeType.SVec">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="492299269">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!CompositeType.all.select(c|c.name = &quot;SVec&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT1_TO_CompositeType.SVec">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="492299269">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!CompositeType.all.select(c|c.name = &quot;SVec&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT1_TO_Value.radial">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="492299269">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;radial&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT1_TO_Value.radial">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="492299269">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;radial&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT1_TO_Value.radial">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="492299269">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;radial&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT1_TO_Value.radial">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="492299269">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;radial&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT1_TO_Value.polar">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="492299269">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;polar&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT1_TO_Value.polar">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="492299269">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;polar&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT1_TO_Value.polar">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="492299269">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;polar&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT1_TO_Value.polar">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="492299269">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;polar&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT1_TO_Value.azimuth">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="492299269">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;azimuth&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT1_TO_Value.azimuth">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="492299269">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;azimuth&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT1_TO_Value.azimuth">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="492299269">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;azimuth&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT1_TO_Value.azimuth">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="492299269">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;azimuth&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_CompositeType.Obstacle">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!CompositeType.all.select(c|c.name = &quot;Obstacle&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_CompositeType.Obstacle">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!CompositeType.all.select(c|c.name = &quot;Obstacle&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.ns_rel_dist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;ns_rel_dist&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.ns_rel_dist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;ns_rel_dist&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.ns_rel_dist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;ns_rel_dist&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.ns_rel_dist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;ns_rel_dist&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.ew_rel_dist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;ew_rel_dist&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.ew_rel_dist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;ew_rel_dist&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.ew_rel_dist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;ew_rel_dist&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.ew_rel_dist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;ew_rel_dist&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.depth">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;depth&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.depth">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;depth&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.depth">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;depth&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.depth">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;depth&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.id">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;id&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.id">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;id&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.id">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;id&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.id">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;id&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.obs_hdng">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;obs_hdng&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.obs_hdng">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;obs_hdng&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.obs_hdng">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;obs_hdng&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CT2_TO_Value.obs_hdng">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1174395425">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CT2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;obs_hdng&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface1_TO_Interface.Sensors">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="719971294">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Interface.all.select(c|c.name = &quot;Sensors&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface1_TO_Interface.Sensors">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="719971294">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Interface.all.select(c|c.name = &quot;Sensors&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface1_TO_Value.depth">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="719971294">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;depth&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface1_TO_Value.depth">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="719971294">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;depth&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface1_TO_Value.depth">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="719971294">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;depth&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface1_TO_Value.depth">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="719971294">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;depth&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface1_TO_Value.hdng">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="719971294">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;hdng&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface1_TO_Value.hdng">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="719971294">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;hdng&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface1_TO_Value.hdng">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="719971294">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;hdng&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface1_TO_Value.hdng">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="719971294">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;hdng&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface1_TO_Value.obs">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="719971294">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;obs&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface1_TO_Value.obs">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="719971294">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;obs&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface1_TO_Value.obs">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="719971294">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;obs&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface1_TO_Value.obs">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="719971294">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;obs&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Interface.Intpus">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Interface.all.select(c|c.name = &quot;Intpus&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Interface.Intpus">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Interface.all.select(c|c.name = &quot;Intpus&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Event.endTask">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;endTask&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Event.endTask">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;endTask&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Event.reqOCM">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;reqOCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Event.reqOCM">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;reqOCM&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Event.reqMOM">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;reqMOM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Event.reqMOM">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;reqMOM&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Event.reqHCM">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;reqHCM&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Event.reqHCM">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;reqHCM&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Event.reqVel">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;reqVel&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Event.reqVel">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;reqVel&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Event.reqVel">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;reqVel&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Event.reqVel">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;reqVel&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Event.reqHdng">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;reqHdng&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Event.reqHdng">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;reqHdng&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Event.reqHdng">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;reqHdng&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface2_TO_Event.reqHdng">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1651527473">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;reqHdng&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface3_TO_Interface.Outputs">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="231282656">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Interface.all.select(c|c.name = &quot;Outputs&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface3_TO_Interface.Outputs">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="231282656">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Interface.all.select(c|c.name = &quot;Outputs&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface3_TO_Event.advVel">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="231282656">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;advVel&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface3_TO_Event.advVel">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="231282656">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;advVel&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface3_TO_Parameter.param">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="231282656">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Parameter.all.select(c|c.name = &quot;param&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface3_TO_Parameter.param">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="231282656">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Parameter.all.select(c|c.name = &quot;param&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface3_TO_Parameter.param">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="231282656">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Parameter.all.select(c|c.name = &quot;param&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface3_TO_Parameter.param">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="231282656">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Parameter.all.select(c|c.name = &quot;param&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface3_TO_Event.advHdng">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="231282656">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;advHdng&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface3_TO_Event.advHdng">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="231282656">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Event.all.select(c|c.name = &quot;advHdng&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface3_TO_Parameter.param">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="231282656">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Parameter.all.select(c|c.name = &quot;param&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface3_TO_Parameter.param">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="231282656">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Parameter.all.select(c|c.name = &quot;param&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface3_TO_Parameter.param">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="231282656">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Parameter.all.select(c|c.name = &quot;param&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface3_TO_Parameter.param">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="231282656">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Parameter.all.select(c|c.name = &quot;param&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface4_TO_Interface.Actuators">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1884957540">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface4&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Interface.all.select(c|c.name = &quot;Actuators&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Interface4_TO_Interface.Actuators">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="1884957540">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Interface4&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Interface.all.select(c|c.name = &quot;Actuators&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CF3_TO_CompositeType.Close">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-822538904">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CF3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!CompositeType.all.select(c|c.name = &quot;Close&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CF3_TO_CompositeType.Close">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-822538904">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CF3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!CompositeType.all.select(c|c.name = &quot;Close&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CF3_TO_Value.horiz_cda">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-822538904">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CF3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;horiz_cda&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CF3_TO_Value.horiz_cda">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-822538904">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CF3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;horiz_cda&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CF3_TO_Value.horiz_cda">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-822538904">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CF3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;horiz_cda&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CF3_TO_Value.horiz_cda">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-822538904">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CF3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;horiz_cda&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CF3_TO_Value.vert_cda">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-822538904">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CF3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;vert_cda&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CF3_TO_Value.vert_cda">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-822538904">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CF3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;vert_cda&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CF3_TO_Value.vert_cda">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-822538904">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CF3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;vert_cda&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CF3_TO_Value.vert_cda">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-822538904">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CF3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;vert_cda&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CF3_TO_Value.id">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-822538904">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CF3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;id&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CF3_TO_Value.id">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-822538904">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CF3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;id&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CF3_TO_Value.id">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-822538904">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CF3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;id&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="CF3_TO_Value.id">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-822538904">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;CF3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Value.all.select(c|c.name = &quot;id&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F1_TO_Function.odist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1875558247">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;odist&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F1_TO_Function.odist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1875558247">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;odist&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F1_TO_Function.odist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1875558247">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;odist&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F1_TO_Function.odist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1875558247">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;odist&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F1_TO_Function.odist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1875558247">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;odist&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F1_TO_Function.odist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-1875558247">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F1&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;odist&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F2_TO_Function.hdist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="2092194160">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;hdist&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F2_TO_Function.hdist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="2092194160">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;hdist&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F2_TO_Function.hdist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="2092194160">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;hdist&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F2_TO_Function.hdist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="2092194160">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;hdist&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F2_TO_Function.hdist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="2092194160">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;hdist&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F2_TO_Function.hdist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="2092194160">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F2&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;hdist&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F3_TO_Function.vdist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-374763246">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;vdist&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F3_TO_Function.vdist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-374763246">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;vdist&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F3_TO_Function.vdist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-374763246">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;vdist&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F3_TO_Function.vdist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-374763246">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;vdist&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F3_TO_Function.vdist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-374763246">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;vdist&quot;).first();</constraints>
+    </target>
+  </traceElement>
+  <traceElement xsi:type="bifrost_:Trace" name="Platform-F3_TO_Function.vdist">
+    <source location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.requirement" type="EMF" version="-374763246">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\requirement.ecore</metadata>
+      <constraints>S!Requirement.all.select(r|r.gid = &quot;Platform-F3&quot;).first();</constraints>
+    </source>
+    <target location="file:/E:/Git/REMEDIATE/MALCOMj/src/main/resources/examples/auv/model/AUV.model" type="EMF">
+      <metadata>\metamodel\base.ecore</metadata>
+      <metadata>\metamodel\auv.ecore</metadata>
+      <constraints>T!Function.all.select(c|c.name = &quot;vdist&quot;).first()..at();</constraints>
+    </target>
+  </traceElement>
+</bifrost_:TracePackage>

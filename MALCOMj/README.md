@@ -167,18 +167,18 @@ The metamodels defined in MALCOMj serve as the validation oracle for MALCOMp's L
 
 ## Creating a New Case Study
 
-1. Create a new directory under the repository's `case_studies/` (a sibling of `MALCOMj/`):
+1. Create a new directory under `src/main/resources/examples/`:
    ```
-   case_studies/my_project/
+   src/main/resources/examples/my_project/
        metamodel/          Domain-specific metamodels (.ecore, .emf)
        model/              Model instances
-       transformation/     Case-study-specific EOL/EVL/EGL scripts (if any)
+       transformation/     EOL/EVL/EGL scripts
    ```
 
 2. Define your domain metamodels that extend the core metamodels in `src/main/resources/metamodel/`.
 
 3. Create requirement models conforming to `requirement.ecore`.
 
-4. Reuse the generic transformations in `src/main/resources/transformations/` (traceability, requirement generation, RoboChart); add case-study-specific scripts under `case_studies/my_project/transformation/` only if needed.
+4. Write transformation scripts for traceability, validation, and code generation.
 
-5. Run with `-PcaseStudy=my_project` (tasks resolve `../case_studies/<name>`), or add Gradle tasks in `build.gradle` using the `runTransformation` helper.
+5. Add Gradle tasks in `build.gradle` using the `runTransformation` helper.

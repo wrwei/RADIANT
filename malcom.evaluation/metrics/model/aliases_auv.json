@@ -1,0 +1,31 @@
+{
+  "classes": {
+    "Module": [],
+    "RoboticPlatform": ["Robotic Platform", "Robotic_Platform"],
+    "Interface": [],
+    "Controller": [],
+    "Function": [],
+    "PrimitiveType": ["Primitive Type", "Primitive_Type"],
+    "CompositeType": ["Composite Type", "Composite_Type"],
+    "Value": ["Parameter", "Field"],
+    "Event": []
+  },
+  "features": {
+    "robotic_platforms": ["platform", "platforms", "roboticPlatform", "roboticPlatforms", "robotic_platform"],
+    "interfaces": ["interface", "uses", "usedInterfaces", "used_interfaces"],
+    "controllers": ["controller"],
+    "functions": ["function"],
+    "preimitive_types": ["primitiveTypes", "primitive_types", "primitiveType"],
+    "composite_types": ["compositeTypes", "compositeType"],
+    "values": ["fields", "field", "value"],
+    "events": ["event"],
+    "parameters": ["parameter"],
+    "type": [],
+    "compositeType": ["composite_type"],
+    "returnType": ["return_type"]
+  },
+  "values": {
+    "Inputs": ["Intpus"],
+    "parameter": ["value", "obstacle"]
+  }
+}

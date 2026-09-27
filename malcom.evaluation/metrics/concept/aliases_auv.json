@@ -1,0 +1,41 @@
+{
+  "CompositeType": [
+    "Composite Type",
+    "Composite_Type",
+    "composite type"
+  ],
+  "PrimitiveType": [
+    "Primitive Type",
+    "Primitive_Type",
+    "primitive type"
+  ],
+  "RoboticPlatform": [
+    "Robotic Platform",
+    "Robotic_Platform",
+    "robotic platform"
+  ],
+  "ReturnValue": [
+    "Return Value",
+    "Return_Value",
+    "return value"
+  ],
+  "AUV_Module": [
+    "AUV Module",
+    "AUVModule"
+  ],
+  "AUV_Platform": [
+    "AUV Platform",
+    "AUVPlatform"
+  ],
+  "AUV_Autopilot": [
+    "AUV Autopilot",
+    "AUVAutopilot"
+  ],
+  "AUV_Operator": [
+    "AUV Operator",
+    "AUVOperator"
+  ],
+  "Inputs": [
+    "Intpus"
+  ]
+}

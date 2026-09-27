@@ -1,0 +1,29 @@
+{
+  "classes": {
+    "PrimitiveType": ["Primitive Type", "Primitive_Type"],
+    "CompositeType": ["Composite Type", "Composite_Type"],
+    "RoboticPlatform": ["Robotic Platform", "Robotic_Platform"],
+    "NamedElement": ["Named Element", "Named_Element"],
+    "Parameter": ["Param"],
+    "Value": ["Field"]
+  },
+  "features": {
+    "robotic_platforms": ["platform", "platforms", "roboticPlatform", "roboticPlatforms", "robotic_platform"],
+    "preimitive_types": ["primitiveTypes", "primitive_types", "primitiveType"],
+    "composite_types": ["compositeTypes", "compositeType"],
+    "controllers": ["controller"],
+    "interfaces": ["interface", "uses", "usedInterfaces", "used_interfaces"],
+    "functions": ["function"],
+    "values": ["value", "fields", "field"],
+    "events": ["event"],
+    "parameters": ["parameter"],
+    "returnType": ["return_type"],
+    "type": ["types"]
+  },
+  "types": {
+    "PrimitiveType": ["DataType", "Type", "Primitive Type", "Primitive_Type"],
+    "CompositeType": ["Composite Type", "Composite_Type"],
+    "Value": ["Field"],
+    "RoboticPlatform": ["Robotic Platform", "Robotic_Platform"]
+  }
+}

@@ -1,0 +1,247 @@
+{
+    "concepts": [
+        {
+            "Concept": "Module",
+            "description": ""
+        },
+        {
+            "Concept": "RoboticPlatform",
+            "description": ""
+        },
+        {
+            "Concept": "Interface",
+            "description": ""
+        },
+        {
+            "Concept": "Controller",
+            "description": ""
+        },
+        {
+            "Concept": "PrimitiveType",
+            "description": ""
+        },
+        {
+            "Concept": "CompositeType",
+            "description": ""
+        },
+        {
+            "Concept": "Value",
+            "description": ""
+        },
+        {
+            "Concept": "Event",
+            "description": ""
+        },
+        {
+            "Concept": "Function",
+            "description": ""
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": ""
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "RoboticPlatform",
+            "description": ""
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": ""
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": ""
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": ""
+        },
+        {
+            "Instance": "Inputs",
+            "Instance_of": "Interface",
+            "description": ""
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "Last Response Engine"
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": ""
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": ""
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "PrimitiveType",
+            "description": "natural numbers"
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "PrimitiveType",
+            "description": "integers"
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "PrimitiveType",
+            "description": "string values"
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "PrimitiveType",
+            "description": "boolean values"
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "PrimitiveType",
+            "description": "real numbers"
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "CompositeType",
+            "description": "Spherical Vector"
+        },
+        {
+            "Instance": "radial",
+            "Instance_of": "Value",
+            "description": "of type real"
+        },
+        {
+            "Instance": "polar",
+            "Instance_of": "Value",
+            "description": "of type real"
+        },
+        {
+            "Instance": "azimuth",
+            "Instance_of": "Value",
+            "description": "of type real"
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "CompositeType",
+            "description": ""
+        },
+        {
+            "Instance": "ns_rel_dist",
+            "Instance_of": "Value",
+            "description": "of type real"
+        },
+        {
+            "Instance": "ew_rel_dist",
+            "Instance_of": "Value",
+            "description": "of type real"
+        },
+        {
+            "Instance": "depth",
+            "Instance_of": "Value",
+            "description": "of type real"
+        },
+        {
+            "Instance": "id",
+            "Instance_of": "Value",
+            "description": "of type real"
+        },
+        {
+            "Instance": "obs_hdng",
+            "Instance_of": "Value",
+            "description": "of type SVec"
+        },
+        {
+            "Instance": "hdng",
+            "Instance_of": "Value",
+            "description": "of type SVec"
+        },
+        {
+            "Instance": "obs",
+            "Instance_of": "Value",
+            "description": "of type Obstacle"
+        },
+        {
+            "Instance": "Intpus",
+            "Instance_of": "Interface",
+            "description": "defines the Events endTask, reqOCM, reqMOM, reqHCM, reqVel and reqHdng"
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": "with no Parameters and no Return Value"
+        },
+        {
+            "Instance": "reqOCM",
+            "Instance_of": "Event",
+            "description": "with no Parameters and no Return Value"
+        },
+        {
+            "Instance": "reqMOM",
+            "Instance_of": "Event",
+            "description": "with no Parameters and no Return Value"
+        },
+        {
+            "Instance": "reqHCM",
+            "Instance_of": "Event",
+            "description": "with no Parameters and no Return Value"
+        },
+        {
+            "Instance": "reqVel",
+            "Instance_of": "Event",
+            "description": "with no Parameters, but with a Return Value of type real"
+        },
+        {
+            "Instance": "reqHdng",
+            "Instance_of": "Event",
+            "description": "with no Parameters, but with a Return Value of type real"
+        },
+        {
+            "Instance": "advVel",
+            "Instance_of": "Event",
+            "description": "takes one Parameter of type real, and no Return Value"
+        },
+        {
+            "Instance": "advHdng",
+            "Instance_of": "Event",
+            "description": "takes one Parameter of type real, and no Return Value"
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "CompositeType",
+            "description": ""
+        },
+        {
+            "Instance": "horiz_cda",
+            "Instance_of": "Value",
+            "description": "of type real"
+        },
+        {
+            "Instance": "vert_cda",
+            "Instance_of": "Value",
+            "description": "of type real"
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "takes an Obstacle as input and returns the distance from the AUV to the Obstacle as real"
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "takes an Obstacle as input and returns the horizontal distance from the AUV to the Obstacle as real"
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "takes an Obstacle as input and returns the vertical distance from the AUV to the Obstacle as real"
+        }
+    ]
+}

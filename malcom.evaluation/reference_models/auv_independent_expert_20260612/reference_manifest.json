@@ -1,0 +1,143 @@
+{
+  "reference_id": "auv_independent_expert_20260612",
+  "created_date": "2026-06-12",
+  "audited_date": "2026-06-12",
+  "creation_method": "independent_domain_expert_modelling_with_pipeline_prompt_rules",
+  "generator_pipeline_used": false,
+  "llm_config_used": false,
+  "recommended_reference": true,
+  "description": "Independent expert reference chain for the AUV case study, regenerated and audited against each MALCOMp stage system prompt, chain-of-thought rule asset, few-shot example, checker rule, trace schema, Emfatic/Ecore, executable EOL, and the supplied RoboChart grammar.",
+  "stage_inputs": {
+    "term_extraction": "requirement_architecture.json",
+    "dsl_extraction": "requirement_architecture.json",
+    "model_creation": "requirement_architecture.json",
+    "state_machine_extraction": [
+      "requirement_behaviour.json",
+      "result_concept_extraction.json",
+      "result_dsml.emf",
+      "result_eol_program.eol"
+    ]
+  },
+  "pipeline_stages": [
+    {
+      "stage": "term_extraction",
+      "output": "result_concept_extraction.json"
+    },
+    {
+      "stage": "dsl_extraction",
+      "output": [
+        "result_dsml.emf",
+        "result_dsml.ecore",
+        "result_dsml_extraction.json"
+      ]
+    },
+    {
+      "stage": "model_creation",
+      "output": [
+        "result_eol_program.eol",
+        "result_AUV.model",
+        "result_model_creation.json"
+      ]
+    },
+    {
+      "stage": "state_machine_extraction",
+      "output": [
+        "result_behaviour.txt",
+        "result_behaviour_extraction.json",
+        "reference_traceability.json"
+      ]
+    }
+  ],
+  "sha256": {
+    "README.md": "0EDCC73AEAE49D3C42CDCB9C84C6A921C6A01531F6A438E0B2C84FB16ED30BA7",
+    "AUDIT.md": "10216A04C953CF048B3063F7F7F6529B232B2B2E2573E19C3F542611C5C42D1A",
+    "requirement_architecture.json": "CB098BEAE912A8FEE6E3817B460F453C93AB7A50A630EF9EED79BF33F1695A18",
+    "requirement_behaviour.json": "D57CDFE0577A6500A172F8DFF0537F4290CD8C08799E742FD4AA91B06D9B1A96",
+    "result_concept_extraction.json": "614E0D98C2C823A0B8A1BBD632D78BA2EC8C34D8A6FE6091EF5BBD815C723E30",
+    "result_dsml.emf": "90A86931E5ABE7CAC2BAD71DBC684BE09D0F08F7C78ED4012D1790D879E49AF7",
+    "result_dsml.ecore": "9F9D37D102088CD0D550A60466688EF2776C9FC292B81318E14B1AE4AD87F9E5",
+    "result_dsml_extraction.json": "236FDDB24C92F3B64AEA5A88DC65949584A140ED2F35D77B71EDD358138F0090",
+    "result_eol_program.eol": "476014997552F6C1784E0A7F050688A53BAD02CE0163A2E4A8D9964283784918",
+    "result_AUV.model": "1B2269A416F4432F3971A33E4922208B703B44A994FD63BEE628DCC6E2495AA8",
+    "result_model_creation.json": "40F8C3AE22A1EC1F9936BCDF65FBA836960728D6F2724F453F83FC132B794719",
+    "result_behaviour.txt": "4363ECEAD894CED8DF36FB86645E2B678ACE5B5B39A0B3889B4F7419162AF551",
+    "result_behaviour_extraction.json": "49908F39E0DAD94E5400EA0DB5FAF1EFEF4139F2BA104BA889C37F99A986B79E",
+    "reference_traceability.json": "FF66535E568AC21DFC540A9C792F3C5AB1CDE48D6615525F1D86E4F2979F7785"
+  },
+  "artifacts": [
+    "README.md",
+    "AUDIT.md",
+    "requirement_architecture.json",
+    "result_concept_extraction.json",
+    "result_dsml.emf",
+    "result_dsml.ecore",
+    "result_dsml_extraction.json",
+    "result_eol_program.eol",
+    "result_AUV.model",
+    "result_model_creation.json",
+    "requirement_behaviour.json",
+    "result_behaviour.txt",
+    "result_behaviour_extraction.json",
+    "reference_traceability.json"
+  ],
+  "expected_counts": {
+    "architecture_requirements": 20,
+    "term_trace_entries": 83,
+    "unique_term_concepts": 9,
+    "dsl_trace_entries": 66,
+    "architecture_ecore_classes": 13,
+    "architecture_model_objects": 47,
+    "model_trace_entries": 122,
+    "robotic_platforms": 1,
+    "interfaces": 4,
+    "controllers": 3,
+    "primitive_types": 5,
+    "composite_types": 3,
+    "functions": 3,
+    "behaviour_requirements": 41,
+    "states": 4,
+    "initial_nodes": 1,
+    "transitions": 18,
+    "variables": 10,
+    "constants": 5,
+    "declared_state_machine_events": 8
+  },
+  "independent_design_decisions": [
+    "Factored the common interface reference of RoboticPlatform and Controller into abstract Component.",
+    "Used abstract Type for PrimitiveType and CompositeType references.",
+    "Preserved Intpus in term extraction and normalised it to Inputs in the architecture model.",
+    "Left architecture parameters unnamed when the requirements provide only their types.",
+    "Interpreted LRE-Beh4 vel as hvel and general obstacle distance as odist.",
+    "Interpreted LRE-Beh11 according to vertical semantics using vvel and vdist.",
+    "Interpreted LRE-Beh13 StaticObsHorzDist as StaticObsHorizDist."
+  ],
+  "validation": {
+    "status": "passed_with_documented_assumptions",
+    "validated_date": "2026-06-12",
+    "checks": [
+      "All 83 term entries use exact source requirement text, cover all 20 architecture GIDs, contain every unique quoted instance occurrence, and emit each Concept only once.",
+      "Term descriptions contain no independently invented domain definitions.",
+      "Official Eclipse Emfatic parsing completed with no errors or warnings.",
+      "EOL parsing succeeded and execution recreated result_AUV.model with the same SHA-256 digest.",
+      "All 20 architecture requirements are covered by 66 DSL trace entries and 122 model trace entries using the exact Json_Generator schemas.",
+      "Every DSL trace feature exists in Ecore and every model trace fact exists in EOL.",
+      "The architecture model contains 47 objects and all cross-references resolve.",
+      "All 41 behaviour requirements are covered by reference_traceability.json.",
+      "All 18 transition requirements are covered by result_behaviour_extraction.json.",
+      "result_behaviour.txt defines all eight used events and MALCOMj RoboChartTextParser extracted 5 nodes and 18 transitions.",
+      "Every architecture symbol referenced by result_behaviour.txt exists in result_AUV.model."
+    ],
+    "scope_limitations": [
+      "RoboChartTextParser validates only machine, node, and transition endpoint structure.",
+      "No full Xtext cross-reference linking was executed.",
+      "No CSP/FDR behavioural model checking or reachability analysis was executed."
+    ],
+    "documented_assumptions": [
+      "Intpus is a typo for Inputs.",
+      "LRE-Beh4 vel means hvel.",
+      "LRE-Beh11 should follow its vertical prose semantics.",
+      "LRE-Beh13 StaticObsHorzDist means StaticObsHorizDist.",
+      "The local RoboChart function parameter o follows the exact example supplied by the state-machine prompt."
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ASCII"?>
+<robochart:RCPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:robochart="http://www.robocalc.circus/RoboChart" name="AUV">
+  <machines name="LRE_Beh">
+    <nodes xsi:type="robochart:Initial" name="i0"/>
+    <nodes xsi:type="robochart:State" name="OCM"/>
+    <nodes xsi:type="robochart:State" name="MOM"/>
+    <nodes xsi:type="robochart:State" name="CAM"/>
+    <nodes xsi:type="robochart:State" name="HCM"/>
+    <transitions name="t0" source="//@machines.0/@nodes.0" target="//@machines.0/@nodes.1"/>
+    <transitions name="t1" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1"/>
+    <transitions name="t2" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.1"/>
+    <transitions name="t3" source="//@machines.0/@nodes.1" target="//@machines.0/@nodes.2"/>
+    <transitions name="t4" source="//@machines.0/@nodes.2" target="//@machines.0/@nodes.1"/>
+    <transitions name="t5" source="//@machines.0/@nodes.2" target="//@machines.0/@nodes.1"/>
+    <transitions name="t6" source="//@machines.0/@nodes.2" target="//@machines.0/@nodes.1"/>
+    <transitions name="t7" source="//@machines.0/@nodes.2" target="//@machines.0/@nodes.3"/>
+    <transitions name="t8" source="//@machines.0/@nodes.2" target="//@machines.0/@nodes.4"/>
+    <transitions name="t9" source="//@machines.0/@nodes.2" target="//@machines.0/@nodes.4"/>
+    <transitions name="t10" source="//@machines.0/@nodes.4" target="//@machines.0/@nodes.2"/>
+    <transitions name="t11" source="//@machines.0/@nodes.4" target="//@machines.0/@nodes.3"/>
+    <transitions name="t12" source="//@machines.0/@nodes.4" target="//@machines.0/@nodes.1"/>
+    <transitions name="t13" source="//@machines.0/@nodes.4" target="//@machines.0/@nodes.1"/>
+    <transitions name="t14" source="//@machines.0/@nodes.3" target="//@machines.0/@nodes.1"/>
+    <transitions name="t15" source="//@machines.0/@nodes.3" target="//@machines.0/@nodes.1"/>
+  </machines>
+</robochart:RCPackage>

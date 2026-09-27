@@ -1,0 +1,46 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r MALCOMp/requirements.txt
+          python -m pip install pytest
+
+      - name: Verify the pipeline imports
+        # Catches a dependency that resolves to a distribution which no longer
+        # provides the expected module (the `pyautogen` vs `ag2` split).
+        run: python -c "import sys; sys.path.insert(0, 'MALCOMp'); import pipeline; print(sorted(pipeline.LAYERS))"
+
+      - name: Run tests
+        # No API key is set: stage construction must not make network calls.
+        # Tests needing a prior pipeline run skip themselves.
+        run: python -m pytest tests -q
+        working-directory: MALCOMp
+
+      - name: Traceability metrics (resolvability / coverage)
+        # Scores the archived AUV runs and asserts the reported Table 2
+        # figures still reproduce. Purely textual — no API key, no network.
+        run: |
+          python -m pytest malcom.evaluation/metrics/traceability -q
+          python malcom.evaluation/metrics/traceability/compute.py

@@ -1,0 +1,339 @@
+var auvModule = M!Module.allInstances.selectOne(m|m.name = 'AUV_Module');
+if (auvModule.isUndefined()) {
+    auvModule = new M!Module;
+    auvModule.name = 'AUV_Module';
+}
+
+var sensorsI = M!Interface.allInstances.selectOne(i|i.name = 'Sensors');
+if (sensorsI.isUndefined()) {
+    sensorsI = new M!Interface;
+    sensorsI.name = 'Sensors';
+    auvModule.interfaces.add(sensorsI);
+}
+var actuatorsI = M!Interface.allInstances.selectOne(i|i.name = 'Actuators');
+if (actuatorsI.isUndefined()) {
+    actuatorsI = new M!Interface;
+    actuatorsI.name = 'Actuators';
+    auvModule.interfaces.add(actuatorsI);
+}
+var inputsI = M!Interface.allInstances.selectOne(i|i.name = 'Inputs');
+if (inputsI.isUndefined()) {
+    inputsI = new M!Interface;
+    inputsI.name = 'Inputs';
+    auvModule.interfaces.add(inputsI);
+}
+var outputsI = M!Interface.allInstances.selectOne(i|i.name = 'Outputs');
+if (outputsI.isUndefined()) {
+    outputsI = new M!Interface;
+    outputsI.name = 'Outputs';
+    auvModule.interfaces.add(outputsI);
+}
+var intpusI = M!Interface.allInstances.selectOne(i|i.name = 'Intpus');
+if (intpusI.isUndefined()) {
+    intpusI = new M!Interface;
+    intpusI.name = 'Intpus';
+    auvModule.interfaces.add(intpusI);
+}
+
+var auvPlatform = M!RoboticPlatform.allInstances.selectOne(p|p.name = 'AUV_Platform');
+if (auvPlatform.isUndefined()) {
+    auvPlatform = new M!RoboticPlatform;
+    auvPlatform.name = 'AUV_Platform';
+    auvModule.roboticPlatform.add(auvPlatform);
+}
+if (not auvPlatform.usedInterfaces.includes(sensorsI)) {
+    auvPlatform.usedInterfaces.add(sensorsI);
+}
+if (not auvPlatform.usedInterfaces.includes(actuatorsI)) {
+    auvPlatform.usedInterfaces.add(actuatorsI);
+}
+
+var auvOperator = M!Controller.allInstances.selectOne(c|c.name = 'AUV_Operator');
+if (auvOperator.isUndefined()) {
+    auvOperator = new M!Controller;
+    auvOperator.name = 'AUV_Operator';
+    auvModule.controllers.add(auvOperator);
+}
+if (not auvOperator.usedInterfaces.includes(inputsI)) {
+    auvOperator.usedInterfaces.add(inputsI);
+}
+
+var lreCtrl = M!Controller.allInstances.selectOne(c|c.name = 'LRE_Ctrl');
+if (lreCtrl.isUndefined()) {
+    lreCtrl = new M!Controller;
+    lreCtrl.name = 'LRE_Ctrl';
+    auvModule.controllers.add(lreCtrl);
+}
+if (not lreCtrl.usedInterfaces.includes(inputsI)) {
+    lreCtrl.usedInterfaces.add(inputsI);
+}
+if (not lreCtrl.usedInterfaces.includes(outputsI)) {
+    lreCtrl.usedInterfaces.add(outputsI);
+}
+
+var auvAutopilot = M!Controller.allInstances.selectOne(c|c.name = 'AUV_Autopilot');
+if (auvAutopilot.isUndefined()) {
+    auvAutopilot = new M!Controller;
+    auvAutopilot.name = 'AUV_Autopilot';
+    auvModule.controllers.add(auvAutopilot);
+}
+if (not auvAutopilot.usedInterfaces.includes(outputsI)) {
+    auvAutopilot.usedInterfaces.add(outputsI);
+}
+
+var nat = M!PrimitiveType.allInstances.selectOne(p|p.name = 'nat');
+if (nat.isUndefined()) {
+    nat = new M!PrimitiveType;
+    nat.name = 'nat';
+    auvModule.primitiveTypes.add(nat);
+}
+var intType = M!PrimitiveType.allInstances.selectOne(p|p.name = 'int');
+if (intType.isUndefined()) {
+    intType = new M!PrimitiveType;
+    intType.name = 'int';
+    auvModule.primitiveTypes.add(intType);
+}
+var stringType = M!PrimitiveType.allInstances.selectOne(p|p.name = 'string');
+if (stringType.isUndefined()) {
+    stringType = new M!PrimitiveType;
+    stringType.name = 'string';
+    auvModule.primitiveTypes.add(stringType);
+}
+var booleanType = M!PrimitiveType.allInstances.selectOne(p|p.name = 'boolean');
+if (booleanType.isUndefined()) {
+    booleanType = new M!PrimitiveType;
+    booleanType.name = 'boolean';
+    auvModule.primitiveTypes.add(booleanType);
+}
+var realType = M!PrimitiveType.allInstances.selectOne(p|p.name = 'real');
+if (realType.isUndefined()) {
+    realType = new M!PrimitiveType;
+    realType.name = 'real';
+    auvModule.primitiveTypes.add(realType);
+}
+
+var svec = M!CompositeType.allInstances.selectOne(c|c.name = 'SVec');
+if (svec.isUndefined()) {
+    svec = new M!CompositeType;
+    svec.name = 'SVec';
+    auvModule.compositeTypes.add(svec);
+}
+var radial = M!Value.allInstances.selectOne(v|v.name = 'radial' and v.eContainer().name = 'SVec');
+if (radial.isUndefined()) {
+    radial = new M!Value;
+    radial.name = 'radial';
+    svec.values.add(radial);
+}
+radial.type = realType;
+var polar = M!Value.allInstances.selectOne(v|v.name = 'polar' and v.eContainer().name = 'SVec');
+if (polar.isUndefined()) {
+    polar = new M!Value;
+    polar.name = 'polar';
+    svec.values.add(polar);
+}
+polar.type = realType;
+var azimuth = M!Value.allInstances.selectOne(v|v.name = 'azimuth' and v.eContainer().name = 'SVec');
+if (azimuth.isUndefined()) {
+    azimuth = new M!Value;
+    azimuth.name = 'azimuth';
+    svec.values.add(azimuth);
+}
+azimuth.type = realType;
+
+var obstacle = M!CompositeType.allInstances.selectOne(c|c.name = 'Obstacle');
+if (obstacle.isUndefined()) {
+    obstacle = new M!CompositeType;
+    obstacle.name = 'Obstacle';
+    auvModule.compositeTypes.add(obstacle);
+}
+var nsRelDist = M!Value.allInstances.selectOne(v|v.name = 'ns_rel_dist' and v.eContainer().name = 'Obstacle');
+if (nsRelDist.isUndefined()) {
+    nsRelDist = new M!Value;
+    nsRelDist.name = 'ns_rel_dist';
+    obstacle.values.add(nsRelDist);
+}
+nsRelDist.type = realType;
+var ewRelDist = M!Value.allInstances.selectOne(v|v.name = 'ew_rel_dist' and v.eContainer().name = 'Obstacle');
+if (ewRelDist.isUndefined()) {
+    ewRelDist = new M!Value;
+    ewRelDist.name = 'ew_rel_dist';
+    obstacle.values.add(ewRelDist);
+}
+ewRelDist.type = realType;
+var depthObstacle = M!Value.allInstances.selectOne(v|v.name = 'depth' and v.eContainer().name = 'Obstacle');
+if (depthObstacle.isUndefined()) {
+    depthObstacle = new M!Value;
+    depthObstacle.name = 'depth';
+    obstacle.values.add(depthObstacle);
+}
+depthObstacle.type = realType;
+var idObstacle = M!Value.allInstances.selectOne(v|v.name = 'id' and v.eContainer().name = 'Obstacle');
+if (idObstacle.isUndefined()) {
+    idObstacle = new M!Value;
+    idObstacle.name = 'id';
+    obstacle.values.add(idObstacle);
+}
+idObstacle.type = realType;
+var obsHdng = M!Value.allInstances.selectOne(v|v.name = 'obs_hdng' and v.eContainer().name = 'Obstacle');
+if (obsHdng.isUndefined()) {
+    obsHdng = new M!Value;
+    obsHdng.name = 'obs_hdng';
+    obstacle.values.add(obsHdng);
+}
+obsHdng.type = svec;
+
+var close = M!CompositeType.allInstances.selectOne(c|c.name = 'Close');
+if (close.isUndefined()) {
+    close = new M!CompositeType;
+    close.name = 'Close';
+    auvModule.compositeTypes.add(close);
+}
+var horizCda = M!Value.allInstances.selectOne(v|v.name = 'horiz_cda' and v.eContainer().name = 'Close');
+if (horizCda.isUndefined()) {
+    horizCda = new M!Value;
+    horizCda.name = 'horiz_cda';
+    close.values.add(horizCda);
+}
+horizCda.type = realType;
+var vertCda = M!Value.allInstances.selectOne(v|v.name = 'vert_cda' and v.eContainer().name = 'Close');
+if (vertCda.isUndefined()) {
+    vertCda = new M!Value;
+    vertCda.name = 'vert_cda';
+    close.values.add(vertCda);
+}
+vertCda.type = realType;
+var idClose = M!Value.allInstances.selectOne(v|v.name = 'id' and v.eContainer().name = 'Close');
+if (idClose.isUndefined()) {
+    idClose = new M!Value;
+    idClose.name = 'id';
+    close.values.add(idClose);
+}
+idClose.type = nat;
+
+var depthSensor = M!Value.allInstances.selectOne(v|v.name = 'depth' and v.eContainer().name = 'Sensors');
+if (depthSensor.isUndefined()) {
+    depthSensor = new M!Value;
+    depthSensor.name = 'depth';
+    sensorsI.values.add(depthSensor);
+}
+depthSensor.type = realType;
+var hdngSensor = M!Value.allInstances.selectOne(v|v.name = 'hdng' and v.eContainer().name = 'Sensors');
+if (hdngSensor.isUndefined()) {
+    hdngSensor = new M!Value;
+    hdngSensor.name = 'hdng';
+    sensorsI.values.add(hdngSensor);
+}
+hdngSensor.type = svec;
+var obsSensor = M!Value.allInstances.selectOne(v|v.name = 'obs' and v.eContainer().name = 'Sensors');
+if (obsSensor.isUndefined()) {
+    obsSensor = new M!Value;
+    obsSensor.name = 'obs';
+    sensorsI.values.add(obsSensor);
+}
+obsSensor.type = obstacle;
+
+var endTask = M!Event.allInstances.selectOne(e|e.name = 'endTask' and e.eContainer().name = 'Intpus');
+if (endTask.isUndefined()) {
+    endTask = new M!Event;
+    endTask.name = 'endTask';
+    intpusI.events.add(endTask);
+}
+var reqOCM = M!Event.allInstances.selectOne(e|e.name = 'reqOCM' and e.eContainer().name = 'Intpus');
+if (reqOCM.isUndefined()) {
+    reqOCM = new M!Event;
+    reqOCM.name = 'reqOCM';
+    intpusI.events.add(reqOCM);
+}
+var reqMOM = M!Event.allInstances.selectOne(e|e.name = 'reqMOM' and e.eContainer().name = 'Intpus');
+if (reqMOM.isUndefined()) {
+    reqMOM = new M!Event;
+    reqMOM.name = 'reqMOM';
+    intpusI.events.add(reqMOM);
+}
+var reqHCM = M!Event.allInstances.selectOne(e|e.name = 'reqHCM' and e.eContainer().name = 'Intpus');
+if (reqHCM.isUndefined()) {
+    reqHCM = new M!Event;
+    reqHCM.name = 'reqHCM';
+    intpusI.events.add(reqHCM);
+}
+var reqVel = M!Event.allInstances.selectOne(e|e.name = 'reqVel' and e.eContainer().name = 'Intpus');
+if (reqVel.isUndefined()) {
+    reqVel = new M!Event;
+    reqVel.name = 'reqVel';
+    reqVel.returnType = realType;
+    intpusI.events.add(reqVel);
+}
+var reqHdng = M!Event.allInstances.selectOne(e|e.name = 'reqHdng' and e.eContainer().name = 'Intpus');
+if (reqHdng.isUndefined()) {
+    reqHdng = new M!Event;
+    reqHdng.name = 'reqHdng';
+    reqHdng.returnType = realType;
+    intpusI.events.add(reqHdng);
+}
+
+var advVel = M!Event.allInstances.selectOne(e|e.name = 'advVel' and e.eContainer().name = 'Outputs');
+if (advVel.isUndefined()) {
+    advVel = new M!Event;
+    advVel.name = 'advVel';
+    outputsI.events.add(advVel);
+}
+if (advVel.parameters.size() = 0) {
+    var velParam = new M!Parameter;
+    velParam.name = 'velocity';
+    velParam.type = realType;
+    advVel.parameters.add(velParam);
+}
+var advHdng = M!Event.allInstances.selectOne(e|e.name = 'advHdng' and e.eContainer().name = 'Outputs');
+if (advHdng.isUndefined()) {
+    advHdng = new M!Event;
+    advHdng.name = 'advHdng';
+    outputsI.events.add(advHdng);
+}
+if (advHdng.parameters.size() = 0) {
+    var hdngParam = new M!Parameter;
+    hdngParam.name = 'heading';
+    hdngParam.type = realType;
+    advHdng.parameters.add(hdngParam);
+}
+
+var odist = M!Function.allInstances.selectOne(f|f.name = 'odist');
+if (odist.isUndefined()) {
+    odist = new M!Function;
+    odist.name = 'odist';
+    auvModule.functions.add(odist);
+}
+odist.returnType = realType;
+if (odist.parameters.size() = 0) {
+    var param = new M!Parameter;
+    param.name = 'obstacle';
+    param.type = obstacle;
+    odist.parameters.add(param);
+}
+
+var hdist = M!Function.allInstances.selectOne(f|f.name = 'hdist');
+if (hdist.isUndefined()) {
+    hdist = new M!Function;
+    hdist.name = 'hdist';
+    auvModule.functions.add(hdist);
+}
+hdist.returnType = realType;
+if (hdist.parameters.size() = 0) {
+    var param = new M!Parameter;
+    param.name = 'obstacle';
+    param.type = obstacle;
+    hdist.parameters.add(param);
+}
+
+var vdist = M!Function.allInstances.selectOne(f|f.name = 'vdist');
+if (vdist.isUndefined()) {
+    vdist = new M!Function;
+    vdist.name = 'vdist';
+    auvModule.functions.add(vdist);
+}
+vdist.returnType = realType;
+if (vdist.parameters.size() = 0) {
+    var param = new M!Parameter;
+    param.name = 'obstacle';
+    param.type = obstacle;
+    vdist.parameters.add(param);
+}

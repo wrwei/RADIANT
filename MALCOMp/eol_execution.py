@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import json
 import re
 import shutil
 import subprocess
@@ -69,66 +68,6 @@ class EolExecutionResult:
     stdout: str
     stderr: str
     error_summary: str
-    # Conformance of the produced model to its metamodel (EMF Diagnostician).
-    # None = check could not run (e.g. runner predates the --conformance mode).
-    conformant: bool | None = None
-    conformance_summary: str = ""
-
-
-_CONFORMANCE_MARKER = "CONFORMANCE_JSON:"
-
-
-@dataclass(frozen=True)
-class ConformanceResult:
-    conformant: bool | None  # None when the check could not run
-    error_count: int
-    warning_count: int
-    summary: str  # human/LLM-readable list of violations
-
-
-def check_conformance(
-    runner: Path,
-    model_path: Path,
-    ecore_path: Path,
-    timeout_seconds: int = 60,
-) -> ConformanceResult:
-    """Validate a produced model against its metamodel via MALCOMj's generic
-    EMF Diagnostician (``--conformance``). Fail-soft: returns conformant=None if
-    the runner doesn't emit the CONFORMANCE_JSON marker (older jar) or errors."""
-    spec = f"{model_path};{ecore_path}"
-    try:
-        result = subprocess.run(
-            [str(runner), "--conformance", spec],
-            text=True,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            timeout=timeout_seconds,
-            check=False,
-        )
-    except Exception as ex:  # noqa: BLE001 - runner missing / timeout -> unknown
-        return ConformanceResult(None, 0, 0, f"conformance check could not run: {ex}")
-
-    payload = None
-    for line in (result.stdout or "").splitlines():
-        line = line.strip()
-        if line.startswith(_CONFORMANCE_MARKER):
-            try:
-                payload = json.loads(line[len(_CONFORMANCE_MARKER):].strip())
-            except json.JSONDecodeError:
-                payload = None
-            break
-    if payload is None:
-        return ConformanceResult(None, 0, 0, "conformance check produced no verdict")
-
-    violations = payload.get("violations", [])
-    lines = [f"- [{v.get('severity', '?')}] {v.get('message', '')}" for v in violations]
-    summary = "\n".join(lines) if lines else "model conforms to the metamodel"
-    return ConformanceResult(
-        conformant=bool(payload.get("conformant", False)),
-        error_count=int(payload.get("errorCount", 0)),
-        warning_count=int(payload.get("warningCount", 0)),
-        summary=summary,
-    )
 
 
 def _bound_values(bound: str) -> tuple[str | None, str | None]:
@@ -260,42 +199,17 @@ def execute_eol(
         timeout=timeout_seconds,
         check=False,
     )
-    executed = result.returncode == 0 and attempt_model_path.is_file()
-
-    # The EOL running without throwing only means a file was written — it does NOT
-    # mean the model conforms to the metamodel. Validate the produced model with
-    # EMF's Diagnostician and treat a non-conformant model as a failure so the
-    # repair agent is given the concrete violations to fix.
-    conformant: bool | None = None
-    conformance_summary = ""
-    if executed:
-        conf = check_conformance(runner, attempt_model_path, ecore_path, timeout_seconds)
-        conformant = conf.conformant
-        conformance_summary = conf.summary
-
-    # conformant is None => check could not run (older jar): fall back to the old
-    # exit-code behaviour so the pipeline still works without the rebuilt runner.
-    ok = executed and (conformant is not False)
+    ok = result.returncode == 0 and attempt_model_path.is_file()
     if ok:
         accepted_model_path.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(attempt_model_path, accepted_model_path)
-
-    if not executed:
-        error_summary = summarise_execution_error(result.stderr + "\n" + result.stdout)
-    elif conformant is False:
-        error_summary = "Model is non-conformant to the metamodel (EMF Diagnostician):\n" + conformance_summary
-    else:
-        error_summary = ""
-
     return EolExecutionResult(
         ok=ok,
         exit_code=result.returncode,
         model_path=accepted_model_path if ok else attempt_model_path,
         stdout=result.stdout,
         stderr=result.stderr,
-        error_summary=error_summary,
-        conformant=conformant,
-        conformance_summary=conformance_summary,
+        error_summary="" if ok else summarise_execution_error(result.stderr + "\n" + result.stdout),
     )
 
 

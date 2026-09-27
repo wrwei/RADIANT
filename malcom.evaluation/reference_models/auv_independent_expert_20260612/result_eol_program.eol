@@ -1,0 +1,85 @@
+var module = new M!Module;
+module.name = "AUV_Module";
+
+var pNat = new M!PrimitiveType;     pNat.name = "nat";        module.primitiveTypes.add(pNat);
+var pInt = new M!PrimitiveType;     pInt.name = "int";        module.primitiveTypes.add(pInt);
+var pString = new M!PrimitiveType;  pString.name = "string";  module.primitiveTypes.add(pString);
+var pBoolean = new M!PrimitiveType; pBoolean.name = "boolean";module.primitiveTypes.add(pBoolean);
+var pReal = new M!PrimitiveType;    pReal.name = "real";      module.primitiveTypes.add(pReal);
+
+var svec = new M!CompositeType; svec.name = "SVec";
+var svecRadial = new M!Value;  svecRadial.name = "radial";   svecRadial.type = pReal;  svec.values.add(svecRadial);
+var svecPolar = new M!Value;   svecPolar.name = "polar";     svecPolar.type = pReal;   svec.values.add(svecPolar);
+var svecAzimuth = new M!Value; svecAzimuth.name = "azimuth"; svecAzimuth.type = pReal; svec.values.add(svecAzimuth);
+module.compositeTypes.add(svec);
+
+var obstacle = new M!CompositeType; obstacle.name = "Obstacle";
+var obsNs = new M!Value;    obsNs.name = "ns_rel_dist";  obsNs.type = pReal;    obstacle.values.add(obsNs);
+var obsEw = new M!Value;    obsEw.name = "ew_rel_dist";  obsEw.type = pReal;    obstacle.values.add(obsEw);
+var obsDepth = new M!Value; obsDepth.name = "depth";     obsDepth.type = pReal; obstacle.values.add(obsDepth);
+var obsId = new M!Value;    obsId.name = "id";           obsId.type = pReal;    obstacle.values.add(obsId);
+var obsHdng = new M!Value;  obsHdng.name = "obs_hdng";   obsHdng.type = svec;   obstacle.values.add(obsHdng);
+module.compositeTypes.add(obstacle);
+
+var close = new M!CompositeType; close.name = "Close";
+var closeHoriz = new M!Value; closeHoriz.name = "horiz_cda"; closeHoriz.type = pReal; close.values.add(closeHoriz);
+var closeVert = new M!Value;  closeVert.name = "vert_cda";   closeVert.type = pReal; close.values.add(closeVert);
+var closeId = new M!Value;    closeId.name = "id";           closeId.type = pNat;    close.values.add(closeId);
+module.compositeTypes.add(close);
+
+var sensors = new M!Interface; sensors.name = "Sensors";
+var senDepth = new M!Value; senDepth.name = "depth"; senDepth.type = pReal;     sensors.values.add(senDepth);
+var senHdng = new M!Value;  senHdng.name = "hdng";   senHdng.type = svec;       sensors.values.add(senHdng);
+var senObs = new M!Value;   senObs.name = "obs";     senObs.type = obstacle;    sensors.values.add(senObs);
+module.interfaces.add(sensors);
+
+var actuators = new M!Interface; actuators.name = "Actuators";
+module.interfaces.add(actuators);
+
+var inputs = new M!Interface; inputs.name = "Inputs";
+var evEndTask = new M!Event; evEndTask.name = "endTask"; inputs.events.add(evEndTask);
+var evReqOCM = new M!Event;  evReqOCM.name = "reqOCM";   inputs.events.add(evReqOCM);
+var evReqMOM = new M!Event;  evReqMOM.name = "reqMOM";   inputs.events.add(evReqMOM);
+var evReqHCM = new M!Event;  evReqHCM.name = "reqHCM";   inputs.events.add(evReqHCM);
+var evReqVel = new M!Event;  evReqVel.name = "reqVel";   evReqVel.returnType = pReal;  inputs.events.add(evReqVel);
+var evReqHdng = new M!Event; evReqHdng.name = "reqHdng"; evReqHdng.returnType = pReal; inputs.events.add(evReqHdng);
+module.interfaces.add(inputs);
+
+var outputs = new M!Interface; outputs.name = "Outputs";
+var evAdvVel = new M!Event; evAdvVel.name = "advVel";
+var advVelParam = new M!Parameter; advVelParam.type = pReal; evAdvVel.parameters.add(advVelParam);
+outputs.events.add(evAdvVel);
+var evAdvHdng = new M!Event; evAdvHdng.name = "advHdng";
+var advHdngParam = new M!Parameter; advHdngParam.type = pReal; evAdvHdng.parameters.add(advHdngParam);
+outputs.events.add(evAdvHdng);
+module.interfaces.add(outputs);
+
+var platform = new M!RoboticPlatform; platform.name = "AUV_Platform";
+platform.interfaces.add(sensors);
+platform.interfaces.add(actuators);
+module.roboticPlatforms.add(platform);
+
+var operator = new M!Controller; operator.name = "AUV_Operator";
+operator.interfaces.add(inputs);
+module.controllers.add(operator);
+
+var lreCtrl = new M!Controller; lreCtrl.name = "LRE_Ctrl";
+lreCtrl.interfaces.add(inputs);
+lreCtrl.interfaces.add(outputs);
+module.controllers.add(lreCtrl);
+
+var autopilot = new M!Controller; autopilot.name = "AUV_Autopilot";
+autopilot.interfaces.add(outputs);
+module.controllers.add(autopilot);
+
+var odist = new M!Function; odist.name = "odist"; odist.returnType = pReal;
+var odistObs = new M!Parameter; odistObs.type = obstacle; odist.parameters.add(odistObs);
+module.functions.add(odist);
+
+var hdist = new M!Function; hdist.name = "hdist"; hdist.returnType = pReal;
+var hdistObs = new M!Parameter; hdistObs.type = obstacle; hdist.parameters.add(hdistObs);
+module.functions.add(hdist);
+
+var vdist = new M!Function; vdist.name = "vdist"; vdist.returnType = pReal;
+var vdistObs = new M!Parameter; vdistObs.type = obstacle; vdist.parameters.add(vdistObs);
+module.functions.add(vdist);

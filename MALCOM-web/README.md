@@ -106,7 +106,7 @@ MALCOMP_DIR=/path/to/MALCOMp MALCOMJ_DIR=/path/to/MALCOMj python -m web
 ## How it talks to MALCOMp / MALCOMj
 
 - **MALCOMp** — `bridge.py` adds `MALCOMP_DIR` to `sys.path` and imports the stage classes (`TermExtraction`, `DSLExtraction`, `EMFModelCreation`, `StateMachineExtraction`) directly. Agent I/O is captured by routing pyautogen's `IOStream` through `WebSocketIOStream`.
-- **MALCOMj** — Gradle tasks (`runAuvEmfCreation`, `runAuvValidation`, ...) are launched via `subprocess.Popen` with `cwd=MALCOMJ_DIR`. Required prerequisite JSONs are copied from MALCOMp's `output/` into the case study's `case_studies/<study>/model/` before each run.
+- **MALCOMj** — Gradle tasks (`runAuvEmfCreation`, `runAuvValidation`, ...) are launched via `subprocess.Popen` with `cwd=MALCOMJ_DIR`. Required prerequisite JSONs are copied from MALCOMp's `output/` into `MALCOMj/src/main/resources/examples/<study>/model/` before each run.
 
 ---
 

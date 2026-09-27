@@ -83,7 +83,6 @@ class BehaviourModelCreation(Base):
                 "- If an event is used as a trigger or an action, you MUST declare it (e.g. `event reqMove`). Do NOT declare an event you never use as a trigger or action.\n"
                 "- The initial state is defined as i0, with exactly one initial transition out of it (e.g. `transition t0 { from i0 to FirstState }`).\n"
                 "- Transitions and states are written as separate blocks.\n"
-                "- COMPLETENESS — emit ONE transition for EVERY transition the requirements describe. If the requirements specify several transitions between the SAME pair of states, distinguished by different triggers or conditions, emit ALL of them as separate transition blocks. NEVER merge two requirement-specified transitions into a single transition.\n"
                 "- Check that every Variable, Event, Constant, type and State you reference is declared.\n\n"
                 # FDR4 generator-ready constraints
                 "FDR4 VERIFICATION — THE OUTPUT MUST BE A GENERATOR-READY ROBOCHART STATE MACHINE:\n"
@@ -91,7 +90,6 @@ class BehaviourModelCreation(Base):
                 "- Use RoboChart boolean operators: `/\\` for AND, `\\/` for OR, `not` for negation. Never write the words `and`/`or`.\n"
                 "- Declare every domain type as an `enumeration` with concrete literals, e.g. `enumeration Obstacle { none near far }`, written at the top level (outside the stm).\n"
                 "- AVOID uninterpreted/abstract functions (e.g. `odist(x)`, `hdist(x)`): they are not verifiable. Express each domain predicate as a boolean (or enumeration) guard VARIABLE instead — e.g. replace `odist(cdyn) > 7.5` with a `var dynObstacleFar : boolean` used as `condition dynObstacleFar`.\n"
-                "- Use a DISTINCT boolean guard variable for each DISTINCT requirement condition — NEVER collapse two requirement conditions into the same boolean. Two conditions over DIFFERENT variables or quantities are ALWAYS distinct even if they read similarly; give them differently-named booleans, or you will silently merge and DROP transitions. Before finishing, count the transitions the requirements specify between each pair of states and make sure your output has exactly that many.\n"
                 "- Use events as plain SYNCHRONISATIONS, without data payloads: write `trigger reqVel` and `action advVel` (or `entry advVel`). Do NOT attach data with `!`/`?` (e.g. avoid `advVel ! x` or `reqVel ? x`) — the control-flow structure is what is verified. Capture any value you need as a state variable updated by an `action`, e.g. `action vel = 1`.\n"
                 "- Guards are boolean expressions over the stm's variables/constants only, e.g. `condition vel < MinSafeDist /\\ not inOPEZ`.\n"
                 "- Ensure every state has at least one outgoing transition that can become enabled, so the machine does not trivially deadlock.\n"
@@ -124,7 +122,6 @@ class BehaviourModelCreation(Base):
                 "- NO uninterpreted functions: replace any function call in a guard (e.g. `odist(x) > 1`) with a boolean (or numeric) guard variable, and remove every `function ...` declaration.\n"
                 "- Boolean operators are `/\\` (and), `\\/` (or), `not` — never the words `and`/`or`. There are NO trailing semicolons on declarations.\n"
                 "- Exactly one `initial` node (i0) with one initial transition; every transition references existing states; states and transitions are kept as separate blocks; every state has at least one outgoing transition that can become enabled.\n"
-                "- COMPLETENESS: cross-check the state machine against the requirement statements from User. Every transition the requirements describe must appear as its own transition block. If two distinct requirement transitions between the same pair of states (different trigger or condition) were merged into one, SPLIT them back into separate transitions, each with its own DISTINCT boolean guard variable. Do not drop any requirement-specified transition.\n"
                 "- Reuse identifiers from the UPSTREAM CONTEXT where they fit (verbatim, case-sensitive); you MAY add boolean/enumeration guard variables for domain predicates.\n"
                 "If the DSL is already correct, return it unchanged. "
                 "Your response must be RoboChart DSL code only. Do not output JSON, markdown fences, or explanatory text."

@@ -271,20 +271,12 @@ def test_gate_blocks_next_phase_on_failure():
 
 def test_base_runs_verification(tmp_path, monkeypatch):
     """After a phase's run path, Base records a VerificationResult."""
-    import json as _json
     from phases.concept import ConceptExtraction
     stage = ConceptExtraction(config_path=str(CONFIG))
     stage.output_dir = tmp_path
-    # A valid concept artefact must cover the case study's requirement GIDs (the
-    # concept_coverage gate flags empty/partial extraction), so build the trace
-    # from the actual loaded requirements.
-    gids = [str(r.get("id") or r.get("name")) for r in stage.user.data
-            if isinstance(r, dict) and (r.get("id") or r.get("name"))]
-    trace = {"term_trace": [{"GID": g, "Concept": "C", "Instance": "x",
-                             "source": {"resolved": True}} for g in gids]}
-    (tmp_path / "result_concept_trace.json").write_text(_json.dumps(trace), encoding="utf-8")
-    (tmp_path / "result_concept_model.json").write_text(
-        _json.dumps({"concepts": [{"name": "C"}], "instances": [{"name": "x"}]}), encoding="utf-8")
+    (tmp_path / "result_concept_trace.json").write_text(
+        '{"term_trace":[{"GID":"X","Concept":"C","source":{"resolved":true}}]}', encoding="utf-8")
+    (tmp_path / "result_concept_model.json").write_text('{"concepts":[],"instances":[]}', encoding="utf-8")
     stage._run_verification()
     assert stage.verification_result is not None
     assert stage.verification_result.passed

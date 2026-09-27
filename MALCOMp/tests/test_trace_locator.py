@@ -25,37 +25,6 @@ def test_requirement_absent_returns_none():
     assert locate_requirement("no match here", "Zzz") is None
 
 
-def test_requirement_case_insensitive():
-    # A capitalised Concept name ("Sensor") must resolve to the lowercase noun in
-    # the prose ("sensor"): concept names are often the capitalised form of a word
-    # in the requirement text. Without this, overview requirements that introduce
-    # concepts (rather than naming concrete instances) leave the trace unresolved.
-    text = "The robot carries a single IR distance sensor mounted facing forward."
-    span = locate_requirement(text, "Sensor")
-    assert span is not None
-    start, end = span
-    assert text[start:end].lower() == "sensor"
-
-
-def test_requirement_strips_surrounding_quotes():
-    # Extractors sometimes quote instance names ("Moving"); the quotes are not in
-    # the prose and must not block resolution.
-    text = "At start-up the controller is in Moving."
-    span = locate_requirement(text, '"Moving"')
-    assert span is not None
-    start, end = span
-    assert text[start:end] == "Moving"
-
-
-def test_requirement_camelcase_matches_multiword():
-    # A camelCase concept ("StateMachine") resolves to the spaced phrase in prose.
-    text = "the controller is a single state machine that selects transitions"
-    span = locate_requirement(text, "StateMachine")
-    assert span is not None
-    start, end = span
-    assert text[start:end].lower() == "state machine"
-
-
 def test_emfatic_class_block_span():
     text = (
         "abstract class NamedElement {\n"

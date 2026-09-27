@@ -1,0 +1,255 @@
+{
+    "concepts": [
+        {
+            "Concept": "Module",
+            "description": "The AUV system is developed as a Module."
+        },
+        {
+            "Concept": "RoboticPlatform",
+            "description": "\"AUV_Module\" should contain a Robotic Platform named \"AUV_Platform\"."
+        },
+        {
+            "Concept": "Interface",
+            "description": "\"AUV_Platform\" should use the Interface \"Sensors\"."
+        },
+        {
+            "Concept": "Controller",
+            "description": "\"AUV_Module\" should contain a Controller named \"AUV_Operator\"."
+        },
+        {
+            "Concept": "PrimitiveType",
+            "description": "The \"AUV_Module\" should define a Primitive Type."
+        },
+        {
+            "Concept": "CompositeType",
+            "description": "The \"AUV_Module\" should define a Composite Type."
+        },
+        {
+            "Concept": "Value",
+            "description": "A Composite Type records a value named \"radial\"."
+        },
+        {
+            "Concept": "Event",
+            "description": "The Interface \"Intpus\" defines an Event named \"endTask\"."
+        },
+        {
+            "Concept": "Parameter",
+            "description": "Events may have Parameters."
+        },
+        {
+            "Concept": "ReturnValue",
+            "description": "Events may have a Return Value."
+        },
+        {
+            "Concept": "Function",
+            "description": "The \"AUV_Module\" shall define a Function named \"odist\"."
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": "Module named \"AUV_Module\"."
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "RoboticPlatform",
+            "description": "Robotic Platform named \"AUV_Platform\"."
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": "Interface named \"Sensors\"."
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": "Interface named \"Actuators\"."
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": "Controller named \"AUV_Operator\"."
+        },
+        {
+            "Instance": "Inputs",
+            "Instance_of": "Interface",
+            "description": "Interface named \"Inputs\"."
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "Controller named \"LRE_Ctrl\"."
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": "Interface named \"Outputs\"."
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": "Controller named \"AUV_Autopilot\"."
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "PrimitiveType",
+            "description": "Primitive Type named \"nat\" (for natural numbers)."
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "PrimitiveType",
+            "description": "Primitive Type named \"int\" (for integers)."
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "PrimitiveType",
+            "description": "Primitive Type named \"string\" (for string values)."
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "PrimitiveType",
+            "description": "Primitive Type named \"boolean\" (for boolean values)."
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "PrimitiveType",
+            "description": "Primitive Type named \"real\" (for real numbers)."
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "CompositeType",
+            "description": "Composite Type named \"SVec\" (Spherical Vector)."
+        },
+        {
+            "Instance": "radial",
+            "Instance_of": "Value",
+            "description": "Value named \"radial\"."
+        },
+        {
+            "Instance": "polar",
+            "Instance_of": "Value",
+            "description": "Value named \"polar\"."
+        },
+        {
+            "Instance": "azimuth",
+            "Instance_of": "Value",
+            "description": "Value named \"azimuth\"."
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "CompositeType",
+            "description": "Composite Type named \"Obstacle\"."
+        },
+        {
+            "Instance": "ns_rel_dist",
+            "Instance_of": "Value",
+            "description": "Value named \"ns_rel_dist\"."
+        },
+        {
+            "Instance": "ew_rel_dist",
+            "Instance_of": "Value",
+            "description": "Value named \"ew_rel_dist\"."
+        },
+        {
+            "Instance": "depth",
+            "Instance_of": "Value",
+            "description": "Value named \"depth\"."
+        },
+        {
+            "Instance": "id",
+            "Instance_of": "Value",
+            "description": "Value named \"id\"."
+        },
+        {
+            "Instance": "obs_hdng",
+            "Instance_of": "Value",
+            "description": "Value named \"obs_hdng\"."
+        },
+        {
+            "Instance": "hdng",
+            "Instance_of": "Value",
+            "description": "Value named \"hdng\"."
+        },
+        {
+            "Instance": "obs",
+            "Instance_of": "Value",
+            "description": "Value named \"obs\"."
+        },
+        {
+            "Instance": "Intpus",
+            "Instance_of": "Interface",
+            "description": "Interface named \"Intpus\"."
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": "Event named \"endTask\" with no Parameters and no Return Value."
+        },
+        {
+            "Instance": "reqOCM",
+            "Instance_of": "Event",
+            "description": "Event named \"reqOCM\" with no Parameters and no Return Value."
+        },
+        {
+            "Instance": "reqMOM",
+            "Instance_of": "Event",
+            "description": "Event named \"reqMOM\" with no Parameters and no Return Value."
+        },
+        {
+            "Instance": "reqHCM",
+            "Instance_of": "Event",
+            "description": "Event named \"reqHCM\" with no Parameters and no Return Value."
+        },
+        {
+            "Instance": "reqVel",
+            "Instance_of": "Event",
+            "description": "Event named \"reqVel\" with no Parameters, but with a Return Value of type \"real\"."
+        },
+        {
+            "Instance": "reqHdng",
+            "Instance_of": "Event",
+            "description": "Event named \"reqHdng\" with no Parameters, but with a Return Value of type \"real\"."
+        },
+        {
+            "Instance": "advVel",
+            "Instance_of": "Event",
+            "description": "Event named \"advVel\" which takes one Parameter of type \"real\", and no Return Value."
+        },
+        {
+            "Instance": "advHdng",
+            "Instance_of": "Event",
+            "description": "Event named \"advHdng\" which takes one Parameter of type \"real\", and no Return Value."
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "CompositeType",
+            "description": "Composite Type named \"Close\"."
+        },
+        {
+            "Instance": "horiz_cda",
+            "Instance_of": "Value",
+            "description": "Value named \"horiz_cda\"."
+        },
+        {
+            "Instance": "vert_cda",
+            "Instance_of": "Value",
+            "description": "Value named \"vert_cda\"."
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "Function named \"odist\", which takes an \"Obstacle\" as input, that returns the distance from the AUV to the Obstacle as \"real\"."
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "Function named \"hdist\", which takes an \"Obstacle\" as input, that returns the horizontal distance from the AUV to the Obstacle as \"real\"."
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "Function named \"vdist\", which takes an \"Obstacle\" as input, that returns the vertical distance from the AUV to the Obstacle as \"real\"."
+        }
+    ]
+}

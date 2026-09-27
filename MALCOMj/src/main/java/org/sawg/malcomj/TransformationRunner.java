@@ -4,15 +4,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.util.Diagnostician;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.epsilon.egl.EglTemplateFactory;
 import org.eclipse.epsilon.egl.EglTemplateFactoryModuleAdapter;
@@ -50,7 +46,6 @@ public class TransformationRunner {
         registerResourceFactories();
 
         String scriptPath = null;
-        String conformanceSpec = null;
         List<String> emfSpecs = new ArrayList<>();
         List<String> jsonSpecs = new ArrayList<>();
 
@@ -58,9 +53,6 @@ public class TransformationRunner {
             switch (args[i]) {
                 case "--script":
                     scriptPath = args[++i];
-                    break;
-                case "--conformance":
-                    conformanceSpec = args[++i];
                     break;
                 case "--emf":
                     emfSpecs.add(args[++i]);
@@ -72,14 +64,6 @@ public class TransformationRunner {
                     System.err.println("Unknown argument: " + args[i]);
                     System.exit(1);
             }
-        }
-
-        // Conformance mode: validate a generated model against its metamodel using
-        // EMF's generic Diagnostician (multiplicity / required-feature / datatype /
-        // proxy checks). Emits a single CONFORMANCE_JSON line for the Python caller.
-        if (conformanceSpec != null) {
-            runConformance(conformanceSpec);
-            return;
         }
 
         if (scriptPath == null) {
@@ -224,98 +208,6 @@ public class TransformationRunner {
 
         System.out.println("Loaded JSON model: " + name + " (" + filePath + ")");
         return model;
-    }
-
-    /**
-     * Conformance mode. Spec: {@code modelFile;metamodel1.ecore[,metamodel2.ecore]}.
-     *
-     * <p>Registers the metamodel package(s), loads the model, resolves all proxies,
-     * and runs EMF's generic {@link Diagnostician} on every root object. XMI
-     * deserialization errors (unknown feature, type mismatch, unresolved href) are
-     * structural non-conformances too, so they are included. Always exits 0 and
-     * prints exactly one machine-readable line:
-     * <pre>CONFORMANCE_JSON: {"conformant":bool,"errorCount":n,"warningCount":m,"violations":[...]}</pre>
-     */
-    private static void runConformance(String spec) {
-        String[] parts = spec.split(";");
-        String modelFile = parts[0];
-        String metamodelPart = parts.length > 1 ? parts[1] : "";
-
-        List<String[]> problems = new ArrayList<>(); // {severity, message}
-        try {
-            if (!metamodelPart.isEmpty()) {
-                for (String mm : metamodelPart.split(",")) {
-                    registerEcorePackage(mm.trim());
-                }
-            }
-
-            ResourceSet rs = new ResourceSetImpl();
-            rs.getResourceFactoryRegistry().getExtensionToFactoryMap()
-                .put("*", new XMIResourceFactoryImpl());
-            Resource resource = rs.getResource(
-                URI.createFileURI(new File(modelFile).getAbsolutePath()), true);
-            EcoreUtil.resolveAll(rs);
-
-            // XMI load errors = structural non-conformance (unknown feature, bad type).
-            for (Resource.Diagnostic e : resource.getErrors()) {
-                problems.add(new String[] {"ERROR", "load: " + e.getMessage()});
-            }
-            // Generic EMF validation per root object.
-            for (EObject root : resource.getContents()) {
-                collectDiagnostics(Diagnostician.INSTANCE.validate(root), problems);
-            }
-        } catch (Exception ex) {
-            problems.add(new String[] {"ERROR", "validation failed: " + ex.getMessage()});
-        }
-
-        long errors = problems.stream().filter(p -> "ERROR".equals(p[0])).count();
-        long warnings = problems.stream().filter(p -> "WARNING".equals(p[0])).count();
-        StringBuilder json = new StringBuilder();
-        json.append("CONFORMANCE_JSON: {")
-            .append("\"conformant\":").append(errors == 0).append(',')
-            .append("\"errorCount\":").append(errors).append(',')
-            .append("\"warningCount\":").append(warnings).append(',')
-            .append("\"violations\":[");
-        for (int i = 0; i < problems.size(); i++) {
-            if (i > 0) json.append(',');
-            json.append("{\"severity\":\"").append(problems.get(i)[0])
-                .append("\",\"message\":\"").append(jsonEscape(problems.get(i)[1]))
-                .append("\"}");
-        }
-        json.append("]}");
-        System.out.println(json);
-    }
-
-    /** Flatten a Diagnostic tree into ERROR/WARNING problem rows. */
-    private static void collectDiagnostics(Diagnostic diagnostic, List<String[]> out) {
-        for (Diagnostic child : diagnostic.getChildren()) {
-            int sev = child.getSeverity();
-            if (sev >= Diagnostic.ERROR) {
-                out.add(new String[] {"ERROR", child.getMessage()});
-            } else if (sev == Diagnostic.WARNING) {
-                out.add(new String[] {"WARNING", child.getMessage()});
-            }
-            collectDiagnostics(child, out); // nested diagnostics
-        }
-    }
-
-    private static String jsonEscape(String s) {
-        if (s == null) return "";
-        StringBuilder b = new StringBuilder(s.length() + 8);
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            switch (c) {
-                case '"':  b.append("\\\""); break;
-                case '\\': b.append("\\\\"); break;
-                case '\n': b.append("\\n");  break;
-                case '\r': b.append("\\r");  break;
-                case '\t': b.append("\\t");  break;
-                default:
-                    if (c < 0x20) b.append(String.format("\\u%04x", (int) c));
-                    else b.append(c);
-            }
-        }
-        return b.toString();
     }
 
     /**

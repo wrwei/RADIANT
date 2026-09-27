@@ -43,7 +43,6 @@ class DSMLCreation(Base):
                 "Your job is to create a metamodel written in Emfatic based on the requirements provided to you in JSON. "
                 "The description of the system to be developed is here: " + system_desc +
                 "The Concepts and Instances extracted in Phase 2 are here: " + extracted_terms +
-                "FAITHFULNESS: examine the requirements carefully and create classes that capture ONLY what the requirements actually describe. Every class, attribute and reference must be traceable to the requirement statements; the Phase-2 Concept model is a guide to help you (not necessarily an exhaustive list — derive a class from the requirements if they clearly call for it even when it is not listed as a Concept). Do NOT hallucinate or invent elements the requirements do not mention — in particular, do not add generic architectural scaffolding (deployment, mission, task, port, connection, coordinator, manager, etc.) that no requirement calls for. "
                 "Here are some thinking processes to guide you: " + cot_extraction +
                 "Here are some examples of the extracted metamodels based on inputs: " + few_shot_extraction +
                 "Consider also the previous inputs from the User. "
@@ -69,7 +68,7 @@ class DSMLCreation(Base):
                 "Your job is to check whether the metamodel provided to you written in Emfatic is correct. "
                 "You should also consult the thinking process in here: " + cot_checker +
                 "Here are some examples of the extracted metamodels based on inputs: " + few_shot_checker +
-                "FAITHFULNESS — cross-check every class against the requirement statements: each class, attribute and reference must be justified by what the requirements actually say. REMOVE any class the requirements do not support (e.g. invented deployment / mission / task / port / connection scaffolding), and do NOT add ungrounded classes of your own. Use the Phase-2 Concepts and Instances as a guide: " + extracted_terms +
+                "You should also consult the Concepts and Instances extracted in Phase 2 (but do not rely on them completely): " + extracted_terms +
                 "You must only include Emfatic code in your responses. "
                 "Do not include any other contents that are not provided to you. "
                 "Please do not include explanations in your answers. In addition, no markdown is permitted (no ```). "
@@ -94,7 +93,6 @@ class DSMLCreation(Base):
                 "introduce an `extends` relationship rather than duplicating members. "
                 "Hoist a member to the parent only when it is truly common to all subclasses; otherwise leave it on the specific subclass. "
                 "Preserve the original Emfatic semantics: do not rename existing classes or change attribute types when introducing inheritance. "
-                "FAITHFULNESS — do NOT use refactoring as a pretext to add classes the requirements do not describe. Introduce an abstract parent ONLY to factor members shared by classes that ALREADY exist, never as a new domain entity. Remove any class not grounded in the requirements (e.g. deployment, mission, task, port, connection, coordinator scaffolding). "
                 # Containment / reference disambiguation (preserved from earlier behaviour).
                 "CONTAINMENT vs REFERENCE: "
                 "Pay attention to containment and non-containment references. "

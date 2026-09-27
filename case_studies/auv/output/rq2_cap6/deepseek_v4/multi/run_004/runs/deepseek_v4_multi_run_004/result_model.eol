@@ -1,0 +1,43 @@
+var auvModule = new M!Module();
+auvModule.name = "AUV_Module";
+
+var auvPlatform = new M!RoboticPlatform();
+auvPlatform.name = "AUV_Platform";
+auvModule.robotic_platforms.add(auvPlatform);
+
+var sensors = new M!Interface();
+sensors.name = "Sensors";
+
+var actuators = new M!Interface();
+actuators.name = "Actuators";
+
+var inputs = new M!Interface();
+inputs.name = "Inputs";
+
+var intpus = new M!Interface();
+intpus.name = "Intpus";
+
+var outputs = new M!Interface();
+outputs.name = "Outputs";
+
+auvModule.interfaces.add(sensors);
+auvModule.interfaces.add(actuators);
+auvModule.interfaces.add(inputs);
+auvModule.interfaces.add(intpus);
+auvModule.interfaces.add(outputs);
+
+var auvOperator = new M!Controller();
+auvOperator.name = "AUV_Operator";
+auvOperator.interfaces.add(inputs);
+auvModule.controllers.add(auvOperator);
+
+var lreCtrl = new M!Controller();
+lreCtrl.name = "LRE_Ctrl";
+lreCtrl.interfaces.add(inputs);
+lreCtrl.interfaces.add(outputs);
+auvModule.controllers.add(lreCtrl);
+
+var auvAutopilot = new M!Controller();
+auvAutopilot.name = "AUV_Autopilot";
+auvAutopilot.interfaces.add(outputs);
+auvModule.controllers.add(auvAutopilot);

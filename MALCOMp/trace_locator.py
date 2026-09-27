@@ -39,37 +39,13 @@ def _block_span(text: str, header_start: int) -> tuple[int, int]:
 
 
 def locate_requirement(text: str, element_id: str) -> tuple[int, int] | None:
-    """Char span (start, end) of element_id within a requirement description.
-
-    Matching is tolerant of the cosmetic differences between an extracted
-    Concept/Instance name and the word it derives from in the prose, since the
-    trace links a model element back to the requirement text it came from:
-
-    - case-insensitive: concept ``Sensor`` -> "...IR distance sensor...";
-    - surrounding quotes/whitespace are stripped: instance ``"Moving"`` -> Moving;
-    - camelCase / multi-word names match across separators: ``StateMachine`` ->
-      "state machine", ``obstacleThreshold`` -> "obstacle threshold".
-
-    Without this, requirements that introduce concepts in prose (rather than
-    naming verbatim identifiers) leave the trace unresolved."""
+    """Char span (start, end) of element_id within a requirement description."""
     if not element_id:
         return None
-    eid = element_id.strip().strip('"').strip("'").strip()
-    if not eid:
+    idx = text.find(element_id)
+    if idx == -1:
         return None
-    # 1. direct case-insensitive substring.
-    idx = text.lower().find(eid.lower())
-    if idx != -1:
-        return idx, idx + len(eid)
-    # 2. flexible: split camelCase / underscores into tokens and allow any
-    #    run of separators (space, '-', '_') between them.
-    tokens = re.findall(r"[A-Z]+(?=[A-Z][a-z])|[A-Z]?[a-z]+|[A-Z]+|[0-9]+", eid)
-    if len(tokens) >= 2:
-        pattern = r"[\s_\-]*".join(re.escape(t) for t in tokens)
-        m = re.search(pattern, text, re.IGNORECASE)
-        if m:
-            return m.start(), m.end()
-    return None
+    return idx, idx + len(element_id)
 
 
 def locate_emfatic_class(text: str, element_id: str) -> tuple[int, int] | None:

@@ -1,0 +1,247 @@
+{
+    "concepts": [
+        {
+            "Concept": "Module",
+            "description": ""
+        },
+        {
+            "Concept": "Robotic Platform",
+            "description": ""
+        },
+        {
+            "Concept": "Interface",
+            "description": ""
+        },
+        {
+            "Concept": "Controller",
+            "description": ""
+        },
+        {
+            "Concept": "Primitive Type",
+            "description": ""
+        },
+        {
+            "Concept": "Composite Type",
+            "description": ""
+        },
+        {
+            "Concept": "Value",
+            "description": ""
+        },
+        {
+            "Concept": "Event",
+            "description": ""
+        },
+        {
+            "Concept": "Function",
+            "description": ""
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": "Module representing the AUV system"
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "Robotic Platform",
+            "description": "Robotic Platform contained in AUV_Module"
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": "Interface used by AUV_Platform for sensors"
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": "Interface used by AUV_Platform for actuators"
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": "Controller contained in AUV_Module"
+        },
+        {
+            "Instance": "Inputs",
+            "Instance_of": "Interface",
+            "description": "Interface used by AUV_Operator"
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "Controller for Last Response Engine"
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": "Interface used by LRE_Ctrl"
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": "Controller contained in AUV_Module"
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "Primitive Type",
+            "description": "natural numbers"
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "Primitive Type",
+            "description": "integers"
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "Primitive Type",
+            "description": "string values"
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "Primitive Type",
+            "description": "boolean values"
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "Primitive Type",
+            "description": "real numbers"
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "Composite Type",
+            "description": "Spherical Vector"
+        },
+        {
+            "Instance": "radial",
+            "Instance_of": "Value",
+            "description": "value of type real"
+        },
+        {
+            "Instance": "polar",
+            "Instance_of": "Value",
+            "description": "value of type real"
+        },
+        {
+            "Instance": "azimuth",
+            "Instance_of": "Value",
+            "description": "value of type real"
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "Composite Type",
+            "description": "Composite Type to record obstacle values"
+        },
+        {
+            "Instance": "ns_rel_dist",
+            "Instance_of": "Value",
+            "description": "value of type real"
+        },
+        {
+            "Instance": "ew_rel_dist",
+            "Instance_of": "Value",
+            "description": "value of type real"
+        },
+        {
+            "Instance": "depth",
+            "Instance_of": "Value",
+            "description": "value of type real"
+        },
+        {
+            "Instance": "id",
+            "Instance_of": "Value",
+            "description": "value of type real"
+        },
+        {
+            "Instance": "obs_hdng",
+            "Instance_of": "Value",
+            "description": "value of type SVec"
+        },
+        {
+            "Instance": "hdng",
+            "Instance_of": "Value",
+            "description": "value of type SVec"
+        },
+        {
+            "Instance": "obs",
+            "Instance_of": "Value",
+            "description": "value of type Obstacle"
+        },
+        {
+            "Instance": "Intpus",
+            "Instance_of": "Interface",
+            "description": "Interface defining events"
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": ""
+        },
+        {
+            "Instance": "reqOCM",
+            "Instance_of": "Event",
+            "description": ""
+        },
+        {
+            "Instance": "reqMOM",
+            "Instance_of": "Event",
+            "description": ""
+        },
+        {
+            "Instance": "reqHCM",
+            "Instance_of": "Event",
+            "description": ""
+        },
+        {
+            "Instance": "reqVel",
+            "Instance_of": "Event",
+            "description": "event with Return Value of type real"
+        },
+        {
+            "Instance": "reqHdng",
+            "Instance_of": "Event",
+            "description": "event with Return Value of type real"
+        },
+        {
+            "Instance": "advVel",
+            "Instance_of": "Event",
+            "description": "event with one Parameter of type real"
+        },
+        {
+            "Instance": "advHdng",
+            "Instance_of": "Event",
+            "description": "event with one Parameter of type real"
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "Composite Type",
+            "description": "Composite Type to record close values"
+        },
+        {
+            "Instance": "horiz_cda",
+            "Instance_of": "Value",
+            "description": "value of type real"
+        },
+        {
+            "Instance": "vert_cda",
+            "Instance_of": "Value",
+            "description": "value of type real"
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "Function returning distance from AUV to Obstacle as real"
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "Function returning horizontal distance from AUV to Obstacle as real"
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "Function returning vertical distance from AUV to Obstacle as real"
+        }
+    ]
+}

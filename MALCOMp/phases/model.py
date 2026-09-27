@@ -63,7 +63,6 @@ class EMFModelCreation(Base):
                 "You are an expert in Model Driven Engineering (MDE). "
                 "You are experienced in creating EMF (Eclipse Modelling Framework) models using the Epsilon Object Language (EOL). "
                 "Your job is to write an EOL program to create an EMF model that conforms to the EMF metamodel (written in the Emfatic language) in here: " + dsl +
-                "STRICT FEATURE FAITHFULNESS: every class you instantiate and every feature you read or assign (e.g. `obj.feature = ...`, `obj.feature.add(...)`) MUST be declared in the metamodel above on that object's class (or one of its ancestors). Do NOT invent, rename or abbreviate feature names — e.g. do not write `.ifaces` when the metamodel declares `interfaces`. Copy class and feature names verbatim from the metamodel. "
                 "The description of the system to be developed is here: " + system_desc +
                 "You should base your answer on the requirements provided to you by User. "
                 "The Concepts extracted (in JSON) from the requirements are here: " + concept_extraction +
@@ -86,7 +85,6 @@ class EMFModelCreation(Base):
                 "Your job is to check if the EOL program provided to you is correct, and respond with the correct EOL code. "
                 "You should base your answer on both the EMF metamodel (written in Emfatic) here: " + dsl +
                 ", and the requirements provided by User. "
-                "STRICT FEATURE FAITHFULNESS — verify every feature the EOL reads or assigns is declared in the metamodel on that object's class (or an ancestor); FIX any invented/abbreviated feature name (e.g. replace `.ifaces` with the declared `interfaces`) so it matches the metamodel verbatim. "
                 "The description of the system to be developed is here: " + system_desc +
                 "The Concepts extracted (in JSON) from the requirements are here: " + concept_extraction +
                 "Consult the thinking process in here: " + cot_checker +
@@ -299,11 +297,7 @@ class EMFModelCreation(Base):
         attempts_dir = self.output_dir / "eol_execution_attempts"
         candidate_path = attempts_dir / f"candidate_{self._execution_attempt_index:03d}.eol"
         attempt_model_path = attempts_dir / f"candidate_{self._execution_attempt_index:03d}.model"
-        # Name the accepted EMF model after the phase's code artefact (e.g.
-        # result_model.eol -> result_model.model) so it is case-study-agnostic
-        # rather than the historical hard-coded "result_AUV.model".
-        code_file = self.stage_config["output"].get("code_file", "result_model.eol")
-        accepted_model_path = self.output_dir / (Path(code_file).stem + ".model")
+        accepted_model_path = self.output_dir / "result_AUV.model"
         candidate_path.parent.mkdir(parents=True, exist_ok=True)
         candidate_path.write_text(eol_text, encoding="utf-8")
         return execute_eol(
@@ -316,37 +310,18 @@ class EMFModelCreation(Base):
         )
 
     def _build_execution_feedback(self, eol_text: str, result, repair_index: int) -> str:
-        # Distinguish a runtime/parse crash (EOL threw) from a non-conformant model
-        # (EOL ran clean but the produced model violates the metamodel). The repair
-        # agent needs to know which, because the fix differs.
-        if getattr(result, "conformant", None) is False:
-            failure_kind = "MODEL NON-CONFORMANCE — the EOL ran without error but the model it produced does not conform to the metamodel."
-            diagnostics = (
-                "Conformance violations (EMF Diagnostician):\n"
-                f"{self._bounded_text(result.conformance_summary or result.error_summary, 4000)}\n\n"
-                "Fix instruction: adjust the EOL so every created object satisfies the "
-                "metamodel's multiplicities, required features, reference targets, and "
-                "attribute types. Do not remove valid model-creation logic."
-            )
-        else:
-            failure_kind = "EXECUTION ERROR — MALCOMj reported a parse or runtime error while executing the EOL."
-            diagnostics = (
-                f"Error summary:\n{result.error_summary}\n\n"
-                "Fix instruction: return a complete EOL program that executes against the current generated metamodel."
-            )
         return (
-            f"MALCOMj rejected the current EOL candidate.\n\n"
-            f"Failure kind: {failure_kind}\n"
+            "MALCOMj execution failed for the current EOL candidate.\n\n"
             f"Repair attempt: {repair_index + 1} of {self.max_repair_attempts}\n"
-            f"Exit code: {result.exit_code}\n\n"
-            f"{diagnostics}\n\n"
+            f"Exit code: {result.exit_code}\n"
+            f"Error summary:\n{result.error_summary}\n\n"
             "Current generated Emfatic metamodel:\n"
             f"{self._bounded_text(self.dsl_source_path.read_text(encoding='utf-8'), 6000)}\n\n"
             "Current EOL candidate:\n"
             f"{self._bounded_text(eol_text, 10000)}\n\n"
             "Relevant EOL repair knowledge:\n"
             f"{self._bounded_text(self.repair_knowledge, 5000)}\n\n"
-            "Return the complete repaired EOL program only (no markdown, no explanation)."
+            "Repair instruction: return a complete EOL program that executes against the current generated metamodel."
         )
 
     def _append_tool_message(self, name: str, content: str, chat_history, llm_messages, stream) -> None:
