@@ -22,11 +22,14 @@ Pooling every non-binding full-cascade multi block run this session:
 |---|---|---:|
 | `rq2_matched` | 5 | 4/10 |
 | `rq2_cap6` | 6 | 8/10 |
-| `rq2_repro` (this run) | 5 | 5/10 |
-| **pooled** | non-binding | **17/30 = 0.57** |
+| `rq2_repro` | 5 | 5/10 |
+| `rq2_repro2` (September 27) | 5 | 5/10 |
+| **pooled** | non-binding | **22/40 = 0.55** |
 
-Pooled against the published figure: Fisher **p = 0.016**. If the true per-run pass
-probability were 0.57, the chance of observing 10/10 in a ten-run block is **0.003**.
+Pooled against the published figure: Fisher **p = 0.009**. If the true per-run pass
+probability were 0.55, the chance of observing 10/10 in a ten-run block is **0.0025**.
+(`rq2_repro2` is the first block recorded under the run-manifest guard: every run
+directory carries its arm identity, stamped at instrument commit `1467adf`.)
 (For contrast, the binding shipped cap of 2 gives 3/10 — that part is config, fixed in
 `d92e6d5`.)
 
@@ -56,10 +59,10 @@ the original sweep ran with a higher budget than shipped, the remaining explanat
 
 The safest fix is also the honest one: report the construction-executes cell as measured
 **now**, with dispersion, rather than defending a point figure that no longer reproduces:
-"under a non-binding repair budget, 17/30 runs (57%; blocks of 4/10, 8/10, 5/10)" — and
+"under a non-binding repair budget, 22/40 runs (55%; blocks of 4, 8, 5, 5 of 10)" — and
 date the runs, name the model snapshot as unpinnable, and keep 0/10 for the single-pass
 baseline, which reproduces perfectly. The Fisher test against the single baseline remains
-decisive at pooled rates (17/30 vs 0/10, p = 0.002), so **the paper's qualitative claim
+decisive at pooled rates (22/40 vs 0/20, p = 9.4e-06), so **the paper's qualitative claim
 survives: gated multi-agent generation makes construction programs execute where a single
 pass never does.** What does not survive is the 10/10 point estimate and the
 p = 1.1x10^-5 attached to it.
