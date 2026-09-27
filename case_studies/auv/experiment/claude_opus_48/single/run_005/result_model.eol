@@ -1,0 +1,180 @@
+var auv_module = new M!Module;
+auv_module.name = "AUV_Module";
+
+var nat = new M!PrimitiveType;
+nat.name = "nat";
+auv_module.primitiveTypes.add(nat);
+
+var int = new M!PrimitiveType;
+int.name = "int";
+auv_module.primitiveTypes.add(int);
+
+var string = new M!PrimitiveType;
+string.name = "string";
+auv_module.primitiveTypes.add(string);
+
+var boolean = new M!PrimitiveType;
+boolean.name = "boolean";
+auv_module.primitiveTypes.add(boolean);
+
+var real = new M!PrimitiveType;
+real.name = "real";
+auv_module.primitiveTypes.add(real);
+
+var svec = new M!CompositeType;
+svec.name = "SVec";
+var svec_radial = new M!Value;
+svec_radial.name = "radial";
+svec_radial.type = "real";
+var svec_polar = new M!Value;
+svec_polar.name = "polar";
+svec_polar.type = "real";
+var svec_azimuth = new M!Value;
+svec_azimuth.name = "azimuth";
+svec_azimuth.type = "real";
+svec.values.add(svec_radial);
+svec.values.add(svec_polar);
+svec.values.add(svec_azimuth);
+auv_module.compositeTypes.add(svec);
+
+var obstacle = new M!CompositeType;
+obstacle.name = "Obstacle";
+var obs_ns_rel_dist = new M!Value;
+obs_ns_rel_dist.name = "ns_rel_dist";
+obs_ns_rel_dist.type = "real";
+var obs_ew_rel_dist = new M!Value;
+obs_ew_rel_dist.name = "ew_rel_dist";
+obs_ew_rel_dist.type = "real";
+var obs_depth = new M!Value;
+obs_depth.name = "depth";
+obs_depth.type = "real";
+var obs_id = new M!Value;
+obs_id.name = "id";
+obs_id.type = "real";
+var obs_obs_hdng = new M!Value;
+obs_obs_hdng.name = "obs_hdng";
+obs_obs_hdng.type = "SVec";
+obstacle.values.add(obs_ns_rel_dist);
+obstacle.values.add(obs_ew_rel_dist);
+obstacle.values.add(obs_depth);
+obstacle.values.add(obs_id);
+obstacle.values.add(obs_obs_hdng);
+auv_module.compositeTypes.add(obstacle);
+
+var sensors = new M!Interface;
+sensors.name = "Sensors";
+var sensors_depth = new M!Value;
+sensors_depth.name = "depth";
+sensors_depth.type = "real";
+var sensors_hdng = new M!Value;
+sensors_hdng.name = "hdng";
+sensors_hdng.type = "SVec";
+var sensors_obs = new M!Value;
+sensors_obs.name = "obs";
+sensors_obs.type = "Obstacle";
+sensors.values.add(sensors_depth);
+sensors.values.add(sensors_hdng);
+sensors.values.add(sensors_obs);
+auv_module.interfaces.add(sensors);
+
+var inputs = new M!Interface;
+inputs.name = "Intpus";
+var ev_endTask = new M!Event;
+ev_endTask.name = "endTask";
+var ev_reqOCM = new M!Event;
+ev_reqOCM.name = "reqOCM";
+var ev_reqMOM = new M!Event;
+ev_reqMOM.name = "reqMOM";
+var ev_reqHCM = new M!Event;
+ev_reqHCM.name = "reqHCM";
+var ev_reqVel = new M!Event;
+ev_reqVel.name = "reqVel";
+ev_reqVel.returnType = "real";
+var ev_reqHdng = new M!Event;
+ev_reqHdng.name = "reqHdng";
+ev_reqHdng.returnType = "real";
+inputs.events.add(ev_endTask);
+inputs.events.add(ev_reqOCM);
+inputs.events.add(ev_reqMOM);
+inputs.events.add(ev_reqHCM);
+inputs.events.add(ev_reqVel);
+inputs.events.add(ev_reqHdng);
+auv_module.interfaces.add(inputs);
+
+var outputs = new M!Interface;
+outputs.name = "Outputs";
+var ev_advVel = new M!Event;
+ev_advVel.name = "advVel";
+var advVel_param = new M!Parameter;
+advVel_param.name = "param";
+advVel_param.type = "real";
+ev_advVel.parameters.add(advVel_param);
+var ev_advHdng = new M!Event;
+ev_advHdng.name = "advHdng";
+var advHdng_param = new M!Parameter;
+advHdng_param.name = "param";
+advHdng_param.type = "real";
+ev_advHdng.parameters.add(advHdng_param);
+outputs.events.add(ev_advVel);
+outputs.events.add(ev_advHdng);
+auv_module.interfaces.add(outputs);
+
+var actuators = new M!Interface;
+actuators.name = "Actuators";
+auv_module.interfaces.add(actuators);
+
+var close = new M!CompositeType;
+close.name = "Close";
+var close_horiz_cda = new M!Value;
+close_horiz_cda.name = "horiz_cda";
+close_horiz_cda.type = "real";
+var close_vert_cda = new M!Value;
+close_vert_cda.name = "vert_cda";
+close_vert_cda.type = "real";
+var close_id = new M!Value;
+close_id.name = "id";
+close_id.type = "nat";
+close.values.add(close_horiz_cda);
+close.values.add(close_vert_cda);
+close.values.add(close_id);
+auv_module.compositeTypes.add(close);
+
+var auv_platform = new M!RoboticPlatform;
+auv_platform.name = "AUV_Platform";
+auv_platform.usedInterfaces.add(sensors);
+auv_platform.usedInterfaces.add(actuators);
+auv_module.platforms.add(auv_platform);
+
+var auv_operator = new M!Controller;
+auv_operator.name = "AUV_Operator";
+auv_operator.usedInterfaces.add(inputs);
+auv_module.controllers.add(auv_operator);
+
+var lre_ctrl = new M!Controller;
+lre_ctrl.name = "LRE_Ctrl";
+lre_ctrl.usedInterfaces.add(inputs);
+lre_ctrl.usedInterfaces.add(outputs);
+auv_module.controllers.add(lre_ctrl);
+
+var auv_autopilot = new M!Controller;
+auv_autopilot.name = "AUV_Autopilot";
+auv_autopilot.usedInterfaces.add(outputs);
+auv_module.controllers.add(auv_autopilot);
+
+var odist = new M!Function;
+odist.name = "odist";
+odist.inputType = "Obstacle";
+odist.returnType = "real";
+auv_module.functions.add(odist);
+
+var hdist = new M!Function;
+hdist.name = "hdist";
+hdist.inputType = "Obstacle";
+hdist.returnType = "real";
+auv_module.functions.add(hdist);
+
+var vdist = new M!Function;
+vdist.name = "vdist";
+vdist.inputType = "Obstacle";
+vdist.returnType = "real";
+auv_module.functions.add(vdist);

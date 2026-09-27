@@ -1,0 +1,108 @@
+@namespace(uri="http://auv/", prefix="auv")
+package auv;
+
+abstract class NamedElement {
+    attr String name;
+}
+
+class Module extends NamedElement {
+    val RoboticPlatform[*] platforms;
+    val Controller[*] controllers;
+    val Interface[*] interfaces;
+    val PrimitiveType[*] primitiveTypes;
+    val CompositeType[*] compositeTypes;
+    val Function[*] functions;
+}
+
+class RoboticPlatform extends Component {
+}
+
+class Controller extends Component {
+}
+
+abstract class Component extends NamedElement {
+    ref Interface[*] usedInterfaces;
+}
+
+class RoboticPlatformComponent extends Component {
+}
+
+class ControllerComponent extends Component {
+}
+
+class Interface extends NamedElement {
+    val Value[*] values;
+    val Event[*] events;
+}
+
+class PrimitiveType extends NamedElement {
+}
+
+class CompositeType extends NamedElement {
+    val Value[*] values;
+}
+
+abstract class TypedElement extends NamedElement {
+    ref NamedElement type;
+}
+
+class Value extends TypedElement {
+}
+
+class Event extends NamedElement {
+    val Parameter[*] parameters;
+    ref NamedElement returnType;
+}
+
+class Parameter extends TypedElement {
+}
+
+class Function extends NamedElement {
+    val Parameter[*] parameters;
+    ref NamedElement returnType;
+}
+
+class BehaviourSpecification extends NamedElement {
+}
+
+class DataFlowElement extends NamedElement {
+}
+
+class Task extends NamedElement {
+}
+
+class Connection extends NamedElement {
+}
+
+class Port extends NamedElement {
+}
+
+class Deployment extends NamedElement {
+}
+
+class DeploymentComponent extends NamedElement {
+}
+
+class DeploymentConnection extends NamedElement {
+}
+
+class DeploymentPort extends NamedElement {
+}
+
+class DeploymentTask extends NamedElement {
+}
+
+class Coordinator extends NamedElement {
+}
+
+class Mission extends NamedElement {
+}
+
+class MissionTask extends NamedElement {
+}
+
+class MissionConnection extends NamedElement {
+}
+
+class MissionPort extends NamedElement {
+}

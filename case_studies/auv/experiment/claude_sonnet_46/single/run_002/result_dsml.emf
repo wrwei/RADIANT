@@ -1,0 +1,55 @@
+@namespace(uri="http://auv/", prefix="auv")
+package auv;
+
+abstract class NamedElement {
+    attr String name;
+}
+
+class Module extends NamedElement {
+    val RoboticPlatform[*] platforms;
+    val Controller[*] controllers;
+    val Interface[*] interfaces;
+    val PrimitiveType[*] primitiveTypes;
+    val CompositeType[*] compositeTypes;
+    val Function[*] functions;
+}
+
+class RoboticPlatform extends NamedElement {
+    ref Interface[*] usedInterfaces;
+}
+
+class Controller extends NamedElement {
+    ref Interface[*] usedInterfaces;
+}
+
+class Interface extends NamedElement {
+    val Value[*] values;
+    val Event[*] events;
+}
+
+class PrimitiveType extends NamedElement {
+}
+
+class CompositeType extends NamedElement {
+    val Value[*] values;
+}
+
+class Value extends NamedElement {
+    ref PrimitiveType primitiveType;
+    ref CompositeType compositeType;
+}
+
+class Event extends NamedElement {
+    val Parameter[*] parameters;
+    ref PrimitiveType returnType;
+}
+
+class Parameter extends NamedElement {
+    ref PrimitiveType primitiveType;
+    ref CompositeType compositeType;
+}
+
+class Function extends NamedElement {
+    val Parameter[*] parameters;
+    ref PrimitiveType returnType;
+}

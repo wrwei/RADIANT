@@ -1,0 +1,90 @@
+@namespace(uri="http://auv/1.0", prefix="auv")
+package auv;
+
+abstract class NamedElement {
+    attr String name;
+}
+
+class Module extends NamedElement {
+    val RoboticPlatform[*] platforms;
+    val Controller[*] controllers;
+    val Interface[*] interfaces;
+    val PrimitiveType[*] primitiveTypes;
+    val CompositeType[*] compositeTypes;
+    val Function[*] functions;
+    val Activity[*] activities;
+    val Task[*] tasks;
+    val Port[*] ports;
+    val Connection[*] connections;
+    val Constraint[*] constraints;
+}
+
+class RoboticPlatform extends NamedElement {
+    ref Interface[*] usedInterfaces;
+}
+
+class Actuator extends RoboticPlatform {
+}
+
+class Sensor extends RoboticPlatform {
+}
+
+class Controller extends NamedElement {
+    ref Interface[*] usedInterfaces;
+}
+
+class Interface extends NamedElement {
+    val Value[*] values;
+    val Event[*] events;
+}
+
+class PrimitiveType extends NamedElement {
+}
+
+class CompositeType extends NamedElement {
+    val Value[*] values;
+}
+
+abstract class TypedElement extends NamedElement {
+    ref NamedElement ~type;
+}
+
+class Value extends TypedElement {
+}
+
+class Parameter extends TypedElement {
+}
+
+abstract class CallableElement extends NamedElement {
+    val Parameter[*] parameters;
+    ref PrimitiveType returnType;
+}
+
+class Event extends CallableElement {
+}
+
+class Function extends CallableElement {
+}
+
+class Activity extends NamedElement {
+    val Behavior[*] behaviors;
+}
+
+class Behavior extends NamedElement {
+}
+
+class Task extends NamedElement {
+    ref Activity[*] activities;
+}
+
+class Port extends NamedElement {
+    ref NamedElement ~type;
+}
+
+class Connection extends NamedElement {
+    ref Port source;
+    ref Port target;
+}
+
+class Constraint extends NamedElement {
+}
