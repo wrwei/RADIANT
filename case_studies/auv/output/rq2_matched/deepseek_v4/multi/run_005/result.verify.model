@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:auv="http://www.example.org/auv">
+  <auv:PrimitiveType name="nat"/>
+  <auv:PrimitiveType name="int"/>
+  <auv:PrimitiveType name="string"/>
+  <auv:PrimitiveType name="boolean"/>
+  <auv:PrimitiveType name="real"/>
+  <auv:CompositeType name="SVec"/>
+  <auv:CompositeType name="Obstacle"/>
+  <auv:CompositeType name="Close"/>
+  <auv:Module name="AUV_Module">
+    <controllers name="AUV_Operator" interfaces="/8/@interfaces.2"/>
+    <controllers name="LRE_Ctrl" interfaces="/8/@interfaces.2 /8/@interfaces.4"/>
+    <controllers name="AUV_Autopilot" interfaces="/8/@interfaces.4"/>
+    <interfaces name="Sensors"/>
+    <interfaces name="Actuators"/>
+    <interfaces name="Inputs"/>
+    <interfaces name="Intpus"/>
+    <interfaces name="Outputs"/>
+  </auv:Module>
+  <auv:RoboticPlatform name="AUV_Platform"/>
+</xmi:XMI>

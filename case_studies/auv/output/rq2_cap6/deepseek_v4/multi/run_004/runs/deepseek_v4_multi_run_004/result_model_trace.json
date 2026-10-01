@@ -1,0 +1,349 @@
+{
+    "model_trace": [
+        {
+            "requirement_gid": "SD1",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "name",
+            "Attribute_value": "AUV_Module",
+            "Model_reference": null,
+            "Reference_value": null,
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD2",
+            "Model_Element": "RoboticPlatform",
+            "Model_Element_id": "auvPlatform",
+            "Model_attribute": "name",
+            "Attribute_value": "AUV_Platform",
+            "Model_reference": null,
+            "Reference_value": null,
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 4,
+                "line_end": 4,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD2",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": null,
+            "Attribute_value": null,
+            "Model_reference": "robotic_platforms",
+            "Reference_value": "auvPlatform",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Model_Element": "Interface",
+            "Model_Element_id": "sensors",
+            "Model_attribute": "name",
+            "Attribute_value": "Sensors",
+            "Model_reference": null,
+            "Reference_value": null,
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 8,
+                "line_end": 8,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface4",
+            "Model_Element": "Interface",
+            "Model_Element_id": "actuators",
+            "Model_attribute": "name",
+            "Attribute_value": "Actuators",
+            "Model_reference": null,
+            "Reference_value": null,
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 11,
+                "line_end": 11,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Interface",
+            "Model_Element_id": "inputs",
+            "Model_attribute": "name",
+            "Attribute_value": "Inputs",
+            "Model_reference": null,
+            "Reference_value": null,
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 14,
+                "line_end": 14,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Interface",
+            "Model_Element_id": "intpus",
+            "Model_attribute": "name",
+            "Attribute_value": "Intpus",
+            "Model_reference": null,
+            "Reference_value": null,
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 17,
+                "line_end": 17,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Model_Element": "Interface",
+            "Model_Element_id": "outputs",
+            "Model_attribute": "name",
+            "Attribute_value": "Outputs",
+            "Model_reference": null,
+            "Reference_value": null,
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 20,
+                "line_end": 20,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": null,
+            "Attribute_value": null,
+            "Model_reference": "interfaces",
+            "Reference_value": "sensors",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface4",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": null,
+            "Attribute_value": null,
+            "Model_reference": "interfaces",
+            "Reference_value": "actuators",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": null,
+            "Attribute_value": null,
+            "Model_reference": "interfaces",
+            "Reference_value": "inputs",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": null,
+            "Attribute_value": null,
+            "Model_reference": "interfaces",
+            "Reference_value": "intpus",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": null,
+            "Attribute_value": null,
+            "Model_reference": "interfaces",
+            "Reference_value": "outputs",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD3",
+            "Model_Element": "Controller",
+            "Model_Element_id": "auvOperator",
+            "Model_attribute": "name",
+            "Attribute_value": "AUV_Operator",
+            "Model_reference": null,
+            "Reference_value": null,
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 29,
+                "line_end": 29,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD3",
+            "Model_Element": "Controller",
+            "Model_Element_id": "auvOperator",
+            "Model_attribute": null,
+            "Attribute_value": null,
+            "Model_reference": "interfaces",
+            "Reference_value": "inputs",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 29,
+                "line_end": 29,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD3",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": null,
+            "Attribute_value": null,
+            "Model_reference": "controllers",
+            "Reference_value": "auvOperator",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD4",
+            "Model_Element": "Controller",
+            "Model_Element_id": "lreCtrl",
+            "Model_attribute": "name",
+            "Attribute_value": "LRE_Ctrl",
+            "Model_reference": null,
+            "Reference_value": null,
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 34,
+                "line_end": 34,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD4",
+            "Model_Element": "Controller",
+            "Model_Element_id": "lreCtrl",
+            "Model_attribute": null,
+            "Attribute_value": null,
+            "Model_reference": "interfaces",
+            "Reference_value": "inputs",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 34,
+                "line_end": 34,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD4",
+            "Model_Element": "Controller",
+            "Model_Element_id": "lreCtrl",
+            "Model_attribute": null,
+            "Attribute_value": null,
+            "Model_reference": "interfaces",
+            "Reference_value": "outputs",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 34,
+                "line_end": 34,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD4",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": null,
+            "Attribute_value": null,
+            "Model_reference": "controllers",
+            "Reference_value": "lreCtrl",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD5",
+            "Model_Element": "Controller",
+            "Model_Element_id": "auvAutopilot",
+            "Model_attribute": "name",
+            "Attribute_value": "AUV_Autopilot",
+            "Model_reference": null,
+            "Reference_value": null,
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 40,
+                "line_end": 40,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD5",
+            "Model_Element": "Controller",
+            "Model_Element_id": "auvAutopilot",
+            "Model_attribute": null,
+            "Attribute_value": null,
+            "Model_reference": "interfaces",
+            "Reference_value": "outputs",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 40,
+                "line_end": 40,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD5",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": null,
+            "Attribute_value": null,
+            "Model_reference": "controllers",
+            "Reference_value": "auvAutopilot",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        }
+    ]
+}

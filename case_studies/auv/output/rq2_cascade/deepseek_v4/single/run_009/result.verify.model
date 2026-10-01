@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:result_dsml="http://generated/result_dsml">
+  <result_dsml:Module name="AUV_Module"/>
+  <result_dsml:RoboticPlatform name="AUV_Platform"/>
+</xmi:XMI>

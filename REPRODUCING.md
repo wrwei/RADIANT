@@ -31,12 +31,24 @@ and the phase is accepted with `fully_verified=False`. Set
 `verification.strict: true` in `config.yaml` to reject those phases instead;
 the reported results were produced with every check runnable.
 
+## Scope: which runs a driver scores
+
+`case_studies/auv/output/runs/` holds nine archived runs: the three May 2026
+runs the paper's Table 2 reports (`web_20260530_*`) and six later June runs
+kept as additional evidence. The traceability driver scores **every** run
+directory it finds unless told otherwise, so the bare command reports the
+pooled nine-run figures (behaviour coverage 0.654) rather than the table's
+three-run figures (0.667). The commands below pass `--pattern` where the
+reported number has a specific scope. `--pattern`, `--latest` and
+`--exclude-regex` control the set; the per-run CSV always lists what was
+scored.
+
 ## Reported item -> command
 
 | Paper item | Command |
 |---|---|
-| Table 2, trace resolvability and coverage | `python malcom.evaluation/metrics/traceability/compute.py` |
-| Table 2, behaviour coverage 0.67 | same driver; `traceability_report.md` breaks it down per layer |
+| Table 2, trace resolvability and coverage | `python malcom.evaluation/metrics/traceability/compute.py --pattern 'web_20260530*'` |
+| Table 2, behaviour coverage 0.67 | same command; `traceability_report.md` breaks it down per layer |
 | Figure 3, change-impact set | `python -m MALCOMp.change_impact` over `case_studies/auv/fixtures` |
 | RQ2 control (matched budget) | `python malcom.evaluation/metrics/rq2_control/analyse.py --root case_studies/auv/output/rq2_matched/deepseek_v4 --stage model` |
 | RQ2 full cascade | `python malcom.evaluation/metrics/rq2_control/cascade.py --root case_studies/auv/output/rq2_cascade/deepseek_v4` |

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:generated="http://generated/generated">
+  <generated:PrimitiveType name="nat"/>
+  <generated:PrimitiveType name="int"/>
+  <generated:PrimitiveType name="string"/>
+  <generated:PrimitiveType name="boolean"/>
+  <generated:PrimitiveType name="real"/>
+  <generated:Module name="AUV_Module">
+    <platforms name="AUV_Platform"/>
+    <interfaces name="Sensors">
+      <values name="depth" type="/4"/>
+      <values name="hdng" type="/6"/>
+      <values name="obs" type="/7"/>
+    </interfaces>
+    <interfaces name="Actuators"/>
+    <interfaces name="Intpus">
+      <events name="endTask"/>
+      <events name="reqOCM"/>
+      <events name="reqMOM"/>
+      <events name="reqHCM"/>
+      <events name="reqVel" returnType="/4"/>
+      <events name="reqHdng" returnType="/4"/>
+    </interfaces>
+    <interfaces name="Outputs">
+      <events name="advVel">
+        <parameters xsi:type="generated:Value" name="param" type="/4"/>
+      </events>
+      <events name="advHdng">
+        <parameters xsi:type="generated:Value" name="param" type="/4"/>
+      </events>
+    </interfaces>
+    <controllers name="AUV_Operator"/>
+    <controllers name="LRE_Ctrl"/>
+    <controllers name="AUV_Autopilot"/>
+  </generated:Module>
+  <generated:CompositeType name="SVec">
+    <values name="radial" type="/4"/>
+    <values name="polar" type="/4"/>
+    <values name="azimuth" type="/4"/>
+  </generated:CompositeType>
+  <generated:CompositeType name="Obstacle">
+    <values name="ns_rel_dist" type="/4"/>
+    <values name="ew_rel_dist" type="/4"/>
+    <values name="depth" type="/4"/>
+    <values name="id" type="/4"/>
+    <values name="obs_hdng" type="/6"/>
+  </generated:CompositeType>
+  <generated:CompositeType name="Close">
+    <values name="horiz_cda" type="/4"/>
+    <values name="vert_cda" type="/4"/>
+    <values name="id" type="/0"/>
+  </generated:CompositeType>
+  <generated:Function name="odist" returnType="/4">
+    <parameters xsi:type="generated:Value" name="obstacle" type="/7"/>
+  </generated:Function>
+  <generated:Function name="hdist" returnType="/4">
+    <parameters xsi:type="generated:Value" name="obstacle" type="/7"/>
+  </generated:Function>
+  <generated:Function name="vdist" returnType="/4">
+    <parameters xsi:type="generated:Value" name="obstacle" type="/7"/>
+  </generated:Function>
+</xmi:XMI>

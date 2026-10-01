@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:auv="http://generated/auv">
+  <auv:Module name="AUV_Module">
+    <controllers name="AUV_Operator"/>
+    <controllers name="LRE_Ctrl"/>
+    <controllers name="AUV_Autopilot"/>
+    <interfaces name="Sensors">
+      <values name="depth"/>
+      <values name="hdng" type="/6"/>
+      <values name="obs" type="/7"/>
+    </interfaces>
+    <interfaces name="Actuators"/>
+    <interfaces name="Inputs"/>
+    <interfaces name="Outputs">
+      <events name="advVel">
+        <parameters xsi:type="auv:Value" name="velocity"/>
+      </events>
+      <events name="advHdng">
+        <parameters xsi:type="auv:Value" name="heading"/>
+      </events>
+    </interfaces>
+    <interfaces name="Intpus">
+      <events name="endTask"/>
+      <events name="reqOCM"/>
+      <events name="reqMOM"/>
+      <events name="reqHCM"/>
+      <events name="reqVel"/>
+      <events name="reqHdng"/>
+    </interfaces>
+  </auv:Module>
+  <auv:PrimitiveType name="nat"/>
+  <auv:PrimitiveType name="int"/>
+  <auv:PrimitiveType name="string"/>
+  <auv:PrimitiveType name="boolean"/>
+  <auv:PrimitiveType name="real"/>
+  <auv:CompositeType name="SVec">
+    <values name="radial"/>
+    <values name="polar"/>
+    <values name="azimuth"/>
+  </auv:CompositeType>
+  <auv:CompositeType name="Obstacle">
+    <values name="ns_rel_dist"/>
+    <values name="ew_rel_dist"/>
+    <values name="depth"/>
+    <values name="id"/>
+    <values name="obs_hdng" type="/6"/>
+  </auv:CompositeType>
+  <auv:CompositeType name="Close">
+    <values name="horiz_cda"/>
+    <values name="vert_cda"/>
+    <values name="id"/>
+  </auv:CompositeType>
+  <auv:RoboticPlatform name="AUV_Platform"/>
+  <auv:Function name="odist">
+    <parameters xsi:type="auv:Value" name="obs" type="/7"/>
+  </auv:Function>
+  <auv:Function name="hdist">
+    <parameters xsi:type="auv:Value" name="obs" type="/7"/>
+  </auv:Function>
+  <auv:Function name="vdist">
+    <parameters xsi:type="auv:Value" name="obs" type="/7"/>
+  </auv:Function>
+</xmi:XMI>

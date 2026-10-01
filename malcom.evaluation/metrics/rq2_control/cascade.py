@@ -37,7 +37,13 @@ from analyse import STRUCTURAL, fisher_exact_2x2  # noqa: E402
 ARMS = ("single", "single_repair", "multi")
 # stage -> the artefact whose presence means the run reached that stage
 ARTEFACT = {
-    "concept": ("result_concept_trace.json", "result_term_extraction.json"),
+    # result_concept_model.json is what every stage writes (the deduplicated
+    # concept model); result_term_extraction.json is the raw trace, present
+    # only in the archived web runs. Listing the trace first made every
+    # cascade run score as "never reached the concept stage" (0/0), because
+    # the sweeps write the model file and not the trace file.
+    "concept": ("result_concept_model.json", "result_term_extraction.json",
+                "result_concept_trace.json"),
     "dsml": ("result_dsml.emf", "result_DSL.emf"),
     "model": ("result_model.eol", "result_eol_program.eol"),
 }
