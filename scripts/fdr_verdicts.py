@@ -35,6 +35,26 @@ OUT = REPO / "malcom.evaluation" / "fdr_results.json"
 WORK = REPO / "malcom.evaluation" / "fdr_work"
 
 
+# The second platform (the transfer claim). Its archived run already carries
+# an assembled RoboChart model, so it goes straight to the refinement check.
+SECOND_PLATFORM = (REPO / "case_studies" / "sranger" / "output" / "runs"
+                   / "sranger_deepseek_demo" / "result_behaviour_model.rct")
+
+
+def _check_assembled(name: str, rct: Path) -> dict:
+    entry: dict = {"run": name, "rct": str(rct.relative_to(REPO)), "assembled": True}
+    t0 = time.time()
+    chk = fdr4.run_fdr4_check(rct, config=FDR_CONFIG)
+    entry.update({
+        "check": chk.name, "ok": bool(chk.ok), "unverified": bool(chk.unverifiable),
+        "detail": chk.detail or "", "seconds": round(time.time() - t0, 1),
+    })
+    entry["status"] = ("verified" if chk.ok
+                       else "unverified (tool could not run)" if chk.unverifiable
+                       else "FAILED")
+    return entry
+
+
 def main() -> int:
     runs = sorted((REPO / "case_studies" / "auv" / "output" / "runs").glob("web_*"))
     if not runs:
@@ -43,6 +63,12 @@ def main() -> int:
     WORK.mkdir(parents=True, exist_ok=True)
 
     results = {}
+    if SECOND_PLATFORM.is_file():
+        print(f"  checking second platform: {SECOND_PLATFORM.parent.name}")
+        results["sranger_deepseek_demo"] = _check_assembled(
+            "sranger_deepseek_demo", SECOND_PLATFORM)
+        print(f"    -> {results['sranger_deepseek_demo']['status']}: "
+              f"{results['sranger_deepseek_demo']['detail'][:80]}")
     for run in runs:
         stm = run / "STM.txt"
         entry: dict = {"run": run.name, "stm": str(stm.relative_to(REPO))}
