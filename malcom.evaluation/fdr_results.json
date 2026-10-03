@@ -1,8 +1,19 @@
 {
-  "generated": "2026-09-20T10:59:25+0800",
+  "generated": "2026-10-03T07:07:41+0100",
   "fdr": "/Applications/FDR4.app/Contents/MacOS/refines",
   "note": "Refinement verdicts for the archived May 2026 AUV runs, produced by the pipeline's own gate (MALCOMp/fdr4.py). Runs whose archived behaviour model does not parse as RoboChart are recorded as assembled=false rather than skipped silently.",
   "runs": {
+    "sranger_deepseek_demo": {
+      "run": "sranger_deepseek_demo",
+      "rct": "case_studies/sranger/output/runs/sranger_deepseek_demo/result_behaviour_model.rct",
+      "assembled": true,
+      "check": "fdr4_refinement",
+      "ok": false,
+      "unverified": false,
+      "detail": "FAIL P_SRangerController :[deadlock free] [deadlock after trace: driveForward -> endTask -> fullStop]; FAIL P_SRangerController ; RUN({r__}) :[deadlock free] [deadlock after trace: driveForward -> endTask -> fullStop]",
+      "seconds": 1.8,
+      "status": "FAILED"
+    },
     "web_20260530_182240_auto1": {
       "run": "web_20260530_182240_auto1",
       "stm": "case_studies/auv/output/runs/web_20260530_182240_auto1/STM.txt",
@@ -11,7 +22,7 @@
       "ok": true,
       "unverified": false,
       "detail": "6 assertion(s) hold (deadlock/divergence-free)",
-      "seconds": 51.0,
+      "seconds": 27.8,
       "status": "verified"
     },
     "web_20260530_191159_auto2": {
@@ -25,6 +36,26 @@
       "stm": "case_studies/auv/output/runs/web_20260530_195147_auto3/STM.txt",
       "assembled": false,
       "status": "assembly failed: archived model does not parse as RoboChart"
+    },
+    "web_20260615_190332": {
+      "run": "web_20260615_190332",
+      "stm": "case_studies/auv/output/runs/web_20260615_190332/STM.txt",
+      "status": "no behaviour model in run directory"
+    },
+    "web_20260616_095309": {
+      "run": "web_20260616_095309",
+      "stm": "case_studies/auv/output/runs/web_20260616_095309/STM.txt",
+      "status": "no behaviour model in run directory"
+    },
+    "web_20260616_110920": {
+      "run": "web_20260616_110920",
+      "stm": "case_studies/auv/output/runs/web_20260616_110920/STM.txt",
+      "status": "no behaviour model in run directory"
+    },
+    "web_20260616_113256": {
+      "run": "web_20260616_113256",
+      "stm": "case_studies/auv/output/runs/web_20260616_113256/STM.txt",
+      "status": "no behaviour model in run directory"
     }
   }
 }

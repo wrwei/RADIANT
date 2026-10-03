@@ -26,7 +26,16 @@ field** (no wording changed):
     cd MALCOMp
     python run.py concept dsml model behaviour --case-study sranger --model deepseek_v4
 
-All four phases passed their verification gates: 9-concept model (full coverage),
+All four phases produced their artefacts: 9-concept model (full coverage),
 13-class valid Emfatic metamodel, an EOL that executes to a conformant EMF model,
-and a 3-state / 7-transition RoboChart behaviour model that FDR verifies
-deadlock- and divergence-free. See `case_studies/auv/experiment/FINDINGS.md`.
+and a 3-state / 7-transition RoboChart behaviour model.
+
+**The behaviour model is not deadlock-free.** Checked after the fact with a licensed
+FDR 4.2.7 through the pipeline's own gate (`scripts/run_fdr_verdicts.sh`), it fails
+the deadlock assertion with counterexample `driveForward -> endTask -> fullStop`:
+`Final` is an ordinary state with no outgoing transitions rather than a RoboChart
+final pseudostate, so after the stop command the controller halts. The requirements
+(SR-FR3, SR-Beh3, SR-Beh6) make the stop mode terminal; realising that as a dead
+state is what FDR rejects. This run directory carries no recorded verdict, so whether
+the gate ran when it was produced cannot be established. Verdict:
+`malcom.evaluation/fdr_results.json`, key `sranger_deepseek_demo`.
