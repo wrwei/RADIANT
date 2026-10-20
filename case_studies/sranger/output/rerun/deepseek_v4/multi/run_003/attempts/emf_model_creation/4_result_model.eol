@@ -1,0 +1,26 @@
+var srangerSystem = new M!SRangerSystem();
+srangerSystem.name = "SRanger";
+
+var sensor = new M!Sensor();
+sensor.name = "Sensor";
+
+var motor = new M!Motor();
+motor.name = "Motor";
+
+var actuator = new M!Actuator();
+actuator.name = "Actuator";
+actuator.lastLinearVelocity = 0.0;
+actuator.lastAngularVelocity = 0.0;
+
+var inputEventKind = new M!InputEventKind();
+inputEventKind.name = "InputEventKind";
+
+srangerSystem.inputEventKind = inputEventKind;
+sensor.inputEventKind = inputEventKind;
+
+srangerSystem.sensor = sensor;
+srangerSystem.motor = motor;
+srangerSystem.actuator = actuator;
+
+M.add(srangerSystem);
+M.add(inputEventKind);

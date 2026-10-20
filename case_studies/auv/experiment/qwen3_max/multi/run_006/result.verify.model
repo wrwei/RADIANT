@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:robotic="http://generated/robotic">
+  <robotic:Module name="AUV_Module">
+    <platforms name="AUV_Platform"/>
+    <controllers name="AUV_Operator"/>
+    <controllers name="LRE_Ctrl"/>
+    <controllers name="AUV_Autopilot"/>
+    <primitiveTypes name="nat"/>
+    <primitiveTypes name="int"/>
+    <primitiveTypes name="string"/>
+    <primitiveTypes name="boolean"/>
+    <primitiveTypes name="real"/>
+    <compositeTypes name="SVec"/>
+  </robotic:Module>
+  <robotic:Field name="radial"/>
+</xmi:XMI>

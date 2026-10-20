@@ -1,0 +1,255 @@
+{
+    "concepts": [
+        {
+            "Concept": "Module",
+            "description": "A modular component of the AUV system."
+        },
+        {
+            "Concept": "RoboticPlatform",
+            "description": "The physical robotic platform of the AUV."
+        },
+        {
+            "Concept": "Interface",
+            "description": "A defined boundary for communication between components."
+        },
+        {
+            "Concept": "Controller",
+            "description": "A component that controls the AUV."
+        },
+        {
+            "Concept": "PrimitiveType",
+            "description": "A basic data type."
+        },
+        {
+            "Concept": "CompositeType",
+            "description": "A structured data type composed of multiple values."
+        },
+        {
+            "Concept": "Value",
+            "description": "A named data element."
+        },
+        {
+            "Concept": "Event",
+            "description": "A signal or occurrence that can be triggered or received."
+        },
+        {
+            "Concept": "Parameter",
+            "description": "An input to an event or function."
+        },
+        {
+            "Concept": "ReturnValue",
+            "description": "An output value returned by an event or function."
+        },
+        {
+            "Concept": "Function",
+            "description": "A defined operation or computation."
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": "The AUV module."
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "RoboticPlatform",
+            "description": "The robotic platform contained in AUV_Module."
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": "Interface for sensors."
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": "Interface for actuators."
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": "Controller for AUV operator."
+        },
+        {
+            "Instance": "Inputs",
+            "Instance_of": "Interface",
+            "description": "Interface for inputs."
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "Controller for Last Response Engine."
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": "Interface for outputs."
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": "Controller for AUV autopilot."
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "",
+            "description": "Natural numbers."
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "",
+            "description": "Integers."
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "",
+            "description": "String values."
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "",
+            "description": "Boolean values."
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "",
+            "description": "Real numbers."
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "CompositeType",
+            "description": "Spherical Vector."
+        },
+        {
+            "Instance": "radial",
+            "Instance_of": "Value",
+            "description": "Radial component of SVec."
+        },
+        {
+            "Instance": "polar",
+            "Instance_of": "Value",
+            "description": "Polar component of SVec."
+        },
+        {
+            "Instance": "azimuth",
+            "Instance_of": "Value",
+            "description": "Azimuth component of SVec."
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "CompositeType",
+            "description": "Obstacle data."
+        },
+        {
+            "Instance": "ns_rel_dist",
+            "Instance_of": "Value",
+            "description": "North-south relative distance."
+        },
+        {
+            "Instance": "ew_rel_dist",
+            "Instance_of": "Value",
+            "description": "East-west relative distance."
+        },
+        {
+            "Instance": "depth",
+            "Instance_of": "Value",
+            "description": "Depth value."
+        },
+        {
+            "Instance": "id",
+            "Instance_of": "Value",
+            "description": "Identifier."
+        },
+        {
+            "Instance": "obs_hdng",
+            "Instance_of": "Value",
+            "description": "Obstacle heading of type SVec."
+        },
+        {
+            "Instance": "hdng",
+            "Instance_of": "Value",
+            "description": "Heading value of type SVec."
+        },
+        {
+            "Instance": "obs",
+            "Instance_of": "Value",
+            "description": "Obstacle value of type Obstacle."
+        },
+        {
+            "Instance": "Intpus",
+            "Instance_of": "Interface",
+            "description": "Interface defining input events."
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": "Event to end the task."
+        },
+        {
+            "Instance": "reqOCM",
+            "Instance_of": "Event",
+            "description": "Event to request OCM."
+        },
+        {
+            "Instance": "reqMOM",
+            "Instance_of": "Event",
+            "description": "Event to request MOM."
+        },
+        {
+            "Instance": "reqHCM",
+            "Instance_of": "Event",
+            "description": "Event to request HCM."
+        },
+        {
+            "Instance": "reqVel",
+            "Instance_of": "Event",
+            "description": "Event to request velocity, returns real."
+        },
+        {
+            "Instance": "reqHdng",
+            "Instance_of": "Event",
+            "description": "Event to request heading, returns real."
+        },
+        {
+            "Instance": "advVel",
+            "Instance_of": "Event",
+            "description": "Event to advise velocity, takes one real parameter."
+        },
+        {
+            "Instance": "advHdng",
+            "Instance_of": "Event",
+            "description": "Event to advise heading, takes one real parameter."
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "CompositeType",
+            "description": "Close data."
+        },
+        {
+            "Instance": "horiz_cda",
+            "Instance_of": "Value",
+            "description": "Horizontal cda value."
+        },
+        {
+            "Instance": "vert_cda",
+            "Instance_of": "Value",
+            "description": "Vertical cda value."
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "Function returning distance from AUV to Obstacle."
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "Function returning horizontal distance from AUV to Obstacle."
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "Function returning vertical distance from AUV to Obstacle."
+        }
+    ]
+}

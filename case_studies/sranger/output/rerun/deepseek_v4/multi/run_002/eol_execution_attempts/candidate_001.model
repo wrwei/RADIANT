@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sranger="http://www.sranger.example.com/metamodel">
+  <sranger:System name="SRanger">
+    <controller name="SRangerController">
+      <stateMachine name="SRangerStateMachine" initialMode="/0/@controller/@stateMachine/@modes.0">
+        <modes name="Moving"/>
+        <modes name="Turning"/>
+        <modes name="Final" terminal="true"/>
+      </stateMachine>
+    </controller>
+    <sensor name="IRSensor"/>
+    <actuator name="DifferentialDrive"/>
+  </sranger:System>
+  <sranger:Constant name="moveVel" type="real" unit="m/s"/>
+</xmi:XMI>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:model="http://generated/model">
+  <model:Module name="AUV_Module">
+    <platforms name="AUV_Platform"/>
+    <interfaces name="Sensors"/>
+    <interfaces name="Actuators"/>
+    <interfaces name="Inputs"/>
+    <interfaces name="Intpus"/>
+    <interfaces name="Outputs"/>
+  </model:Module>
+  <model:Controller name="AUV_Operator"/>
+</xmi:XMI>

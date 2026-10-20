@@ -1,0 +1,74 @@
+@namespace(uri="http://auv/metamodel", prefix="auv")
+package auv;
+
+abstract class NamedElement {
+    attr String name;
+}
+
+class Module extends NamedElement {
+    val RoboticPlatform[*] platforms;
+    val Controller[*] controllers;
+    val Interface[*] interfaces;
+    val PrimitiveType[*] primitiveTypes;
+    val CompositeType[*] compositeTypes;
+    val Function[*] functions;
+    val Behavior[*] behaviors;
+    val Sensor[*] sensors;
+    val Actuator[*] actuators;
+}
+
+class RoboticPlatform extends NamedElement {
+    ref Interface[*] usedInterfaces;
+}
+
+class Controller extends NamedElement {
+    ref Interface[*] usedInterfaces;
+}
+
+class Interface extends NamedElement {
+    val Value[*] values;
+    val Event[*] events;
+}
+
+class PrimitiveType extends NamedElement {
+}
+
+class CompositeType extends NamedElement {
+    val Value[*] values;
+}
+
+abstract class TypedElement extends NamedElement {
+    ref NamedElement ~type;
+}
+
+class Value extends TypedElement {
+}
+
+class Parameter extends TypedElement {
+}
+
+abstract class CallableElement extends NamedElement {
+    val Parameter[*] parameters;
+    ref PrimitiveType returnType;
+}
+
+class Event extends CallableElement {
+}
+
+class Function extends CallableElement {
+}
+
+class Action extends CallableElement {
+}
+
+class Behavior extends NamedElement {
+    val Action[*] actions;
+}
+
+class Sensor extends NamedElement {
+    ref Interface[*] providedInterfaces;
+}
+
+class Actuator extends NamedElement {
+    ref Interface[*] providedInterfaces;
+}

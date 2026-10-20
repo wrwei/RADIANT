@@ -1,0 +1,33 @@
+stm Controller {
+    event obstacle
+    event endTask
+    event tick
+    event Move
+    var obstacleDetected : boolean
+    var lastLinearVelocity : real
+    var lastAngularVelocity : real
+    var clockResetTime : real
+    const moveVel : real = 1.0
+    const turnVel : real = 2.0
+    const obstacleThreshold : real = 0.5
+    const turnDuration : real = 2.0
+    clock turnClock
+    initial i0
+    state Moving {
+        entry lastLinearVelocity = moveVel; lastAngularVelocity = 0; Move
+    }
+    state Turning {
+        entry lastLinearVelocity = 0; lastAngularVelocity = turnVel; clockResetTime = since(turnClock); # turnClock; Move
+    }
+    state Final {
+        entry lastLinearVelocity = 0; lastAngularVelocity = 0; Move
+    }
+    transition t0 { from i0 to Moving }
+    transition t1 { from Moving to Turning trigger obstacle condition obstacleDetected }
+    transition t2 { from Moving to Final trigger endTask }
+    transition t3 { from Moving to Moving trigger tick }
+    transition t4 { from Turning to Moving condition since(turnClock) >= turnDuration }
+    transition t5 { from Turning to Final trigger endTask }
+    transition t6 { from Turning to Turning trigger tick }
+    transition t7 { from Final to Final trigger tick }
+}

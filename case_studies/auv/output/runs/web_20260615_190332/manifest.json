@@ -1,0 +1,90 @@
+{
+  "run_id": "web_20260615_190332",
+  "config_path": "C:\\Users\\willr\\AppData\\Local\\Temp\\tmptxqb47ld.yaml",
+  "model": {
+    "api_base_url": "https://api.deepseek.com/v1",
+    "api_type": "openai",
+    "name": "deepseek-chat",
+    "temperature": 0.5
+  },
+  "created_at": "2026-06-15T18:05:19.720705+00:00",
+  "updated_at": "2026-06-15T18:25:59.647552+00:00",
+  "stages": {
+    "concept_extraction": {
+      "artifacts": [
+        {
+          "file": "result_concept_trace.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\result_concept_trace.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\runs\\web_20260615_190332\\result_concept_trace.json",
+          "size": 36659,
+          "updated_at": "2026-06-15T18:05:19.749904+00:00"
+        },
+        {
+          "file": "result_concept_model.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\result_concept_model.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\runs\\web_20260615_190332\\result_concept_model.json",
+          "size": 6399,
+          "updated_at": "2026-06-15T18:05:19.759035+00:00"
+        }
+      ],
+      "updated_at": "2026-06-15T18:05:19.759035+00:00"
+    },
+    "dsml_creation": {
+      "artifacts": [
+        {
+          "file": "result_dsml_trace.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\result_dsml_trace.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\runs\\web_20260615_190332\\result_dsml_trace.json",
+          "size": 13069,
+          "updated_at": "2026-06-15T18:11:46.673540+00:00"
+        },
+        {
+          "file": "result_dsml.emf",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\result_dsml.emf",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\runs\\web_20260615_190332\\result_dsml.emf",
+          "size": 2213,
+          "updated_at": "2026-06-15T18:11:46.679549+00:00"
+        }
+      ],
+      "updated_at": "2026-06-15T18:11:46.679549+00:00"
+    },
+    "emf_model_creation": {
+      "artifacts": [
+        {
+          "file": "result_model_trace.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\result_model_trace.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\runs\\web_20260615_190332\\result_model_trace.json",
+          "size": 36489,
+          "updated_at": "2026-06-15T18:19:00.766486+00:00"
+        },
+        {
+          "file": "result_model.eol",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\result_model.eol",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\runs\\web_20260615_190332\\result_model.eol",
+          "size": 4923,
+          "updated_at": "2026-06-15T18:19:00.773992+00:00"
+        }
+      ],
+      "updated_at": "2026-06-15T18:19:00.773992+00:00"
+    },
+    "behaviour_model_creation": {
+      "artifacts": [
+        {
+          "file": "result_behaviour_trace.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\result_behaviour_trace.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\runs\\web_20260615_190332\\result_behaviour_trace.json",
+          "size": 6645,
+          "updated_at": "2026-06-15T18:25:59.641047+00:00"
+        },
+        {
+          "file": "result_behaviour_model.rct",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\result_behaviour_model.rct",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\output\\runs\\web_20260615_190332\\result_behaviour_model.rct",
+          "size": 2066,
+          "updated_at": "2026-06-15T18:25:59.647552+00:00"
+        }
+      ],
+      "updated_at": "2026-06-15T18:25:59.647552+00:00"
+    }
+  }
+}

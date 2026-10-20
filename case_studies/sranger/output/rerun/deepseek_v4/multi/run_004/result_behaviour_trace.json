@@ -1,0 +1,112 @@
+{
+    "stm_trace": [
+        {
+            "requirement_gid": "SR-GP1",
+            "source_state": "Moving",
+            "end_state": "Turning",
+            "transition": "t1",
+            "source": {
+                "file": "result_behaviour_model.rct",
+                "line_start": 44,
+                "line_end": 50,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-GP2",
+            "source_state": "Turning",
+            "end_state": "Moving",
+            "transition": "t4",
+            "source": {
+                "file": "result_behaviour_model.rct",
+                "line_start": 61,
+                "line_end": 65,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-Beh1",
+            "source_state": "i0",
+            "end_state": "Moving",
+            "transition": "t0",
+            "source": {
+                "file": "result_behaviour_model.rct",
+                "line_start": 39,
+                "line_end": 43,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-Beh2",
+            "source_state": "Moving",
+            "end_state": "Turning",
+            "transition": "t1",
+            "source": {
+                "file": "result_behaviour_model.rct",
+                "line_start": 44,
+                "line_end": 50,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-Beh3",
+            "source_state": "Moving",
+            "end_state": "Final",
+            "transition": "t2",
+            "source": {
+                "file": "result_behaviour_model.rct",
+                "line_start": 51,
+                "line_end": 55,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-Beh4",
+            "source_state": "Moving",
+            "end_state": "Moving",
+            "transition": "t3",
+            "source": {
+                "file": "result_behaviour_model.rct",
+                "line_start": 56,
+                "line_end": 60,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-Beh5",
+            "source_state": "Turning",
+            "end_state": "Moving",
+            "transition": "t4",
+            "source": {
+                "file": "result_behaviour_model.rct",
+                "line_start": 61,
+                "line_end": 65,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-Beh6",
+            "source_state": "Turning",
+            "end_state": "Final",
+            "transition": "t5",
+            "source": {
+                "file": "result_behaviour_model.rct",
+                "line_start": 66,
+                "line_end": 70,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-Beh7",
+            "source_state": "Turning",
+            "end_state": "Turning",
+            "transition": "t6",
+            "source": {
+                "file": "result_behaviour_model.rct",
+                "line_start": 71,
+                "line_end": 75,
+                "resolved": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+@namespace(uri="http://sranger/1.0", prefix="sranger")
+package sranger;
+
+abstract class NamedElement {
+    attr String name;
+}
+
+class Sensor extends NamedElement {
+    op double distance();
+}
+
+class Actuator extends NamedElement {
+    attr double lastLv;
+    attr double lastAv;
+}
+
+class Constant extends NamedElement {
+    attr double defaultValue;
+}
+
+class Variable extends NamedElement {
+    attr double value;
+}
+
+class Event extends NamedElement {}
+
+class Move {
+    attr double lv;
+    attr double av;
+}
+
+abstract class Mode extends NamedElement {}
+
+class Moving extends Mode {
+    ref Constant moveVel;
+}
+
+class Turning extends Mode {
+    ref Constant turnVel;
+    ref Constant turnDuration;
+    ref Variable clockResetTime;
+}
+
+class Final extends Mode {}
+
+class StateMachine extends NamedElement {
+    val Mode[*] modes;
+}
+
+class Controller extends NamedElement {
+    val Sensor[1] sensor;
+    val Actuator[1] actuator;
+    val Constant[4] constants;
+    val Variable[1] variables;
+    val StateMachine[1] stateMachine;
+    val Event[3] inputEvents;
+    ref Move moveOutputType;
+}

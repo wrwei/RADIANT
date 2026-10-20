@@ -1,0 +1,255 @@
+{
+    "concepts": [
+        {
+            "Concept": "Module",
+            "description": "A Module is a software component that encapsulates a part of the AUV system."
+        },
+        {
+            "Concept": "RoboticPlatform",
+            "description": "A RoboticPlatform is the physical or logical platform providing the AUV's capabilities."
+        },
+        {
+            "Concept": "Interface",
+            "description": "An Interface defines a set of data Values or Events used for communication between components."
+        },
+        {
+            "Concept": "Controller",
+            "description": "A Controller is a component that manages or directs operations within the AUV."
+        },
+        {
+            "Concept": "PrimitiveType",
+            "description": "A PrimitiveType is a basic data type used to define simple values."
+        },
+        {
+            "Concept": "CompositeType",
+            "description": "A CompositeType is a structured data type composed of multiple values."
+        },
+        {
+            "Concept": "Value",
+            "description": "A Value is a data element within a CompositeType or Interface."
+        },
+        {
+            "Concept": "Event",
+            "description": "An Event is a signal or message that can be sent or received through an interface."
+        },
+        {
+            "Concept": "Parameter",
+            "description": "A Parameter is an input value consumed by an Event or Function."
+        },
+        {
+            "Concept": "ReturnValue",
+            "description": "A ReturnValue is a value produced by an Event or Function."
+        },
+        {
+            "Concept": "Function",
+            "description": "A Function is a defined operation that takes inputs and returns an output."
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": "AUV_Module is the module in which the AUV system is developed."
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "RoboticPlatform",
+            "description": "AUV_Platform is the robotic platform contained in AUV_Module."
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": "Sensors is an interface used by AUV_Platform."
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": "Actuators is an interface used by AUV_Platform, currently empty."
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": "AUV_Operator is a controller contained in AUV_Module that uses the Inputs interface."
+        },
+        {
+            "Instance": "Inputs",
+            "Instance_of": "Interface",
+            "description": "Inputs is an interface used by controllers."
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "LRE_Ctrl is a controller for the Last Response Engine contained in AUV_Module."
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": "Outputs is an interface used by controllers."
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": "AUV_Autopilot is a controller contained in AUV_Module that uses the Outputs interface."
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "PrimitiveType",
+            "description": "nat is a primitive type for natural numbers."
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "PrimitiveType",
+            "description": "int is a primitive type for integers."
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "PrimitiveType",
+            "description": "string is a primitive type for string values."
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "PrimitiveType",
+            "description": "boolean is a primitive type for boolean values."
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "PrimitiveType",
+            "description": "real is a primitive type for real numbers."
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "CompositeType",
+            "description": "SVec is a composite type representing a spherical vector with radial, polar, and azimuth components."
+        },
+        {
+            "Instance": "radial",
+            "Instance_of": "Value",
+            "description": "radial is a value of type real in SVec."
+        },
+        {
+            "Instance": "polar",
+            "Instance_of": "Value",
+            "description": "polar is a value of type real in SVec."
+        },
+        {
+            "Instance": "azimuth",
+            "Instance_of": "Value",
+            "description": "azimuth is a value of type real in SVec."
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "CompositeType",
+            "description": "Obstacle is a composite type recording obstacle-related values."
+        },
+        {
+            "Instance": "ns_rel_dist",
+            "Instance_of": "Value",
+            "description": "ns_rel_dist is a value of type real in Obstacle."
+        },
+        {
+            "Instance": "ew_rel_dist",
+            "Instance_of": "Value",
+            "description": "ew_rel_dist is a value of type real in Obstacle."
+        },
+        {
+            "Instance": "depth",
+            "Instance_of": "Value",
+            "description": "depth is a value of type real in Obstacle."
+        },
+        {
+            "Instance": "id",
+            "Instance_of": "Value",
+            "description": "id is a value of type real in Obstacle."
+        },
+        {
+            "Instance": "obs_hdng",
+            "Instance_of": "Value",
+            "description": "obs_hdng is a value of type SVec in Obstacle."
+        },
+        {
+            "Instance": "hdng",
+            "Instance_of": "Value",
+            "description": "hdng is a value of type SVec in Sensors."
+        },
+        {
+            "Instance": "obs",
+            "Instance_of": "Value",
+            "description": "obs is a value of type Obstacle in Sensors."
+        },
+        {
+            "Instance": "Intpus",
+            "Instance_of": "Interface",
+            "description": "Intpus is an interface that defines input events."
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": "endTask is an event with no Parameters and no ReturnValue."
+        },
+        {
+            "Instance": "reqOCM",
+            "Instance_of": "Event",
+            "description": "reqOCM is an event with no Parameters and no ReturnValue."
+        },
+        {
+            "Instance": "reqMOM",
+            "Instance_of": "Event",
+            "description": "reqMOM is an event with no Parameters and no ReturnValue."
+        },
+        {
+            "Instance": "reqHCM",
+            "Instance_of": "Event",
+            "description": "reqHCM is an event with no Parameters and no ReturnValue."
+        },
+        {
+            "Instance": "reqVel",
+            "Instance_of": "Event",
+            "description": "reqVel is an event with no Parameters and a ReturnValue of type real."
+        },
+        {
+            "Instance": "reqHdng",
+            "Instance_of": "Event",
+            "description": "reqHdng is an event with no Parameters and a ReturnValue of type real."
+        },
+        {
+            "Instance": "advVel",
+            "Instance_of": "Event",
+            "description": "advVel is an event that takes one Parameter of type real and has no ReturnValue."
+        },
+        {
+            "Instance": "advHdng",
+            "Instance_of": "Event",
+            "description": "advHdng is an event that takes one Parameter of type real and has no ReturnValue."
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "CompositeType",
+            "description": "Close is a composite type recording close-related values."
+        },
+        {
+            "Instance": "horiz_cda",
+            "Instance_of": "Value",
+            "description": "horiz_cda is a value of type real in Close."
+        },
+        {
+            "Instance": "vert_cda",
+            "Instance_of": "Value",
+            "description": "vert_cda is a value of type real in Close."
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "odist is a function that returns the distance from the AUV to an Obstacle as a real."
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "hdist is a function that returns the horizontal distance from the AUV to an Obstacle as a real."
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "vdist is a function that returns the vertical distance from the AUV to an Obstacle as a real."
+        }
+    ]
+}

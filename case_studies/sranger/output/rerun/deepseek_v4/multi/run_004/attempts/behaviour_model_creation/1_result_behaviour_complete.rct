@@ -1,0 +1,107 @@
+diagram SRanger
+
+interface Inputs {
+	event obstacle
+	event endTask
+	event tick
+}
+
+interface Outputs {
+	event Move
+}
+
+interface SRanger_State {
+	var obstacleDetected : boolean = false
+	var clockResetTime : int = 0
+	var lastLinearVelocity : int = 0
+	var lastAngularVelocity : int = 0
+	var since_systemClock : int = 0
+}
+
+interface Constants {
+	const turnDuration : int = 2
+	const moveVel : int = 1
+	const turnVel : int = 2
+	const obstacleThreshold : int = 1
+}
+
+stm SRanger {
+	uses Inputs uses Outputs requires SRanger_State requires Constants
+	state Final {
+		entry lastLinearVelocity = 0 ; lastAngularVelocity = 0 ; send Move
+	}
+	state Turning {
+		entry lastLinearVelocity = 0 ; lastAngularVelocity = turnVel ; send Move
+	}
+	state Moving {
+		entry lastLinearVelocity = moveVel ; lastAngularVelocity = 0 ; send Move
+	}
+	initial i0
+	transition t0 {
+		from i0
+		to Moving
+	}
+	transition t1 {
+		from Moving
+		to Turning
+		trigger obstacle
+		action clockResetTime = turnDuration
+	}
+	transition t2 {
+		from Moving
+		to Final
+		trigger endTask
+	}
+	transition t3 {
+		from Moving
+		to Moving
+		trigger tick
+	}
+	transition t4 {
+		from Turning
+		to Moving
+		trigger tick
+		condition clockResetTime <= 1
+	}
+	transition t5 {
+		from Turning
+		to Final
+		trigger endTask
+	}
+	transition t6 {
+		from Turning
+		to Turning
+		trigger tick
+		condition clockResetTime > 1
+		action clockResetTime = clockResetTime - 1
+	}
+	transition t7 {
+		from Final
+		to Final
+		trigger tick
+	}
+}
+
+controller SRanger_Ctrl {
+	uses Inputs uses Outputs requires SRanger_State requires Constants
+	sref stm_ref0 = SRanger
+	connection SRanger_Ctrl on obstacle to stm_ref0 on obstacle
+	connection SRanger_Ctrl on endTask to stm_ref0 on endTask
+	connection SRanger_Ctrl on tick to stm_ref0 on tick
+	connection stm_ref0 on Move to SRanger_Ctrl on Move
+}
+
+module SRanger_Module {
+	robotic platform SRanger_Platform {
+		provides Constants
+		event obstacle
+		event endTask
+		event tick
+		event Move
+	}
+	cref ctrl_ref0 = SRanger_Ctrl
+	connection SRanger_Platform on obstacle to ctrl_ref0 on obstacle
+	connection SRanger_Platform on endTask to ctrl_ref0 on endTask
+	connection SRanger_Platform on tick to ctrl_ref0 on tick
+	connection ctrl_ref0 on Move to SRanger_Platform on Move
+}

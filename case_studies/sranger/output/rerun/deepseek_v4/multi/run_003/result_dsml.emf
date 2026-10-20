@@ -1,0 +1,91 @@
+package sranger;
+
+enum ModeKind {
+    Moving;
+    Turning;
+    Final;
+}
+
+enum InputEventKind {
+    obstacle;
+    tick;
+    endTask;
+}
+
+enum OutputEventKind {
+    Move;
+}
+
+abstract class NamedElement {
+    attr String name;
+}
+
+abstract class ValuedElement extends NamedElement {
+    attr double value;
+}
+
+class SRangerSystem extends NamedElement {
+    val Sensor sensor;
+    val Motor motor;
+    val Controller controller;
+    val Actuator actuator;
+}
+
+class Sensor extends NamedElement {
+    op double distance();
+}
+
+class Motor extends NamedElement {
+}
+
+class Actuator extends NamedElement {
+    attr double lastLinearVelocity;
+    attr double lastAngularVelocity;
+}
+
+class Controller extends NamedElement {
+    val StateMachine stateMachine;
+    val Constant[*] constants;
+    val Variable[*] variables;
+    val InputEvent[*] inputEvents;
+    val OutputEvent[*] outputEvents;
+    ref Sensor sensor;
+    ref Actuator actuator;
+}
+
+abstract class Event extends NamedElement {
+}
+
+class InputEvent extends Event {
+    attr InputEventKind kind;
+}
+
+class OutputEvent extends Event {
+    attr OutputEventKind kind;
+    attr double linearVelocity;
+    attr double angularVelocity;
+}
+
+class Constant extends ValuedElement {
+}
+
+class Variable extends ValuedElement {
+}
+
+class StateMachine extends NamedElement {
+    val Mode[*] modes;
+    val Transition[*] transitions;
+    ref Mode initialMode;
+}
+
+class Mode extends NamedElement {
+    attr ModeKind kind;
+    ref OutputEvent[*] entryActions;
+}
+
+class Transition extends NamedElement {
+    ref Mode source;
+    ref Mode target;
+    ref InputEvent trigger;
+    attr String guard;
+}

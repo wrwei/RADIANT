@@ -1,0 +1,86 @@
+{
+  "run_id": "deepseek_v4_multi_run_006",
+  "config_path": "/Users/ranwei/Git/REMEDIATE/config.yaml",
+  "model": {
+    "name": "deepseek-v4-pro",
+    "temperature": 0.0,
+    "api_type": "openai",
+    "api_base_url": "https://api.deepseek.com",
+    "api_key_env": "DEEPSEEK_API_KEY"
+  },
+  "created_at": "2026-10-05T14:07:36.290966+00:00",
+  "updated_at": "2026-10-05T14:23:51.679728+00:00",
+  "stages": {
+    "concept_extraction": {
+      "artifacts": [
+        {
+          "file": "result_concept_trace.json",
+          "latest_path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b3/deepseek_v4/multi/run_006/result_concept_trace.json",
+          "archived_path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b3/deepseek_v4/multi/run_006/runs/deepseek_v4_multi_run_006/result_concept_trace.json",
+          "size": 67827,
+          "updated_at": "2026-10-05T14:07:36.290966+00:00"
+        },
+        {
+          "file": "result_concept_model.json",
+          "latest_path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b3/deepseek_v4/multi/run_006/result_concept_model.json",
+          "archived_path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b3/deepseek_v4/multi/run_006/runs/deepseek_v4_multi_run_006/result_concept_model.json",
+          "size": 6325,
+          "updated_at": "2026-10-05T14:07:36.298771+00:00"
+        }
+      ],
+      "updated_at": "2026-10-05T14:07:36.298771+00:00"
+    },
+    "dsml_creation": {
+      "artifacts": [
+        {
+          "file": "result_dsml.emf",
+          "latest_path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b3/deepseek_v4/multi/run_006/result_dsml.emf",
+          "archived_path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b3/deepseek_v4/multi/run_006/runs/deepseek_v4_multi_run_006/result_dsml.emf",
+          "size": 1119,
+          "updated_at": "2026-10-05T14:15:20.410253+00:00"
+        },
+        {
+          "file": "result_dsml_trace.json",
+          "latest_path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b3/deepseek_v4/multi/run_006/result_dsml_trace.json",
+          "archived_path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b3/deepseek_v4/multi/run_006/runs/deepseek_v4_multi_run_006/result_dsml_trace.json",
+          "size": 9713,
+          "updated_at": "2026-10-05T14:15:20.419377+00:00"
+        }
+      ],
+      "updated_at": "2026-10-05T14:15:20.419377+00:00"
+    },
+    "emf_model_creation": {
+      "artifacts": [
+        {
+          "file": "result_dsml.generated.ecore",
+          "latest_path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b3/deepseek_v4/multi/run_006/result_dsml.generated.ecore",
+          "archived_path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b3/deepseek_v4/multi/run_006/runs/deepseek_v4_multi_run_006/result_dsml.generated.ecore",
+          "size": 3598,
+          "updated_at": "2026-10-05T14:21:05.394622+00:00"
+        },
+        {
+          "file": "result_model.eol",
+          "latest_path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b3/deepseek_v4/multi/run_006/result_model.eol",
+          "archived_path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b3/deepseek_v4/multi/run_006/runs/deepseek_v4_multi_run_006/result_model.eol",
+          "size": 5778,
+          "updated_at": "2026-10-05T14:23:51.656209+00:00"
+        },
+        {
+          "file": "result_model_trace.json",
+          "latest_path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b3/deepseek_v4/multi/run_006/result_model_trace.json",
+          "archived_path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b3/deepseek_v4/multi/run_006/runs/deepseek_v4_multi_run_006/result_model_trace.json",
+          "size": 64528,
+          "updated_at": "2026-10-05T14:23:51.674287+00:00"
+        },
+        {
+          "file": "result_AUV.model",
+          "latest_path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b3/deepseek_v4/multi/run_006/result_AUV.model",
+          "archived_path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b3/deepseek_v4/multi/run_006/runs/deepseek_v4_multi_run_006/result_AUV.model",
+          "size": 2748,
+          "updated_at": "2026-10-05T14:23:51.679728+00:00"
+        }
+      ],
+      "updated_at": "2026-10-05T14:23:51.679728+00:00"
+    }
+  }
+}

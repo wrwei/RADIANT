@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:auv="http://www.example.org/auv">
+  <auv:Module name="AUV_Module">
+    <platforms name="AUV_Platform"/>
+    <controllers name="AUV_Operator"/>
+    <controllers name="LRE_Ctrl"/>
+    <controllers name="AUV_Autopilot"/>
+    <interfaces name="Sensors">
+      <values name="depth"/>
+      <values name="hdng" type="/1"/>
+      <values name="obs" type="/2"/>
+    </interfaces>
+    <interfaces name="Actuators"/>
+    <interfaces name="Inputs">
+      <events name="endTask"/>
+      <events name="reqOCM"/>
+      <events name="reqMOM"/>
+      <events name="reqHCM"/>
+      <events name="reqVel"/>
+      <events name="reqHdng"/>
+    </interfaces>
+    <interfaces name="Intpus">
+      <events name="endTask"/>
+      <events name="reqOCM"/>
+      <events name="reqMOM"/>
+      <events name="reqHCM"/>
+      <events name="reqVel"/>
+      <events name="reqHdng"/>
+    </interfaces>
+    <interfaces name="Outputs">
+      <events name="advVel">
+        <parameters xsi:type="auv:Value" name="velocity"/>
+      </events>
+      <events name="advHdng">
+        <parameters xsi:type="auv:Value" name="heading"/>
+      </events>
+    </interfaces>
+  </auv:Module>
+  <auv:CompositeType name="SVec">
+    <values name="radial"/>
+    <values name="polar"/>
+    <values name="azimuth"/>
+  </auv:CompositeType>
+  <auv:CompositeType name="Obstacle">
+    <values name="ns_rel_dist"/>
+    <values name="ew_rel_dist"/>
+    <values name="depth"/>
+    <values name="id"/>
+    <values name="obs_hdng" type="/1"/>
+  </auv:CompositeType>
+  <auv:CompositeType name="Close">
+    <values name="horiz_cda"/>
+    <values name="vert_cda"/>
+    <values name="id"/>
+  </auv:CompositeType>
+  <auv:Function name="odist">
+    <parameters xsi:type="auv:Value" name="obstacle" type="/2"/>
+  </auv:Function>
+  <auv:Function name="hdist">
+    <parameters xsi:type="auv:Value" name="obstacle" type="/2"/>
+  </auv:Function>
+  <auv:Function name="vdist">
+    <parameters xsi:type="auv:Value" name="obstacle" type="/2"/>
+  </auv:Function>
+</xmi:XMI>

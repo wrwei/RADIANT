@@ -1,0 +1,112 @@
+{
+    "concepts": [
+        {
+            "Concept": "System",
+            "description": ""
+        },
+        {
+            "Concept": "Sensor",
+            "description": ""
+        },
+        {
+            "Concept": "Event",
+            "description": ""
+        },
+        {
+            "Concept": "Actuator",
+            "description": ""
+        },
+        {
+            "Concept": "Variable",
+            "description": ""
+        },
+        {
+            "Concept": "StateMachine",
+            "description": ""
+        },
+        {
+            "Concept": "Mode",
+            "description": ""
+        },
+        {
+            "Concept": "Constant",
+            "description": ""
+        },
+        {
+            "Concept": "Function",
+            "description": ""
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "SRanger",
+            "Instance_of": "System",
+            "description": ""
+        },
+        {
+            "Instance": "obstacle",
+            "Instance_of": "Event",
+            "description": ""
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": ""
+        },
+        {
+            "Instance": "Moving",
+            "Instance_of": "Mode",
+            "description": ""
+        },
+        {
+            "Instance": "Turning",
+            "Instance_of": "Mode",
+            "description": ""
+        },
+        {
+            "Instance": "Final",
+            "Instance_of": "Mode",
+            "description": ""
+        },
+        {
+            "Instance": "moveVel",
+            "Instance_of": "Constant",
+            "description": ""
+        },
+        {
+            "Instance": "turnVel",
+            "Instance_of": "Constant",
+            "description": ""
+        },
+        {
+            "Instance": "obstacleThreshold",
+            "Instance_of": "Constant",
+            "description": ""
+        },
+        {
+            "Instance": "turnDuration",
+            "Instance_of": "Constant",
+            "description": ""
+        },
+        {
+            "Instance": "tick",
+            "Instance_of": "Event",
+            "description": ""
+        },
+        {
+            "Instance": "Move",
+            "Instance_of": "Event",
+            "description": ""
+        },
+        {
+            "Instance": "distance",
+            "Instance_of": "Function",
+            "description": ""
+        },
+        {
+            "Instance": "clockResetTime",
+            "Instance_of": "Variable",
+            "description": ""
+        }
+    ]
+}

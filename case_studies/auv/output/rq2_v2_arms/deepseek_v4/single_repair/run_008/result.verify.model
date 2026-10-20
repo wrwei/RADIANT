@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ASCII"?>
+<auv:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:auv="http://www.example.com/auv" name="AUV_Module">
+  <platforms name="AUV_Platform" interfaces="//@interfaces.0 //@interfaces.1"/>
+  <controllers name="AUV_Operator" interfaces="//@interfaces.2"/>
+  <controllers name="LRE_Ctrl" interfaces="//@interfaces.2 //@interfaces.3"/>
+  <controllers name="AUV_Autopilot" interfaces="//@interfaces.3"/>
+  <interfaces name="Sensors">
+    <values name="depth" type="//@types.4"/>
+    <values name="hdng" type="//@types.5"/>
+    <values name="obs" type="//@types.6"/>
+  </interfaces>
+  <interfaces name="Actuators"/>
+  <interfaces name="Inputs"/>
+  <interfaces name="Outputs">
+    <events name="advVel">
+      <parameters name="param" type="//@types.4"/>
+    </events>
+    <events name="advHdng">
+      <parameters name="param" type="//@types.4"/>
+    </events>
+  </interfaces>
+  <interfaces name="Intpus">
+    <events name="endTask"/>
+    <events name="reqOCM"/>
+    <events name="reqMOM"/>
+    <events name="reqHCM"/>
+    <events name="reqVel">
+      <returnValue name="reqVel_return" type="//@types.4"/>
+    </events>
+    <events name="reqHdng">
+      <returnValue name="reqHdng_return" type="//@types.4"/>
+    </events>
+  </interfaces>
+  <types xsi:type="auv:PrimitiveType" name="nat"/>
+  <types xsi:type="auv:PrimitiveType" name="int"/>
+  <types xsi:type="auv:PrimitiveType" name="string"/>
+  <types xsi:type="auv:PrimitiveType" name="boolean"/>
+  <types xsi:type="auv:PrimitiveType" name="real"/>
+  <types xsi:type="auv:CompositeType" name="SVec">
+    <values name="radial" type="//@types.4"/>
+    <values name="polar" type="//@types.4"/>
+    <values name="azimuth" type="//@types.4"/>
+  </types>
+  <types xsi:type="auv:CompositeType" name="Obstacle">
+    <values name="ns_rel_dist" type="//@types.4"/>
+    <values name="ew_rel_dist" type="//@types.4"/>
+    <values name="depth" type="//@types.4"/>
+    <values name="id" type="//@types.4"/>
+    <values name="obs_hdng" type="//@types.5"/>
+  </types>
+  <types xsi:type="auv:CompositeType" name="Close">
+    <values name="horiz_cda" type="//@types.4"/>
+    <values name="vert_cda" type="//@types.4"/>
+    <values name="id" type="//@types.0"/>
+  </types>
+  <functions name="odist" inputs="//@types.6" output="//@types.4"/>
+  <functions name="hdist" inputs="//@types.6" output="//@types.4"/>
+  <functions name="vdist" inputs="//@types.6" output="//@types.4"/>
+</auv:Module>

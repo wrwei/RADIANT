@@ -1,0 +1,81 @@
+stm SRanger {
+    event obstacle
+    event endTask
+    event tick
+    event Move
+
+    clock systemClock
+
+    var obstacleDetected : boolean = false
+    var clockResetTime : real = 0.0
+    var lastLinearVelocity : real = 0.0
+    var lastAngularVelocity : real = 0.0
+
+    const moveVel : real = 1.0
+    const turnVel : real = 2.0
+    const obstacleThreshold : real = 0.5
+    const turnDuration : real = 2.0
+
+    initial i0
+
+    state Moving {
+        entry lastLinearVelocity = moveVel
+        entry lastAngularVelocity = 0.0
+        entry Move
+    }
+
+    state Turning {
+        entry lastLinearVelocity = 0.0
+        entry lastAngularVelocity = turnVel
+        entry Move
+    }
+
+    state Final {
+        entry lastLinearVelocity = 0.0
+        entry lastAngularVelocity = 0.0
+        entry Move
+    }
+
+    transition t0 {
+        from i0
+        to Moving
+        #systemClock
+    }
+    transition t1 {
+        from Moving
+        to Turning
+        trigger obstacle
+        condition obstacleDetected
+        action clockResetTime = since(systemClock)
+    }
+    transition t2 {
+        from Moving
+        to Final
+        trigger endTask
+    }
+    transition t3 {
+        from Moving
+        to Moving
+        trigger tick
+    }
+    transition t4 {
+        from Turning
+        to Moving
+        condition since(systemClock) - clockResetTime >= turnDuration
+    }
+    transition t5 {
+        from Turning
+        to Final
+        trigger endTask
+    }
+    transition t6 {
+        from Turning
+        to Turning
+        trigger tick
+    }
+    transition t7 {
+        from Final
+        to Final
+        trigger tick
+    }
+}

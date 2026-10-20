@@ -1,0 +1,73 @@
+@namespace(uri="http://www.sranger.example.com/metamodel", prefix="sranger")
+package sranger;
+
+abstract class NamedElement {
+    attr String name;
+}
+
+abstract class RealValuedElement extends NamedElement {
+    attr String type;
+    attr String unit;
+    attr double value;
+}
+
+class Constant extends RealValuedElement {
+}
+
+class Variable extends RealValuedElement {
+}
+
+abstract class Event extends NamedElement {
+}
+
+class InputEvent extends Event {
+    attr String payloadType;
+}
+
+class OutputEvent extends Event {
+    attr double linearVelocity;
+    attr double angularVelocity;
+}
+
+class System extends NamedElement {
+    val Controller[1] controller;
+    val Sensor[1] sensor;
+    val Actuator[1] actuator;
+}
+
+class Controller extends NamedElement {
+    val StateMachine[1] stateMachine;
+    val Constant[*] constants;
+    val Variable[*] variables;
+    val InputEvent[*] inputEvents;
+    val OutputEvent[*] outputEvents;
+    ref Sensor sensor;
+    ref Actuator actuator;
+}
+
+class StateMachine extends NamedElement {
+    ref OperatingMode[1] initialMode;
+    val OperatingMode[*] modes;
+    val Transition[*] transitions;
+}
+
+class OperatingMode extends NamedElement {
+    attr boolean terminal = false;
+}
+
+class Transition extends NamedElement {
+    ref OperatingMode[1] source;
+    ref OperatingMode[1] target;
+    ref InputEvent[0..1] trigger;
+    attr String guard;
+    attr String action;
+}
+
+class Sensor extends NamedElement {
+    op double distance();
+}
+
+class Actuator extends NamedElement {
+    ref OutputEvent[0..1] lastCommand;
+    op void receiveMove(OutputEvent command);
+}

@@ -1,0 +1,92 @@
+var auvModule = new M!Module();
+auvModule.name = "AUV_Module";
+
+var auvPlatform = new M!RoboticPlatform();
+auvPlatform.name = "AUV_Platform";
+auvModule.robotic_platforms.add(auvPlatform);
+
+var sensors = new M!Interface();
+sensors.name = "Sensors";
+auvModule.interfaces.add(sensors);
+
+var actuators = new M!Interface();
+actuators.name = "Actuators";
+auvModule.interfaces.add(actuators);
+
+var inputs = new M!Interface();
+inputs.name = "Inputs";
+auvModule.interfaces.add(inputs);
+
+var intpus = new M!Interface();
+intpus.name = "Intpus";
+auvModule.interfaces.add(intpus);
+
+var outputs = new M!Interface();
+outputs.name = "Outputs";
+auvModule.interfaces.add(outputs);
+
+var auvOperator = new M!Controller();
+auvOperator.name = "AUV_Operator";
+auvOperator.interfaces.add(inputs);
+auvModule.controllers.add(auvOperator);
+
+var lreCtrl = new M!Controller();
+lreCtrl.name = "LRE_Ctrl";
+lreCtrl.interfaces.add(inputs);
+lreCtrl.interfaces.add(outputs);
+auvModule.controllers.add(lreCtrl);
+
+var auvAutopilot = new M!Controller();
+auvAutopilot.name = "AUV_Autopilot";
+auvAutopilot.interfaces.add(outputs);
+auvModule.controllers.add(auvAutopilot);
+
+var sensorDepth = new M!Value();
+sensorDepth.name = "depth";
+sensors.values.add(sensorDepth);
+
+var sensorHdng = new M!Value();
+sensorHdng.name = "hdng";
+sensors.values.add(sensorHdng);
+
+var sensorObs = new M!Value();
+sensorObs.name = "obs";
+sensors.values.add(sensorObs);
+
+var endTask = new M!Event();
+endTask.name = "endTask";
+intpus.events.add(endTask);
+
+var reqOCM = new M!Event();
+reqOCM.name = "reqOCM";
+intpus.events.add(reqOCM);
+
+var reqMOM = new M!Event();
+reqMOM.name = "reqMOM";
+intpus.events.add(reqMOM);
+
+var reqHCM = new M!Event();
+reqHCM.name = "reqHCM";
+intpus.events.add(reqHCM);
+
+var reqVel = new M!Event();
+reqVel.name = "reqVel";
+intpus.events.add(reqVel);
+
+var reqHdng = new M!Event();
+reqHdng.name = "reqHdng";
+intpus.events.add(reqHdng);
+
+var advVel = new M!Event();
+advVel.name = "advVel";
+var advVelParam = new M!Value();
+advVelParam.name = "param";
+advVel.parameters.add(advVelParam);
+outputs.events.add(advVel);
+
+var advHdng = new M!Event();
+advHdng.name = "advHdng";
+var advHdngParam = new M!Value();
+advHdngParam.name = "param";
+advHdng.parameters.add(advHdngParam);
+outputs.events.add(advHdng);

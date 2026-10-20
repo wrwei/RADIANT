@@ -1,0 +1,368 @@
+[
+  {
+    "stage": "concept_extraction",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "14 unresolved trace entries (e.g. SR-ARCH1, SR-ARCH1, SR-ARCH2, SR-ARCH2, SR-ARCH2, SR-ARCH2, SR-DM1, SR-DM2)"
+      }
+    ],
+    "at": "2026-10-19T12:37:47+00:00"
+  },
+  {
+    "stage": "concept_extraction",
+    "attempt": 1,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "14 unresolved trace entries (e.g. SR-ARCH1, SR-ARCH1, SR-ARCH2, SR-ARCH2, SR-ARCH2, SR-ARCH2, SR-DM1, SR-DM2)"
+      }
+    ],
+    "at": "2026-10-19T12:39:14+00:00"
+  },
+  {
+    "stage": "concept_extraction",
+    "attempt": 2,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "14 unresolved trace entries (e.g. SR-ARCH1, SR-ARCH1, SR-ARCH2, SR-ARCH2, SR-ARCH2, SR-ARCH2, SR-DM1, SR-DM2)"
+      }
+    ],
+    "at": "2026-10-19T12:40:38+00:00"
+  },
+  {
+    "stage": "concept_extraction",
+    "attempt": 3,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "14 unresolved trace entries (e.g. SR-ARCH1, SR-ARCH1, SR-ARCH2, SR-ARCH2, SR-ARCH2, SR-ARCH2, SR-DM1, SR-DM2)"
+      }
+    ],
+    "at": "2026-10-19T12:41:59+00:00"
+  },
+  {
+    "stage": "concept_extraction",
+    "attempt": 4,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "14 unresolved trace entries (e.g. SR-ARCH1, SR-ARCH1, SR-ARCH2, SR-ARCH2, SR-ARCH2, SR-ARCH2, SR-DM1, SR-DM2)"
+      }
+    ],
+    "at": "2026-10-19T12:43:10+00:00"
+  },
+  {
+    "stage": "concept_extraction",
+    "attempt": 5,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "14 unresolved trace entries (e.g. SR-ARCH1, SR-ARCH1, SR-ARCH2, SR-ARCH2, SR-ARCH2, SR-ARCH2, SR-DM1, SR-DM2)"
+      }
+    ],
+    "at": "2026-10-19T12:44:15+00:00"
+  },
+  {
+    "stage": "dsml_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "emfatic_valid",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "emfatic syntax ok (0 warnings)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "18 entries resolved"
+      }
+    ],
+    "at": "2026-10-19T12:50:54+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "EOL executed; model conforms"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "84 entries resolved"
+      }
+    ],
+    "at": "2026-10-19T12:58:10+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "2 state(s): every state has an outgoing transition; no autonomous self-loops; node names unique"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "3 inconclusive"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "trace is empty"
+      }
+    ],
+    "at": "2026-10-19T20:23:19+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 1,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "2 state(s): every state has an outgoing transition; no autonomous self-loops; node names unique"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "RoboChart generator rejected the model (1 error(s)): Couldn't resolve reference to Node 'Final'. (line : 79 column : 8)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "trace is empty"
+      }
+    ],
+    "at": "2026-10-19T20:26:23+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 2,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "2 state(s): every state has an outgoing transition; no autonomous self-loops; node names unique"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "RoboChart generator rejected the model (2 error(s)): extraneous input 'state' expecting RULE_ID (line : 29 column : 8); Couldn't resolve reference to Node 'Final'. (line : 79 column : 8)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "trace is empty"
+      }
+    ],
+    "at": "2026-10-19T20:26:40+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 3,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "2 state(s): every state has an outgoing transition; no autonomous self-loops; node names unique"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "RoboChart generator rejected the model (1 error(s)): Couldn't resolve reference to Node 'Final'. (line : 79 column : 8)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "trace is empty"
+      }
+    ],
+    "at": "2026-10-19T20:26:55+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 4,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "result_behaviour_complete.rct: stm SRangerController: `Final` is used both as a state and as an initial/final/junction node. Node names must be unique within the machine (the CSP generator emits one NID_Final per node; FDR rejects the duplicate). Rename the pseudostate, e.g. `initial i0` with `transition t0 { from i0 to Final }`."
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 error(s): <unknown location>:\n    The variable SRangerController::Final has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_k6k7xb5e/csp-gen/defs/SRangerController.csp:102:2-170:11\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_k6k7xb5e/csp-gen/defs/SRangerController.csp:176:2-208:11\n<unknown location>:\n    The variable SRangerController::NID_Final has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_k6k7xb5e/csp-gen/defs/SRangerController.csp:20:16-25\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_k6k7xb5e/csp-gen/defs/SRangerController.csp:21:16-25\n<unknown location>:\n    The variable SRangerController::Final::enter has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_k6k7xb5e/csp-gen/defs/SRangerController.csp:112:3-36\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_k6k7xb5e/csp-gen/defs/SRangerController.csp:180:3-36\n<unknown location>:\n    The variable SRangerController::Final::entered has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_k6k7xb5e/csp-gen/defs/SRangerController.csp:112:3-36\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_k6k7xb5e/csp-gen/defs/SRangerController.csp:180:3-36\n<unknown location>:\n    The variable SRangerController::Final::enteredL has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_k6k7xb5e/csp-gen/defs/SRangerController.csp:113:3-29\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_k6k7xb5e/csp-gen/defs/SRangerController.csp:181:3-29\n<unknown location>:\n    The variable SRangerController::Final::enteredR has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_k6k7xb5e/csp-gen/defs/SRangerController.csp:113:3-29\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_k6k7xb5e/csp-gen/defs/SRangerController.csp:181:3-29\n<unknown location>:\n    The variable SRangerController::Final::interrupt has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_k6k7xb5e/csp-gen/defs/SRangerController.csp:112:3-36\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_k6k7xb5e/csp-gen/defs/SRangerController.csp:180:3-36"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "trace is empty"
+      }
+    ],
+    "at": "2026-10-19T20:29:06+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 5,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "3 state(s): every state has an outgoing transition; no autonomous self-loops; node names unique"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "3 inconclusive"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "trace is empty"
+      }
+    ],
+    "at": "2026-10-19T20:29:38+00:00"
+  }
+]

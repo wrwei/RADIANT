@@ -1,0 +1,218 @@
+{
+    "concepts": [
+        {
+            "Concept": "AUV",
+            "description": ""
+        },
+        {
+            "Concept": "Module",
+            "description": ""
+        },
+        {
+            "Concept": "Robotic Platform",
+            "description": ""
+        },
+        {
+            "Concept": "Interface",
+            "description": ""
+        },
+        {
+            "Concept": "Controller",
+            "description": ""
+        },
+        {
+            "Concept": "Primitive Type",
+            "description": ""
+        },
+        {
+            "Concept": "Composite Type",
+            "description": ""
+        },
+        {
+            "Concept": "Value",
+            "description": ""
+        },
+        {
+            "Concept": "Event",
+            "description": ""
+        },
+        {
+            "Concept": "Parameter",
+            "description": ""
+        },
+        {
+            "Concept": "Return Value",
+            "description": ""
+        },
+        {
+            "Concept": "Function",
+            "description": ""
+        },
+        {
+            "Concept": "Obstacle",
+            "description": ""
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": ""
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "Robotic Platform",
+            "description": ""
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": ""
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": ""
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": ""
+        },
+        {
+            "Instance": "Inputs",
+            "Instance_of": "Interface",
+            "description": ""
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "for Last Response Engine"
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": ""
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": ""
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "Primitive Type",
+            "description": "for natural numbers"
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "Primitive Type",
+            "description": "for integers"
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "Primitive Type",
+            "description": "for string values"
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "Primitive Type",
+            "description": "for boolean values"
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "Primitive Type",
+            "description": "for real numbers"
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "Composite Type",
+            "description": "Spherical Vector"
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "Composite Type",
+            "description": ""
+        },
+        {
+            "Instance": "depth",
+            "Instance_of": "Value",
+            "description": ""
+        },
+        {
+            "Instance": "hdng",
+            "Instance_of": "Value",
+            "description": ""
+        },
+        {
+            "Instance": "obs",
+            "Instance_of": "Value",
+            "description": ""
+        },
+        {
+            "Instance": "Intpus",
+            "Instance_of": "Interface",
+            "description": ""
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": ""
+        },
+        {
+            "Instance": "reqOCM",
+            "Instance_of": "Event",
+            "description": ""
+        },
+        {
+            "Instance": "reqMOM",
+            "Instance_of": "Event",
+            "description": ""
+        },
+        {
+            "Instance": "reqHCM",
+            "Instance_of": "Event",
+            "description": ""
+        },
+        {
+            "Instance": "reqVel",
+            "Instance_of": "Event",
+            "description": ""
+        },
+        {
+            "Instance": "reqHdng",
+            "Instance_of": "Event",
+            "description": ""
+        },
+        {
+            "Instance": "advVel",
+            "Instance_of": "Event",
+            "description": ""
+        },
+        {
+            "Instance": "advHdng",
+            "Instance_of": "Event",
+            "description": ""
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "Composite Type",
+            "description": ""
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "returns the distance from the AUV to the Obstacle"
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "returns the horizontal distance from the AUV to the Obstacle"
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "returns the vertical distance from the AUV to the Obstacle"
+        }
+    ]
+}

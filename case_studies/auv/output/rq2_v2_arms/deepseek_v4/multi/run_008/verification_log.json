@@ -1,0 +1,149 @@
+[
+  {
+    "stage": "concept_extraction",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "83 entries resolved"
+      }
+    ],
+    "at": "2026-10-05T15:03:50+00:00"
+  },
+  {
+    "stage": "dsml_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "emfatic_valid",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "emfatic syntax ok (0 warnings)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "34 entries resolved"
+      }
+    ],
+    "at": "2026-10-05T15:10:58+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "EOL executed; model conforms"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 unresolved trace entries (e.g. Interface2)"
+      }
+    ],
+    "at": "2026-10-05T15:18:30+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 1,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "EOL executed; model conforms"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 unresolved trace entries (e.g. Interface2)"
+      }
+    ],
+    "at": "2026-10-05T15:20:13+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 2,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "EOL executed; model conforms"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 unresolved trace entries (e.g. Interface2)"
+      }
+    ],
+    "at": "2026-10-05T15:21:25+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 3,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "EOL executed; model conforms"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 unresolved trace entries (e.g. Interface2)"
+      }
+    ],
+    "at": "2026-10-05T15:25:58+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 4,
+    "repair_changed_artefact": false,
+    "passed": false,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "EOL executed; model conforms"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 unresolved trace entries (e.g. Interface2)"
+      }
+    ],
+    "at": "2026-10-05T15:37:18+00:00"
+  }
+]

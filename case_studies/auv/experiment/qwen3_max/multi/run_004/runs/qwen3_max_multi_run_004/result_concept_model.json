@@ -1,0 +1,183 @@
+{
+    "concepts": [
+        {
+            "Concept": "Module",
+            "description": "A structural unit in the system architecture that encapsulates functionality and data."
+        },
+        {
+            "Concept": "RoboticPlatform",
+            "description": "A physical or logical platform that embodies robotic capabilities within the system."
+        },
+        {
+            "Concept": "Interface",
+            "description": "A defined set of interactions or communication points between system components."
+        },
+        {
+            "Concept": "Controller",
+            "description": "A component responsible for managing or directing the behavior of other system components."
+        },
+        {
+            "Concept": "PrimitiveType",
+            "description": "A basic data type predefined by the system, not composed of other types."
+        },
+        {
+            "Concept": "CompositeType",
+            "description": "A user-defined data type composed of multiple fields of various types."
+        },
+        {
+            "Concept": "Event",
+            "description": "A signal or trigger that indicates something has occurred and may carry parameters or return values."
+        },
+        {
+            "Concept": "Function",
+            "description": "A callable unit of behavior that performs a specific computation or action."
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": "The main module representing the AUV system."
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "RoboticPlatform",
+            "description": "The robotic platform component of the AUV system."
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": "An interface used by the AUV_Platform to access sensor data."
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": "An interface used by the AUV_Platform to control actuators."
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": "A controller handling operator-related inputs in the AUV system."
+        },
+        {
+            "Instance": "Inputs",
+            "Instance_of": "Interface",
+            "description": "An interface used by the AUV_Operator to receive input events."
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "A controller implementing the Last Response Engine functionality."
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": "An interface used by LRE_Ctrl to produce output events."
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": "A controller responsible for autopilot functions of the AUV."
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type representing natural numbers."
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type representing integer numbers."
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type representing textual data."
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type representing true/false values."
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type representing real (floating-point) numbers."
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "CompositeType",
+            "description": "A composite type representing a spherical vector with radial, polar, and azimuth components."
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "CompositeType",
+            "description": "A composite type representing an obstacle with relative position, depth, ID, and heading."
+        },
+        {
+            "Instance": "Intpus",
+            "Instance_of": "Interface",
+            "description": "An interface defining input events for task control and data requests."
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": "An event signaling the end of a task with no parameters or return value."
+        },
+        {
+            "Instance": "reqOCM",
+            "Instance_of": "Event",
+            "description": "An event requesting OCM data with no parameters or return value."
+        },
+        {
+            "Instance": "reqMOM",
+            "Instance_of": "Event",
+            "description": "An event requesting MOM data with no parameters or return value."
+        },
+        {
+            "Instance": "reqHCM",
+            "Instance_of": "Event",
+            "description": "An event requesting HCM data with no parameters or return value."
+        },
+        {
+            "Instance": "reqVel",
+            "Instance_of": "Event",
+            "description": "An event requesting velocity data, returning a real number."
+        },
+        {
+            "Instance": "reqHdng",
+            "Instance_of": "Event",
+            "description": "An event requesting heading data, returning a real number."
+        },
+        {
+            "Instance": "advVel",
+            "Instance_of": "Event",
+            "description": "An event to advance velocity, taking a real number parameter."
+        },
+        {
+            "Instance": "advHdng",
+            "Instance_of": "Event",
+            "description": "An event to advance heading, taking a real number parameter."
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "CompositeType",
+            "description": "A composite type representing close proximity data with horizontal and vertical coordinates and an ID."
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "A function that computes the Euclidean distance from the AUV to an obstacle."
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "A function that computes the horizontal distance from the AUV to an obstacle."
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "A function that computes the vertical distance from the AUV to an obstacle."
+        }
+    ]
+}

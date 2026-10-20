@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:auv="http://www.example.org/auv">
+  <auv:Module name="AUV_Module">
+    <primitiveTypes name="nat"/>
+    <primitiveTypes name="int"/>
+    <primitiveTypes name="string"/>
+    <primitiveTypes name="boolean"/>
+    <primitiveTypes name="real"/>
+    <compositeTypes name="SVec">
+      <values name="radial" type="/0/@primitiveTypes.4"/>
+      <values name="polar" type="/0/@primitiveTypes.4"/>
+      <values name="azimuth" type="/0/@primitiveTypes.4"/>
+    </compositeTypes>
+    <compositeTypes name="Obstacle">
+      <values name="ns_rel_dist" type="/0/@primitiveTypes.4"/>
+      <values name="ew_rel_dist" type="/0/@primitiveTypes.4"/>
+      <values name="depth" type="/0/@primitiveTypes.4"/>
+      <values name="id" type="/0/@primitiveTypes.4"/>
+    </compositeTypes>
+  </auv:Module>
+  <auv:Value name="obs_hdng"/>
+</xmi:XMI>

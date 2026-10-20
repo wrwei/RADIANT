@@ -1,0 +1,66 @@
+enumeration All { All_v0 All_v1 }
+enumeration Are { Are_v0 Are_v1 }
+enumeration Condition { Condition_v0 Condition_v1 }
+enumeration Could { Could_v0 Could_v1 }
+enumeration EntryAction { EntryAction_v0 EntryAction_v1 }
+enumeration For { For_v0 For_v1 }
+enumeration From { From_v0 From_v1 }
+enumeration In { In_v0 In_v1 }
+enumeration Is { Is_v0 Is_v1 }
+enumeration On { On_v0 On_v1 }
+enumeration Requirement { Requirement_v0 Requirement_v1 }
+enumeration Should { Should_v0 Should_v1 }
+enumeration Some { Some_v0 Some_v1 }
+enumeration The { The_v0 The_v1 }
+enumeration There { There_v0 There_v1 }
+enumeration Use { Use_v0 Use_v1 }
+enumeration We { We_v0 We_v1 }
+
+stm LRE_Beh {
+	event advise
+	event may
+	event might
+	event notEv
+	event should
+	event there
+	event use
+	event we
+	var self : boolean
+	var a : boolean
+	var andVar : boolean
+	var are : boolean
+	var could : boolean
+	var can : boolean
+	var mayVar : boolean
+	var mightVar : boolean
+	var must : boolean
+	var shouldVar : boolean
+	var today : boolean
+	var all : boolean
+	initial S0
+	state S0 {}
+	state S1 {
+		entry advise
+	}
+	state S2 {
+		entry may
+	}
+	state S3 {
+		entry might
+	}
+	transition t0 {
+		from S0 to S1
+	}
+	transition t1 {
+		from S1 to S2
+		trigger advise
+	}
+	transition t2 {
+		from S2 to S3
+		trigger may
+	}
+	transition t3 {
+		from S3 to S1
+		trigger might
+	}
+}

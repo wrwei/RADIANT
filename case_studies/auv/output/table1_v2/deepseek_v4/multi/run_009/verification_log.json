@@ -1,0 +1,98 @@
+[
+  {
+    "stage": "concept_extraction",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "48 entries resolved"
+      }
+    ],
+    "at": "2026-10-06T14:53:47+00:00"
+  },
+  {
+    "stage": "dsml_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "emfatic_valid",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "emfatic syntax ok (0 warnings)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "13 entries resolved"
+      }
+    ],
+    "at": "2026-10-06T14:59:44+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "EOL executed; model conforms"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "48 entries resolved"
+      }
+    ],
+    "at": "2026-10-06T15:05:37+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "4 state(s): every state has an outgoing transition; no autonomous self-loops; node names unique"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "18 entries resolved"
+      }
+    ],
+    "at": "2026-10-19T19:41:27+00:00"
+  }
+]

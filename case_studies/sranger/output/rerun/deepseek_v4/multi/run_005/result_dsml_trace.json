@@ -1,0 +1,280 @@
+{
+    "dsl_trace": [
+        {
+            "requirement_gid": "SR-ARCH1",
+            "Emfatic_class": "NamedElement",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 3,
+                "line_end": 5,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH1",
+            "Emfatic_class": "System",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [
+                "controller",
+                "inputEvents",
+                "outputEvents"
+            ],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 7,
+                "line_end": 11,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH1",
+            "Emfatic_class": "Event",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 13,
+                "line_end": 14,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM3",
+            "Emfatic_class": "InputEvent",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 16,
+                "line_end": 17,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM4",
+            "Emfatic_class": "OutputEvent",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [
+                "payload"
+            ],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 19,
+                "line_end": 21,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Emfatic_class": "Interface",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 23,
+                "line_end": 24,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM5",
+            "Emfatic_class": "Sensor",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [
+                "distance"
+            ],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 26,
+                "line_end": 28,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-SF1",
+            "Emfatic_class": "Distance",
+            "Emfatic_attributes": [
+                "metres"
+            ],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 30,
+                "line_end": 32,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM6",
+            "Emfatic_class": "Actuator",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [
+                "lastCommand"
+            ],
+            "Emfatic_operations": [
+                "receiveMove"
+            ],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 34,
+                "line_end": 37,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM4",
+            "Emfatic_class": "Command",
+            "Emfatic_attributes": [
+                "linearVelocity",
+                "angularVelocity"
+            ],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 39,
+                "line_end": 42,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Emfatic_class": "Controller",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [
+                "sensor",
+                "actuator",
+                "stateMachine",
+                "stateVariables",
+                "constants",
+                "inputEvents",
+                "outputEvents"
+            ],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 44,
+                "line_end": 52,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Emfatic_class": "ValueHolder",
+            "Emfatic_attributes": [
+                "value"
+            ],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 54,
+                "line_end": 56,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Emfatic_class": "Constant",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 58,
+                "line_end": 59,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-Var1",
+            "Emfatic_class": "Variable",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 61,
+                "line_end": 62,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-Var1",
+            "Emfatic_class": "StateVariable",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 64,
+                "line_end": 65,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Emfatic_class": "StateMachine",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [
+                "modes",
+                "transitions"
+            ],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 67,
+                "line_end": 70,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Emfatic_class": "OperatingMode",
+            "Emfatic_attributes": [
+                "initial",
+                "terminal"
+            ],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 72,
+                "line_end": 75,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Emfatic_class": "Transition",
+            "Emfatic_attributes": [
+                "guard",
+                "action"
+            ],
+            "Emfatic_references": [
+                "source",
+                "target",
+                "trigger"
+            ],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 77,
+                "line_end": 83,
+                "resolved": true
+            }
+        }
+    ]
+}

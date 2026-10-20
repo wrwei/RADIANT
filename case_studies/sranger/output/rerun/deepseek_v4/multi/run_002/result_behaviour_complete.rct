@@ -1,0 +1,101 @@
+diagram SRanger
+
+interface Inputs {
+	event obstacle
+	event tick
+	event endTask
+}
+
+interface Outputs {
+	event Move
+}
+
+interface SRanger_State {
+	var clockResetTime : real = 0
+	var sinceEntry_Turning : real
+}
+
+interface Constants {
+	const turnDuration : real = 2
+	const moveVel : real = 1
+	const turnVel : real = 2
+	const obstacleThreshold : real = 1
+}
+
+stm SRanger {
+	uses Inputs uses Outputs requires SRanger_State requires Constants
+	state Moving {
+		entry send Move
+	}
+	state Turning {
+		entry clockResetTime = 0 ; send Move
+	}
+	state Final {
+		entry send Move
+	}
+	initial i0
+	transition t0 {
+		from i0
+		to Moving
+	}
+	transition t1 {
+		from Moving
+		to Moving
+		trigger tick
+	}
+	transition t2 {
+		from Moving
+		to Turning
+		trigger obstacle
+	}
+	transition t3 {
+		from Moving
+		to Final
+		trigger endTask
+	}
+	transition t4 {
+		from Turning
+		to Moving
+		condition sinceEntry_Turning - clockResetTime >= turnDuration
+	}
+	transition t5 {
+		from Turning
+		to Turning
+		trigger tick
+	}
+	transition t6 {
+		from Turning
+		to Final
+		trigger endTask
+	}
+	transition t7 {
+		from Final
+		to Final
+		trigger tick
+	}
+}
+
+controller SRanger_Ctrl {
+	uses Inputs uses Outputs requires SRanger_State requires Constants
+	sref stm_ref0 = SRanger
+	connection SRanger_Ctrl on obstacle to stm_ref0 on obstacle
+	connection SRanger_Ctrl on tick to stm_ref0 on tick
+	connection SRanger_Ctrl on endTask to stm_ref0 on endTask
+	connection stm_ref0 on Move to SRanger_Ctrl on Move
+}
+
+module SRanger_Module {
+	robotic platform SRanger_Platform {
+		provides Constants
+		event obstacle
+		event tick
+		event endTask
+		event Move
+	}
+	cref ctrl_ref0 = SRanger_Ctrl
+	connection SRanger_Platform on obstacle to ctrl_ref0 on obstacle
+	connection SRanger_Platform on tick to ctrl_ref0 on tick
+	connection SRanger_Platform on endTask to ctrl_ref0 on endTask
+	connection ctrl_ref0 on Move to SRanger_Platform on Move
+}
+

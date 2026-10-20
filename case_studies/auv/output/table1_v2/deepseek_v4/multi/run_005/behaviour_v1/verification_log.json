@@ -1,0 +1,200 @@
+[
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "8 state(s): every state has an outgoing transition; no autonomous self-loops"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "RoboChart generator rejected the model (5 error(s)): mismatched input '.' expecting '}' (line : 22 column : 13); missing '{' at 'variables' (line : 36 column : 482); mismatched input '.' expecting '}' (line : 36 column : 513); extraneous input 'is' expecting RULE_ID (line : 38 column : 277); mismatched character '<EOF>' expecting '\"' (line : 201 column : 144)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "2 unresolved trace entries (e.g. ?, ?)"
+      }
+    ],
+    "at": "2026-10-18T20:23:07+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 1,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "8 state(s): every state has an outgoing transition; no autonomous self-loops"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "3 assertion(s) hold (deadlock/divergence-free)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "2 unresolved trace entries (e.g. ?, ?)"
+      }
+    ],
+    "at": "2026-10-18T20:27:43+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 2,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "8 state(s): every state has an outgoing transition; no autonomous self-loops"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 error(s): <unknown location>:\n    The variable LRE_Beh::NID_stateS1 has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_4tn947k2/csp-gen/defs/LRE_Beh.csp:20:16-27\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_4tn947k2/csp-gen/defs/LRE_Beh.csp:21:16-27\n<unknown location>:\n    The variable LRE_Beh::stateS1 has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_4tn947k2/csp-gen/defs/LRE_Beh.csp:110:2-127:11\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_4tn947k2/csp-gen/defs/LRE_Beh.csp:133:2-193:11\n<unknown location>:\n    The variable LRE_Beh::stateS1::enter has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_4tn947k2/csp-gen/defs/LRE_Beh.csp:113:3-27\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_4tn947k2/csp-gen/defs/LRE_Beh.csp:143:3-36\n<unknown location>:\n    The variable LRE_Beh::stateS1::interrupt has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_4tn947k2/csp-gen/defs/LRE_Beh.csp:113:3-27\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_4tn947k2/csp-gen/defs/LRE_Beh.csp:143:3-36"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "2 unresolved trace entries (e.g. ?, ?)"
+      }
+    ],
+    "at": "2026-10-18T20:28:46+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 3,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "8 state(s): every state has an outgoing transition; no autonomous self-loops"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 error(s): <unknown location>:\n    The variable LRE_Beh::NID_S0 has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_alrwqo18/csp-gen/defs/LRE_Beh.csp:20:16-22\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_alrwqo18/csp-gen/defs/LRE_Beh.csp:21:16-22\n<unknown location>:\n    The variable LRE_Beh::S0 has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_alrwqo18/csp-gen/defs/LRE_Beh.csp:110:2-127:11\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_alrwqo18/csp-gen/defs/LRE_Beh.csp:133:2-193:11\n<unknown location>:\n    The variable LRE_Beh::S0::enter has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_alrwqo18/csp-gen/defs/LRE_Beh.csp:113:3-27\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_alrwqo18/csp-gen/defs/LRE_Beh.csp:143:3-36\n<unknown location>:\n    The variable LRE_Beh::S0::interrupt has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_alrwqo18/csp-gen/defs/LRE_Beh.csp:113:3-27\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_alrwqo18/csp-gen/defs/LRE_Beh.csp:143:3-36"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "2 unresolved trace entries (e.g. ?, ?)"
+      }
+    ],
+    "at": "2026-10-18T20:29:51+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 4,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "8 state(s): every state has an outgoing transition; no autonomous self-loops"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 error(s): <unknown location>:\n    The variable LRE_Beh::NID_S0 has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_ub6hc89v/csp-gen/defs/LRE_Beh.csp:20:16-22\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_ub6hc89v/csp-gen/defs/LRE_Beh.csp:21:16-22\n<unknown location>:\n    The variable LRE_Beh::S0 has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_ub6hc89v/csp-gen/defs/LRE_Beh.csp:110:2-127:11\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_ub6hc89v/csp-gen/defs/LRE_Beh.csp:133:2-193:11\n<unknown location>:\n    The variable LRE_Beh::S0::enter has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_ub6hc89v/csp-gen/defs/LRE_Beh.csp:113:3-27\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_ub6hc89v/csp-gen/defs/LRE_Beh.csp:143:3-36\n<unknown location>:\n    The variable LRE_Beh::S0::interrupt has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_ub6hc89v/csp-gen/defs/LRE_Beh.csp:113:3-27\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_ub6hc89v/csp-gen/defs/LRE_Beh.csp:143:3-36"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "2 unresolved trace entries (e.g. ?, ?)"
+      }
+    ],
+    "at": "2026-10-18T20:34:42+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 5,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "8 state(s): every state has an outgoing transition; no autonomous self-loops"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "RoboChart generator rejected the model (1 error(s)): extraneous input 'state' expecting RULE_ID (line : 40 column : 10)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "2 unresolved trace entries (e.g. ?, ?)"
+      }
+    ],
+    "at": "2026-10-18T20:37:28+00:00"
+  }
+]

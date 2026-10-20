@@ -1,0 +1,83 @@
+package sranger;
+
+abstract class NamedElement {
+    attr String name;
+}
+
+class System extends NamedElement {
+    val Controller[1] controller;
+    val InputEvent[*] inputEvents;
+    val OutputEvent[*] outputEvents;
+}
+
+abstract class Event extends NamedElement {
+}
+
+class InputEvent extends Event {
+}
+
+class OutputEvent extends Event {
+    val Command[1] payload;
+}
+
+abstract class Interface extends NamedElement {
+}
+
+class Sensor extends Interface {
+    op Distance distance();
+}
+
+class Distance extends NamedElement {
+    attr double metres;
+}
+
+class Actuator extends Interface {
+    val Command[1] lastCommand;
+    op void receiveMove(OutputEvent move);
+}
+
+class Command extends NamedElement {
+    attr double linearVelocity;
+    attr double angularVelocity;
+}
+
+class Controller extends NamedElement {
+    val Sensor[1] sensor;
+    val Actuator[1] actuator;
+    val StateMachine[1] stateMachine;
+    val StateVariable[*] stateVariables;
+    val Constant[*] constants;
+    ref InputEvent[*] inputEvents;
+    ref OutputEvent[*] outputEvents;
+}
+
+abstract class ValueHolder extends NamedElement {
+    attr double value;
+}
+
+class Constant extends ValueHolder {
+}
+
+abstract class Variable extends ValueHolder {
+}
+
+class StateVariable extends Variable {
+}
+
+class StateMachine extends NamedElement {
+    val OperatingMode[*] modes;
+    val Transition[*] transitions;
+}
+
+class OperatingMode extends NamedElement {
+    attr boolean initial;
+    attr boolean terminal;
+}
+
+class Transition extends NamedElement {
+    ref OperatingMode source;
+    ref OperatingMode target;
+    ref InputEvent trigger;
+    attr String guard;
+    attr String action;
+}

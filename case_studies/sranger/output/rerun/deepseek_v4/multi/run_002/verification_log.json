@@ -1,0 +1,203 @@
+[
+  {
+    "stage": "concept_extraction",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 unresolved trace entries (e.g. SR-ARCH2)"
+      }
+    ],
+    "at": "2026-10-19T09:32:12+00:00"
+  },
+  {
+    "stage": "concept_extraction",
+    "attempt": 1,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 unresolved trace entries (e.g. SR-ARCH2)"
+      }
+    ],
+    "at": "2026-10-19T09:33:25+00:00"
+  },
+  {
+    "stage": "concept_extraction",
+    "attempt": 2,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 unresolved trace entries (e.g. SR-ARCH2)"
+      }
+    ],
+    "at": "2026-10-19T09:34:00+00:00"
+  },
+  {
+    "stage": "concept_extraction",
+    "attempt": 3,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 unresolved trace entries (e.g. SR-ARCH2)"
+      }
+    ],
+    "at": "2026-10-19T09:34:33+00:00"
+  },
+  {
+    "stage": "concept_extraction",
+    "attempt": 4,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 unresolved trace entries (e.g. SR-ARCH2)"
+      }
+    ],
+    "at": "2026-10-19T09:35:32+00:00"
+  },
+  {
+    "stage": "concept_extraction",
+    "attempt": 5,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 unresolved trace entries (e.g. SR-ARCH2)"
+      }
+    ],
+    "at": "2026-10-19T09:36:19+00:00"
+  },
+  {
+    "stage": "dsml_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "emfatic_valid",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "emfatic syntax ok (0 warnings)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "14 entries resolved"
+      }
+    ],
+    "at": "2026-10-19T09:43:31+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "EOL executed; model conforms"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "88 entries resolved"
+      }
+    ],
+    "at": "2026-10-19T09:49:17+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "3 state(s): every state has an outgoing transition; no autonomous self-loops; node names unique"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "7 entries resolved"
+      }
+    ],
+    "at": "2026-10-19T19:51:11+00:00"
+  }
+]

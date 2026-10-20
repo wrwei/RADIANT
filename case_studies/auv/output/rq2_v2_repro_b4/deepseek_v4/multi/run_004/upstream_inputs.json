@@ -1,0 +1,18 @@
+{
+  "dsml_creation": {
+    "extracted_terms": {
+      "path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b4/deepseek_v4/multi/run_004/result_concept_model.json",
+      "source": "run"
+    }
+  },
+  "emf_model_creation": {
+    "extracted_terms": {
+      "path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b4/deepseek_v4/multi/run_004/result_concept_model.json",
+      "source": "run"
+    },
+    "dsl_source": {
+      "path": "/Users/ranwei/Git/REMEDIATE/case_studies/auv/output/rq2_v2_repro_b4/deepseek_v4/multi/run_004/result_dsml.emf",
+      "source": "run"
+    }
+  }
+}

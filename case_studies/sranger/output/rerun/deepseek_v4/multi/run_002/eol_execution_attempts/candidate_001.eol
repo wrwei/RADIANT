@@ -1,0 +1,133 @@
+var srangerSystem = new M!System;
+srangerSystem.name = "SRanger";
+
+var srangerController = new M!Controller;
+srangerController.name = "SRangerController";
+
+var irSensor = new M!Sensor;
+irSensor.name = "IRSensor";
+
+var differentialDrive = new M!Actuator;
+differentialDrive.name = "DifferentialDrive";
+
+srangerSystem.controller = srangerController;
+srangerSystem.sensor = irSensor;
+srangerSystem.actuator = differentialDrive;
+
+var srangerStateMachine = new M!StateMachine;
+srangerStateMachine.name = "SRangerStateMachine";
+srangerController.stateMachine = srangerStateMachine;
+
+var moving = new M!OperatingMode;
+moving.name = "Moving";
+moving.terminal = false;
+
+var turning = new M!OperatingMode;
+turning.name = "Turning";
+turning.terminal = false;
+
+var finalMode = new M!OperatingMode;
+finalMode.name = "Final";
+finalMode.terminal = true;
+
+srangerStateMachine.initialMode = moving;
+srangerStateMachine.modes.add(moving);
+srangerStateMachine.modes.add(turning);
+srangerStateMachine.modes.add(finalMode);
+
+var moveVel = new M!Constant;
+moveVel.name = "moveVel";
+moveVel.type = "real";
+moveVel.unit = "m/s";
+moveVel.value = 1.0;
+srangerController.constants.add(moveVel);
+
+var turnVel = new M!Constant;
+turnVel.name = "turnVel";
+turnVel.type = "real";
+turnVel.unit = "rad/s";
+turnVel.value = 2.0;
+srangerController.constants.add(turnVel);
+
+var obstacleThreshold = new M!Constant;
+obstacleThreshold.name = "obstacleThreshold";
+obstacleThreshold.type = "real";
+obstacleThreshold.unit = "m";
+obstacleThreshold.value = 0.5;
+srangerController.constants.add(obstacleThreshold);
+
+var turnDuration = new M!Constant;
+turnDuration.name = "turnDuration";
+turnDuration.type = "real";
+turnDuration.unit = "s";
+turnDuration.value = 2.0;
+srangerController.constants.add(turnDuration);
+
+var clockResetTime = new M!Variable;
+clockResetTime.name = "clockResetTime";
+clockResetTime.type = "real";
+clockResetTime.unit = "s";
+clockResetTime.value = 0.0;
+srangerController.variables.add(clockResetTime);
+
+var obstacle = new M!InputEvent;
+obstacle.name = "obstacle";
+obstacle.payloadType = "signal";
+srangerController.inputEvents.add(obstacle);
+
+var tick = new M!InputEvent;
+tick.name = "tick";
+tick.payloadType = "signal";
+srangerController.inputEvents.add(tick);
+
+var endTask = new M!InputEvent;
+endTask.name = "endTask";
+endTask.payloadType = "signal";
+srangerController.inputEvents.add(endTask);
+
+var move = new M!OutputEvent;
+move.name = "Move";
+move.linearVelocity = 0.0;
+move.angularVelocity = 0.0;
+srangerController.outputEvents.add(move);
+
+srangerController.sensor = irSensor;
+srangerController.actuator = differentialDrive;
+
+differentialDrive.lastCommand = move;
+
+var movingToTurning = new M!Transition;
+movingToTurning.name = "MovingToTurning";
+movingToTurning.source = moving;
+movingToTurning.target = turning;
+movingToTurning.trigger = obstacle;
+movingToTurning.guard = "";
+movingToTurning.action = "clockResetTime = currentTime(); Move(0, turnVel)";
+srangerStateMachine.transitions.add(movingToTurning);
+
+var turningToMoving = new M!Transition;
+turningToMoving.name = "TurningToMoving";
+turningToMoving.source = turning;
+turningToMoving.target = moving;
+turningToMoving.trigger = tick;
+turningToMoving.guard = "currentTime() - clockResetTime >= turnDuration";
+turningToMoving.action = "Move(moveVel, 0)";
+srangerStateMachine.transitions.add(turningToMoving);
+
+var movingToFinal = new M!Transition;
+movingToFinal.name = "MovingToFinal";
+movingToFinal.source = moving;
+movingToFinal.target = finalMode;
+movingToFinal.trigger = endTask;
+movingToFinal.guard = "";
+movingToFinal.action = "Move(0, 0)";
+srangerStateMachine.transitions.add(movingToFinal);
+
+var turningToFinal = new M!Transition;
+turningToFinal.name = "TurningToFinal";
+turningToFinal.source = turning;
+turningToFinal.target = finalMode;
+turningToFinal.trigger = endTask;
+turningToFinal.guard = "";
+turningToFinal.action = "Move(0, 0)";
+srangerStateMachine.transitions.add(turningToFinal);

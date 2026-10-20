@@ -1,0 +1,35 @@
+[
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "4 state(s): every state has an outgoing transition; no autonomous self-loops"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "18 entries resolved"
+      }
+    ],
+    "at": "2026-10-18T19:34:07+00:00"
+  }
+]

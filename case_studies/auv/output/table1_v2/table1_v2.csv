@@ -1,0 +1,3 @@
+model,arm,n,Concept F1,Notation valid,Notation-element F1,Behaviour F1,Construction executes,Notation converts,FDR verified,unverified checks,trace links emitted
+deepseek_v4,single,10,0.97,0.00,0.90,0.98,10/10,0/10,10/10,0,0
+deepseek_v4,multi,10,0.97,1.00,0.86,0.99,10/10,10/10,10/10,0,10

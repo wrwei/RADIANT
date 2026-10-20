@@ -1,0 +1,472 @@
+{
+    "model_trace": [
+        {
+            "requirement_gid": "SR-DM5",
+            "Model_Element": "Sensor",
+            "Model_Element_id": "sensor",
+            "Model_attribute": "name",
+            "Attribute_value": "sensor",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 2,
+                "line_end": 2,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM6",
+            "Model_Element": "Actuator",
+            "Model_Element_id": "actuator",
+            "Model_attribute": "name",
+            "Attribute_value": "actuator",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 6,
+                "line_end": 6,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM6",
+            "Model_Element": "Actuator",
+            "Model_Element_id": "actuator",
+            "Model_attribute": "lastLv",
+            "Attribute_value": "0.0",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 6,
+                "line_end": 6,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM6",
+            "Model_Element": "Actuator",
+            "Model_Element_id": "actuator",
+            "Model_attribute": "lastAv",
+            "Attribute_value": "0.0",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 6,
+                "line_end": 6,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Constant",
+            "Model_Element_id": "moveVel",
+            "Model_attribute": "name",
+            "Attribute_value": "moveVel",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 12,
+                "line_end": 12,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Constant",
+            "Model_Element_id": "moveVel",
+            "Model_attribute": "defaultValue",
+            "Attribute_value": "1.0",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 12,
+                "line_end": 12,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Constant",
+            "Model_Element_id": "turnVel",
+            "Model_attribute": "name",
+            "Attribute_value": "turnVel",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 16,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Constant",
+            "Model_Element_id": "turnVel",
+            "Model_attribute": "defaultValue",
+            "Attribute_value": "2.0",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 16,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Constant",
+            "Model_Element_id": "obstacleThreshold",
+            "Model_attribute": "name",
+            "Attribute_value": "obstacleThreshold",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 20,
+                "line_end": 20,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Constant",
+            "Model_Element_id": "obstacleThreshold",
+            "Model_attribute": "defaultValue",
+            "Attribute_value": "0.5",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 20,
+                "line_end": 20,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Constant",
+            "Model_Element_id": "turnDuration",
+            "Model_attribute": "name",
+            "Attribute_value": "turnDuration",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 24,
+                "line_end": 24,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Constant",
+            "Model_Element_id": "turnDuration",
+            "Model_attribute": "defaultValue",
+            "Attribute_value": "2.0",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 24,
+                "line_end": 24,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-Var1",
+            "Model_Element": "Variable",
+            "Model_Element_id": "clockResetTime",
+            "Model_attribute": "name",
+            "Attribute_value": "clockResetTime",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 29,
+                "line_end": 29,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-Var1",
+            "Model_Element": "Variable",
+            "Model_Element_id": "clockResetTime",
+            "Model_attribute": "value",
+            "Attribute_value": "0.0",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 29,
+                "line_end": 29,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM3",
+            "Model_Element": "Event",
+            "Model_Element_id": "obstacle",
+            "Model_attribute": "name",
+            "Attribute_value": "obstacle",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 20,
+                "line_end": 20,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM3",
+            "Model_Element": "Event",
+            "Model_Element_id": "tick",
+            "Model_attribute": "name",
+            "Attribute_value": "tick",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 37,
+                "line_end": 37,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM3",
+            "Model_Element": "Event",
+            "Model_Element_id": "endTask",
+            "Model_attribute": "name",
+            "Attribute_value": "endTask",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 40,
+                "line_end": 40,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM4",
+            "Model_Element": "Move",
+            "Model_Element_id": "moveCmd",
+            "Model_attribute": "lv",
+            "Attribute_value": "0.0",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 44,
+                "line_end": 44,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM4",
+            "Model_Element": "Move",
+            "Model_Element_id": "moveCmd",
+            "Model_attribute": "av",
+            "Attribute_value": "0.0",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 44,
+                "line_end": 44,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Model_Element": "Moving",
+            "Model_Element_id": "moving",
+            "Model_attribute": "name",
+            "Attribute_value": "Moving",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 49,
+                "line_end": 49,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Model_Element": "Moving",
+            "Model_Element_id": "moving",
+            "Model_reference": "moveVel",
+            "Reference_value": "moveVel",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 49,
+                "line_end": 49,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Model_Element": "Turning",
+            "Model_Element_id": "turning",
+            "Model_attribute": "name",
+            "Attribute_value": "Turning",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 53,
+                "line_end": 53,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Model_Element": "Turning",
+            "Model_Element_id": "turning",
+            "Model_reference": "turnVel",
+            "Reference_value": "turnVel",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 53,
+                "line_end": 53,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Model_Element": "Turning",
+            "Model_Element_id": "turning",
+            "Model_reference": "turnDuration",
+            "Reference_value": "turnDuration",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 53,
+                "line_end": 53,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Model_Element": "Turning",
+            "Model_Element_id": "turning",
+            "Model_reference": "clockResetTime",
+            "Reference_value": "clockResetTime",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 53,
+                "line_end": 53,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Model_Element": "Final",
+            "Model_Element_id": "finalMode",
+            "Model_attribute": "name",
+            "Attribute_value": "Final",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 59,
+                "line_end": 59,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "StateMachine",
+            "Model_Element_id": "sm",
+            "Model_attribute": "name",
+            "Attribute_value": "StateMachine",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 63,
+                "line_end": 63,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "StateMachine",
+            "Model_Element_id": "sm",
+            "Model_reference": "modes",
+            "Reference_value": "moving, turning, finalMode",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 63,
+                "line_end": 63,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Controller",
+            "Model_Element_id": "controller",
+            "Model_attribute": "name",
+            "Attribute_value": "SRangerController",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 68,
+                "line_end": 68,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Controller",
+            "Model_Element_id": "controller",
+            "Model_reference": "sensor",
+            "Reference_value": "sensor",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 68,
+                "line_end": 68,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Controller",
+            "Model_Element_id": "controller",
+            "Model_reference": "actuator",
+            "Reference_value": "actuator",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 68,
+                "line_end": 68,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Controller",
+            "Model_Element_id": "controller",
+            "Model_reference": "constants",
+            "Reference_value": "moveVel, turnVel, obstacleThreshold, turnDuration",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 68,
+                "line_end": 68,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Controller",
+            "Model_Element_id": "controller",
+            "Model_reference": "variables",
+            "Reference_value": "clockResetTime",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 68,
+                "line_end": 68,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Controller",
+            "Model_Element_id": "controller",
+            "Model_reference": "stateMachine",
+            "Reference_value": "sm",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 68,
+                "line_end": 68,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Controller",
+            "Model_Element_id": "controller",
+            "Model_reference": "inputEvents",
+            "Reference_value": "obstacle, tick, endTask",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 68,
+                "line_end": 68,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Controller",
+            "Model_Element_id": "controller",
+            "Model_reference": "moveOutputType",
+            "Reference_value": "moveCmd",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 68,
+                "line_end": 68,
+                "resolved": true
+            }
+        }
+    ]
+}

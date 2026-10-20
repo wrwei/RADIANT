@@ -1,0 +1,200 @@
+[
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "4 state(s): every state has an outgoing transition; no autonomous self-loops"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "2 unresolved trace entries (e.g. ?, ?)"
+      }
+    ],
+    "at": "2026-10-18T19:59:33+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 1,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "4 state(s): every state has an outgoing transition; no autonomous self-loops"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 error(s): <unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::NID_OCM has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_0w2uh9dq/csp-gen/defs/LRE_Beh_Ctrl.csp:83:18-25\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_0w2uh9dq/csp-gen/defs/LRE_Beh_Ctrl.csp:87:18-25\n<unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::OCM has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_0w2uh9dq/csp-gen/defs/LRE_Beh_Ctrl.csp:177:4-237:13\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_0w2uh9dq/csp-gen/defs/LRE_Beh_Ctrl.csp:441:4-458:13\n<unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::OCM::enter has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_0w2uh9dq/csp-gen/defs/LRE_Beh_Ctrl.csp:187:5-38\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_0w2uh9dq/csp-gen/defs/LRE_Beh_Ctrl.csp:444:5-29\n<unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::OCM::interrupt has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_0w2uh9dq/csp-gen/defs/LRE_Beh_Ctrl.csp:187:5-38\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_0w2uh9dq/csp-gen/defs/LRE_Beh_Ctrl.csp:444:5-29"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "2 unresolved trace entries (e.g. ?, ?)"
+      }
+    ],
+    "at": "2026-10-18T20:03:43+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 2,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "4 state(s): every state has an outgoing transition; no autonomous self-loops"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 error(s): <unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::NID_OCM has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_xowl3cm4/csp-gen/defs/LRE_Beh_Ctrl.csp:83:18-25\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_xowl3cm4/csp-gen/defs/LRE_Beh_Ctrl.csp:87:18-25\n<unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::OCM has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_xowl3cm4/csp-gen/defs/LRE_Beh_Ctrl.csp:177:4-237:13\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_xowl3cm4/csp-gen/defs/LRE_Beh_Ctrl.csp:441:4-458:13\n<unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::OCM::enter has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_xowl3cm4/csp-gen/defs/LRE_Beh_Ctrl.csp:187:5-38\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_xowl3cm4/csp-gen/defs/LRE_Beh_Ctrl.csp:444:5-29\n<unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::OCM::interrupt has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_xowl3cm4/csp-gen/defs/LRE_Beh_Ctrl.csp:187:5-38\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_xowl3cm4/csp-gen/defs/LRE_Beh_Ctrl.csp:444:5-29"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "2 unresolved trace entries (e.g. ?, ?)"
+      }
+    ],
+    "at": "2026-10-18T20:08:09+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 3,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "4 state(s): every state has an outgoing transition; no autonomous self-loops"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 error(s): <unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::NID_OCM has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_hdxggg2x/csp-gen/defs/LRE_Beh_Ctrl.csp:83:18-25\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_hdxggg2x/csp-gen/defs/LRE_Beh_Ctrl.csp:84:18-25\n<unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::OCM has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_hdxggg2x/csp-gen/defs/LRE_Beh_Ctrl.csp:177:4-194:13\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_hdxggg2x/csp-gen/defs/LRE_Beh_Ctrl.csp:200:4-260:13\n<unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::OCM::enter has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_hdxggg2x/csp-gen/defs/LRE_Beh_Ctrl.csp:180:5-29\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_hdxggg2x/csp-gen/defs/LRE_Beh_Ctrl.csp:210:5-38\n<unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::OCM::interrupt has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_hdxggg2x/csp-gen/defs/LRE_Beh_Ctrl.csp:180:5-29\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_hdxggg2x/csp-gen/defs/LRE_Beh_Ctrl.csp:210:5-38"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "2 unresolved trace entries (e.g. ?, ?)"
+      }
+    ],
+    "at": "2026-10-18T20:12:22+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 4,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "4 state(s): every state has an outgoing transition; no autonomous self-loops"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 error(s): <unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::NID_OCM has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_ush2mb3j/csp-gen/defs/LRE_Beh_Ctrl.csp:83:18-25\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_ush2mb3j/csp-gen/defs/LRE_Beh_Ctrl.csp:87:18-25\n<unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::OCM has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_ush2mb3j/csp-gen/defs/LRE_Beh_Ctrl.csp:177:4-237:13\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_ush2mb3j/csp-gen/defs/LRE_Beh_Ctrl.csp:441:4-458:13\n<unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::OCM::enter has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_ush2mb3j/csp-gen/defs/LRE_Beh_Ctrl.csp:187:5-38\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_ush2mb3j/csp-gen/defs/LRE_Beh_Ctrl.csp:444:5-29\n<unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::OCM::interrupt has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_ush2mb3j/csp-gen/defs/LRE_Beh_Ctrl.csp:187:5-38\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_ush2mb3j/csp-gen/defs/LRE_Beh_Ctrl.csp:444:5-29"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "2 unresolved trace entries (e.g. ?, ?)"
+      }
+    ],
+    "at": "2026-10-18T20:17:23+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 5,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "4 state(s): every state has an outgoing transition; no autonomous self-loops"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "1 error(s): <unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::NID_OCM has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_3vtl4ke2/csp-gen/defs/LRE_Beh_Ctrl.csp:83:18-25\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_3vtl4ke2/csp-gen/defs/LRE_Beh_Ctrl.csp:89:18-25\n<unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::OCM has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_3vtl4ke2/csp-gen/defs/LRE_Beh_Ctrl.csp:183:4-243:13\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_3vtl4ke2/csp-gen/defs/LRE_Beh_Ctrl.csp:579:4-596:13\n<unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::OCM::enter has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_3vtl4ke2/csp-gen/defs/LRE_Beh_Ctrl.csp:193:5-38\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_3vtl4ke2/csp-gen/defs/LRE_Beh_Ctrl.csp:582:5-29\n<unknown location>:\n    The variable LRE_Beh_Ctrl::stm_ref0::OCM::interrupt has multiple definitions at:\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_3vtl4ke2/csp-gen/defs/LRE_Beh_Ctrl.csp:193:5-38\n        /var/folders/hc/c4tz2bq55g9c0_c4tnr9qvx80000gn/T/radiant_fdr4_3vtl4ke2/csp-gen/defs/LRE_Beh_Ctrl.csp:582:5-29"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "2 unresolved trace entries (e.g. ?, ?)"
+      }
+    ],
+    "at": "2026-10-18T20:20:41+00:00"
+  }
+]

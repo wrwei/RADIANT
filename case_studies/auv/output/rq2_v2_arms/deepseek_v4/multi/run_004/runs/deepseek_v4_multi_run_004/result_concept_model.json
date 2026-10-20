@@ -1,0 +1,259 @@
+{
+    "concepts": [
+        {
+            "Concept": "AUV",
+            "description": "Autonomous Underwater Vehicle system"
+        },
+        {
+            "Concept": "Module",
+            "description": "A component of the AUV system"
+        },
+        {
+            "Concept": "Interface",
+            "description": "A defined interface for communication"
+        },
+        {
+            "Concept": "RoboticPlatform",
+            "description": "A platform that contains sensors and actuators"
+        },
+        {
+            "Concept": "Controller",
+            "description": "A control component within the AUV module"
+        },
+        {
+            "Concept": "PrimitiveType",
+            "description": "A basic data type"
+        },
+        {
+            "Concept": "CompositeType",
+            "description": "A structured data type composed of values"
+        },
+        {
+            "Concept": "Value",
+            "description": "A data value contained in a composite type or interface"
+        },
+        {
+            "Concept": "Event",
+            "description": "An event defined by an interface"
+        },
+        {
+            "Concept": "Parameter",
+            "description": "An input parameter of an event or function"
+        },
+        {
+            "Concept": "ReturnValue",
+            "description": "A value returned by an event or function"
+        },
+        {
+            "Concept": "Function",
+            "description": "A function defined by the module"
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": "The developed module of the AUV system"
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "RoboticPlatform",
+            "description": "Robotic platform contained in AUV_Module"
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": "Interface used by AUV_Platform for sensors"
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": "Interface used by AUV_Platform for actuators"
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": "Controller that uses the Inputs interface"
+        },
+        {
+            "Instance": "Inputs",
+            "Instance_of": "Interface",
+            "description": "Interface used by AUV_Operator"
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "Controller for the Last Response Engine"
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": "Interface used by LRE_Ctrl"
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": "Controller that uses the Outputs interface"
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "",
+            "description": "Primitive type for natural numbers"
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "",
+            "description": "Primitive type for integers"
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "",
+            "description": "Primitive type for string values"
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "",
+            "description": "Primitive type for boolean values"
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "",
+            "description": "Primitive type for real numbers"
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "CompositeType",
+            "description": "Composite type representing a spherical vector"
+        },
+        {
+            "Instance": "radial",
+            "Instance_of": "Value",
+            "description": "Value for radial distance"
+        },
+        {
+            "Instance": "polar",
+            "Instance_of": "Value",
+            "description": "Value for polar angle"
+        },
+        {
+            "Instance": "azimuth",
+            "Instance_of": "Value",
+            "description": "Value for azimuth angle"
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "CompositeType",
+            "description": "Composite type representing an obstacle"
+        },
+        {
+            "Instance": "ns_rel_dist",
+            "Instance_of": "Value",
+            "description": "Value for north-south relative distance"
+        },
+        {
+            "Instance": "ew_rel_dist",
+            "Instance_of": "Value",
+            "description": "Value for east-west relative distance"
+        },
+        {
+            "Instance": "depth",
+            "Instance_of": "Value",
+            "description": "Value for depth"
+        },
+        {
+            "Instance": "id",
+            "Instance_of": "Value",
+            "description": "Value for identifier"
+        },
+        {
+            "Instance": "obs_hdng",
+            "Instance_of": "Value",
+            "description": "Value for obstacle heading"
+        },
+        {
+            "Instance": "hdng",
+            "Instance_of": "Value",
+            "description": "Heading value"
+        },
+        {
+            "Instance": "obs",
+            "Instance_of": "Value",
+            "description": "Obstacle observation value"
+        },
+        {
+            "Instance": "Intpus",
+            "Instance_of": "Interface",
+            "description": "Interface for input events"
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": "Event to end task"
+        },
+        {
+            "Instance": "reqOCM",
+            "Instance_of": "Event",
+            "description": "Event to request OCM"
+        },
+        {
+            "Instance": "reqMOM",
+            "Instance_of": "Event",
+            "description": "Event to request MOM"
+        },
+        {
+            "Instance": "reqHCM",
+            "Instance_of": "Event",
+            "description": "Event to request HCM"
+        },
+        {
+            "Instance": "reqVel",
+            "Instance_of": "Event",
+            "description": "Event to request velocity"
+        },
+        {
+            "Instance": "reqHdng",
+            "Instance_of": "Event",
+            "description": "Event to request heading"
+        },
+        {
+            "Instance": "advVel",
+            "Instance_of": "Event",
+            "description": "Event to advise velocity"
+        },
+        {
+            "Instance": "advHdng",
+            "Instance_of": "Event",
+            "description": "Event to advise heading"
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "CompositeType",
+            "description": "Composite type for close values"
+        },
+        {
+            "Instance": "horiz_cda",
+            "Instance_of": "Value",
+            "description": "Horizontal closest distance of approach value"
+        },
+        {
+            "Instance": "vert_cda",
+            "Instance_of": "Value",
+            "description": "Vertical closest distance of approach value"
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "Function to compute distance from the AUV to an obstacle"
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "Function to compute horizontal distance from the AUV to an obstacle"
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "Function to compute vertical distance from the AUV to an obstacle"
+        }
+    ]
+}

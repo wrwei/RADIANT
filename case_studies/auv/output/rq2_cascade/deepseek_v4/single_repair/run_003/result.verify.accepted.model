@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://generated/model">
+  <model:Module name="AUV_Module">
+    <controllers name="AUV_Operator" inputs="/0/@interfaces.2"/>
+    <controllers name="LRE_Ctrl" inputs="/0/@interfaces.2" outputs="/0/@interfaces.4"/>
+    <controllers name="AUV_Autopilot" outputs="/0/@interfaces.4"/>
+    <interfaces name="Sensors">
+      <values name="depth" type="/5"/>
+      <values name="hdng" type="/6"/>
+      <values name="obs" type="/7"/>
+    </interfaces>
+    <interfaces name="Actuators"/>
+    <interfaces name="Inputs"/>
+    <interfaces name="Intpus">
+      <events name="endTask"/>
+      <events name="reqOCM"/>
+      <events name="reqMOM"/>
+      <events name="reqHCM"/>
+      <events name="reqVel" returnType="/5"/>
+      <events name="reqHdng" returnType="/5"/>
+    </interfaces>
+    <interfaces name="Outputs">
+      <events name="advVel">
+        <parameters xsi:type="model:Value" name="p" type="/5"/>
+      </events>
+      <events name="advHdng">
+        <parameters xsi:type="model:Value" name="p" type="/5"/>
+      </events>
+    </interfaces>
+  </model:Module>
+  <model:PrimitiveType name="nat"/>
+  <model:PrimitiveType name="int"/>
+  <model:PrimitiveType name="string"/>
+  <model:PrimitiveType name="boolean"/>
+  <model:PrimitiveType name="real"/>
+  <model:CompositeType name="SVec">
+    <values name="radial" type="/5"/>
+    <values name="polar" type="/5"/>
+    <values name="azimuth" type="/5"/>
+  </model:CompositeType>
+  <model:CompositeType name="Obstacle">
+    <values name="ns_rel_dist" type="/5"/>
+    <values name="ew_rel_dist" type="/5"/>
+    <values name="depth" type="/5"/>
+    <values name="id" type="/5"/>
+    <values name="obs_hdng" type="/6"/>
+  </model:CompositeType>
+  <model:CompositeType name="Close">
+    <values name="horiz_cda" type="/5"/>
+    <values name="vert_cda" type="/5"/>
+    <values name="id" type="/1"/>
+  </model:CompositeType>
+  <model:Function name="odist" returnType="/5">
+    <parameters xsi:type="model:Value" name="obstacle" type="/7"/>
+  </model:Function>
+  <model:Function name="hdist" returnType="/5">
+    <parameters xsi:type="model:Value" name="obstacle" type="/7"/>
+  </model:Function>
+  <model:Function name="vdist" returnType="/5">
+    <parameters xsi:type="model:Value" name="obstacle" type="/7"/>
+  </model:Function>
+</xmi:XMI>

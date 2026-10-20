@@ -1,0 +1,36 @@
+stm SRangerController {
+    event obstacle
+    event tick
+    event endTask
+    event driveForward
+    event rotateInPlace
+    event fullStop
+
+    const moveVel : real
+    const turnVel : real
+    const turnDuration : real
+
+    clock turningClock
+
+    initial i0
+
+    state Moving {
+        entry driveForward
+    }
+
+    state Turning {
+        entry #turningClock ; rotateInPlace
+    }
+
+    state Final {
+        entry fullStop
+    }
+
+    transition t0 { from i0 to Moving }
+    transition t1 { from Moving to Turning trigger obstacle }
+    transition t2 { from Moving to Final trigger endTask }
+    transition t3 { from Moving to Moving trigger tick }
+    transition t4 { from Turning to Moving condition since(turningClock) >= turnDuration }
+    transition t5 { from Turning to Final trigger endTask }
+    transition t6 { from Turning to Turning trigger tick }
+}

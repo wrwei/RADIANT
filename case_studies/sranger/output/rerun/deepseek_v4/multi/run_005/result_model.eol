@@ -1,0 +1,141 @@
+var system = new M!System();
+system.name = "SRanger";
+
+var controller = new M!Controller();
+controller.name = "SRangerController";
+
+var sensor = new M!Sensor();
+sensor.name = "Sensor";
+
+var actuator = new M!Actuator();
+actuator.name = "Actuator";
+
+var stateMachine = new M!StateMachine();
+stateMachine.name = "SRangerStateMachine";
+
+var clockResetTime = new M!StateVariable();
+clockResetTime.name = "clockResetTime";
+clockResetTime.value = 0.0d;
+
+var moveVel = new M!Constant();
+moveVel.name = "moveVel";
+moveVel.value = 1.0d;
+
+var turnVel = new M!Constant();
+turnVel.name = "turnVel";
+turnVel.value = 2.0d;
+
+var obstacleThreshold = new M!Constant();
+obstacleThreshold.name = "obstacleThreshold";
+obstacleThreshold.value = 0.5d;
+
+var turnDuration = new M!Constant();
+turnDuration.name = "turnDuration";
+turnDuration.value = 2.0d;
+
+controller.sensor = sensor;
+controller.actuator = actuator;
+controller.stateMachine = stateMachine;
+controller.stateVariables.add(clockResetTime);
+controller.constants.add(moveVel);
+controller.constants.add(turnVel);
+controller.constants.add(obstacleThreshold);
+controller.constants.add(turnDuration);
+
+var obstacle = new M!InputEvent();
+obstacle.name = "obstacle";
+
+var tick = new M!InputEvent();
+tick.name = "tick";
+
+var endTask = new M!InputEvent();
+endTask.name = "endTask";
+
+system.inputEvents.add(obstacle);
+system.inputEvents.add(tick);
+system.inputEvents.add(endTask);
+
+controller.inputEvents.add(obstacle);
+controller.inputEvents.add(tick);
+controller.inputEvents.add(endTask);
+
+var move = new M!OutputEvent();
+move.name = "Move";
+
+var movePayload = new M!Command();
+movePayload.name = "MovePayload";
+movePayload.linearVelocity = 0.0d;
+movePayload.angularVelocity = 0.0d;
+
+move.payload = movePayload;
+
+system.outputEvents.add(move);
+controller.outputEvents.add(move);
+
+var lastCommand = new M!Command();
+lastCommand.name = "LastCommand";
+lastCommand.linearVelocity = 0.0d;
+lastCommand.angularVelocity = 0.0d;
+
+actuator.lastCommand = lastCommand;
+
+var moving = new M!OperatingMode();
+moving.name = "Moving";
+moving.initial = true;
+moving.terminal = false;
+
+var turning = new M!OperatingMode();
+turning.name = "Turning";
+turning.initial = false;
+turning.terminal = false;
+
+var finalMode = new M!OperatingMode();
+finalMode.name = "Final";
+finalMode.initial = false;
+finalMode.terminal = true;
+
+stateMachine.modes.add(moving);
+stateMachine.modes.add(turning);
+stateMachine.modes.add(finalMode);
+
+var movingToTurning = new M!Transition();
+movingToTurning.name = "MovingToTurning";
+movingToTurning.source = moving;
+movingToTurning.target = turning;
+movingToTurning.trigger = obstacle;
+movingToTurning.guard = "distance < obstacleThreshold";
+movingToTurning.action = "Move(0, turnVel); clockResetTime = currentTime";
+
+stateMachine.transitions.add(movingToTurning);
+
+var turningToMoving = new M!Transition();
+turningToMoving.name = "TurningToMoving";
+turningToMoving.source = turning;
+turningToMoving.target = moving;
+turningToMoving.trigger = tick;
+turningToMoving.guard = "elapsedTime >= turnDuration";
+turningToMoving.action = "Move(moveVel, 0)";
+
+stateMachine.transitions.add(turningToMoving);
+
+var movingToFinal = new M!Transition();
+movingToFinal.name = "MovingToFinal";
+movingToFinal.source = moving;
+movingToFinal.target = finalMode;
+movingToFinal.trigger = endTask;
+movingToFinal.guard = "";
+movingToFinal.action = "Move(0, 0)";
+
+stateMachine.transitions.add(movingToFinal);
+
+var turningToFinal = new M!Transition();
+turningToFinal.name = "TurningToFinal";
+turningToFinal.source = turning;
+turningToFinal.target = finalMode;
+turningToFinal.trigger = endTask;
+turningToFinal.guard = "";
+turningToFinal.action = "Move(0, 0)";
+
+stateMachine.transitions.add(turningToFinal);
+
+system.controller = controller;

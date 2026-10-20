@@ -1,0 +1,164 @@
+{
+    "dsl_trace": [
+        {
+            "requirement_gid": "SR-ARCH1",
+            "Emfatic_class": "SRangerSystem",
+            "Emfatic_attributes": null,
+            "Emfatic_references": [
+                "sensor",
+                "motor",
+                "controller",
+                "actuator"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 27,
+                "line_end": 32,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Emfatic_class": "Controller",
+            "Emfatic_attributes": null,
+            "Emfatic_references": [
+                "stateMachine",
+                "constants",
+                "variables",
+                "inputEvents",
+                "outputEvents",
+                "sensor",
+                "actuator"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 46,
+                "line_end": 54,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Emfatic_class": "Mode",
+            "Emfatic_attributes": [
+                "kind"
+            ],
+            "Emfatic_references": [
+                "entryActions"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 81,
+                "line_end": 84,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Emfatic_class": "Constant",
+            "Emfatic_attributes": null,
+            "Emfatic_references": null,
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 69,
+                "line_end": 70,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM3",
+            "Emfatic_class": "InputEvent",
+            "Emfatic_attributes": [
+                "kind"
+            ],
+            "Emfatic_references": null,
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 59,
+                "line_end": 61,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM4",
+            "Emfatic_class": "OutputEvent",
+            "Emfatic_attributes": [
+                "kind",
+                "linearVelocity",
+                "angularVelocity"
+            ],
+            "Emfatic_references": null,
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 63,
+                "line_end": 67,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM5",
+            "Emfatic_class": "Sensor",
+            "Emfatic_attributes": null,
+            "Emfatic_references": null,
+            "Emfatic_operations": [
+                "distance"
+            ],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 34,
+                "line_end": 36,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM6",
+            "Emfatic_class": "Actuator",
+            "Emfatic_attributes": [
+                "lastLinearVelocity",
+                "lastAngularVelocity"
+            ],
+            "Emfatic_references": null,
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 41,
+                "line_end": 44,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-SF1",
+            "Emfatic_class": "Sensor",
+            "Emfatic_attributes": null,
+            "Emfatic_references": null,
+            "Emfatic_operations": [
+                "distance"
+            ],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 34,
+                "line_end": 36,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-Var1",
+            "Emfatic_class": "Variable",
+            "Emfatic_attributes": null,
+            "Emfatic_references": null,
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 72,
+                "line_end": 73,
+                "resolved": true
+            }
+        }
+    ]
+}

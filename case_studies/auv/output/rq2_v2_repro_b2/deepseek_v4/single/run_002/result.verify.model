@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ASCII"?>
+<result_dsml:AUV xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:result_dsml="http://generated/result_dsml" name="AUV">
+  <modules name="AUV_Module">
+    <platforms name="AUV_Platform" interfaces="//@modules.0/@interfaces.0 //@modules.0/@interfaces.1"/>
+    <controllers name="AUV_Operator" interfaces="//@modules.0/@interfaces.2"/>
+    <controllers name="LRE_Ctrl" interfaces="//@modules.0/@interfaces.2 //@modules.0/@interfaces.4"/>
+    <controllers name="AUV_Autopilot" interfaces="//@modules.0/@interfaces.4"/>
+    <interfaces name="Sensors">
+      <values name="depth" type="//@modules.0/@primitiveTypes.4"/>
+      <values name="hdng" type="//@modules.0/@compositeTypes.0"/>
+      <values name="obs" type="//@modules.0/@compositeTypes.1"/>
+    </interfaces>
+    <interfaces name="Actuators"/>
+    <interfaces name="Inputs"/>
+    <interfaces name="Intpus">
+      <events name="endTask"/>
+      <events name="reqOCM"/>
+      <events name="reqMOM"/>
+      <events name="reqHCM"/>
+      <events name="reqVel" returnType="//@modules.0/@primitiveTypes.4"/>
+      <events name="reqHdng" returnType="//@modules.0/@primitiveTypes.4"/>
+    </interfaces>
+    <interfaces name="Outputs">
+      <events name="advVel">
+        <parameters name="value" type="//@modules.0/@primitiveTypes.4"/>
+      </events>
+      <events name="advHdng">
+        <parameters name="value" type="//@modules.0/@primitiveTypes.4"/>
+      </events>
+    </interfaces>
+    <primitiveTypes name="nat"/>
+    <primitiveTypes name="int"/>
+    <primitiveTypes name="string"/>
+    <primitiveTypes name="boolean"/>
+    <primitiveTypes name="real"/>
+    <compositeTypes name="SVec">
+      <values name="radial" type="//@modules.0/@primitiveTypes.4"/>
+      <values name="polar" type="//@modules.0/@primitiveTypes.4"/>
+      <values name="azimuth" type="//@modules.0/@primitiveTypes.4"/>
+    </compositeTypes>
+    <compositeTypes name="Obstacle">
+      <values name="ns_rel_dist" type="//@modules.0/@primitiveTypes.4"/>
+      <values name="ew_rel_dist" type="//@modules.0/@primitiveTypes.4"/>
+      <values name="depth" type="//@modules.0/@primitiveTypes.4"/>
+      <values name="id" type="//@modules.0/@primitiveTypes.4"/>
+      <values name="obs_hdng" type="//@modules.0/@compositeTypes.0"/>
+    </compositeTypes>
+    <compositeTypes name="Close">
+      <values name="horiz_cda" type="//@modules.0/@primitiveTypes.4"/>
+      <values name="vert_cda" type="//@modules.0/@primitiveTypes.4"/>
+      <values name="id" type="//@modules.0/@primitiveTypes.0"/>
+    </compositeTypes>
+    <functions name="odist" returnType="//@modules.0/@primitiveTypes.4">
+      <parameters name="obstacle" type="//@modules.0/@compositeTypes.1"/>
+    </functions>
+    <functions name="hdist" returnType="//@modules.0/@primitiveTypes.4">
+      <parameters name="obstacle" type="//@modules.0/@compositeTypes.1"/>
+    </functions>
+    <functions name="vdist" returnType="//@modules.0/@primitiveTypes.4">
+      <parameters name="obstacle" type="//@modules.0/@compositeTypes.1"/>
+    </functions>
+  </modules>
+</result_dsml:AUV>

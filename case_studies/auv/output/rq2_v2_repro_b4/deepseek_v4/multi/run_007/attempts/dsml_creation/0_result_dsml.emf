@@ -1,0 +1,63 @@
+package auv;
+
+abstract class NamedElement {
+    attr String name;
+}
+
+abstract class Type extends NamedElement {
+}
+
+class PrimitiveType extends Type {
+}
+
+class CompositeType extends Type {
+    val Value[*] values;
+}
+
+abstract class TypedElement extends NamedElement {
+    ref Type type;
+}
+
+class Value extends TypedElement {
+}
+
+class Parameter extends TypedElement {
+}
+
+class ReturnValue extends TypedElement {
+}
+
+abstract class InterfaceUser extends NamedElement {
+    ref Interface[*] interfaces;
+}
+
+class RoboticPlatform extends InterfaceUser {
+}
+
+class Controller extends InterfaceUser {
+}
+
+class Interface extends NamedElement {
+    val Value[*] values;
+    val Event[*] events;
+}
+
+abstract class Operation extends NamedElement {
+    val Parameter[*] parameters;
+}
+
+class Event extends Operation {
+    val ReturnValue returnValue[0..1];
+}
+
+class Function extends Operation {
+    val ReturnValue returnValue[1];
+}
+
+class Module extends NamedElement {
+    val RoboticPlatform[*] platforms;
+    val Controller[*] controllers;
+    val Interface[*] interfaces;
+    val Type[*] types;
+    val Function[*] functions;
+}

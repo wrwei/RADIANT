@@ -1,0 +1,99 @@
+diagram SRangerStateMachine
+
+interface Inputs {
+	event obstacle
+	event tick
+	event endTask
+}
+
+interface Outputs {
+	event Move
+}
+
+interface SRangerStateMachine_State {
+	var obstacleDetected : boolean
+	var since_clockResetTime : real
+	var linVel : real
+	var angVel : real
+}
+
+interface Constants {
+	const turnDuration : real = 1
+	const moveVel : real = 1
+	const turnVel : real = 1
+}
+
+stm SRangerStateMachine {
+	uses Inputs uses Outputs requires SRangerStateMachine_State requires Constants
+	clock clockResetTime
+	state Final {
+		entry linVel = 0 ; angVel = 0 ; send Move
+	}
+	state Moving {
+		entry linVel = moveVel ; angVel = 0 ; send Move
+	}
+	state Turning {
+		entry linVel = 0 ; angVel = turnVel ; send Move
+	}
+	initial i0
+	transition t0 {
+		from i0
+		to Moving
+	}
+	transition t1 {
+		from Moving
+		to Turning
+		trigger obstacle
+		# clockResetTime
+		condition obstacleDetected
+	}
+	transition t2 {
+		from Moving
+		to Final
+		trigger endTask
+	}
+	transition t3 {
+		from Moving
+		to Moving
+		trigger tick
+	}
+	transition t4 {
+		from Turning
+		to Moving
+		condition since_clockResetTime >= turnDuration
+	}
+	transition t5 {
+		from Turning
+		to Final
+		trigger endTask
+	}
+	transition t6 {
+		from Turning
+		to Turning
+		trigger tick
+	}
+}
+
+controller SRangerStateMachine_Ctrl {
+	uses Inputs uses Outputs requires SRangerStateMachine_State requires Constants
+	sref stm_ref0 = SRangerStateMachine
+	connection SRangerStateMachine_Ctrl on obstacle to stm_ref0 on obstacle
+	connection SRangerStateMachine_Ctrl on tick to stm_ref0 on tick
+	connection SRangerStateMachine_Ctrl on endTask to stm_ref0 on endTask
+	connection stm_ref0 on Move to SRangerStateMachine_Ctrl on Move
+}
+
+module SRangerStateMachine_Module {
+	robotic platform SRangerStateMachine_Platform {
+		provides Constants
+		event obstacle
+		event tick
+		event endTask
+		event Move
+	}
+	cref ctrl_ref0 = SRangerStateMachine_Ctrl
+	connection SRangerStateMachine_Platform on obstacle to ctrl_ref0 on obstacle
+	connection SRangerStateMachine_Platform on tick to ctrl_ref0 on tick
+	connection SRangerStateMachine_Platform on endTask to ctrl_ref0 on endTask
+	connection ctrl_ref0 on Move to SRangerStateMachine_Platform on Move
+}

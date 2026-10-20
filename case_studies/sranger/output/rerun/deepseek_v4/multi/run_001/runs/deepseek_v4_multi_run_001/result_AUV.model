@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sranger:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sranger="http://generated/sranger" name="SRanger">
+  <controller name="controller">
+    <sensor name="sensor"/>
+    <actuator name="actuator"/>
+    <stateMachine name="stateMachine">
+      <modes name="Moving" initial="true"/>
+      <modes name="Turning"/>
+      <modes name="Final" terminal="true"/>
+      <transitions name="MovingToTurning" source="//@controller/@stateMachine/@modes.0" target="//@controller/@stateMachine/@modes.1" trigger="//@controller/@inputEvents.0" guard="" action="clockResetTime = currentTime; Move(0, turnVel)"/>
+      <transitions name="TurningToMoving" source="//@controller/@stateMachine/@modes.1" target="//@controller/@stateMachine/@modes.0" trigger="//@controller/@inputEvents.1" guard="elapsedTime >= turnDuration" action="Move(moveVel, 0)"/>
+      <transitions name="MovingToFinal" source="//@controller/@stateMachine/@modes.0" target="//@controller/@stateMachine/@modes.2" trigger="//@controller/@inputEvents.2" guard="" action="Move(0, 0)"/>
+      <transitions name="TurningToFinal" source="//@controller/@stateMachine/@modes.1" target="//@controller/@stateMachine/@modes.2" trigger="//@controller/@inputEvents.2" guard="" action="Move(0, 0)"/>
+    </stateMachine>
+    <variables name="clockResetTime" type="real"/>
+    <constants name="moveVel" value="1.0" unit="m/s"/>
+    <constants name="turnVel" value="2.0" unit="rad/s"/>
+    <constants name="obstacleThreshold" value="0.5" unit="m"/>
+    <constants name="turnDuration" value="2.0" unit="s"/>
+    <inputEvents name="obstacle"/>
+    <inputEvents name="tick"/>
+    <inputEvents name="endTask"/>
+    <outputEvents name="Move"/>
+  </controller>
+</sranger:System>

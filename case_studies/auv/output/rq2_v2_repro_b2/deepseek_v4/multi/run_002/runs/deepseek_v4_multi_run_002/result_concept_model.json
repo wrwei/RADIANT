@@ -1,0 +1,255 @@
+{
+    "concepts": [
+        {
+            "Concept": "Module",
+            "description": "A modular component of the AUV system."
+        },
+        {
+            "Concept": "RoboticPlatform",
+            "description": "A platform within the AUV module that uses sensors and actuators."
+        },
+        {
+            "Concept": "Interface",
+            "description": "A named interface defined by the AUV module."
+        },
+        {
+            "Concept": "Controller",
+            "description": "A controller component within the AUV module."
+        },
+        {
+            "Concept": "PrimitiveType",
+            "description": "A basic data type."
+        },
+        {
+            "Concept": "CompositeType",
+            "description": "A structured data type composed of values."
+        },
+        {
+            "Concept": "Value",
+            "description": "A named value recorded by a composite type or interface."
+        },
+        {
+            "Concept": "Event",
+            "description": "A named event defined by an interface."
+        },
+        {
+            "Concept": "Parameter",
+            "description": "An input parameter of an event or function."
+        },
+        {
+            "Concept": "ReturnValue",
+            "description": "A value returned by an event or function."
+        },
+        {
+            "Concept": "Function",
+            "description": "A named function defined by the AUV module."
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": "The module in which the AUV system is developed."
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "RoboticPlatform",
+            "description": "The robotic platform contained in AUV_Module."
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": "An interface used by AUV_Platform."
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": "An interface used by AUV_Platform."
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": "The controller contained in AUV_Module."
+        },
+        {
+            "Instance": "Inputs",
+            "Instance_of": "Interface",
+            "description": "An interface used by AUV_Operator."
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "The Last Response Engine controller contained in AUV_Module."
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": "An interface used by LRE_Ctrl."
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": "The autopilot controller contained in AUV_Module."
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type for natural numbers."
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type for integers."
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type for string values."
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type for boolean values."
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type for real numbers."
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "CompositeType",
+            "description": "A composite type representing a spherical vector."
+        },
+        {
+            "Instance": "radial",
+            "Instance_of": "Value",
+            "description": "A value recorded by SVec."
+        },
+        {
+            "Instance": "polar",
+            "Instance_of": "Value",
+            "description": "A value recorded by SVec."
+        },
+        {
+            "Instance": "azimuth",
+            "Instance_of": "Value",
+            "description": "A value recorded by SVec."
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "CompositeType",
+            "description": "A composite type representing an obstacle."
+        },
+        {
+            "Instance": "ns_rel_dist",
+            "Instance_of": "Value",
+            "description": "A value recorded by Obstacle."
+        },
+        {
+            "Instance": "ew_rel_dist",
+            "Instance_of": "Value",
+            "description": "A value recorded by Obstacle."
+        },
+        {
+            "Instance": "depth",
+            "Instance_of": "Value",
+            "description": "A value recorded by Obstacle."
+        },
+        {
+            "Instance": "id",
+            "Instance_of": "Value",
+            "description": "A value recorded by Obstacle."
+        },
+        {
+            "Instance": "obs_hdng",
+            "Instance_of": "Value",
+            "description": "A value recorded by Obstacle."
+        },
+        {
+            "Instance": "hdng",
+            "Instance_of": "Value",
+            "description": "A value contained in Sensors."
+        },
+        {
+            "Instance": "obs",
+            "Instance_of": "Value",
+            "description": "A value contained in Sensors."
+        },
+        {
+            "Instance": "Intpus",
+            "Instance_of": "Interface",
+            "description": "An interface that defines input events."
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": "An event defined by Intpus."
+        },
+        {
+            "Instance": "reqOCM",
+            "Instance_of": "Event",
+            "description": "An event defined by Intpus."
+        },
+        {
+            "Instance": "reqMOM",
+            "Instance_of": "Event",
+            "description": "An event defined by Intpus."
+        },
+        {
+            "Instance": "reqHCM",
+            "Instance_of": "Event",
+            "description": "An event defined by Intpus."
+        },
+        {
+            "Instance": "reqVel",
+            "Instance_of": "Event",
+            "description": "An event defined by Intpus."
+        },
+        {
+            "Instance": "reqHdng",
+            "Instance_of": "Event",
+            "description": "An event defined by Intpus."
+        },
+        {
+            "Instance": "advVel",
+            "Instance_of": "Event",
+            "description": "An event defined by Outputs."
+        },
+        {
+            "Instance": "advHdng",
+            "Instance_of": "Event",
+            "description": "An event defined by Outputs."
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "CompositeType",
+            "description": "A composite type named Close."
+        },
+        {
+            "Instance": "horiz_cda",
+            "Instance_of": "Value",
+            "description": "A value recorded by Close."
+        },
+        {
+            "Instance": "vert_cda",
+            "Instance_of": "Value",
+            "description": "A value recorded by Close."
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "A function that returns the distance from the AUV to an Obstacle."
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "A function that returns the horizontal distance from the AUV to an Obstacle."
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "A function that returns the vertical distance from the AUV to an Obstacle."
+        }
+    ]
+}

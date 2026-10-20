@@ -1,0 +1,60 @@
+abstract class NamedElement {
+    attr String name;
+}
+
+abstract class Type extends NamedElement {
+}
+
+class PrimitiveType extends Type {
+}
+
+class Value extends NamedElement {
+    ref Type type;
+}
+
+class CompositeType extends Type {
+    val Value[*] values;
+}
+
+class Parameter extends NamedElement {
+    ref Type type;
+}
+
+class ReturnValue extends NamedElement {
+    ref Type type;
+}
+
+abstract class Callable extends NamedElement {
+    val Parameter[*] parameters;
+    val ReturnValue[0..1] returnValue;
+}
+
+class Event extends Callable {
+}
+
+class Function extends Callable {
+}
+
+class Interface extends NamedElement {
+    val Value[*] values;
+    val Event[*] events;
+}
+
+abstract class Component extends NamedElement {
+    ref Interface[*] uses;
+}
+
+class RoboticPlatform extends Component {
+}
+
+class Controller extends Component {
+}
+
+class Module extends NamedElement {
+    val RoboticPlatform[*] platforms;
+    val Controller[*] controllers;
+    val Interface[*] interfaces;
+    val PrimitiveType[*] primitiveTypes;
+    val CompositeType[*] compositeTypes;
+    val Function[*] functions;
+}

@@ -1,0 +1,150 @@
+{
+    "concepts": [
+        {
+            "Concept": "System",
+            "description": "The SRanger system is a small ground robot that travels in a straight line and turns in place when it detects an obstacle."
+        },
+        {
+            "Concept": "Sensor",
+            "description": "The robot carries a single infrared distance sensor mounted facing forward."
+        },
+        {
+            "Concept": "Controller",
+            "description": "The controller is reactive and issues motor commands as advisory events to the differential-drive layer."
+        },
+        {
+            "Concept": "Event",
+            "description": "The controller receives an IR-driven obstacle event and a system-level endTask event."
+        },
+        {
+            "Concept": "Interface",
+            "description": "The controller includes a Sensor interface and an Actuator interface."
+        },
+        {
+            "Concept": "StateVariable",
+            "description": "The controller maintains a small set of state variables, notably a clock-reset timestamp for the timed Turning to Moving transition."
+        },
+        {
+            "Concept": "StateMachine",
+            "description": "A single state machine selects transitions based on the input event, the IR distance, and the elapsed time in the current mode."
+        },
+        {
+            "Concept": "OperatingMode",
+            "description": "The SRanger controller has exactly three operating modes: Moving, Turning, and Final."
+        },
+        {
+            "Concept": "Constant",
+            "description": "The SRanger controller defines four real-valued fixed configuration constants: moveVel, turnVel, obstacleThreshold, and turnDuration."
+        },
+        {
+            "Concept": "InputEvent",
+            "description": "The SRanger controller receives three input events: obstacle, tick, and endTask."
+        },
+        {
+            "Concept": "OutputEvent",
+            "description": "The SRanger controller emits a single output event, Move, carrying a linear velocity and an angular velocity command."
+        },
+        {
+            "Concept": "Function",
+            "description": "The Sensor exposes a function distance() that returns the latest IR distance reading."
+        },
+        {
+            "Concept": "Distance",
+            "description": "The distance reading is a real number in metres, non-negative."
+        },
+        {
+            "Concept": "Actuator",
+            "description": "The Actuator receives Move events from the controller and stores the latest issued command."
+        },
+        {
+            "Concept": "Command",
+            "description": "The Actuator stores the latest issued command and exposes the last commanded linear and angular velocity."
+        },
+        {
+            "Concept": "Variable",
+            "description": "The controller maintains a real variable clockResetTime recording when the controller most recently entered the Turning state."
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "SRanger",
+            "Instance_of": "System",
+            "description": "SRanger is the small ground robot system specified by the requirement."
+        },
+        {
+            "Instance": "obstacle",
+            "Instance_of": "Event",
+            "description": "obstacle is the IR-driven event that is the controller's only sensor input."
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": "endTask is the system-level shutdown event available to halt the controller."
+        },
+        {
+            "Instance": "Sensor",
+            "Instance_of": "Interface",
+            "description": "Sensor is the interface that exposes the latest IR distance reading."
+        },
+        {
+            "Instance": "Actuator",
+            "Instance_of": "Interface",
+            "description": "Actuator is the interface that records the last motor command."
+        },
+        {
+            "Instance": "Moving",
+            "Instance_of": "OperatingMode",
+            "description": "Moving is the initial mode in which the robot drives forward at the configured linear velocity."
+        },
+        {
+            "Instance": "Turning",
+            "Instance_of": "OperatingMode",
+            "description": "Turning is the mode in which the robot rotates in place at the configured angular velocity."
+        },
+        {
+            "Instance": "Final",
+            "Instance_of": "OperatingMode",
+            "description": "Final is the terminal mode entered when the operator issues endTask."
+        },
+        {
+            "Instance": "moveVel",
+            "Instance_of": "Constant",
+            "description": "moveVel is the linear velocity command when Moving, default 1.0 m/s."
+        },
+        {
+            "Instance": "turnVel",
+            "Instance_of": "Constant",
+            "description": "turnVel is the angular velocity command when Turning, default 2.0 rad/s."
+        },
+        {
+            "Instance": "obstacleThreshold",
+            "Instance_of": "Constant",
+            "description": "obstacleThreshold is the IR-distance threshold for obstacle detection, default 0.5 metres."
+        },
+        {
+            "Instance": "turnDuration",
+            "Instance_of": "Constant",
+            "description": "turnDuration is how long the controller remains in Turning before returning to Moving, default 2.0 seconds."
+        },
+        {
+            "Instance": "tick",
+            "Instance_of": "InputEvent",
+            "description": "tick is delivered each control cycle by the system framework."
+        },
+        {
+            "Instance": "Move",
+            "Instance_of": "OutputEvent",
+            "description": "Move is the output event carrying the combined linear and angular velocity command to the differential-drive layer."
+        },
+        {
+            "Instance": "distance",
+            "Instance_of": "Function",
+            "description": "distance is the function returning the latest IR distance reading in metres, non-negative."
+        },
+        {
+            "Instance": "clockResetTime",
+            "Instance_of": "Variable",
+            "description": "clockResetTime is the real variable recording when the controller most recently entered the Turning state."
+        }
+    ]
+}

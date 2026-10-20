@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sranger="http://generated/sranger">
+  <sranger:System name="SRanger"/>
+  <sranger:Controller name="SRangerController"/>
+  <sranger:Sensor name="Sensor"/>
+  <sranger:Actuator name="Actuator"/>
+  <sranger:StateMachine name="SRangerStateMachine"/>
+  <sranger:StateVariable name="clockResetTime"/>
+</xmi:XMI>

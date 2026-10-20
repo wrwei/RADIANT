@@ -1,0 +1,79 @@
+var auv_module = new M!Module();
+auv_module.name = "AUV_Module";
+M.resource.contents.add(auv_module);
+
+var auv_platform = new M!RoboticPlatform();
+auv_platform.name = "AUV_Platform";
+
+var nat = new M!PrimitiveType();
+nat.name = "nat";
+M.resource.contents.add(nat);
+
+var intType = new M!PrimitiveType();
+intType.name = "int";
+M.resource.contents.add(intType);
+
+var stringType = new M!PrimitiveType();
+stringType.name = "string";
+M.resource.contents.add(stringType);
+
+var booleanType = new M!PrimitiveType();
+booleanType.name = "boolean";
+M.resource.contents.add(booleanType);
+
+var realType = new M!PrimitiveType();
+realType.name = "real";
+M.resource.contents.add(realType);
+
+var svec = new M!CompositeType();
+svec.name = "SVec";
+M.resource.contents.add(svec);
+
+var obstacle = new M!CompositeType();
+obstacle.name = "Obstacle";
+M.resource.contents.add(obstacle);
+
+var close = new M!CompositeType();
+close.name = "Close";
+M.resource.contents.add(close);
+
+var sensors = new M!Interface();
+sensors.name = "Sensors";
+M.resource.contents.add(sensors);
+auv_module.interfaces.add(sensors);
+
+var actuators = new M!Interface();
+actuators.name = "Actuators";
+M.resource.contents.add(actuators);
+auv_module.interfaces.add(actuators);
+
+var inputs = new M!Interface();
+inputs.name = "Inputs";
+M.resource.contents.add(inputs);
+auv_module.interfaces.add(inputs);
+
+var intpus = new M!Interface();
+intpus.name = "Intpus";
+M.resource.contents.add(intpus);
+auv_module.interfaces.add(intpus);
+
+var outputs = new M!Interface();
+outputs.name = "Outputs";
+M.resource.contents.add(outputs);
+auv_module.interfaces.add(outputs);
+
+var auv_operator = new M!Controller();
+auv_operator.name = "AUV_Operator";
+auv_operator.interfaces.add(inputs);
+auv_module.controllers.add(auv_operator);
+
+var lre_ctrl = new M!Controller();
+lre_ctrl.name = "LRE_Ctrl";
+lre_ctrl.interfaces.add(inputs);
+lre_ctrl.interfaces.add(outputs);
+auv_module.controllers.add(lre_ctrl);
+
+var auv_autopilot = new M!Controller();
+auv_autopilot.name = "AUV_Autopilot";
+auv_autopilot.interfaces.add(outputs);
+auv_module.controllers.add(auv_autopilot);

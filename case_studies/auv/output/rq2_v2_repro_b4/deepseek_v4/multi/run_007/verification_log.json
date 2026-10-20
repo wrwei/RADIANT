@@ -1,0 +1,191 @@
+[
+  {
+    "stage": "concept_extraction",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "5 unresolved trace entries (e.g. SD1, Interface2, Interface2, Interface3, Interface3)"
+      }
+    ],
+    "at": "2026-10-05T14:13:54+00:00"
+  },
+  {
+    "stage": "concept_extraction",
+    "attempt": 1,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "5 unresolved trace entries (e.g. SD1, Interface2, Interface2, Interface3, Interface3)"
+      }
+    ],
+    "at": "2026-10-05T14:18:17+00:00"
+  },
+  {
+    "stage": "concept_extraction",
+    "attempt": 2,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "5 unresolved trace entries (e.g. SD1, Interface2, Interface2, Interface3, Interface3)"
+      }
+    ],
+    "at": "2026-10-05T14:20:42+00:00"
+  },
+  {
+    "stage": "concept_extraction",
+    "attempt": 3,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "5 unresolved trace entries (e.g. SD1, Interface2, Interface2, Interface3, Interface3)"
+      }
+    ],
+    "at": "2026-10-05T14:22:46+00:00"
+  },
+  {
+    "stage": "concept_extraction",
+    "attempt": 4,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "5 unresolved trace entries (e.g. SD1, Interface2, Interface2, Interface3, Interface3)"
+      }
+    ],
+    "at": "2026-10-05T14:26:04+00:00"
+  },
+  {
+    "stage": "concept_extraction",
+    "attempt": 5,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "5 unresolved trace entries (e.g. SD1, Interface2, Interface2, Interface3, Interface3)"
+      }
+    ],
+    "at": "2026-10-05T14:28:14+00:00"
+  },
+  {
+    "stage": "dsml_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "emfatic_valid",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "emfatic syntax errors: Encountered \" \"val\" \"val \"\" at line 50, column 5.\nWas expecting:\n    \"}\" ...\n    "
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "11 entries resolved"
+      }
+    ],
+    "at": "2026-10-05T14:35:48+00:00"
+  },
+  {
+    "stage": "dsml_creation",
+    "attempt": 1,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "emfatic_valid",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "emfatic syntax ok (0 warnings)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "11 entries resolved"
+      }
+    ],
+    "at": "2026-10-05T14:39:09+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "EOL executed; model conforms"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "53 entries resolved"
+      }
+    ],
+    "at": "2026-10-05T14:46:16+00:00"
+  }
+]

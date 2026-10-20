@@ -1,0 +1,105 @@
+{
+  "run_id": "qwen3_max_multi_run_008",
+  "config_path": "E:\\Git\\REMEDIATE\\config.yaml",
+  "model": {
+    "name": "qwen3-max",
+    "temperature": 0.0,
+    "api_type": "openai",
+    "api_base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+    "api_key_env": "DASHSCOPE_API_KEY"
+  },
+  "created_at": "2026-06-20T14:03:55.602112+00:00",
+  "updated_at": "2026-06-20T14:07:50.864236+00:00",
+  "stages": {
+    "concept_extraction": {
+      "artifacts": [
+        {
+          "file": "result_concept_trace.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\result_concept_trace.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\runs\\qwen3_max_multi_run_008\\result_concept_trace.json",
+          "size": 22071,
+          "updated_at": "2026-06-20T14:03:55.602112+00:00"
+        },
+        {
+          "file": "result_concept_model.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\result_concept_model.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\runs\\qwen3_max_multi_run_008\\result_concept_model.json",
+          "size": 6049,
+          "updated_at": "2026-06-20T14:03:55.615101+00:00"
+        }
+      ],
+      "updated_at": "2026-06-20T14:03:55.615101+00:00"
+    },
+    "dsml_creation": {
+      "artifacts": [
+        {
+          "file": "result_dsml.emf",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\result_dsml.emf",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\runs\\qwen3_max_multi_run_008\\result_dsml.emf",
+          "size": 1158,
+          "updated_at": "2026-06-20T14:04:31.567986+00:00"
+        },
+        {
+          "file": "result_dsml_trace.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\result_dsml_trace.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\runs\\qwen3_max_multi_run_008\\result_dsml_trace.json",
+          "size": 9426,
+          "updated_at": "2026-06-20T14:04:31.579537+00:00"
+        }
+      ],
+      "updated_at": "2026-06-20T14:04:31.579537+00:00"
+    },
+    "emf_model_creation": {
+      "artifacts": [
+        {
+          "file": "result_dsml.generated.ecore",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\result_dsml.generated.ecore",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\runs\\qwen3_max_multi_run_008\\result_dsml.generated.ecore",
+          "size": 3694,
+          "updated_at": "2026-06-20T14:06:02.733037+00:00"
+        },
+        {
+          "file": "result_model.eol",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\result_model.eol",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\runs\\qwen3_max_multi_run_008\\result_model.eol",
+          "size": 5376,
+          "updated_at": "2026-06-20T14:06:29.960725+00:00"
+        },
+        {
+          "file": "result_model_trace.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\result_model_trace.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\runs\\qwen3_max_multi_run_008\\result_model_trace.json",
+          "size": 24166,
+          "updated_at": "2026-06-20T14:06:29.971731+00:00"
+        },
+        {
+          "file": "result_AUV.model",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\result_AUV.model",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\runs\\qwen3_max_multi_run_008\\result_AUV.model",
+          "size": 2658,
+          "updated_at": "2026-06-20T14:06:29.977731+00:00"
+        }
+      ],
+      "updated_at": "2026-06-20T14:06:29.977731+00:00"
+    },
+    "behaviour_model_creation": {
+      "artifacts": [
+        {
+          "file": "result_behaviour_model.rct",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\result_behaviour_model.rct",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\runs\\qwen3_max_multi_run_008\\result_behaviour_model.rct",
+          "size": 1447,
+          "updated_at": "2026-06-20T14:07:48.705915+00:00"
+        },
+        {
+          "file": "result_behaviour_trace.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\result_behaviour_trace.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\qwen3_max\\multi\\run_008\\runs\\qwen3_max_multi_run_008\\result_behaviour_trace.json",
+          "size": 6567,
+          "updated_at": "2026-06-20T14:07:50.864236+00:00"
+        }
+      ],
+      "updated_at": "2026-06-20T14:07:50.864236+00:00"
+    }
+  }
+}

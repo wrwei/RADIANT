@@ -1,0 +1,37 @@
+participant,item,rating_1_to_4
+P1,Large language models,2
+P2,Large language models,1
+P3,Large language models,2
+P4,Large language models,3
+P5,Large language models,2
+P6,Large language models,3
+P1,Using language models for programming or modelling,2
+P2,Using language models for programming or modelling,1
+P3,Using language models for programming or modelling,2
+P4,Using language models for programming or modelling,3
+P5,Using language models for programming or modelling,2
+P6,Using language models for programming or modelling,3
+P1,Model-driven engineering,3
+P2,Model-driven engineering,3
+P3,Model-driven engineering,4
+P4,Model-driven engineering,2
+P5,Model-driven engineering,4
+P6,Model-driven engineering,2
+P1,Emfatic or Ecore modelling,3
+P2,Emfatic or Ecore modelling,3
+P3,Emfatic or Ecore modelling,4
+P4,Emfatic or Ecore modelling,2
+P5,Emfatic or Ecore modelling,4
+P6,Emfatic or Ecore modelling,2
+P1,The Eclipse platform,3
+P2,The Eclipse platform,3
+P3,The Eclipse platform,4
+P4,The Eclipse platform,2
+P5,The Eclipse platform,4
+P6,The Eclipse platform,2
+P1,"Formal methods (model checking, theorem proving)",1
+P2,"Formal methods (model checking, theorem proving)",3
+P3,"Formal methods (model checking, theorem proving)",3
+P4,"Formal methods (model checking, theorem proving)",1
+P5,"Formal methods (model checking, theorem proving)",3
+P6,"Formal methods (model checking, theorem proving)",1

@@ -1,0 +1,2015 @@
+{
+    "model_trace": [
+        {
+            "requirement_gid": "SD1",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "name",
+            "Attribute_value": "AUV_Module",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT1",
+            "Model_Element": "PrimitiveType",
+            "Model_Element_id": "natType",
+            "Model_attribute": "name",
+            "Attribute_value": "nat",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 4,
+                "line_end": 4,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT1",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "types",
+            "Reference_value": "natType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT2",
+            "Model_Element": "PrimitiveType",
+            "Model_Element_id": "intType",
+            "Model_attribute": "name",
+            "Attribute_value": "int",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 8,
+                "line_end": 8,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT2",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "types",
+            "Reference_value": "intType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT3",
+            "Model_Element": "PrimitiveType",
+            "Model_Element_id": "stringType",
+            "Model_attribute": "name",
+            "Attribute_value": "string",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 12,
+                "line_end": 12,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT3",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "types",
+            "Reference_value": "stringType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT4",
+            "Model_Element": "PrimitiveType",
+            "Model_Element_id": "booleanType",
+            "Model_attribute": "name",
+            "Attribute_value": "boolean",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 16,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT4",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "types",
+            "Reference_value": "booleanType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT5",
+            "Model_Element": "PrimitiveType",
+            "Model_Element_id": "realType",
+            "Model_attribute": "name",
+            "Attribute_value": "real",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 20,
+                "line_end": 20,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT5",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "types",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Model_Element": "CompositeType",
+            "Model_Element_id": "svec",
+            "Model_attribute": "name",
+            "Attribute_value": "SVec",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 24,
+                "line_end": 24,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "types",
+            "Reference_value": "svec",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Model_Element": "Value",
+            "Model_Element_id": "radial",
+            "Model_attribute": "name",
+            "Attribute_value": "radial",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 28,
+                "line_end": 28,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Model_Element": "Value",
+            "Model_Element_id": "radial",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 28,
+                "line_end": 28,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Model_Element": "CompositeType",
+            "Model_Element_id": "svec",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "values",
+            "Reference_value": "radial",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 24,
+                "line_end": 24,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Model_Element": "Value",
+            "Model_Element_id": "polar",
+            "Model_attribute": "name",
+            "Attribute_value": "polar",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 33,
+                "line_end": 33,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Model_Element": "Value",
+            "Model_Element_id": "polar",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 33,
+                "line_end": 33,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Model_Element": "CompositeType",
+            "Model_Element_id": "svec",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "values",
+            "Reference_value": "polar",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 24,
+                "line_end": 24,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Model_Element": "Value",
+            "Model_Element_id": "azimuth",
+            "Model_attribute": "name",
+            "Attribute_value": "azimuth",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 38,
+                "line_end": 38,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Model_Element": "Value",
+            "Model_Element_id": "azimuth",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 38,
+                "line_end": 38,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Model_Element": "CompositeType",
+            "Model_Element_id": "svec",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "values",
+            "Reference_value": "azimuth",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 24,
+                "line_end": 24,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "CompositeType",
+            "Model_Element_id": "obstacle",
+            "Model_attribute": "name",
+            "Attribute_value": "Obstacle",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 43,
+                "line_end": 43,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "types",
+            "Reference_value": "obstacle",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "Value",
+            "Model_Element_id": "ns_rel_dist",
+            "Model_attribute": "name",
+            "Attribute_value": "ns_rel_dist",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 47,
+                "line_end": 47,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "Value",
+            "Model_Element_id": "ns_rel_dist",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 47,
+                "line_end": 47,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "CompositeType",
+            "Model_Element_id": "obstacle",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "values",
+            "Reference_value": "ns_rel_dist",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 43,
+                "line_end": 43,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "Value",
+            "Model_Element_id": "ew_rel_dist",
+            "Model_attribute": "name",
+            "Attribute_value": "ew_rel_dist",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 52,
+                "line_end": 52,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "Value",
+            "Model_Element_id": "ew_rel_dist",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 52,
+                "line_end": 52,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "CompositeType",
+            "Model_Element_id": "obstacle",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "values",
+            "Reference_value": "ew_rel_dist",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 43,
+                "line_end": 43,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "Value",
+            "Model_Element_id": "depthValue",
+            "Model_attribute": "name",
+            "Attribute_value": "depth",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 57,
+                "line_end": 57,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "Value",
+            "Model_Element_id": "depthValue",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 57,
+                "line_end": 57,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "CompositeType",
+            "Model_Element_id": "obstacle",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "values",
+            "Reference_value": "depthValue",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 43,
+                "line_end": 43,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "Value",
+            "Model_Element_id": "idValue",
+            "Model_attribute": "name",
+            "Attribute_value": "id",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 62,
+                "line_end": 62,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "Value",
+            "Model_Element_id": "idValue",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 62,
+                "line_end": 62,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "CompositeType",
+            "Model_Element_id": "obstacle",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "values",
+            "Reference_value": "idValue",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 43,
+                "line_end": 43,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "Value",
+            "Model_Element_id": "obs_hdng",
+            "Model_attribute": "name",
+            "Attribute_value": "obs_hdng",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 67,
+                "line_end": 67,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "Value",
+            "Model_Element_id": "obs_hdng",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "svec",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 67,
+                "line_end": 67,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "CompositeType",
+            "Model_Element_id": "obstacle",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "values",
+            "Reference_value": "obs_hdng",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 43,
+                "line_end": 43,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CF3",
+            "Model_Element": "CompositeType",
+            "Model_Element_id": "close",
+            "Model_attribute": "name",
+            "Attribute_value": "Close",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 72,
+                "line_end": 72,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CF3",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "types",
+            "Reference_value": "close",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CF3",
+            "Model_Element": "Value",
+            "Model_Element_id": "horiz_cda",
+            "Model_attribute": "name",
+            "Attribute_value": "horiz_cda",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 76,
+                "line_end": 76,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CF3",
+            "Model_Element": "Value",
+            "Model_Element_id": "horiz_cda",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 76,
+                "line_end": 76,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CF3",
+            "Model_Element": "CompositeType",
+            "Model_Element_id": "close",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "values",
+            "Reference_value": "horiz_cda",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 72,
+                "line_end": 72,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CF3",
+            "Model_Element": "Value",
+            "Model_Element_id": "vert_cda",
+            "Model_attribute": "name",
+            "Attribute_value": "vert_cda",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 81,
+                "line_end": 81,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CF3",
+            "Model_Element": "Value",
+            "Model_Element_id": "vert_cda",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 81,
+                "line_end": 81,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CF3",
+            "Model_Element": "CompositeType",
+            "Model_Element_id": "close",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "values",
+            "Reference_value": "vert_cda",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 72,
+                "line_end": 72,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CF3",
+            "Model_Element": "Value",
+            "Model_Element_id": "closeId",
+            "Model_attribute": "name",
+            "Attribute_value": "id",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 86,
+                "line_end": 86,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CF3",
+            "Model_Element": "Value",
+            "Model_Element_id": "closeId",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "natType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 86,
+                "line_end": 86,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CF3",
+            "Model_Element": "CompositeType",
+            "Model_Element_id": "close",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "values",
+            "Reference_value": "closeId",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 72,
+                "line_end": 72,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Model_Element": "Interface",
+            "Model_Element_id": "sensors",
+            "Model_attribute": "name",
+            "Attribute_value": "Sensors",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 91,
+                "line_end": 91,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "interfaces",
+            "Reference_value": "sensors",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Model_Element": "Value",
+            "Model_Element_id": "sensorDepth",
+            "Model_attribute": "name",
+            "Attribute_value": "depth",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 95,
+                "line_end": 95,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Model_Element": "Value",
+            "Model_Element_id": "sensorDepth",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 95,
+                "line_end": 95,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Model_Element": "Interface",
+            "Model_Element_id": "sensors",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "values",
+            "Reference_value": "sensorDepth",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 91,
+                "line_end": 91,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Model_Element": "Value",
+            "Model_Element_id": "sensorHdng",
+            "Model_attribute": "name",
+            "Attribute_value": "hdng",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 100,
+                "line_end": 100,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Model_Element": "Value",
+            "Model_Element_id": "sensorHdng",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "svec",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 100,
+                "line_end": 100,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Model_Element": "Interface",
+            "Model_Element_id": "sensors",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "values",
+            "Reference_value": "sensorHdng",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 91,
+                "line_end": 91,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Model_Element": "Value",
+            "Model_Element_id": "sensorObs",
+            "Model_attribute": "name",
+            "Attribute_value": "obs",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 105,
+                "line_end": 105,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Model_Element": "Value",
+            "Model_Element_id": "sensorObs",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "obstacle",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 105,
+                "line_end": 105,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Model_Element": "Interface",
+            "Model_Element_id": "sensors",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "values",
+            "Reference_value": "sensorObs",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 91,
+                "line_end": 91,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD3",
+            "Model_Element": "Interface",
+            "Model_Element_id": "inputs",
+            "Model_attribute": "name",
+            "Attribute_value": "Inputs",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 110,
+                "line_end": 110,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD3",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "interfaces",
+            "Reference_value": "inputs",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Interface",
+            "Model_Element_id": "intpus",
+            "Model_attribute": "name",
+            "Attribute_value": "Intpus",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "resolved": false
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "interfaces",
+            "Reference_value": "intpus",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Event",
+            "Model_Element_id": "endTask",
+            "Model_attribute": "name",
+            "Attribute_value": "endTask",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 114,
+                "line_end": 114,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Interface",
+            "Model_Element_id": "intpus",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "events",
+            "Reference_value": "endTask",
+            "source": {
+                "file": "result_model.eol",
+                "resolved": false
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Event",
+            "Model_Element_id": "reqOCM",
+            "Model_attribute": "name",
+            "Attribute_value": "reqOCM",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 118,
+                "line_end": 118,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Interface",
+            "Model_Element_id": "intpus",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "events",
+            "Reference_value": "reqOCM",
+            "source": {
+                "file": "result_model.eol",
+                "resolved": false
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Event",
+            "Model_Element_id": "reqMOM",
+            "Model_attribute": "name",
+            "Attribute_value": "reqMOM",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 122,
+                "line_end": 122,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Interface",
+            "Model_Element_id": "intpus",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "events",
+            "Reference_value": "reqMOM",
+            "source": {
+                "file": "result_model.eol",
+                "resolved": false
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Event",
+            "Model_Element_id": "reqHCM",
+            "Model_attribute": "name",
+            "Attribute_value": "reqHCM",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 126,
+                "line_end": 126,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Interface",
+            "Model_Element_id": "intpus",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "events",
+            "Reference_value": "reqHCM",
+            "source": {
+                "file": "result_model.eol",
+                "resolved": false
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Event",
+            "Model_Element_id": "reqVel",
+            "Model_attribute": "name",
+            "Attribute_value": "reqVel",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 130,
+                "line_end": 130,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "ReturnValue",
+            "Model_Element_id": "reqVelReturn",
+            "Model_attribute": "name",
+            "Attribute_value": "returnValue",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 132,
+                "line_end": 132,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "ReturnValue",
+            "Model_Element_id": "reqVelReturn",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 132,
+                "line_end": 132,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Event",
+            "Model_Element_id": "reqVel",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "returnValue",
+            "Reference_value": "reqVelReturn",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 130,
+                "line_end": 130,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Interface",
+            "Model_Element_id": "intpus",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "events",
+            "Reference_value": "reqVel",
+            "source": {
+                "file": "result_model.eol",
+                "resolved": false
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Event",
+            "Model_Element_id": "reqHdng",
+            "Model_attribute": "name",
+            "Attribute_value": "reqHdng",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 138,
+                "line_end": 138,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "ReturnValue",
+            "Model_Element_id": "reqHdngReturn",
+            "Model_attribute": "name",
+            "Attribute_value": "returnValue",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 140,
+                "line_end": 140,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "ReturnValue",
+            "Model_Element_id": "reqHdngReturn",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 140,
+                "line_end": 140,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Event",
+            "Model_Element_id": "reqHdng",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "returnValue",
+            "Reference_value": "reqHdngReturn",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 138,
+                "line_end": 138,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Interface",
+            "Model_Element_id": "intpus",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "events",
+            "Reference_value": "reqHdng",
+            "source": {
+                "file": "result_model.eol",
+                "resolved": false
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Model_Element": "Interface",
+            "Model_Element_id": "outputs",
+            "Model_attribute": "name",
+            "Attribute_value": "Outputs",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 146,
+                "line_end": 146,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "interfaces",
+            "Reference_value": "outputs",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Model_Element": "Event",
+            "Model_Element_id": "advVel",
+            "Model_attribute": "name",
+            "Attribute_value": "advVel",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 150,
+                "line_end": 150,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Model_Element": "Parameter",
+            "Model_Element_id": "advVelParam",
+            "Model_attribute": "name",
+            "Attribute_value": "param",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 152,
+                "line_end": 152,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Model_Element": "Parameter",
+            "Model_Element_id": "advVelParam",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 152,
+                "line_end": 152,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Model_Element": "Event",
+            "Model_Element_id": "advVel",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "parameters",
+            "Reference_value": "advVelParam",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 150,
+                "line_end": 150,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Model_Element": "Interface",
+            "Model_Element_id": "outputs",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "events",
+            "Reference_value": "advVel",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 146,
+                "line_end": 146,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Model_Element": "Event",
+            "Model_Element_id": "advHdng",
+            "Model_attribute": "name",
+            "Attribute_value": "advHdng",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 158,
+                "line_end": 158,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Model_Element": "Parameter",
+            "Model_Element_id": "advHdngParam",
+            "Model_attribute": "name",
+            "Attribute_value": "param",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 160,
+                "line_end": 160,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Model_Element": "Parameter",
+            "Model_Element_id": "advHdngParam",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 160,
+                "line_end": 160,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Model_Element": "Event",
+            "Model_Element_id": "advHdng",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "parameters",
+            "Reference_value": "advHdngParam",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 158,
+                "line_end": 158,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Model_Element": "Interface",
+            "Model_Element_id": "outputs",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "events",
+            "Reference_value": "advHdng",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 146,
+                "line_end": 146,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface4",
+            "Model_Element": "Interface",
+            "Model_Element_id": "actuators",
+            "Model_attribute": "name",
+            "Attribute_value": "Actuators",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 166,
+                "line_end": 166,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface4",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "interfaces",
+            "Reference_value": "actuators",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD2",
+            "Model_Element": "RoboticPlatform",
+            "Model_Element_id": "auvPlatform",
+            "Model_attribute": "name",
+            "Attribute_value": "AUV_Platform",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 170,
+                "line_end": 170,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD2",
+            "Model_Element": "RoboticPlatform",
+            "Model_Element_id": "auvPlatform",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "interfaces",
+            "Reference_value": "sensors",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 170,
+                "line_end": 170,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD2",
+            "Model_Element": "RoboticPlatform",
+            "Model_Element_id": "auvPlatform",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "interfaces",
+            "Reference_value": "actuators",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 170,
+                "line_end": 170,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD2",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "platforms",
+            "Reference_value": "auvPlatform",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD3",
+            "Model_Element": "Controller",
+            "Model_Element_id": "auvOperator",
+            "Model_attribute": "name",
+            "Attribute_value": "AUV_Operator",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 176,
+                "line_end": 176,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD3",
+            "Model_Element": "Controller",
+            "Model_Element_id": "auvOperator",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "interfaces",
+            "Reference_value": "inputs",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 176,
+                "line_end": 176,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD3",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "controllers",
+            "Reference_value": "auvOperator",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD4",
+            "Model_Element": "Controller",
+            "Model_Element_id": "lreCtrl",
+            "Model_attribute": "name",
+            "Attribute_value": "LRE_Ctrl",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 181,
+                "line_end": 181,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD4",
+            "Model_Element": "Controller",
+            "Model_Element_id": "lreCtrl",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "interfaces",
+            "Reference_value": "inputs",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 181,
+                "line_end": 181,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD4",
+            "Model_Element": "Controller",
+            "Model_Element_id": "lreCtrl",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "interfaces",
+            "Reference_value": "outputs",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 181,
+                "line_end": 181,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD4",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "controllers",
+            "Reference_value": "lreCtrl",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD5",
+            "Model_Element": "Controller",
+            "Model_Element_id": "auvAutopilot",
+            "Model_attribute": "name",
+            "Attribute_value": "AUV_Autopilot",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 187,
+                "line_end": 187,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD5",
+            "Model_Element": "Controller",
+            "Model_Element_id": "auvAutopilot",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "interfaces",
+            "Reference_value": "outputs",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 187,
+                "line_end": 187,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD5",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "controllers",
+            "Reference_value": "auvAutopilot",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F1",
+            "Model_Element": "Function",
+            "Model_Element_id": "odist",
+            "Model_attribute": "name",
+            "Attribute_value": "odist",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 192,
+                "line_end": 192,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F1",
+            "Model_Element": "Parameter",
+            "Model_Element_id": "odistParam",
+            "Model_attribute": "name",
+            "Attribute_value": "obstacle",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 194,
+                "line_end": 194,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F1",
+            "Model_Element": "Parameter",
+            "Model_Element_id": "odistParam",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "obstacle",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 194,
+                "line_end": 194,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F1",
+            "Model_Element": "Function",
+            "Model_Element_id": "odist",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "parameters",
+            "Reference_value": "odistParam",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 192,
+                "line_end": 192,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F1",
+            "Model_Element": "ReturnValue",
+            "Model_Element_id": "odistReturn",
+            "Model_attribute": "name",
+            "Attribute_value": "returnValue",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 198,
+                "line_end": 198,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F1",
+            "Model_Element": "ReturnValue",
+            "Model_Element_id": "odistReturn",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 198,
+                "line_end": 198,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F1",
+            "Model_Element": "Function",
+            "Model_Element_id": "odist",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "returnValue",
+            "Reference_value": "odistReturn",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 192,
+                "line_end": 192,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F1",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "functions",
+            "Reference_value": "odist",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F2",
+            "Model_Element": "Function",
+            "Model_Element_id": "hdist",
+            "Model_attribute": "name",
+            "Attribute_value": "hdist",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 204,
+                "line_end": 204,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F2",
+            "Model_Element": "Parameter",
+            "Model_Element_id": "hdistParam",
+            "Model_attribute": "name",
+            "Attribute_value": "obstacle",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 206,
+                "line_end": 206,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F2",
+            "Model_Element": "Parameter",
+            "Model_Element_id": "hdistParam",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "obstacle",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 206,
+                "line_end": 206,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F2",
+            "Model_Element": "Function",
+            "Model_Element_id": "hdist",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "parameters",
+            "Reference_value": "hdistParam",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 204,
+                "line_end": 204,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F2",
+            "Model_Element": "ReturnValue",
+            "Model_Element_id": "hdistReturn",
+            "Model_attribute": "name",
+            "Attribute_value": "returnValue",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 210,
+                "line_end": 210,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F2",
+            "Model_Element": "ReturnValue",
+            "Model_Element_id": "hdistReturn",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 210,
+                "line_end": 210,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F2",
+            "Model_Element": "Function",
+            "Model_Element_id": "hdist",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "returnValue",
+            "Reference_value": "hdistReturn",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 204,
+                "line_end": 204,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F2",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "functions",
+            "Reference_value": "hdist",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F3",
+            "Model_Element": "Function",
+            "Model_Element_id": "vdist",
+            "Model_attribute": "name",
+            "Attribute_value": "vdist",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 216,
+                "line_end": 216,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F3",
+            "Model_Element": "Parameter",
+            "Model_Element_id": "vdistParam",
+            "Model_attribute": "name",
+            "Attribute_value": "obstacle",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 218,
+                "line_end": 218,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F3",
+            "Model_Element": "Parameter",
+            "Model_Element_id": "vdistParam",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "obstacle",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 218,
+                "line_end": 218,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F3",
+            "Model_Element": "Function",
+            "Model_Element_id": "vdist",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "parameters",
+            "Reference_value": "vdistParam",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 216,
+                "line_end": 216,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F3",
+            "Model_Element": "ReturnValue",
+            "Model_Element_id": "vdistReturn",
+            "Model_attribute": "name",
+            "Attribute_value": "returnValue",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 222,
+                "line_end": 222,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F3",
+            "Model_Element": "ReturnValue",
+            "Model_Element_id": "vdistReturn",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "type",
+            "Reference_value": "realType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 222,
+                "line_end": 222,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F3",
+            "Model_Element": "Function",
+            "Model_Element_id": "vdist",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "returnValue",
+            "Reference_value": "vdistReturn",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 216,
+                "line_end": 216,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F3",
+            "Model_Element": "Module",
+            "Model_Element_id": "auvModule",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "functions",
+            "Reference_value": "vdist",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        }
+    ]
+}

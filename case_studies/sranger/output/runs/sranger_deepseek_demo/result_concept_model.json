@@ -1,0 +1,82 @@
+{
+    "concepts": [
+        {
+            "Concept": "Sensor",
+            "description": "a Sensor interface that exposes the latest IR distance reading"
+        },
+        {
+            "Concept": "Actuator",
+            "description": "an Actuator interface that records the last motor command"
+        },
+        {
+            "Concept": "Moving",
+            "description": "initial mode — the robot drives forward at the configured linear velocity"
+        },
+        {
+            "Concept": "Turning",
+            "description": "the robot rotates in place at the configured angular velocity"
+        },
+        {
+            "Concept": "Final",
+            "description": "a terminal mode entered when the operator issues endTask"
+        },
+        {
+            "Concept": "Constant",
+            "description": "a real-valued constant used by the controller"
+        },
+        {
+            "Concept": "Event",
+            "description": "an input event received by the controller"
+        },
+        {
+            "Concept": "Move",
+            "description": "a single output event carrying a linear and angular velocity command to the differential-drive layer"
+        },
+        {
+            "Concept": "Variable",
+            "description": "a real variable maintained by the controller"
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "moveVel",
+            "Instance_of": "Constant",
+            "description": "real-valued constant with default 1.0, m/s, linear velocity command when Moving"
+        },
+        {
+            "Instance": "turnVel",
+            "Instance_of": "Constant",
+            "description": "real-valued constant with default 2.0, rad/s, angular velocity command when Turning"
+        },
+        {
+            "Instance": "obstacleThreshold",
+            "Instance_of": "Constant",
+            "description": "real-valued constant with default 0.5, metres, IR-distance threshold for obstacle detection"
+        },
+        {
+            "Instance": "turnDuration",
+            "Instance_of": "Constant",
+            "description": "real-valued constant with default 2.0, seconds, how long the controller remains in Turning"
+        },
+        {
+            "Instance": "obstacle",
+            "Instance_of": "Event",
+            "description": "signal with no payload, emitted when IR distance crosses below obstacleThreshold"
+        },
+        {
+            "Instance": "tick",
+            "Instance_of": "Event",
+            "description": "signal with no payload, delivered each control cycle"
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": "signal with no payload, emitted by the operator-level shutdown channel"
+        },
+        {
+            "Instance": "clockResetTime",
+            "Instance_of": "Variable",
+            "description": "real variable (seconds) recording the time of the most recent entry into the Turning state"
+        }
+    ]
+}

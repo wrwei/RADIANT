@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="ASCII"?>
+<model:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:model="http://generated/model" name="AUV_Module">
+  <platform name="AUV_Platform"/>
+</model:Module>

@@ -1,0 +1,58 @@
+@namespace(uri="http://www.sawg.org/malcom/reference/auv/independent", prefix="auvarch")
+package auvarch;
+
+abstract class NamedElement {
+	attr String name;
+}
+
+class Module extends NamedElement {
+	val PrimitiveType[*] primitiveTypes;
+	val CompositeType[*] compositeTypes;
+	val Interface[*] interfaces;
+	val RoboticPlatform[*] roboticPlatforms;
+	val Controller[*] controllers;
+	val Function[*] functions;
+}
+
+abstract class Component extends NamedElement {
+	ref Interface[*] interfaces;
+}
+
+class RoboticPlatform extends Component {
+}
+
+class Controller extends Component {
+}
+
+class Interface extends NamedElement {
+	val Value[*] values;
+	val Event[*] events;
+}
+
+abstract class Type extends NamedElement {
+}
+
+class PrimitiveType extends Type {
+}
+
+class CompositeType extends Type {
+	val Value[*] values;
+}
+
+class Value extends NamedElement {
+	ref Type[1] type;
+}
+
+class Parameter extends NamedElement {
+	ref Type[1] type;
+}
+
+class Event extends NamedElement {
+	val Parameter[*] parameters;
+	ref Type returnType;
+}
+
+class Function extends NamedElement {
+	val Parameter[*] parameters;
+	ref Type[1] returnType;
+}

@@ -1,0 +1,496 @@
+{
+    "model_trace": [
+        {
+            "requirement_gid": "SD1",
+            "Model_Element": "Module",
+            "Model_attributes": "name",
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 1,
+                "line_end": 1,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD2",
+            "Model_Element": "RoboticPlatform",
+            "Model_attributes": "name",
+            "Model_references": "robotic_platforms",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 4,
+                "line_end": 4,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD2",
+            "Model_Element": "Interface",
+            "Model_attributes": "name",
+            "Model_references": "interfaces",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 8,
+                "line_end": 8,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD2",
+            "Model_Element": "Interface",
+            "Model_attributes": "name",
+            "Model_references": "interfaces",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 8,
+                "line_end": 8,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD3",
+            "Model_Element": "Controller",
+            "Model_attributes": "name",
+            "Model_references": "controllers",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 16,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD3",
+            "Model_Element": "Interface",
+            "Model_attributes": "name",
+            "Model_references": "interfaces",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 8,
+                "line_end": 8,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD3",
+            "Model_Element": "Controller",
+            "Model_attributes": [],
+            "Model_references": "interfaces",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 16,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD4",
+            "Model_Element": "Controller",
+            "Model_attributes": "name",
+            "Model_references": "controllers",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 16,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD4",
+            "Model_Element": "Controller",
+            "Model_attributes": [],
+            "Model_references": "interfaces",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 16,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD4",
+            "Model_Element": "Interface",
+            "Model_attributes": "name",
+            "Model_references": "interfaces",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 8,
+                "line_end": 8,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD4",
+            "Model_Element": "Controller",
+            "Model_attributes": [],
+            "Model_references": "interfaces",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 16,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD5",
+            "Model_Element": "Controller",
+            "Model_attributes": "name",
+            "Model_references": "controllers",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 16,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD5",
+            "Model_Element": "Controller",
+            "Model_attributes": [],
+            "Model_references": "interfaces",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 16,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT1",
+            "Model_Element": "PrimitiveType",
+            "Model_attributes": "name",
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 44,
+                "line_end": 44,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT2",
+            "Model_Element": "PrimitiveType",
+            "Model_attributes": "name",
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 44,
+                "line_end": 44,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT3",
+            "Model_Element": "PrimitiveType",
+            "Model_attributes": "name",
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 44,
+                "line_end": 44,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT4",
+            "Model_Element": "PrimitiveType",
+            "Model_attributes": "name",
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 44,
+                "line_end": 44,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT5",
+            "Model_Element": "PrimitiveType",
+            "Model_attributes": "name",
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 44,
+                "line_end": 44,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Model_Element": "CompositeType",
+            "Model_attributes": "name",
+            "Model_references": "values",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 59,
+                "line_end": 59,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Model_Element": "Value",
+            "Model_attributes": [
+                "name",
+                "type"
+            ],
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 62,
+                "line_end": 62,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Model_Element": "Value",
+            "Model_attributes": [
+                "name",
+                "type"
+            ],
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 62,
+                "line_end": 62,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Model_Element": "Value",
+            "Model_attributes": [
+                "name",
+                "type"
+            ],
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 62,
+                "line_end": 62,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "CompositeType",
+            "Model_attributes": "name",
+            "Model_references": "values",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 59,
+                "line_end": 59,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "Value",
+            "Model_attributes": [
+                "name",
+                "type"
+            ],
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 62,
+                "line_end": 62,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "Value",
+            "Model_attributes": [
+                "name",
+                "type"
+            ],
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 62,
+                "line_end": 62,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "Value",
+            "Model_attributes": [
+                "name",
+                "type"
+            ],
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 62,
+                "line_end": 62,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "Value",
+            "Model_attributes": [
+                "name",
+                "type"
+            ],
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 62,
+                "line_end": 62,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Model_Element": "Value",
+            "Model_attributes": [
+                "name"
+            ],
+            "Model_references": "compositeType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 62,
+                "line_end": 62,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Model_Element": "Value",
+            "Model_attributes": [
+                "name",
+                "type"
+            ],
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 62,
+                "line_end": 62,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Model_Element": "Value",
+            "Model_attributes": [
+                "name"
+            ],
+            "Model_references": "compositeType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 62,
+                "line_end": 62,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Model_Element": "Value",
+            "Model_attributes": [
+                "name"
+            ],
+            "Model_references": "compositeType",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 62,
+                "line_end": 62,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Event",
+            "Model_attributes": "name",
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 123,
+                "line_end": 123,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Event",
+            "Model_attributes": "name",
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 123,
+                "line_end": 123,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Event",
+            "Model_attributes": "name",
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 123,
+                "line_end": 123,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Event",
+            "Model_attributes": "name",
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 123,
+                "line_end": 123,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Event",
+            "Model_attributes": [
+                "name",
+                "returnType"
+            ],
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 123,
+                "line_end": 123,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Model_Element": "Event",
+            "Model_attributes": [
+                "name",
+                "returnType"
+            ],
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 123,
+                "line_end": 123,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface4",
+            "Model_Element": "Interface",
+            "Model_attributes": "name",
+            "Model_references": [],
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 8,
+                "line_end": 8,
+                "resolved": true
+            }
+        }
+    ]
+}

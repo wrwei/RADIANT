@@ -1,0 +1,23 @@
+stm SRanger {
+    event obstacle
+    event tick
+    event endTask
+    event Move
+    const moveVel : real = 1.0
+    const turnVel : real = 2.0
+    const obstacleThreshold : real = 0.5
+    const turnDuration : real = 2.0
+    var clockResetTime : real = 0.0
+    initial i0
+    state Moving { entry Move }
+    state Turning { entry clockResetTime = 0.0; Move }
+    state Final { entry Move }
+    transition t0 { from i0 to Moving }
+    transition t1 { from Moving to Moving trigger tick }
+    transition t2 { from Moving to Turning trigger obstacle }
+    transition t3 { from Moving to Final trigger endTask }
+    transition t4 { from Turning to Moving condition sinceEntry_Turning - clockResetTime >= turnDuration }
+    transition t5 { from Turning to Turning trigger tick }
+    transition t6 { from Turning to Final trigger endTask }
+    transition t7 { from Final to Final trigger tick }
+}

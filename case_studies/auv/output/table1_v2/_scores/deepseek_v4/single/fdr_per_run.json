@@ -1,0 +1,72 @@
+{
+  "run_001": {
+    "file": "run_001_assembled.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_002": {
+    "file": "run_002_assembled.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_003": {
+    "file": "run_003_assembled.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_004": {
+    "file": "run_004_assembled.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_005": {
+    "file": "run_005_assembled.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_006": {
+    "file": "run_006_assembled.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_007": {
+    "file": "run_007_assembled.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_008": {
+    "file": "run_008_assembled.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_009": {
+    "file": "run_009_assembled.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_010": {
+    "file": "run_010_assembled.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  }
+}

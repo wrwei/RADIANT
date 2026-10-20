@@ -1,0 +1,35 @@
+stm LRE_Beh {
+    event reqVel
+    event advVel
+    event reqHdng
+    event advHdng
+    event reqMOM
+    event reqOCM
+    event endTask
+    event reqHCM
+    var inOPEZ : boolean
+    var collisionRisk : boolean
+    var staticObstacleNear : boolean
+    var velocityHigh : boolean
+    initial i0
+    state OCM { }
+    state MOM { entry advVel }
+    state CAM { }
+    state HCM { entry advVel }
+    transition t0 { from i0 to OCM }
+    transition t_ocm_reqVel { from OCM to OCM trigger reqVel action advVel }
+    transition t_ocm_reqHdng { from OCM to OCM trigger reqHdng action advHdng }
+    transition t_ocm_reqMOM { from OCM to MOM trigger reqMOM condition not velocityHigh /\ not collisionRisk /\ not staticObstacleNear /\ not inOPEZ }
+    transition t_mom_ocm_inOPEZ { from MOM to OCM condition inOPEZ }
+    transition t_mom_ocm_reqOCM { from MOM to OCM trigger reqOCM }
+    transition t_mom_ocm_endTask { from MOM to OCM trigger endTask action advVel }
+    transition t_mom_cam_collisionRisk { from MOM to CAM condition collisionRisk }
+    transition t_mom_hcm_staticObstacleNear { from MOM to HCM condition staticObstacleNear }
+    transition t_mom_hcm_reqHCM { from MOM to HCM trigger reqHCM }
+    transition t_hcm_mom_noStatic { from HCM to MOM condition not staticObstacleNear }
+    transition t_hcm_cam_collisionRisk { from HCM to CAM condition collisionRisk }
+    transition t_hcm_ocm_reqOCM { from HCM to OCM trigger reqOCM }
+    transition t_hcm_ocm_inOPEZ { from HCM to OCM condition inOPEZ }
+    transition t_cam_ocm_reqOCM { from CAM to OCM trigger reqOCM }
+    transition t_cam_ocm_noCollision { from CAM to OCM condition not collisionRisk }
+}

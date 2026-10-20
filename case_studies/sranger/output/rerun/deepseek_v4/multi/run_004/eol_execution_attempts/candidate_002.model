@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sranger:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sranger="http://generated/sranger" name="SRanger">
+  <sensor name="sensor">
+    <functions name="distance" returnType="real"/>
+  </sensor>
+  <actuator name="actuator"/>
+  <stateMachine name="stateMachine" initialMode="//@stateMachine/@modes.0">
+    <modes name="Moving"/>
+    <modes name="Turning"/>
+    <modes name="Final"/>
+    <inputEvents name="obstacle"/>
+    <inputEvents name="tick"/>
+    <inputEvents name="endTask"/>
+    <outputEvents name="Move"/>
+    <constants name="moveVel" value="1.0"/>
+    <constants name="turnVel" value="2.0"/>
+    <constants name="obstacleThreshold" value="0.5"/>
+    <constants name="turnDuration" value="2.0"/>
+    <variables name="clockResetTime"/>
+    <transitions name="MovingToTurning" source="//@stateMachine/@modes.0" target="//@stateMachine/@modes.1" trigger="//@stateMachine/@inputEvents.0" guard="distance() &lt; obstacleThreshold" action="clockResetTime = currentTime; Move(0, turnVel)"/>
+    <transitions name="TurningToMoving" source="//@stateMachine/@modes.1" target="//@stateMachine/@modes.0" trigger="//@stateMachine/@inputEvents.1" guard="currentTime - clockResetTime >= turnDuration" action="Move(moveVel, 0)"/>
+    <transitions name="MovingToFinal" source="//@stateMachine/@modes.0" target="//@stateMachine/@modes.2" trigger="//@stateMachine/@inputEvents.2" action="Move(0, 0)"/>
+    <transitions name="TurningToFinal" source="//@stateMachine/@modes.1" target="//@stateMachine/@modes.2" trigger="//@stateMachine/@inputEvents.2" action="Move(0, 0)"/>
+  </stateMachine>
+</sranger:System>

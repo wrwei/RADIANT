@@ -1,0 +1,98 @@
+var auvModule = new M!Module();
+auvModule.name = "AUV_Module";
+
+var auvPlatform = new M!RoboticPlatform();
+auvPlatform.name = "AUV_Platform";
+auvModule.platforms.add(auvPlatform);
+
+var sensors = new M!Interface();
+sensors.name = "Sensors";
+auvModule.interfaces.add(sensors);
+auvPlatform.interfaces.add(sensors);
+
+var actuators = new M!Interface();
+actuators.name = "Actuators";
+auvModule.interfaces.add(actuators);
+auvPlatform.interfaces.add(actuators);
+
+var inputs = new M!Interface();
+inputs.name = "Inputs";
+auvModule.interfaces.add(inputs);
+
+var outputs = new M!Interface();
+outputs.name = "Outputs";
+auvModule.interfaces.add(outputs);
+
+var auvOperator = new M!Controller();
+auvOperator.name = "AUV_Operator";
+auvOperator.interfaces.add(inputs);
+auvModule.controllers.add(auvOperator);
+
+var lreCtrl = new M!Controller();
+lreCtrl.name = "LRE_Ctrl";
+lreCtrl.interfaces.add(inputs);
+lreCtrl.interfaces.add(outputs);
+auvModule.controllers.add(lreCtrl);
+
+var auvAutopilot = new M!Controller();
+auvAutopilot.name = "AUV_Autopilot";
+auvAutopilot.interfaces.add(outputs);
+auvAutopilot.interfaces.add(sensors);
+auvAutopilot.interfaces.add(actuators);
+auvModule.controllers.add(auvAutopilot);
+
+var pt1 = new M!Interface();
+pt1.name = "PT1";
+auvPlatform.ports.add(pt1);
+
+var pt2 = new M!Interface();
+pt2.name = "PT2";
+auvAutopilot.ports.add(pt2);
+
+var ct1 = new M!Connection();
+ct1.name = "CT1";
+ct1.source = pt1;
+ct1.target = pt2;
+auvModule.connections.add(ct1);
+
+var pt3 = new M!Interface();
+pt3.name = "PT3";
+auvAutopilot.ports.add(pt3);
+
+var pt4 = new M!Interface();
+pt4.name = "PT4";
+auvPlatform.ports.add(pt4);
+
+var ct2 = new M!Connection();
+ct2.name = "CT2";
+ct2.source = pt3;
+ct2.target = pt4;
+auvModule.connections.add(ct2);
+
+var pt5 = new M!Interface();
+pt5.name = "PT5";
+auvOperator.ports.add(pt5);
+
+var pt6 = new M!Interface();
+pt6.name = "PT6";
+lreCtrl.ports.add(pt6);
+
+var ct3 = new M!Connection();
+ct3.name = "CT3";
+ct3.source = pt5;
+ct3.target = pt6;
+auvModule.connections.add(ct3);
+
+var pt7 = new M!Interface();
+pt7.name = "PT7";
+lreCtrl.ports.add(pt7);
+
+var pt8 = new M!Interface();
+pt8.name = "PT8";
+auvAutopilot.ports.add(pt8);
+
+var ct4 = new M!Connection();
+ct4.name = "CT4";
+ct4.source = pt7;
+ct4.target = pt8;
+auvModule.connections.add(ct4);

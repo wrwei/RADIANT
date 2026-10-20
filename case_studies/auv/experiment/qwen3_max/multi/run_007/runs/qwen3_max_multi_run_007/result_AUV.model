@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<auv:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:auv="http://www.example.org/auv" name="AUV_Module">
+  <platforms name="AUV_Platform" usedInterfaces="//@interfaces.0 //@interfaces.3"/>
+  <controllers name="AUV_Operator" usedInterfaces="//@interfaces.1"/>
+  <controllers name="LRE_Ctrl" usedInterfaces="//@interfaces.1 //@interfaces.2"/>
+  <controllers name="AUV_Autopilot" usedInterfaces="//@interfaces.2"/>
+  <interfaces name="Sensors">
+    <values name="depth" type="//@primitiveTypes.4"/>
+    <values name="hdng" type="//@compositeTypes.0"/>
+    <values name="obs" type="//@compositeTypes.1"/>
+  </interfaces>
+  <interfaces name="Inputs">
+    <events name="endTask"/>
+    <events name="reqOCM"/>
+    <events name="reqMOM"/>
+    <events name="reqHCM"/>
+    <events name="reqVel" returnType="//@primitiveTypes.4"/>
+    <events name="reqHdng" returnType="//@primitiveTypes.4"/>
+  </interfaces>
+  <interfaces name="Outputs">
+    <events name="advVel">
+      <parameters name="velocity" type="//@primitiveTypes.4"/>
+    </events>
+    <events name="advHdng">
+      <parameters name="heading" type="//@primitiveTypes.4"/>
+    </events>
+  </interfaces>
+  <interfaces name="Actuators"/>
+  <primitiveTypes name="nat"/>
+  <primitiveTypes name="int"/>
+  <primitiveTypes name="string"/>
+  <primitiveTypes name="boolean"/>
+  <primitiveTypes name="real"/>
+  <compositeTypes name="SVec">
+    <fields name="radial" type="//@primitiveTypes.4"/>
+    <fields name="polar" type="//@primitiveTypes.4"/>
+    <fields name="azimuth" type="//@primitiveTypes.4"/>
+  </compositeTypes>
+  <compositeTypes name="Obstacle">
+    <fields name="ns_rel_dist" type="//@primitiveTypes.4"/>
+    <fields name="ew_rel_dist" type="//@primitiveTypes.4"/>
+    <fields name="depth" type="//@primitiveTypes.4"/>
+    <fields name="id" type="//@primitiveTypes.4"/>
+    <fields name="obs_hdng" type="//@compositeTypes.0"/>
+  </compositeTypes>
+  <compositeTypes name="Close">
+    <fields name="horiz_cda" type="//@primitiveTypes.4"/>
+    <fields name="vert_cda" type="//@primitiveTypes.4"/>
+    <fields name="id" type="//@primitiveTypes.0"/>
+  </compositeTypes>
+  <functions name="odist" returnType="//@primitiveTypes.4">
+    <parameters name="obstacle" type="//@compositeTypes.1"/>
+  </functions>
+  <functions name="hdist" returnType="//@primitiveTypes.4">
+    <parameters name="obstacle" type="//@compositeTypes.1"/>
+  </functions>
+  <functions name="vdist" returnType="//@primitiveTypes.4">
+    <parameters name="obstacle" type="//@compositeTypes.1"/>
+  </functions>
+</auv:Module>

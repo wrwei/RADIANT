@@ -1,0 +1,288 @@
+diagram LRE_Beh
+
+interface Inputs {
+	event reqVel
+	event reqHdng
+	event reqMOM
+	event reqOCM
+	event endTask
+	event reqHCM
+	event tick
+}
+
+interface Outputs {
+	event advVel
+	event advHdng
+}
+
+interface LRE_Beh_State {
+	var velocityHigh : boolean
+	var collisionRisk : boolean
+	var staticObstacleNear : boolean
+	var inOPEZ : boolean
+}
+
+interface Constants {
+}
+
+stm LRE_Beh {
+	uses Inputs uses Outputs requires LRE_Beh_State requires Constants
+	state OCM {
+	}
+	state CAM {
+	}
+	state MOM {
+	}
+	state HCM {
+	}
+	initial i0
+	transition t0 {
+		from i0
+		to OCM
+	}
+	transition t1 {
+		from OCM
+		to OCM
+		trigger reqVel
+		action send advVel
+	}
+	transition t2 {
+		from OCM
+		to OCM
+		trigger reqHdng
+		action send advHdng
+	}
+	transition t3 {
+		from OCM
+		to MOM
+		trigger reqMOM
+		condition not ( velocityHigh ) /\ not ( collisionRisk ) /\ not ( staticObstacleNear ) /\ not ( inOPEZ )
+		action send advVel
+	}
+	transition t4 {
+		from MOM
+		to OCM
+		trigger tick
+		condition inOPEZ
+	}
+	transition t5 {
+		from MOM
+		to OCM
+		trigger reqOCM
+	}
+	transition t6 {
+		from MOM
+		to OCM
+		trigger endTask
+		action send advVel
+	}
+	transition t7 {
+		from MOM
+		to CAM
+		trigger tick
+		condition collisionRisk
+	}
+	transition t8 {
+		from MOM
+		to HCM
+		trigger tick
+		condition velocityHigh /\ staticObstacleNear
+		action send advVel
+	}
+	transition t9 {
+		from MOM
+		to HCM
+		trigger tick
+		condition staticObstacleNear /\ not ( velocityHigh )
+		action send advVel
+	}
+	transition t10 {
+		from MOM
+		to HCM
+		trigger reqHCM
+		action send advVel
+	}
+	transition t11 {
+		from HCM
+		to MOM
+		trigger tick
+		condition not ( staticObstacleNear )
+		action send advVel
+	}
+	transition t12 {
+		from HCM
+		to CAM
+		trigger tick
+		condition collisionRisk
+	}
+	transition t13 {
+		from HCM
+		to OCM
+		trigger reqOCM
+	}
+	transition t14 {
+		from HCM
+		to OCM
+		trigger tick
+		condition inOPEZ
+	}
+	transition t15 {
+		from CAM
+		to OCM
+		trigger reqOCM
+	}
+	transition t16 {
+		from CAM
+		to OCM
+		trigger tick
+		condition not ( collisionRisk )
+	}
+	transition t17 {
+		from OCM
+		to OCM
+		trigger tick
+	}
+	transition t18 {
+		from OCM
+		to OCM
+		trigger reqOCM
+	}
+	transition t19 {
+		from OCM
+		to OCM
+		trigger endTask
+	}
+	transition t20 {
+		from OCM
+		to OCM
+		trigger reqHCM
+	}
+	transition t21 {
+		from OCM
+		to OCM
+		trigger reqMOM
+		condition velocityHigh \/ collisionRisk \/ staticObstacleNear \/ inOPEZ
+	}
+	transition t22 {
+		from MOM
+		to MOM
+		trigger tick
+		condition not ( inOPEZ ) /\ not ( collisionRisk ) /\ not ( staticObstacleNear )
+	}
+	transition t23 {
+		from MOM
+		to MOM
+		trigger reqVel
+	}
+	transition t24 {
+		from MOM
+		to MOM
+		trigger reqHdng
+	}
+	transition t25 {
+		from MOM
+		to MOM
+		trigger reqMOM
+	}
+	transition t26 {
+		from HCM
+		to HCM
+		trigger tick
+		condition staticObstacleNear /\ not ( collisionRisk ) /\ not ( inOPEZ )
+	}
+	transition t27 {
+		from HCM
+		to HCM
+		trigger reqVel
+	}
+	transition t28 {
+		from HCM
+		to HCM
+		trigger reqHdng
+	}
+	transition t29 {
+		from HCM
+		to HCM
+		trigger reqMOM
+	}
+	transition t30 {
+		from HCM
+		to HCM
+		trigger endTask
+	}
+	transition t31 {
+		from HCM
+		to HCM
+		trigger reqHCM
+	}
+	transition t32 {
+		from CAM
+		to CAM
+		trigger tick
+		condition collisionRisk
+	}
+	transition t33 {
+		from CAM
+		to CAM
+		trigger reqVel
+	}
+	transition t34 {
+		from CAM
+		to CAM
+		trigger reqHdng
+	}
+	transition t35 {
+		from CAM
+		to CAM
+		trigger reqMOM
+	}
+	transition t36 {
+		from CAM
+		to CAM
+		trigger endTask
+	}
+	transition t37 {
+		from CAM
+		to CAM
+		trigger reqHCM
+	}
+}
+
+controller LRE_Beh_Ctrl {
+	uses Inputs uses Outputs requires LRE_Beh_State requires Constants
+	sref stm_ref0 = LRE_Beh
+	connection LRE_Beh_Ctrl on reqVel to stm_ref0 on reqVel
+	connection LRE_Beh_Ctrl on reqHdng to stm_ref0 on reqHdng
+	connection LRE_Beh_Ctrl on reqMOM to stm_ref0 on reqMOM
+	connection LRE_Beh_Ctrl on reqOCM to stm_ref0 on reqOCM
+	connection LRE_Beh_Ctrl on endTask to stm_ref0 on endTask
+	connection LRE_Beh_Ctrl on reqHCM to stm_ref0 on reqHCM
+	connection LRE_Beh_Ctrl on tick to stm_ref0 on tick
+	connection stm_ref0 on advVel to LRE_Beh_Ctrl on advVel
+	connection stm_ref0 on advHdng to LRE_Beh_Ctrl on advHdng
+}
+
+module LRE_Beh_Module {
+	robotic platform LRE_Beh_Platform {
+		provides Constants
+		event reqVel
+		event reqHdng
+		event reqMOM
+		event reqOCM
+		event endTask
+		event reqHCM
+		event tick
+		event advVel
+		event advHdng
+	}
+	cref ctrl_ref0 = LRE_Beh_Ctrl
+	connection LRE_Beh_Platform on reqVel to ctrl_ref0 on reqVel
+	connection LRE_Beh_Platform on reqHdng to ctrl_ref0 on reqHdng
+	connection LRE_Beh_Platform on reqMOM to ctrl_ref0 on reqMOM
+	connection LRE_Beh_Platform on reqOCM to ctrl_ref0 on reqOCM
+	connection LRE_Beh_Platform on endTask to ctrl_ref0 on endTask
+	connection LRE_Beh_Platform on reqHCM to ctrl_ref0 on reqHCM
+	connection LRE_Beh_Platform on tick to ctrl_ref0 on tick
+	connection ctrl_ref0 on advVel to LRE_Beh_Platform on advVel
+	connection ctrl_ref0 on advHdng to LRE_Beh_Platform on advHdng
+}

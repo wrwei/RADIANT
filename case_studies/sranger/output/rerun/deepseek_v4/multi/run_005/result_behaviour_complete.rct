@@ -1,0 +1,108 @@
+diagram SRangerController
+
+interface Inputs {
+	event obstacle
+	event endTask
+	event tick
+}
+
+interface Outputs {
+	event Move
+}
+
+interface SRangerController_State {
+	var obstacleDetected : boolean
+	var linearVelocity : int
+	var angularVelocity : int
+	var since_clockResetTime : int
+}
+
+interface Constants {
+	const turnDuration : int = 2
+	const moveVel : int = 1
+	const turnVel : int = 2
+	const obstacleThreshold : int = 1
+}
+
+stm SRangerController {
+	uses Inputs uses Outputs requires SRangerController_State requires Constants
+	state Final {}
+	final f0
+	state Turning {
+		entry linearVelocity = 0 ; angularVelocity = turnVel ; send Move
+	}
+	state Moving {
+		entry linearVelocity = moveVel ; angularVelocity = 0 ; send Move
+	}
+	initial i0
+	transition t0 {
+		from i0
+		to Moving
+		action since_clockResetTime = 0
+	}
+	transition t_Moving_tick {
+		from Moving
+		to Moving
+		trigger tick
+	}
+	transition t_Moving_obstacle {
+		from Moving
+		to Turning
+		trigger obstacle
+		condition obstacleDetected
+		action since_clockResetTime = 0
+	}
+	transition t_Moving_endTask {
+		from Moving
+		to Final
+		trigger endTask
+		action linearVelocity = 0 ; angularVelocity = 0 ; send Move
+	}
+	transition t_Turning_tick {
+		from Turning
+		to Turning
+		trigger tick
+		condition since_clockResetTime < turnDuration
+		action since_clockResetTime = since_clockResetTime + 1
+	}
+	transition t_Turning_durationElapsed {
+		from Turning
+		to Moving
+		condition since_clockResetTime >= turnDuration
+	}
+	transition t_Turning_endTask {
+		from Turning
+		to Final
+		trigger endTask
+		action linearVelocity = 0 ; angularVelocity = 0 ; send Move
+	}
+	transition t_Final_tick {
+		from Final
+		to Final
+		trigger tick
+	}
+}
+
+controller SRangerController_Ctrl {
+	uses Inputs uses Outputs requires SRangerController_State requires Constants
+	sref stm_ref0 = SRangerController
+	connection SRangerController_Ctrl on obstacle to stm_ref0 on obstacle
+	connection SRangerController_Ctrl on endTask to stm_ref0 on endTask
+	connection SRangerController_Ctrl on tick to stm_ref0 on tick
+	connection stm_ref0 on Move to SRangerController_Ctrl on Move
+}
+
+module SRangerController_Module {
+	robotic platform SRangerController_Platform {
+		provides Constants
+		event obstacle
+		event endTask
+		event tick
+		event Move
+	}
+	cref ctrl_ref0 = SRangerController_Ctrl
+	connection SRangerController_Platform on obstacle to ctrl_ref0 on obstacle
+	connection SRangerController_Platform on endTask to ctrl_ref0 on endTask
+	connection SRangerController_Platform on tick to ctrl_ref0 on tick
+	connection ctrl_ref0 on Move to SRangerController_Platform on Move
+}

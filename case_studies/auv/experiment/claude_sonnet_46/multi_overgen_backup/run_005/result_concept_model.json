@@ -1,0 +1,247 @@
+{
+    "concepts": [
+        {
+            "Concept": "Module",
+            "description": "A modular unit of the AUV system that encapsulates related components and functionality."
+        },
+        {
+            "Concept": "RoboticPlatform",
+            "description": "A physical or logical platform within the AUV module that interacts with sensors and actuators."
+        },
+        {
+            "Concept": "Interface",
+            "description": "A defined boundary through which components of the AUV module communicate, specifying values and events."
+        },
+        {
+            "Concept": "Controller",
+            "description": "A component within the AUV module responsible for managing and directing the behaviour of the AUV system."
+        },
+        {
+            "Concept": "PrimitiveType",
+            "description": "A basic data type defined within the AUV module representing fundamental value kinds."
+        },
+        {
+            "Concept": "CompositeType",
+            "description": "A structured data type defined within the AUV module that groups multiple values of potentially different types."
+        },
+        {
+            "Concept": "Value",
+            "description": "A named data field contained within an Interface, representing a piece of information communicated through the interface."
+        },
+        {
+            "Concept": "Event",
+            "description": "A named occurrence or signal defined within an Interface that can be triggered, optionally with parameters and a return value."
+        },
+        {
+            "Concept": "Function",
+            "description": "A named computational unit defined within the AUV module that takes inputs and returns a result."
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": "The module representing the entire AUV system."
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "RoboticPlatform",
+            "description": "The robotic platform of the AUV system, using Sensors and Actuators interfaces defined by AUV_Module."
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": "An interface defined by AUV_Module used by AUV_Platform to access sensor data."
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": "An interface defined by AUV_Module used by AUV_Platform to control actuator outputs."
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": "A controller within AUV_Module that uses the Inputs interface to receive operator commands."
+        },
+        {
+            "Instance": "Inputs",
+            "Instance_of": "Interface",
+            "description": "An interface defined by AUV_Module used by AUV_Operator to receive input commands."
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "A controller within AUV_Module representing the Last Response Engine, using the Inputs and Outputs interfaces."
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": "An interface defined by AUV_Module used by LRE_Ctrl and AUV_Autopilot to send output commands."
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": "A controller within AUV_Module responsible for autonomous piloting, using the Outputs interface."
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type representing natural numbers."
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type representing integer numbers."
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type representing string values."
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type representing boolean values."
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "PrimitiveType",
+            "description": "A primitive type representing real numbers."
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "CompositeType",
+            "description": "A composite type representing a Spherical Vector, recording radial, polar, and azimuth values of type real."
+        },
+        {
+            "Instance": "radial",
+            "Instance_of": "CompositeType",
+            "description": "A field of the SVec composite type representing the radial component of a spherical vector, of type real."
+        },
+        {
+            "Instance": "polar",
+            "Instance_of": "CompositeType",
+            "description": "A field of the SVec composite type representing the polar component of a spherical vector, of type real."
+        },
+        {
+            "Instance": "azimuth",
+            "Instance_of": "CompositeType",
+            "description": "A field of the SVec composite type representing the azimuth component of a spherical vector, of type real."
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "CompositeType",
+            "description": "A composite type representing an obstacle, recording ns_rel_dist, ew_rel_dist, depth, id, and obs_hdng values."
+        },
+        {
+            "Instance": "ns_rel_dist",
+            "Instance_of": "CompositeType",
+            "description": "A field of the Obstacle composite type representing the north-south relative distance, of type real."
+        },
+        {
+            "Instance": "ew_rel_dist",
+            "Instance_of": "CompositeType",
+            "description": "A field of the Obstacle composite type representing the east-west relative distance, of type real."
+        },
+        {
+            "Instance": "depth",
+            "Instance_of": "CompositeType",
+            "description": "A field of the Obstacle composite type representing the depth of the obstacle, of type real."
+        },
+        {
+            "Instance": "id",
+            "Instance_of": "CompositeType",
+            "description": "A field of the Obstacle composite type representing the identifier of the obstacle, of type real."
+        },
+        {
+            "Instance": "obs_hdng",
+            "Instance_of": "CompositeType",
+            "description": "A field of the Obstacle composite type representing the heading of the obstacle, of type SVec."
+        },
+        {
+            "Instance": "hdng",
+            "Instance_of": "Value",
+            "description": "A value in the Sensors interface representing the heading of the AUV, of type SVec."
+        },
+        {
+            "Instance": "obs",
+            "Instance_of": "Value",
+            "description": "A value in the Sensors interface representing obstacle data detected by the AUV, of type Obstacle."
+        },
+        {
+            "Instance": "Intpus",
+            "Instance_of": "Interface",
+            "description": "An interface defined by AUV_Module (intended as Inputs) that defines events for task and mode control."
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": "An event in the Intpus interface signalling the end of a task, with no parameters and no return value."
+        },
+        {
+            "Instance": "reqOCM",
+            "Instance_of": "Event",
+            "description": "An event in the Intpus interface requesting obstacle collision mode, with no parameters and no return value."
+        },
+        {
+            "Instance": "reqMOM",
+            "Instance_of": "Event",
+            "description": "An event in the Intpus interface requesting manual operation mode, with no parameters and no return value."
+        },
+        {
+            "Instance": "reqHCM",
+            "Instance_of": "Event",
+            "description": "An event in the Intpus interface requesting heading control mode, with no parameters and no return value."
+        },
+        {
+            "Instance": "reqVel",
+            "Instance_of": "Event",
+            "description": "An event in the Intpus interface requesting velocity, with no parameters and a return value of type real."
+        },
+        {
+            "Instance": "reqHdng",
+            "Instance_of": "Event",
+            "description": "An event in the Intpus interface requesting heading, with no parameters and a return value of type real."
+        },
+        {
+            "Instance": "advVel",
+            "Instance_of": "Event",
+            "description": "An event in the Outputs interface advising velocity, taking one parameter of type real and no return value."
+        },
+        {
+            "Instance": "advHdng",
+            "Instance_of": "Event",
+            "description": "An event in the Outputs interface advising heading, taking one parameter of type real and no return value."
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "CompositeType",
+            "description": "A composite type representing a close-distance record, containing horiz_cda, vert_cda, and id fields."
+        },
+        {
+            "Instance": "horiz_cda",
+            "Instance_of": "CompositeType",
+            "description": "A field of the Close composite type representing the horizontal closest distance of approach, of type real."
+        },
+        {
+            "Instance": "vert_cda",
+            "Instance_of": "CompositeType",
+            "description": "A field of the Close composite type representing the vertical closest distance of approach, of type real."
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "A function that takes an Obstacle as input and returns the distance from the AUV to the obstacle as a real number."
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "A function that takes an Obstacle as input and returns the horizontal distance from the AUV to the obstacle as a real number."
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "A function that takes an Obstacle as input and returns the vertical distance from the AUV to the obstacle as a real number."
+        }
+    ]
+}

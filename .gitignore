@@ -1,0 +1,5 @@
+# data-only package: nothing generated at run time belongs here
+.DS_Store
+*.log
+MALCOMj/
+.tmp/

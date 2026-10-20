@@ -1,0 +1,193 @@
+{
+  "requirements": [
+    {
+      "kind": "Non-Functional Requirement",
+      "name": "LRE_Beh",
+      "id": "LRE-NF1",
+      "description": "A State Machine named \"LRE_Beh\" shall be created to model the behaviour of the LRE.",
+      "priority": "6"
+    },
+    {
+      "kind": "Non-Functional Requirement",
+      "name": "Variable1",
+      "id": "LRE-Var1",
+      "description": "LRE_Beh shall define a boolean Variable \"inOPEZ\", which is true when the AUV is within an Operating Prohibited/Exclusion Zone (OPEZ).",
+      "priority": "6"
+    },
+    {
+      "kind": "Non-Functional Requirement",
+      "name": "Variable2",
+      "id": "LRE-Var2",
+      "description": "LRE_Beh shall define a boolean Variable \"collisionRisk\", which is true when the Closest Distance of Approach (CDA) to a dynamic obstacle is below the minimum safe distance and the Time to Closest Point of Approach (TCPA) is non-negative.",
+      "priority": "6"
+    },
+    {
+      "kind": "Non-Functional Requirement",
+      "name": "Variable3",
+      "id": "LRE-Var3",
+      "description": "LRE_Beh shall define a boolean Variable \"staticObstacleNear\", which is true when the closest static obstacle is within the allowed caution distance (horizontally or vertically).",
+      "priority": "6"
+    },
+    {
+      "kind": "Non-Functional Requirement",
+      "name": "Variable4",
+      "id": "LRE-Var4",
+      "description": "LRE_Beh shall define a boolean Variable \"velocityHigh\", which is true when the AUV velocity is at or above the manoeuvre threshold.",
+      "priority": "6"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "State1",
+      "id": "LRE-FR1",
+      "description": "The LRE shall define a State named \"OCM\" (Operation Control Mode).",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "State2",
+      "id": "LRE-FR2",
+      "description": "The LRE shall define a State named \"MOM\" (Main Operating Mode). On entering MOM, the Event \"advVel\" (Output) shall be triggered to advise the AUV to manoeuvre.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "State3",
+      "id": "LRE-FR3",
+      "description": "The LRE shall define a State named \"CAM\" (Collision Avoidance Mode).",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "State4",
+      "id": "LRE-FR4",
+      "description": "The LRE shall define a State named \"HCM\" (High Caution Mode). On entering HCM, the Event \"advVel\" (Output) shall be triggered to advise the AUV to slow down.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh1",
+      "id": "LRE-Beh1",
+      "description": "On start up, the LRE shall be in the OCM mode.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh2",
+      "id": "LRE-Beh2",
+      "description": "The LRE shall transition from OCM to OCM if the Event \"reqVel\" (Input) is triggered; then the Event \"advVel\" (Output) shall be triggered.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh3",
+      "id": "LRE-Beh3",
+      "description": "The LRE shall transition from OCM to OCM if the Event \"reqHdng\" (Input) is triggered; then the Event \"advHdng\" (Output) shall be triggered.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh4",
+      "id": "LRE-Beh4",
+      "description": "The LRE shall transition from OCM to MOM, with a trigger Event \"reqMOM\" (Input), with the condition that: \"velocityHigh\" is false, \"collisionRisk\" is false, \"staticObstacleNear\" is false, and \"inOPEZ\" is false.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh5",
+      "id": "LRE-Beh5",
+      "description": "The LRE shall transition from MOM to OCM, if \"inOPEZ\" is true.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh6",
+      "id": "LRE-Beh6",
+      "description": "The LRE shall transition from MOM to OCM, if the Event \"reqOCM\" is triggered.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh7",
+      "id": "LRE-Beh7",
+      "description": "The LRE shall transition from MOM to OCM, if the Event \"endTask\" is triggered; then the Event \"advVel\" (Output) shall be triggered.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh8",
+      "id": "LRE-Beh8",
+      "description": "The LRE shall transition from MOM to CAM, if \"collisionRisk\" is true.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh9",
+      "id": "LRE-Beh9",
+      "description": "The LRE shall transition from MOM to HCM, if \"velocityHigh\" is true and \"staticObstacleNear\" is true.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh10",
+      "id": "LRE-Beh10",
+      "description": "The LRE shall transition from MOM to HCM, if \"staticObstacleNear\" is true.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh11",
+      "id": "LRE-Beh11",
+      "description": "The LRE shall transition from MOM to HCM, if \"velocityHigh\" is true and \"staticObstacleNear\" is true.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh12",
+      "id": "LRE-Beh12",
+      "description": "The LRE shall transition from MOM to HCM, if the Event \"reqHCM\" is triggered.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh13",
+      "id": "LRE-Beh13",
+      "description": "The LRE shall transition from HCM to MOM, if \"staticObstacleNear\" is false.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh14",
+      "id": "LRE-Beh14",
+      "description": "The LRE shall transition from HCM to CAM, if \"collisionRisk\" is true.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh15",
+      "id": "LRE-Beh15",
+      "description": "The LRE shall transition from HCM to OCM, if the Event \"reqOCM\" is triggered.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh16",
+      "id": "LRE-Beh16",
+      "description": "The LRE shall transition from HCM to OCM, if \"inOPEZ\" is true.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh17",
+      "id": "LRE-Beh17",
+      "description": "The LRE shall transition from CAM to OCM, if the Event \"reqOCM\" is triggered.",
+      "priority": "5"
+    },
+    {
+      "kind": "Functional Requirement",
+      "name": "Beh18",
+      "id": "LRE-Beh18",
+      "description": "The LRE shall transition from CAM to OCM, if \"collisionRisk\" is false.",
+      "priority": "5"
+    }
+  ]
+}

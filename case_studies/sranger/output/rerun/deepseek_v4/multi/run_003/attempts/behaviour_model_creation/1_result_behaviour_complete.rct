@@ -1,0 +1,106 @@
+diagram Controller
+
+interface Inputs {
+	event obstacle
+	event endTask
+	event tick
+}
+
+interface Outputs {
+	event Move
+}
+
+interface Controller_State {
+	var obstacleDetected : boolean
+	var lastLinearVelocity : int
+	var lastAngularVelocity : int
+	var since_turnClock : int
+}
+
+interface Constants {
+	const turnDuration : int = 2
+	const moveVel : int = 1
+	const turnVel : int = 2
+	const obstacleThreshold : int = 1
+}
+
+stm Controller {
+	uses Inputs uses Outputs requires Controller_State requires Constants
+	state Final {
+		entry lastLinearVelocity = 0 ; lastAngularVelocity = 0 ; send Move
+	}
+	state Moving {
+		entry lastLinearVelocity = moveVel ; lastAngularVelocity = 0 ; send Move
+	}
+	state Turning {
+		entry lastLinearVelocity = 0 ; lastAngularVelocity = turnVel ; send Move
+	}
+	initial i0
+	transition t0 {
+		from i0
+		to Moving
+	}
+	transition t1 {
+		from Moving
+		to Turning
+		trigger obstacle
+		action since_turnClock = 0
+	}
+	transition t2 {
+		from Moving
+		to Final
+		trigger endTask
+	}
+	transition t3 {
+		from Moving
+		to Moving
+		trigger tick
+	}
+	transition t4 {
+		from Turning
+		to Moving
+		trigger tick
+		condition since_turnClock >= turnDuration
+	}
+	transition t5 {
+		from Turning
+		to Final
+		trigger endTask
+	}
+	transition t6 {
+		from Turning
+		to Turning
+		trigger tick
+		condition since_turnClock < turnDuration
+		action since_turnClock = since_turnClock + 1
+	}
+	transition t7 {
+		from Final
+		to Final
+		trigger tick
+	}
+}
+
+controller Controller_Ctrl {
+	uses Inputs uses Outputs requires Controller_State requires Constants
+	sref stm_ref0 = Controller
+	connection Controller_Ctrl on obstacle to stm_ref0 on obstacle
+	connection Controller_Ctrl on endTask to stm_ref0 on endTask
+	connection Controller_Ctrl on tick to stm_ref0 on tick
+	connection stm_ref0 on Move to Controller_Ctrl on Move
+}
+
+module Controller_Module {
+	robotic platform Controller_Platform {
+		provides Constants
+		event obstacle
+		event endTask
+		event tick
+		event Move
+	}
+	cref ctrl_ref0 = Controller_Ctrl
+	connection Controller_Platform on obstacle to ctrl_ref0 on obstacle
+	connection Controller_Platform on endTask to ctrl_ref0 on endTask
+	connection Controller_Platform on tick to ctrl_ref0 on tick
+	connection ctrl_ref0 on Move to Controller_Platform on Move
+}

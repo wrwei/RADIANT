@@ -1,0 +1,13 @@
+{
+  "model": "deepseek_v4",
+  "variant": "single",
+  "config": "/Users/ranwei/Git/REMEDIATE/config.table1-v2.yaml",
+  "instrument_commit": null,
+  "created_utc": "2026-10-06T13:10:09Z",
+  "stages": [
+    "concept",
+    "dsml",
+    "model",
+    "behaviour"
+  ]
+}

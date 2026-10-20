@@ -1,0 +1,66 @@
+var module = new M!Module();
+module.name = "AUV_Module";
+
+var natType = new M!PrimitiveType();
+natType.name = "nat";
+
+var intType = new M!PrimitiveType();
+intType.name = "int";
+
+var stringType = new M!PrimitiveType();
+stringType.name = "string";
+
+var booleanType = new M!PrimitiveType();
+booleanType.name = "boolean";
+
+var realType = new M!PrimitiveType();
+realType.name = "real";
+
+var svec = new M!CompositeType();
+svec.name = "SVec";
+
+var obstacle = new M!CompositeType();
+obstacle.name = "Obstacle";
+
+var close = new M!CompositeType();
+close.name = "Close";
+
+var sensors = new M!Interface();
+sensors.name = "Sensors";
+module.interfaces.add(sensors);
+
+var actuators = new M!Interface();
+actuators.name = "Actuators";
+module.interfaces.add(actuators);
+
+var inputs = new M!Interface();
+inputs.name = "Inputs";
+module.interfaces.add(inputs);
+
+var intpus = new M!Interface();
+intpus.name = "Intpus";
+module.interfaces.add(intpus);
+
+var outputs = new M!Interface();
+outputs.name = "Outputs";
+module.interfaces.add(outputs);
+
+var auv_platform = new M!RoboticPlatform();
+auv_platform.name = "AUV_Platform";
+module.platforms.add(auv_platform);
+
+var auv_operator = new M!Controller();
+auv_operator.name = "AUV_Operator";
+auv_operator.interfaces.add(inputs);
+module.controllers.add(auv_operator);
+
+var lre_ctrl = new M!Controller();
+lre_ctrl.name = "LRE_Ctrl";
+lre_ctrl.interfaces.add(inputs);
+lre_ctrl.interfaces.add(outputs);
+module.controllers.add(lre_ctrl);
+
+var auv_autopilot = new M!Controller();
+auv_autopilot.name = "AUV_Autopilot";
+auv_autopilot.interfaces.add(outputs);
+module.controllers.add(auv_autopilot);

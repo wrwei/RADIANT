@@ -1,0 +1,68 @@
+[
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "3 state(s): every state has an outgoing transition; no autonomous self-loops"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "RoboChart generator rejected the model (9 error(s)): Couldn't resolve reference to Mutable 'lastLinearVelocity'. (line : 26 column : 9); Couldn't resolve reference to Mutable 'lastAngularVelocity'. (line : 26 column : 34); Couldn't resolve reference to Mutable 'lastLinearVelocity'. (line : 29 column : 9); Couldn't resolve reference to NamedExpression 'moveVel'. (line : 29 column : 30); Couldn't resolve reference to Mutable 'lastAngularVelocity'. (line : 29 column : 40); Couldn't resolve reference to Mutable 'lastLinearVelocity'. (line : 32 column : 9)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "7 entries resolved"
+      }
+    ],
+    "at": "2026-10-19T11:17:50+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 1,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "3 state(s): every state has an outgoing transition; no autonomous self-loops"
+      },
+      {
+        "name": "fdr4_refinement",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "3 assertion(s) hold (deadlock/divergence-free)"
+      },
+      {
+        "name": "trace_resolved",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "7 entries resolved"
+      }
+    ],
+    "at": "2026-10-19T11:18:44+00:00"
+  }
+]

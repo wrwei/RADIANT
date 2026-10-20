@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sranger:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sranger="http://www.sranger.example.com/metamodel" name="SRanger">
+  <controller name="SRangerController" sensor="//@sensor" actuator="//@actuator">
+    <stateMachine name="SRangerStateMachine" initialMode="//@controller/@stateMachine/@modes.0">
+      <modes name="Moving"/>
+      <modes name="Turning"/>
+      <modes name="Final" terminal="true"/>
+      <transitions name="MovingToTurning" source="//@controller/@stateMachine/@modes.0" target="//@controller/@stateMachine/@modes.1" trigger="//@controller/@inputEvents.0" guard="" action="clockResetTime = currentTime(); Move(0, turnVel)"/>
+      <transitions name="TurningToMoving" source="//@controller/@stateMachine/@modes.1" target="//@controller/@stateMachine/@modes.0" trigger="//@controller/@inputEvents.1" guard="currentTime() - clockResetTime >= turnDuration" action="Move(moveVel, 0)"/>
+      <transitions name="MovingToFinal" source="//@controller/@stateMachine/@modes.0" target="//@controller/@stateMachine/@modes.2" trigger="//@controller/@inputEvents.2" guard="" action="Move(0, 0)"/>
+      <transitions name="TurningToFinal" source="//@controller/@stateMachine/@modes.1" target="//@controller/@stateMachine/@modes.2" trigger="//@controller/@inputEvents.2" guard="" action="Move(0, 0)"/>
+    </stateMachine>
+    <constants name="moveVel" type="real" unit="m/s" value="1.0"/>
+    <constants name="turnVel" type="real" unit="rad/s" value="2.0"/>
+    <constants name="obstacleThreshold" type="real" unit="m" value="0.5"/>
+    <constants name="turnDuration" type="real" unit="s" value="2.0"/>
+    <variables name="clockResetTime" type="real" unit="s"/>
+    <inputEvents name="obstacle" payloadType="signal"/>
+    <inputEvents name="tick" payloadType="signal"/>
+    <inputEvents name="endTask" payloadType="signal"/>
+    <outputEvents name="Move"/>
+  </controller>
+  <sensor name="IRSensor"/>
+  <actuator name="DifferentialDrive" lastCommand="//@controller/@outputEvents.0"/>
+</sranger:System>

@@ -1,0 +1,83 @@
+{
+  "run_id": "web_20260530_182240_auto1",
+  "config_path": "D:\\Remediate\\REMEDIATE\\.codex-run\\auv_pipeline_output_inputs.yaml",
+  "model": {
+    "name": "deepseek-v4-flash",
+    "temperature": 0.0,
+    "api_type": "openai",
+    "api_base_url": "https://api.deepseek.com"
+  },
+  "created_at": "2026-05-30T10:37:57.820968+00:00",
+  "updated_at": "2026-05-30T11:11:55.960911+00:00",
+  "stages": {
+    "term_extraction": {
+      "artifacts": [
+        {
+          "file": "result_term_extraction.json",
+          "latest_path": "D:\\Remediate\\REMEDIATE\\MALCOMp\\examples\\auv\\output\\result_term_extraction.json",
+          "archived_path": "D:\\Remediate\\REMEDIATE\\MALCOMp\\examples\\auv\\output\\runs\\web_20260530_182240_auto1\\result_term_extraction.json",
+          "size": 101818,
+          "updated_at": "2026-05-30T10:37:57.824969+00:00"
+        }
+      ],
+      "updated_at": "2026-05-30T10:37:57.824969+00:00"
+    },
+    "dsl_extraction": {
+      "artifacts": [
+        {
+          "file": "result_dsl_extraction.json",
+          "latest_path": "D:\\Remediate\\REMEDIATE\\MALCOMp\\examples\\auv\\output\\result_dsl_extraction.json",
+          "archived_path": "D:\\Remediate\\REMEDIATE\\MALCOMp\\examples\\auv\\output\\runs\\web_20260530_182240_auto1\\result_dsl_extraction.json",
+          "size": 6308,
+          "updated_at": "2026-05-30T10:49:32.970671+00:00"
+        },
+        {
+          "file": "result_DSL.emf",
+          "latest_path": "D:\\Remediate\\REMEDIATE\\MALCOMp\\examples\\auv\\output\\result_DSL.emf",
+          "archived_path": "D:\\Remediate\\REMEDIATE\\MALCOMp\\examples\\auv\\output\\runs\\web_20260530_182240_auto1\\result_DSL.emf",
+          "size": 1188,
+          "updated_at": "2026-05-30T10:49:32.972669+00:00"
+        }
+      ],
+      "updated_at": "2026-05-30T10:49:32.972669+00:00"
+    },
+    "emf_model_creation": {
+      "artifacts": [
+        {
+          "file": "result_model_creation.json",
+          "latest_path": "D:\\Remediate\\REMEDIATE\\MALCOMp\\examples\\auv\\output\\result_model_creation.json",
+          "archived_path": "D:\\Remediate\\REMEDIATE\\MALCOMp\\examples\\auv\\output\\runs\\web_20260530_182240_auto1\\result_model_creation.json",
+          "size": 23563,
+          "updated_at": "2026-05-30T11:11:12.365113+00:00"
+        },
+        {
+          "file": "result_eol_program.eol",
+          "latest_path": "D:\\Remediate\\REMEDIATE\\MALCOMp\\examples\\auv\\output\\result_eol_program.eol",
+          "archived_path": "D:\\Remediate\\REMEDIATE\\MALCOMp\\examples\\auv\\output\\runs\\web_20260530_182240_auto1\\result_eol_program.eol",
+          "size": 5408,
+          "updated_at": "2026-05-30T11:11:12.368550+00:00"
+        }
+      ],
+      "updated_at": "2026-05-30T11:11:12.368550+00:00"
+    },
+    "state_machine_extraction": {
+      "artifacts": [
+        {
+          "file": "result_statemachine_extraction.json",
+          "latest_path": "D:\\Remediate\\REMEDIATE\\MALCOMp\\examples\\auv\\output\\result_statemachine_extraction.json",
+          "archived_path": "D:\\Remediate\\REMEDIATE\\MALCOMp\\examples\\auv\\output\\runs\\web_20260530_182240_auto1\\result_statemachine_extraction.json",
+          "size": 3070,
+          "updated_at": "2026-05-30T11:11:55.958910+00:00"
+        },
+        {
+          "file": "STM.txt",
+          "latest_path": "D:\\Remediate\\REMEDIATE\\MALCOMp\\examples\\auv\\output\\STM.txt",
+          "archived_path": "D:\\Remediate\\REMEDIATE\\MALCOMp\\examples\\auv\\output\\runs\\web_20260530_182240_auto1\\STM.txt",
+          "size": 2860,
+          "updated_at": "2026-05-30T11:11:55.960911+00:00"
+        }
+      ],
+      "updated_at": "2026-05-30T11:11:55.960911+00:00"
+    }
+  }
+}

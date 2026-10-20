@@ -1,0 +1,56 @@
+package roboticSystem;
+
+abstract class NamedElement {
+    attr String name;
+}
+
+class Module extends NamedElement {
+    val RoboticPlatform[*] platforms;
+    val Controller[*] controllers;
+    val Interface[*] interfaces;
+    val PrimitiveType[*] primitiveTypes;
+    val CompositeType[*] compositeTypes;
+    val Function[*] functions;
+}
+
+class RoboticPlatform extends NamedElement {
+    ref Interface[*] usedInterfaces;
+}
+
+class Controller extends NamedElement {
+    ref Interface[*] usedInterfaces;
+}
+
+class Interface extends NamedElement {
+    val Value[*] values;
+    val Event[*] events;
+}
+
+class PrimitiveType extends NamedElement {
+}
+
+class CompositeType extends NamedElement {
+    val Field[*] fields;
+}
+
+class Field extends NamedElement {
+    ref NamedElement type;
+}
+
+class Value extends NamedElement {
+    ref NamedElement type;
+}
+
+class Event extends NamedElement {
+    val Parameter[*] parameters;
+    ref NamedElement returnType;
+}
+
+class Parameter extends NamedElement {
+    ref NamedElement type;
+}
+
+class Function extends NamedElement {
+    val Parameter[*] parameters;
+    ref NamedElement returnType;
+}

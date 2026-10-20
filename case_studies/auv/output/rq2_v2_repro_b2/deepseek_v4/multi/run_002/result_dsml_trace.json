@@ -1,0 +1,345 @@
+{
+    "dsl_trace": [
+        {
+            "requirement_gid": "SD1",
+            "Emfatic_class": "Module",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "platforms",
+                "controllers",
+                "interfaces",
+                "types",
+                "functions"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 57,
+                "line_end": 63,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD2",
+            "Emfatic_class": "RoboticPlatform",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "interfaces"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 29,
+                "line_end": 30,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD3",
+            "Emfatic_class": "Controller",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "interfaces"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 32,
+                "line_end": 33,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD4",
+            "Emfatic_class": "Controller",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "interfaces"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 32,
+                "line_end": 33,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD5",
+            "Emfatic_class": "Controller",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "interfaces"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 32,
+                "line_end": 33,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT1",
+            "Emfatic_class": "PrimitiveType",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": null,
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 15,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT2",
+            "Emfatic_class": "PrimitiveType",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": null,
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 15,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT3",
+            "Emfatic_class": "PrimitiveType",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": null,
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 15,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT4",
+            "Emfatic_class": "PrimitiveType",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": null,
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 15,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT5",
+            "Emfatic_class": "PrimitiveType",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": null,
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 15,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Emfatic_class": "CompositeType",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "values"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 18,
+                "line_end": 20,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Emfatic_class": "CompositeType",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "values"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 18,
+                "line_end": 20,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CF3",
+            "Emfatic_class": "CompositeType",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "values"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 18,
+                "line_end": 20,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Emfatic_class": "Interface",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "values",
+                "events"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 35,
+                "line_end": 38,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Emfatic_class": "Interface",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "values",
+                "events"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 35,
+                "line_end": 38,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Emfatic_class": "Interface",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "values",
+                "events"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 35,
+                "line_end": 38,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface4",
+            "Emfatic_class": "Interface",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "values",
+                "events"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 35,
+                "line_end": 38,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Function1",
+            "Emfatic_class": "Function",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "parameters",
+                "returnValue"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 48,
+                "line_end": 49,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Function2",
+            "Emfatic_class": "Function",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "parameters",
+                "returnValue"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 48,
+                "line_end": 49,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Function3",
+            "Emfatic_class": "Function",
+            "Emfatic_attributes": [
+                "name"
+            ],
+            "Emfatic_references": [
+                "parameters",
+                "returnValue"
+            ],
+            "Emfatic_operations": null,
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 48,
+                "line_end": 49,
+                "resolved": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+abstract class NamedElement {
+    attr String name;
+}
+
+class Module extends NamedElement {
+    val Platform[*] platforms;
+    val Controller[*] controllers;
+    val Type[*] types;
+    val Interface[*] interfaces;
+    val Function[*] functions;
+}
+
+abstract class Component extends NamedElement {
+    ref Interface[*] usedInterfaces;
+}
+
+class Platform extends Component {
+}
+
+class Controller extends Component {
+}
+
+abstract class Type extends NamedElement {
+}
+
+class PrimitiveType extends Type {
+}
+
+class CompositeType extends Type {
+    val Attribute[*] attributes;
+}
+
+class Attribute extends NamedElement {
+    ref Type type;
+}
+
+class Interface extends NamedElement {
+    val Attribute[*] attributes;
+    val Event[*] events;
+}
+
+abstract class BehaviouralFeature extends NamedElement {
+    val Attribute[*] parameters;
+    ref Type returnType;
+}
+
+class Event extends BehaviouralFeature {
+}
+
+class Function extends BehaviouralFeature {
+}

@@ -1,0 +1,105 @@
+{
+  "run_id": "claude_sonnet_46_multi_run_003",
+  "config_path": "E:\\Git\\REMEDIATE\\config.yaml",
+  "model": {
+    "name": "claude-sonnet-4-6",
+    "api_type": "anthropic",
+    "api_key_env": "ANTHROPIC_API_KEY",
+    "supports_temperature": false,
+    "max_tokens": 20000
+  },
+  "created_at": "2026-06-19T13:41:17.647024+00:00",
+  "updated_at": "2026-06-19T13:46:34.664243+00:00",
+  "stages": {
+    "concept_extraction": {
+      "artifacts": [
+        {
+          "file": "result_concept_trace.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\result_concept_trace.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\runs\\claude_sonnet_46_multi_run_003\\result_concept_trace.json",
+          "size": 26,
+          "updated_at": "2026-06-19T13:41:17.647024+00:00"
+        },
+        {
+          "file": "result_concept_model.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\result_concept_model.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\runs\\claude_sonnet_46_multi_run_003\\result_concept_model.json",
+          "size": 46,
+          "updated_at": "2026-06-19T13:41:17.660552+00:00"
+        }
+      ],
+      "updated_at": "2026-06-19T13:41:17.660552+00:00"
+    },
+    "dsml_creation": {
+      "artifacts": [
+        {
+          "file": "result_dsml.emf",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\result_dsml.emf",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\runs\\claude_sonnet_46_multi_run_003\\result_dsml.emf",
+          "size": 1171,
+          "updated_at": "2026-06-19T13:42:10.540912+00:00"
+        },
+        {
+          "file": "result_dsml_trace.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\result_dsml_trace.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\runs\\claude_sonnet_46_multi_run_003\\result_dsml_trace.json",
+          "size": 10807,
+          "updated_at": "2026-06-19T13:42:10.556957+00:00"
+        }
+      ],
+      "updated_at": "2026-06-19T13:42:10.556957+00:00"
+    },
+    "emf_model_creation": {
+      "artifacts": [
+        {
+          "file": "result_dsml.generated.ecore",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\result_dsml.generated.ecore",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\runs\\claude_sonnet_46_multi_run_003\\result_dsml.generated.ecore",
+          "size": 3308,
+          "updated_at": "2026-06-19T13:43:45.781138+00:00"
+        },
+        {
+          "file": "result_model.eol",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\result_model.eol",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\runs\\claude_sonnet_46_multi_run_003\\result_model.eol",
+          "size": 5348,
+          "updated_at": "2026-06-19T13:44:07.014106+00:00"
+        },
+        {
+          "file": "result_model_trace.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\result_model_trace.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\runs\\claude_sonnet_46_multi_run_003\\result_model_trace.json",
+          "size": 11368,
+          "updated_at": "2026-06-19T13:44:07.029731+00:00"
+        },
+        {
+          "file": "result_AUV.model",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\result_AUV.model",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\runs\\claude_sonnet_46_multi_run_003\\result_AUV.model",
+          "size": 2680,
+          "updated_at": "2026-06-19T13:44:07.039749+00:00"
+        }
+      ],
+      "updated_at": "2026-06-19T13:44:07.039749+00:00"
+    },
+    "behaviour_model_creation": {
+      "artifacts": [
+        {
+          "file": "result_behaviour_model.rct",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\result_behaviour_model.rct",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\runs\\claude_sonnet_46_multi_run_003\\result_behaviour_model.rct",
+          "size": 1457,
+          "updated_at": "2026-06-19T13:46:31.806747+00:00"
+        },
+        {
+          "file": "result_behaviour_trace.json",
+          "latest_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\result_behaviour_trace.json",
+          "archived_path": "E:\\Git\\REMEDIATE\\case_studies\\auv\\experiment\\claude_sonnet_46\\multi\\run_003\\runs\\claude_sonnet_46_multi_run_003\\result_behaviour_trace.json",
+          "size": 9305,
+          "updated_at": "2026-06-19T13:46:34.664243+00:00"
+        }
+      ],
+      "updated_at": "2026-06-19T13:46:34.664243+00:00"
+    }
+  }
+}

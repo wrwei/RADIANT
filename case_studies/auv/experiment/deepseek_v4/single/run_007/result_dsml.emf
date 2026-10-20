@@ -1,0 +1,55 @@
+@namespace(uri="auvsys", prefix="auvsys")
+package auvsys;
+
+abstract class NamedElement {
+    attr String name;
+}
+
+class Module extends NamedElement {
+    val RoboticPlatform[*] platforms;
+    val Controller[*] controllers;
+    val Interface[*] interfaces;
+    val Type[*] types;
+    val Function[*] functions;
+}
+
+class RoboticPlatform extends NamedElement {
+    ref Interface[*] usedInterfaces;
+}
+
+class Controller extends NamedElement {
+    ref Interface[*] usedInterfaces;
+}
+
+class Interface extends NamedElement {
+    val Value[*] values;
+    val Event[*] events;
+}
+
+class Value extends NamedElement {
+    attr Type type;
+}
+
+class Event extends NamedElement {
+    val Parameter[*] parameters;
+    attr Type[0..1] returnType;
+}
+
+class Parameter extends NamedElement {
+    attr Type type;
+}
+
+class Function extends NamedElement {
+    val Parameter[*] parameters;
+    attr Type returnType;
+}
+
+abstract class Type extends NamedElement {
+}
+
+class PrimitiveType extends Type {
+}
+
+class CompositeType extends Type {
+    val Value[*] values;
+}

@@ -1,0 +1,13 @@
+{
+  "model": "deepseek_v4",
+  "variant": "multi",
+  "config": "/Users/ranwei/Git/RADIANT_Dev/config.sranger-rerun.yaml",
+  "instrument_commit": "5645713293f7ae4a77713e13af0d0693080cd916",
+  "created_utc": "2026-10-19T09:58:27Z",
+  "stages": [
+    "concept",
+    "dsml",
+    "model",
+    "behaviour"
+  ]
+}

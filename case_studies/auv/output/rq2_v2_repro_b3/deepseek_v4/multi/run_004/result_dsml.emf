@@ -1,0 +1,66 @@
+package main;
+
+abstract class NamedElement {
+    attr String name;
+}
+
+abstract class Type extends NamedElement {
+}
+
+class PrimitiveType extends Type {
+}
+
+abstract class TypedElement extends NamedElement {
+    ref Type type;
+}
+
+class Value extends TypedElement {
+}
+
+class Parameter extends TypedElement {
+}
+
+class ReturnValue extends TypedElement {
+}
+
+abstract class ValueContainer extends NamedElement {
+    val Value[*] values;
+}
+
+class CompositeType extends Type, ValueContainer {
+}
+
+class Interface extends ValueContainer {
+    val Event[*] events;
+}
+
+abstract class ParameterizedElement extends NamedElement {
+    val Parameter[*] parameters;
+}
+
+class Event extends ParameterizedElement {
+    val ReturnValue[0..1] returnValue;
+}
+
+class Function extends ParameterizedElement {
+    val ReturnValue returnValue;
+}
+
+abstract class InterfaceUser extends NamedElement {
+    ref Interface[*] usedInterfaces;
+}
+
+class RoboticPlatform extends InterfaceUser {
+}
+
+class Controller extends InterfaceUser {
+}
+
+class Module extends NamedElement {
+    val RoboticPlatform[*] platforms;
+    val Controller[*] controllers;
+    val Interface[*] interfaces;
+    val PrimitiveType[*] primitiveTypes;
+    val CompositeType[*] compositeTypes;
+    val Function[*] functions;
+}

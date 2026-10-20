@@ -1,0 +1,104 @@
+{
+  "requirements": [
+    {
+      "id": "SR-ARCH1",
+      "name": "SystemArchitecture",
+      "kind": "Non-Functional Requirement",
+      "priority": "1",
+      "types": [
+        "architecture"
+      ],
+      "description": "The SRanger system is a small ground robot that travels in a straight line and turns in place when it detects an obstacle. The robot carries a single infrared (IR) distance sensor mounted facing forward and a differential-drive motor pair that accepts a combined linear / angular velocity command. The controller is reactive: its only sensor input is the IR-driven obstacle event; a system-level endTask event is available to halt the controller. The controller issues motor commands as advisory events to the differential-drive layer."
+    },
+    {
+      "id": "SR-ARCH2",
+      "name": "ControllerArchitecture",
+      "kind": "Non-Functional Requirement",
+      "priority": "1",
+      "types": [
+        "architecture"
+      ],
+      "description": "The SRanger controller is composed of: (1) a Sensor interface that exposes the latest IR distance reading, (2) an Actuator interface that records the last motor command, (3) a small set of state variables (notably a clock-reset timestamp for the timed Turning \u2192 Moving transition), and (4) a single state machine that selects transitions based on the input event, the IR distance, and the elapsed time in the current mode."
+    },
+    {
+      "id": "SR-DM1",
+      "name": "SRangerMode",
+      "kind": "Non-Functional Requirement",
+      "priority": "1",
+      "types": [
+        "data_type"
+      ],
+      "description": "The SRanger controller has exactly three operating modes: Moving (initial mode \u2014 the robot drives forward at the configured linear velocity), Turning (the robot rotates in place at the configured angular velocity), and Final (a terminal mode entered when the operator issues endTask). At start-up the controller is in Moving."
+    },
+    {
+      "id": "SR-DM2",
+      "name": "SRangerConstants",
+      "kind": "Non-Functional Requirement",
+      "priority": "1",
+      "types": [
+        "constants"
+      ],
+      "description": "The SRanger controller defines four real-valued constants: moveVel (default 1.0, m/s \u2014 linear velocity command when Moving), turnVel (default 2.0, rad/s \u2014 angular velocity command when Turning), obstacleThreshold (default 0.5, metres \u2014 IR-distance threshold for the obstacle-detection condition), and turnDuration (default 2.0, seconds \u2014 how long the controller remains in Turning before returning to Moving). All four are fixed configuration constants for the controller."
+    },
+    {
+      "id": "SR-DM3",
+      "name": "InputEvent",
+      "kind": "Non-Functional Requirement",
+      "priority": "1",
+      "types": [
+        "event"
+      ],
+      "description": "The SRanger controller receives input events from three sources. obstacle (signal, no payload) \u2014 emitted by the IR sensor framework when the distance reading crosses below obstacleThreshold. tick (signal, no payload) \u2014 delivered each control cycle by the system framework. endTask (signal, no payload) \u2014 emitted by the operator-level shutdown channel to terminate the controller into Final."
+    },
+    {
+      "id": "SR-DM4",
+      "name": "OutputEvent",
+      "kind": "Non-Functional Requirement",
+      "priority": "1",
+      "types": [
+        "event"
+      ],
+      "description": "The SRanger controller emits a single output event, Move, carrying two real values \u2014 a linear velocity and an angular velocity \u2014 a combined command to the differential-drive layer. The same event covers forward motion (Move(moveVel, 0)), turning in place (Move(0, turnVel)), and stopping (Move(0, 0)); the controller introduces no other output events."
+    },
+    {
+      "id": "SR-DM5",
+      "name": "SensorInterface",
+      "kind": "Non-Functional Requirement",
+      "priority": "1",
+      "types": [
+        "data_type"
+      ],
+      "description": "The Sensor exposes the latest IR distance reading: distance() returns a real number in metres, non-negative. When no reading is available (e.g., the sensor has not yet been initialised), distance() returns a large default value so that the obstacle-detection condition is not falsely triggered by missing data."
+    },
+    {
+      "id": "SR-DM6",
+      "name": "Actuator",
+      "kind": "Non-Functional Requirement",
+      "priority": "1",
+      "types": [
+        "actuator"
+      ],
+      "description": "The Actuator receives Move(lv, av) events from the controller and stores the latest issued command. The Actuator exposes the last commanded linear and angular velocity for inspection. No other output channels exist."
+    },
+    {
+      "id": "SR-SF1",
+      "name": "Distance",
+      "kind": "Non-Functional Requirement",
+      "priority": "1",
+      "types": [
+        "function"
+      ],
+      "description": "The Sensor provides a function distance() that returns the latest IR distance reading. The reading is in metres, non-negative, and is the only sensor measurement the SRanger controller consumes."
+    },
+    {
+      "id": "SR-Var1",
+      "name": "Variable_clockResetTime",
+      "kind": "Functional Requirement",
+      "priority": "1",
+      "types": [
+        "variable"
+      ],
+      "description": "The controller maintains a real variable clockResetTime (seconds) recording when the controller most recently entered the Turning state. It is set to the current time as an entry action on the Moving \u2192 Turning transition. The autonomous Turning \u2192 Moving transition fires when the elapsed time since clockResetTime is at or above turnDuration."
+    }
+  ]
+}

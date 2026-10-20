@@ -1,0 +1,1264 @@
+{
+    "model_trace": [
+        {
+            "requirement_gid": "SR-ARCH1",
+            "Model_Element": "System",
+            "Model_Element_id": "SRanger",
+            "Model_attribute": "name",
+            "Attribute_value": "SRanger",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 2,
+                "line_end": 2,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Controller",
+            "Model_Element_id": "SRangerController",
+            "Model_attribute": "name",
+            "Attribute_value": "SRangerController",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 5,
+                "line_end": 5,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM5",
+            "Model_Element": "Sensor",
+            "Model_Element_id": "Sensor",
+            "Model_attribute": "name",
+            "Attribute_value": "Sensor",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 7,
+                "line_end": 7,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM6",
+            "Model_Element": "Actuator",
+            "Model_Element_id": "Actuator",
+            "Model_attribute": "name",
+            "Attribute_value": "Actuator",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 10,
+                "line_end": 10,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "StateMachine",
+            "Model_Element_id": "SRangerStateMachine",
+            "Model_attribute": "name",
+            "Attribute_value": "SRangerStateMachine",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 14,
+                "line_end": 14,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-Var1",
+            "Model_Element": "StateVariable",
+            "Model_Element_id": "clockResetTime",
+            "Model_attribute": "name",
+            "Attribute_value": "clockResetTime",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 16,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-Var1",
+            "Model_Element": "StateVariable",
+            "Model_Element_id": "clockResetTime",
+            "Model_attribute": "value",
+            "Attribute_value": 0.0,
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 16,
+                "line_end": 16,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Constant",
+            "Model_Element_id": "moveVel",
+            "Model_attribute": "name",
+            "Attribute_value": "moveVel",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 20,
+                "line_end": 20,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Constant",
+            "Model_Element_id": "moveVel",
+            "Model_attribute": "value",
+            "Attribute_value": 1.0,
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 20,
+                "line_end": 20,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Constant",
+            "Model_Element_id": "turnVel",
+            "Model_attribute": "name",
+            "Attribute_value": "turnVel",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 24,
+                "line_end": 24,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Constant",
+            "Model_Element_id": "turnVel",
+            "Model_attribute": "value",
+            "Attribute_value": 2.0,
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 24,
+                "line_end": 24,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Constant",
+            "Model_Element_id": "obstacleThreshold",
+            "Model_attribute": "name",
+            "Attribute_value": "obstacleThreshold",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 28,
+                "line_end": 28,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Constant",
+            "Model_Element_id": "obstacleThreshold",
+            "Model_attribute": "value",
+            "Attribute_value": 0.5,
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 28,
+                "line_end": 28,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Constant",
+            "Model_Element_id": "turnDuration",
+            "Model_attribute": "name",
+            "Attribute_value": "turnDuration",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 32,
+                "line_end": 32,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Constant",
+            "Model_Element_id": "turnDuration",
+            "Model_attribute": "value",
+            "Attribute_value": 2.0,
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 32,
+                "line_end": 32,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Controller",
+            "Model_Element_id": "SRangerController",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "sensor",
+            "Reference_value": "Sensor",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 5,
+                "line_end": 5,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Controller",
+            "Model_Element_id": "SRangerController",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "actuator",
+            "Reference_value": "Actuator",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 5,
+                "line_end": 5,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Controller",
+            "Model_Element_id": "SRangerController",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "stateMachine",
+            "Reference_value": "SRangerStateMachine",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 5,
+                "line_end": 5,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-Var1",
+            "Model_Element": "Controller",
+            "Model_Element_id": "SRangerController",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "stateVariables",
+            "Reference_value": "clockResetTime",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 5,
+                "line_end": 5,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Controller",
+            "Model_Element_id": "SRangerController",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "constants",
+            "Reference_value": "moveVel",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 5,
+                "line_end": 5,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Controller",
+            "Model_Element_id": "SRangerController",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "constants",
+            "Reference_value": "turnVel",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 5,
+                "line_end": 5,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Controller",
+            "Model_Element_id": "SRangerController",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "constants",
+            "Reference_value": "obstacleThreshold",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 5,
+                "line_end": 5,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM2",
+            "Model_Element": "Controller",
+            "Model_Element_id": "SRangerController",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "constants",
+            "Reference_value": "turnDuration",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 5,
+                "line_end": 5,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM3",
+            "Model_Element": "InputEvent",
+            "Model_Element_id": "obstacle",
+            "Model_attribute": "name",
+            "Attribute_value": "obstacle",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 45,
+                "line_end": 45,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM3",
+            "Model_Element": "InputEvent",
+            "Model_Element_id": "tick",
+            "Model_attribute": "name",
+            "Attribute_value": "tick",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 48,
+                "line_end": 48,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM3",
+            "Model_Element": "InputEvent",
+            "Model_Element_id": "endTask",
+            "Model_attribute": "name",
+            "Attribute_value": "endTask",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 51,
+                "line_end": 51,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM3",
+            "Model_Element": "System",
+            "Model_Element_id": "SRanger",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "inputEvents",
+            "Reference_value": "obstacle",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 2,
+                "line_end": 2,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM3",
+            "Model_Element": "System",
+            "Model_Element_id": "SRanger",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "inputEvents",
+            "Reference_value": "tick",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 2,
+                "line_end": 2,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM3",
+            "Model_Element": "System",
+            "Model_Element_id": "SRanger",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "inputEvents",
+            "Reference_value": "endTask",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 2,
+                "line_end": 2,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM3",
+            "Model_Element": "Controller",
+            "Model_Element_id": "SRangerController",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "inputEvents",
+            "Reference_value": "obstacle",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 5,
+                "line_end": 5,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM3",
+            "Model_Element": "Controller",
+            "Model_Element_id": "SRangerController",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "inputEvents",
+            "Reference_value": "tick",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 5,
+                "line_end": 5,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM3",
+            "Model_Element": "Controller",
+            "Model_Element_id": "SRangerController",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "inputEvents",
+            "Reference_value": "endTask",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 5,
+                "line_end": 5,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM4",
+            "Model_Element": "OutputEvent",
+            "Model_Element_id": "Move",
+            "Model_attribute": "name",
+            "Attribute_value": "Move",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 63,
+                "line_end": 63,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM4",
+            "Model_Element": "Command",
+            "Model_Element_id": "MovePayload",
+            "Model_attribute": "name",
+            "Attribute_value": "MovePayload",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 66,
+                "line_end": 66,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM4",
+            "Model_Element": "Command",
+            "Model_Element_id": "MovePayload",
+            "Model_attribute": "linearVelocity",
+            "Attribute_value": 0.0,
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 66,
+                "line_end": 66,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM4",
+            "Model_Element": "Command",
+            "Model_Element_id": "MovePayload",
+            "Model_attribute": "angularVelocity",
+            "Attribute_value": 0.0,
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 66,
+                "line_end": 66,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM4",
+            "Model_Element": "OutputEvent",
+            "Model_Element_id": "Move",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "payload",
+            "Reference_value": "MovePayload",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 63,
+                "line_end": 63,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM4",
+            "Model_Element": "System",
+            "Model_Element_id": "SRanger",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "outputEvents",
+            "Reference_value": "Move",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 2,
+                "line_end": 2,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM4",
+            "Model_Element": "Controller",
+            "Model_Element_id": "SRangerController",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "outputEvents",
+            "Reference_value": "Move",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 5,
+                "line_end": 5,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM6",
+            "Model_Element": "Command",
+            "Model_Element_id": "LastCommand",
+            "Model_attribute": "name",
+            "Attribute_value": "LastCommand",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 76,
+                "line_end": 76,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM6",
+            "Model_Element": "Command",
+            "Model_Element_id": "LastCommand",
+            "Model_attribute": "linearVelocity",
+            "Attribute_value": 0.0,
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 76,
+                "line_end": 76,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM6",
+            "Model_Element": "Command",
+            "Model_Element_id": "LastCommand",
+            "Model_attribute": "angularVelocity",
+            "Attribute_value": 0.0,
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 76,
+                "line_end": 76,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM6",
+            "Model_Element": "Actuator",
+            "Model_Element_id": "Actuator",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "lastCommand",
+            "Reference_value": "LastCommand",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 10,
+                "line_end": 10,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Model_Element": "OperatingMode",
+            "Model_Element_id": "Moving",
+            "Model_attribute": "name",
+            "Attribute_value": "Moving",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 83,
+                "line_end": 83,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Model_Element": "OperatingMode",
+            "Model_Element_id": "Moving",
+            "Model_attribute": "initial",
+            "Attribute_value": true,
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 83,
+                "line_end": 83,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Model_Element": "OperatingMode",
+            "Model_Element_id": "Moving",
+            "Model_attribute": "terminal",
+            "Attribute_value": false,
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 83,
+                "line_end": 83,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Model_Element": "OperatingMode",
+            "Model_Element_id": "Turning",
+            "Model_attribute": "name",
+            "Attribute_value": "Turning",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 88,
+                "line_end": 88,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Model_Element": "OperatingMode",
+            "Model_Element_id": "Turning",
+            "Model_attribute": "initial",
+            "Attribute_value": false,
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 88,
+                "line_end": 88,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Model_Element": "OperatingMode",
+            "Model_Element_id": "Turning",
+            "Model_attribute": "terminal",
+            "Attribute_value": false,
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 88,
+                "line_end": 88,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Model_Element": "OperatingMode",
+            "Model_Element_id": "Final",
+            "Model_attribute": "name",
+            "Attribute_value": "Final",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 93,
+                "line_end": 93,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Model_Element": "OperatingMode",
+            "Model_Element_id": "Final",
+            "Model_attribute": "initial",
+            "Attribute_value": false,
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 93,
+                "line_end": 93,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-DM1",
+            "Model_Element": "OperatingMode",
+            "Model_Element_id": "Final",
+            "Model_attribute": "terminal",
+            "Attribute_value": true,
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 93,
+                "line_end": 93,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "StateMachine",
+            "Model_Element_id": "SRangerStateMachine",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "modes",
+            "Reference_value": "Moving",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 14,
+                "line_end": 14,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "StateMachine",
+            "Model_Element_id": "SRangerStateMachine",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "modes",
+            "Reference_value": "Turning",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 14,
+                "line_end": 14,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "StateMachine",
+            "Model_Element_id": "SRangerStateMachine",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "modes",
+            "Reference_value": "Final",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 14,
+                "line_end": 14,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "MovingToTurning",
+            "Model_attribute": "name",
+            "Attribute_value": "MovingToTurning",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 102,
+                "line_end": 102,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "MovingToTurning",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "source",
+            "Reference_value": "Moving",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 102,
+                "line_end": 102,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "MovingToTurning",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "target",
+            "Reference_value": "Turning",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 102,
+                "line_end": 102,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "MovingToTurning",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "trigger",
+            "Reference_value": "obstacle",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 102,
+                "line_end": 102,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "MovingToTurning",
+            "Model_attribute": "guard",
+            "Attribute_value": "distance < obstacleThreshold",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 102,
+                "line_end": 102,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "MovingToTurning",
+            "Model_attribute": "action",
+            "Attribute_value": "Move(0, turnVel); clockResetTime = currentTime",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 102,
+                "line_end": 102,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "StateMachine",
+            "Model_Element_id": "SRangerStateMachine",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "transitions",
+            "Reference_value": "MovingToTurning",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 14,
+                "line_end": 14,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "TurningToMoving",
+            "Model_attribute": "name",
+            "Attribute_value": "TurningToMoving",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 112,
+                "line_end": 112,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "TurningToMoving",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "source",
+            "Reference_value": "Turning",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 112,
+                "line_end": 112,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "TurningToMoving",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "target",
+            "Reference_value": "Moving",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 112,
+                "line_end": 112,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "TurningToMoving",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "trigger",
+            "Reference_value": "tick",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 112,
+                "line_end": 112,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "TurningToMoving",
+            "Model_attribute": "guard",
+            "Attribute_value": "elapsedTime >= turnDuration",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 112,
+                "line_end": 112,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "TurningToMoving",
+            "Model_attribute": "action",
+            "Attribute_value": "Move(moveVel, 0)",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 112,
+                "line_end": 112,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "StateMachine",
+            "Model_Element_id": "SRangerStateMachine",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "transitions",
+            "Reference_value": "TurningToMoving",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 14,
+                "line_end": 14,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "MovingToFinal",
+            "Model_attribute": "name",
+            "Attribute_value": "MovingToFinal",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 122,
+                "line_end": 122,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "MovingToFinal",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "source",
+            "Reference_value": "Moving",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 122,
+                "line_end": 122,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "MovingToFinal",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "target",
+            "Reference_value": "Final",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 122,
+                "line_end": 122,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "MovingToFinal",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "trigger",
+            "Reference_value": "endTask",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 122,
+                "line_end": 122,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "MovingToFinal",
+            "Model_attribute": "guard",
+            "Attribute_value": "",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 122,
+                "line_end": 122,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "MovingToFinal",
+            "Model_attribute": "action",
+            "Attribute_value": "Move(0, 0)",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 122,
+                "line_end": 122,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "StateMachine",
+            "Model_Element_id": "SRangerStateMachine",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "transitions",
+            "Reference_value": "MovingToFinal",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 14,
+                "line_end": 14,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "TurningToFinal",
+            "Model_attribute": "name",
+            "Attribute_value": "TurningToFinal",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 132,
+                "line_end": 132,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "TurningToFinal",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "source",
+            "Reference_value": "Turning",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 132,
+                "line_end": 132,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "TurningToFinal",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "target",
+            "Reference_value": "Final",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 132,
+                "line_end": 132,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "TurningToFinal",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "trigger",
+            "Reference_value": "endTask",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 132,
+                "line_end": 132,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "TurningToFinal",
+            "Model_attribute": "guard",
+            "Attribute_value": "",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 132,
+                "line_end": 132,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "Transition",
+            "Model_Element_id": "TurningToFinal",
+            "Model_attribute": "action",
+            "Attribute_value": "Move(0, 0)",
+            "Model_reference": "",
+            "Reference_value": "",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 132,
+                "line_end": 132,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH2",
+            "Model_Element": "StateMachine",
+            "Model_Element_id": "SRangerStateMachine",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "transitions",
+            "Reference_value": "TurningToFinal",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 14,
+                "line_end": 14,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SR-ARCH1",
+            "Model_Element": "System",
+            "Model_Element_id": "SRanger",
+            "Model_attribute": "",
+            "Attribute_value": "",
+            "Model_reference": "controller",
+            "Reference_value": "SRangerController",
+            "source": {
+                "file": "result_model.eol",
+                "line_start": 2,
+                "line_end": 2,
+                "resolved": true
+            }
+        }
+    ]
+}

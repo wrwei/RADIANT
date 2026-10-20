@@ -1,0 +1,72 @@
+{
+  "run_001": {
+    "file": "result_behaviour_complete.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_002": {
+    "file": "result_behaviour_complete.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_003": {
+    "file": "result_behaviour_complete.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_004": {
+    "file": "result_behaviour_complete.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_005": {
+    "file": "result_behaviour_complete.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_006": {
+    "file": "result_behaviour_complete.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_007": {
+    "file": "result_behaviour_complete.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_008": {
+    "file": "result_behaviour_complete.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_009": {
+    "file": "result_behaviour_complete.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  },
+  "run_010": {
+    "file": "result_behaviour_complete.rct",
+    "ok": true,
+    "unverifiable": false,
+    "assertions": "6",
+    "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+  }
+}
