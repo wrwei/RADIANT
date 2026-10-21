@@ -52,6 +52,7 @@ attempt).
 | Table 1, † rows (DeepSeek-V4, corrected harness) | `case_studies/auv/output/table1_v2/table1_v2.csv` ; `experiment/TABLE1_V2.md`, `BEHAVIOUR_RERUN_2026-10-19.md` |
 | Table 2 (resolvability, coverage) | trace models in `case_studies/auv/output/runs/web_20260530_*/` (three archived runs) |
 | Results: controlled comparison (40/20/10) | `case_studies/auv/output/rq2_v2_arms/`, `rq2_v2_repro_b*/` ; `experiment/RQ2_V2.md` |
+| Acceptance rule (rejected artefact ends the run); single-pass 1/20 | `case_studies/auv/output/halt_rule_rescore.json` ; `experiment/HALT_RULE_2026-10-21.md` |
 | Results: FDR verification | `verification_log.json` per run; `table1_v2/_scores/*/fdr_per_run.json`; `malcom.evaluation/fdr_results.json` |
 | Results: second platform | `case_studies/sranger/output/runs/sranger_deepseek_demo/` (archived, deadlock) ; `output/rerun/` (five re-runs) ; `RERUN_2026-10.md` |
 | Results: effort study; Supp. Tables S1–S2 | `effort_study/` |

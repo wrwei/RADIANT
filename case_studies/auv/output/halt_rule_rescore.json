@@ -1,0 +1,1108 @@
+[
+ {
+  "block": "rq2_v2_arms",
+  "arm": "multi",
+  "run": "run_001",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "multi",
+  "run": "run_002",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": false,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "multi",
+  "run": "run_003",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "multi",
+  "run": "run_004",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "multi",
+  "run": "run_005",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "multi",
+  "run": "run_006",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "multi",
+  "run": "run_007",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "multi",
+  "run": "run_008",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "multi",
+  "run": "run_009",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": false,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "multi",
+  "run": "run_010",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single",
+  "run": "run_001",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single",
+  "run": "run_002",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single",
+  "run": "run_003",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single",
+  "run": "run_004",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single",
+  "run": "run_005",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single",
+  "run": "run_006",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single",
+  "run": "run_007",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single",
+  "run": "run_008",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single",
+  "run": "run_009",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single",
+  "run": "run_010",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single_repair",
+  "run": "run_001",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single_repair",
+  "run": "run_002",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single_repair",
+  "run": "run_003",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single_repair",
+  "run": "run_004",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single_repair",
+  "run": "run_005",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single_repair",
+  "run": "run_006",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single_repair",
+  "run": "run_007",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single_repair",
+  "run": "run_008",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single_repair",
+  "run": "run_009",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_arms",
+  "arm": "single_repair",
+  "run": "run_010",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "multi",
+  "run": "run_001",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "multi",
+  "run": "run_002",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "multi",
+  "run": "run_003",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "multi",
+  "run": "run_004",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "multi",
+  "run": "run_005",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "multi",
+  "run": "run_006",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "multi",
+  "run": "run_007",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "multi",
+  "run": "run_008",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "multi",
+  "run": "run_009",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "multi",
+  "run": "run_010",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "single",
+  "run": "run_001",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "single",
+  "run": "run_002",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "single",
+  "run": "run_003",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "single",
+  "run": "run_004",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "single",
+  "run": "run_005",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "single",
+  "run": "run_006",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "single",
+  "run": "run_007",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "single",
+  "run": "run_008",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "single",
+  "run": "run_009",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b2",
+  "arm": "single",
+  "run": "run_010",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b3",
+  "arm": "multi",
+  "run": "run_001",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b3",
+  "arm": "multi",
+  "run": "run_002",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": false,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b3",
+  "arm": "multi",
+  "run": "run_003",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b3",
+  "arm": "multi",
+  "run": "run_004",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b3",
+  "arm": "multi",
+  "run": "run_005",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b3",
+  "arm": "multi",
+  "run": "run_006",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b3",
+  "arm": "multi",
+  "run": "run_007",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b3",
+  "arm": "multi",
+  "run": "run_008",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b3",
+  "arm": "multi",
+  "run": "run_009",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b3",
+  "arm": "multi",
+  "run": "run_010",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b4",
+  "arm": "multi",
+  "run": "run_001",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": false,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b4",
+  "arm": "multi",
+  "run": "run_002",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b4",
+  "arm": "multi",
+  "run": "run_003",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b4",
+  "arm": "multi",
+  "run": "run_004",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b4",
+  "arm": "multi",
+  "run": "run_005",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b4",
+  "arm": "multi",
+  "run": "run_006",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b4",
+  "arm": "multi",
+  "run": "run_007",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b4",
+  "arm": "multi",
+  "run": "run_008",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b4",
+  "arm": "multi",
+  "run": "run_009",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "rq2_v2_repro_b4",
+  "arm": "multi",
+  "run": "run_010",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": null
+ },
+ {
+  "block": "table1_v2",
+  "arm": "multi",
+  "run": "run_001",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "multi",
+  "run": "run_002",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "multi",
+  "run": "run_003",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "multi",
+  "run": "run_004",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "multi",
+  "run": "run_005",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "multi",
+  "run": "run_006",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "multi",
+  "run": "run_007",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "multi",
+  "run": "run_008",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "multi",
+  "run": "run_009",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "multi",
+  "run": "run_010",
+  "concept_rej": false,
+  "notation_ok": true,
+  "notation_fail": [],
+  "exec_ok": true,
+  "unverif": [],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "single",
+  "run": "run_001",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "single",
+  "run": "run_002",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "single",
+  "run": "run_003",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "single",
+  "run": "run_004",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "single",
+  "run": "run_005",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "single",
+  "run": "run_006",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "single",
+  "run": "run_007",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "single",
+  "run": "run_008",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "single",
+  "run": "run_009",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": true
+ },
+ {
+  "block": "table1_v2",
+  "arm": "single",
+  "run": "run_010",
+  "concept_rej": false,
+  "notation_ok": false,
+  "notation_fail": [
+   "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\""
+  ],
+  "exec_ok": true,
+  "unverif": [
+   "eol_executes"
+  ],
+  "fdr": true
+ }
+]
