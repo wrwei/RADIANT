@@ -1,0 +1,30 @@
+{
+  "concept_extraction": {
+    "status": "accepted",
+    "repair_attempts": 0,
+    "artefact_failures": [],
+    "trace_failures": [
+      "trace_resolved"
+    ],
+    "unverified": [],
+    "checks": {
+      "schema": true,
+      "trace_resolved": false
+    }
+  },
+  "dsml_creation": {
+    "status": "rejected",
+    "repair_attempts": 0,
+    "artefact_failures": [
+      "emfatic_valid: emfatic syntax errors: Encountered \" \"datatype\" \"datatype \"\" at line 3, column 1.\nWas expecting:\n    <EOF> \n    "
+    ],
+    "trace_failures": [
+      "trace_resolved"
+    ],
+    "unverified": [],
+    "checks": {
+      "emfatic_valid": false,
+      "trace_resolved": false
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "run_id": "deepseek_v4_multi_no_repair_run_001",
+  "config_path": "/Users/ranwei/Git/RADIANT_Dev/config.factorial.yaml",
+  "model": {
+    "name": "deepseek-v4-pro",
+    "temperature": 0.0,
+    "api_type": "openai",
+    "api_base_url": "https://api.deepseek.com",
+    "api_key_env": "DEEPSEEK_API_KEY"
+  },
+  "created_at": "2026-10-21T08:47:43.390072+00:00",
+  "updated_at": "2026-10-21T09:14:03.488153+00:00",
+  "stages": {
+    "concept_extraction": {
+      "artifacts": [
+        {
+          "file": "result_concept_trace.json",
+          "latest_path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_smoke/deepseek_v4/multi_no_repair/run_001/result_concept_trace.json",
+          "archived_path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_smoke/deepseek_v4/multi_no_repair/run_001/runs/deepseek_v4_multi_no_repair_run_001/result_concept_trace.json",
+          "size": 69968,
+          "updated_at": "2026-10-21T08:47:43.390072+00:00"
+        },
+        {
+          "file": "result_concept_model.json",
+          "latest_path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_smoke/deepseek_v4/multi_no_repair/run_001/result_concept_model.json",
+          "archived_path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_smoke/deepseek_v4/multi_no_repair/run_001/runs/deepseek_v4_multi_no_repair_run_001/result_concept_model.json",
+          "size": 6325,
+          "updated_at": "2026-10-21T08:47:43.392626+00:00"
+        }
+      ],
+      "updated_at": "2026-10-21T08:47:43.392626+00:00"
+    },
+    "dsml_creation": {
+      "artifacts": [
+        {
+          "file": "result_dsml.emf",
+          "latest_path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_smoke/deepseek_v4/multi_no_repair/run_001/result_dsml.emf",
+          "archived_path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_smoke/deepseek_v4/multi_no_repair/run_001/runs/deepseek_v4_multi_no_repair_run_001/result_dsml.emf",
+          "size": 1135,
+          "updated_at": "2026-10-21T08:57:48.923116+00:00"
+        },
+        {
+          "file": "result_dsml_trace.json",
+          "latest_path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_smoke/deepseek_v4/multi_no_repair/run_001/result_dsml_trace.json",
+          "archived_path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_smoke/deepseek_v4/multi_no_repair/run_001/runs/deepseek_v4_multi_no_repair_run_001/result_dsml_trace.json",
+          "size": 9646,
+          "updated_at": "2026-10-21T08:57:48.927041+00:00"
+        }
+      ],
+      "updated_at": "2026-10-21T08:57:48.927041+00:00"
+    },
+    "emf_model_creation": {
+      "artifacts": [
+        {
+          "file": "result_model.eol",
+          "latest_path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_smoke/deepseek_v4/multi_no_repair/run_001/result_model.eol",
+          "archived_path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_smoke/deepseek_v4/multi_no_repair/run_001/runs/deepseek_v4_multi_no_repair_run_001/result_model.eol",
+          "size": 5120,
+          "updated_at": "2026-10-21T09:09:38.117827+00:00"
+        },
+        {
+          "file": "result_model_trace.json",
+          "latest_path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_smoke/deepseek_v4/multi_no_repair/run_001/result_model_trace.json",
+          "archived_path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_smoke/deepseek_v4/multi_no_repair/run_001/runs/deepseek_v4_multi_no_repair_run_001/result_model_trace.json",
+          "size": 59146,
+          "updated_at": "2026-10-21T09:09:38.130610+00:00"
+        }
+      ],
+      "updated_at": "2026-10-21T09:09:38.130610+00:00"
+    },
+    "behaviour_model_creation": {
+      "artifacts": [
+        {
+          "file": "result_behaviour_model.rct",
+          "latest_path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_smoke/deepseek_v4/multi_no_repair/run_001/result_behaviour_model.rct",
+          "archived_path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_smoke/deepseek_v4/multi_no_repair/run_001/runs/deepseek_v4_multi_no_repair_run_001/result_behaviour_model.rct",
+          "size": 1335,
+          "updated_at": "2026-10-21T09:14:01.516043+00:00"
+        },
+        {
+          "file": "result_behaviour_trace.json",
+          "latest_path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_smoke/deepseek_v4/multi_no_repair/run_001/result_behaviour_trace.json",
+          "archived_path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_smoke/deepseek_v4/multi_no_repair/run_001/runs/deepseek_v4_multi_no_repair_run_001/result_behaviour_trace.json",
+          "size": 321,
+          "updated_at": "2026-10-21T09:14:03.488153+00:00"
+        }
+      ],
+      "updated_at": "2026-10-21T09:14:03.488153+00:00"
+    }
+  }
+}

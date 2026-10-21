@@ -1,0 +1,217 @@
+var auvModule = new M!Module;
+auvModule.name = "AUV_Module";
+
+var natType = new M!PrimitiveType;
+natType.name = "nat";
+auvModule.primitiveTypes.add(natType);
+
+var intType = new M!PrimitiveType;
+intType.name = "int";
+auvModule.primitiveTypes.add(intType);
+
+var stringType = new M!PrimitiveType;
+stringType.name = "string";
+auvModule.primitiveTypes.add(stringType);
+
+var booleanType = new M!PrimitiveType;
+booleanType.name = "boolean";
+auvModule.primitiveTypes.add(booleanType);
+
+var realType = new M!PrimitiveType;
+realType.name = "real";
+auvModule.primitiveTypes.add(realType);
+
+var svec = new M!CompositeType;
+svec.name = "SVec";
+
+var svecRadial = new M!Value;
+svecRadial.name = "radial";
+svecRadial.type = realType;
+svec.values.add(svecRadial);
+
+var svecPolar = new M!Value;
+svecPolar.name = "polar";
+svecPolar.type = realType;
+svec.values.add(svecPolar);
+
+var svecAzimuth = new M!Value;
+svecAzimuth.name = "azimuth";
+svecAzimuth.type = realType;
+svec.values.add(svecAzimuth);
+
+auvModule.compositeTypes.add(svec);
+
+var obstacleType = new M!CompositeType;
+obstacleType.name = "Obstacle";
+
+var nsRelDist = new M!Value;
+nsRelDist.name = "ns_rel_dist";
+nsRelDist.type = realType;
+obstacleType.values.add(nsRelDist);
+
+var ewRelDist = new M!Value;
+ewRelDist.name = "ew_rel_dist";
+ewRelDist.type = realType;
+obstacleType.values.add(ewRelDist);
+
+var obstacleDepth = new M!Value;
+obstacleDepth.name = "depth";
+obstacleDepth.type = realType;
+obstacleType.values.add(obstacleDepth);
+
+var obstacleId = new M!Value;
+obstacleId.name = "id";
+obstacleId.type = realType;
+obstacleType.values.add(obstacleId);
+
+var obstacleHdng = new M!Value;
+obstacleHdng.name = "obs_hdng";
+obstacleHdng.type = svec;
+obstacleType.values.add(obstacleHdng);
+
+auvModule.compositeTypes.add(obstacleType);
+
+var closeType = new M!CompositeType;
+closeType.name = "Close";
+
+var horizCda = new M!Value;
+horizCda.name = "horiz_cda";
+horizCda.type = realType;
+closeType.values.add(horizCda);
+
+var vertCda = new M!Value;
+vertCda.name = "vert_cda";
+vertCda.type = realType;
+closeType.values.add(vertCda);
+
+var closeId = new M!Value;
+closeId.name = "id";
+closeId.type = natType;
+closeType.values.add(closeId);
+
+auvModule.compositeTypes.add(closeType);
+
+var sensors = new M!Interface;
+sensors.name = "Sensors";
+
+var sensorDepth = new M!Value;
+sensorDepth.name = "depth";
+sensorDepth.type = realType;
+sensors.values.add(sensorDepth);
+
+var sensorHdng = new M!Value;
+sensorHdng.name = "hdng";
+sensorHdng.type = svec;
+sensors.values.add(sensorHdng);
+
+var sensorObs = new M!Value;
+sensorObs.name = "obs";
+sensorObs.type = obstacleType;
+sensors.values.add(sensorObs);
+
+auvModule.interfaces.add(sensors);
+
+var intpus = new M!Interface;
+intpus.name = "Intpus";
+
+var endTask = new M!Event;
+endTask.name = "endTask";
+intpus.events.add(endTask);
+
+var reqOCM = new M!Event;
+reqOCM.name = "reqOCM";
+intpus.events.add(reqOCM);
+
+var reqMOM = new M!Event;
+reqMOM.name = "reqMOM";
+intpus.events.add(reqMOM);
+
+var reqHCM = new M!Event;
+reqHCM.name = "reqHCM";
+intpus.events.add(reqHCM);
+
+var reqVel = new M!Event;
+reqVel.name = "reqVel";
+reqVel.returnType = realType;
+intpus.events.add(reqVel);
+
+var reqHdng = new M!Event;
+reqHdng.name = "reqHdng";
+reqHdng.returnType = realType;
+intpus.events.add(reqHdng);
+
+auvModule.interfaces.add(intpus);
+
+var outputs = new M!Interface;
+outputs.name = "Outputs";
+
+var advVel = new M!Event;
+advVel.name = "advVel";
+var advVelParam = new M!Parameter;
+advVelParam.name = "vel";
+advVelParam.type = realType;
+advVel.parameters.add(advVelParam);
+outputs.events.add(advVel);
+
+var advHdng = new M!Event;
+advHdng.name = "advHdng";
+var advHdngParam = new M!Parameter;
+advHdngParam.name = "hdng";
+advHdngParam.type = realType;
+advHdng.parameters.add(advHdngParam);
+outputs.events.add(advHdng);
+
+auvModule.interfaces.add(outputs);
+
+var actuators = new M!Interface;
+actuators.name = "Actuators";
+auvModule.interfaces.add(actuators);
+
+var auvPlatform = new M!RoboticPlatform;
+auvPlatform.name = "AUV_Platform";
+auvPlatform.uses.add(sensors);
+auvPlatform.uses.add(actuators);
+auvModule.platforms.add(auvPlatform);
+
+var auvOperator = new M!Controller;
+auvOperator.name = "AUV_Operator";
+auvOperator.uses.add(intpus);
+auvModule.controllers.add(auvOperator);
+
+var lreCtrl = new M!Controller;
+lreCtrl.name = "LRE_Ctrl";
+lreCtrl.uses.add(intpus);
+lreCtrl.uses.add(outputs);
+auvModule.controllers.add(lreCtrl);
+
+var auvAutopilot = new M!Controller;
+auvAutopilot.name = "AUV_Autopilot";
+auvAutopilot.uses.add(outputs);
+auvModule.controllers.add(auvAutopilot);
+
+var odist = new M!Function;
+odist.name = "odist";
+var odistParam = new M!Parameter;
+odistParam.name = "obstacle";
+odistParam.type = obstacleType;
+odist.parameters.add(odistParam);
+odist.returnType = realType;
+auvModule.functions.add(odist);
+
+var hdist = new M!Function;
+hdist.name = "hdist";
+var hdistParam = new M!Parameter;
+hdistParam.name = "obstacle";
+hdistParam.type = obstacleType;
+hdist.parameters.add(hdistParam);
+hdist.returnType = realType;
+auvModule.functions.add(hdist);
+
+var vdist = new M!Function;
+vdist.name = "vdist";
+var vdistParam = new M!Parameter;
+vdistParam.name = "obstacle";
+vdistParam.type = obstacleType;
+vdist.parameters.add(vdistParam);
+vdist.returnType = realType;
+auvModule.functions.add(vdist);

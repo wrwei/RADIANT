@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<auv:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:auv="http://generated/auv" name="AUV_Module">
+  <platforms name="AUV_Platform"/>
+  <controllers name="AUV_Operator"/>
+  <controllers name="LRE_Ctrl"/>
+  <controllers name="AUV_Autopilot"/>
+  <primitiveTypes name="nat"/>
+  <primitiveTypes name="int"/>
+  <primitiveTypes name="string"/>
+  <primitiveTypes name="boolean"/>
+  <primitiveTypes name="real"/>
+  <compositeTypes name="SVec">
+    <values name="radial" type="//@primitiveTypes.4"/>
+    <values name="polar" type="//@primitiveTypes.4"/>
+    <values name="azimuth" type="//@primitiveTypes.4"/>
+  </compositeTypes>
+  <compositeTypes name="Obstacle">
+    <values name="ns_rel_dist" type="//@primitiveTypes.4"/>
+    <values name="ew_rel_dist" type="//@primitiveTypes.4"/>
+    <values name="depth" type="//@primitiveTypes.4"/>
+    <values name="id" type="//@primitiveTypes.4"/>
+    <values name="obs_hdng" type="//@compositeTypes.0"/>
+  </compositeTypes>
+  <compositeTypes name="Close">
+    <values name="horiz_cda" type="//@primitiveTypes.4"/>
+    <values name="vert_cda" type="//@primitiveTypes.4"/>
+    <values name="id" type="//@primitiveTypes.0"/>
+  </compositeTypes>
+</auv:Module>

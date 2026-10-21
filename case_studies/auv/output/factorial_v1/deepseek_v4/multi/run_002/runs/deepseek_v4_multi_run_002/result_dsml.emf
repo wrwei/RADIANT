@@ -1,0 +1,76 @@
+package auv;
+
+datatype nat;
+datatype int;
+datatype string;
+datatype boolean;
+datatype real;
+
+abstract class NamedElement {
+    attr String name;
+}
+
+abstract class InterfaceUser extends NamedElement {
+    ref Interface[*] interfaces;
+}
+
+class Module extends NamedElement {
+    val RoboticPlatform[*] platforms;
+    val Controller[*] controllers;
+    val Interface[*] interfaces;
+    op real odist(Obstacle o);
+    op real hdist(Obstacle o);
+    op real vdist(Obstacle o);
+}
+
+class RoboticPlatform extends InterfaceUser {
+}
+
+class Controller extends InterfaceUser {
+}
+
+abstract class Interface extends NamedElement {
+}
+
+class Sensors extends Interface {
+    attr real depth;
+    val SVec hdng;
+    val Obstacle obs;
+}
+
+class Inputs extends Interface {
+    op endTask();
+    op reqOCM();
+    op reqMOM();
+    op reqHCM();
+    op real reqVel();
+    op real reqHdng();
+}
+
+class Outputs extends Interface {
+    op advVel(real v);
+    op advHdng(real h);
+}
+
+class Actuators extends Interface {
+}
+
+class SVec {
+    attr real radial;
+    attr real polar;
+    attr real azimuth;
+}
+
+class Obstacle {
+    attr real ns_rel_dist;
+    attr real ew_rel_dist;
+    attr real depth;
+    attr real id;
+    val SVec obs_hdng;
+}
+
+class Close {
+    attr real horiz_cda;
+    attr real vert_cda;
+    attr nat id;
+}

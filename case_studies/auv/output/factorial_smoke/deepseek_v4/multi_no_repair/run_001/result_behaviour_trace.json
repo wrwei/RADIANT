@@ -1,0 +1,16 @@
+{
+    "stm_trace": [
+        {
+            "source": {
+                "file": "result_behaviour_model.rct",
+                "resolved": false
+            }
+        },
+        {
+            "source": {
+                "file": "result_behaviour_model.rct",
+                "resolved": false
+            }
+        }
+    ]
+}

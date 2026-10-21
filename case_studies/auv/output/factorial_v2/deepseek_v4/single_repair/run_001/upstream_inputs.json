@@ -1,0 +1,32 @@
+{
+  "dsml_creation": {
+    "extracted_terms": {
+      "path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_v2/deepseek_v4/single_repair/run_001/result_concept_model.json",
+      "source": "run"
+    }
+  },
+  "emf_model_creation": {
+    "extracted_terms": {
+      "path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_v2/deepseek_v4/single_repair/run_001/result_concept_model.json",
+      "source": "run"
+    },
+    "dsl_source": {
+      "path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_v2/deepseek_v4/single_repair/run_001/result_dsml.emf",
+      "source": "run"
+    }
+  },
+  "behaviour_model_creation": {
+    "extracted_terms": {
+      "path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_v2/deepseek_v4/single_repair/run_001/result_concept_model.json",
+      "source": "run"
+    },
+    "dsl_source": {
+      "path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_v2/deepseek_v4/single_repair/run_001/result_dsml.emf",
+      "source": "run"
+    },
+    "model_source": {
+      "path": "/Users/ranwei/Git/RADIANT_Dev/case_studies/auv/output/factorial_v2/deepseek_v4/single_repair/run_001/result_model.eol",
+      "source": "run"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "concept_extraction": {
+    "status": "accepted",
+    "repair_attempts": 0,
+    "artefact_failures": [],
+    "trace_failures": [
+      "trace_resolved"
+    ],
+    "unverified": [],
+    "checks": {
+      "schema": true,
+      "trace_resolved": false
+    }
+  },
+  "dsml_creation": {
+    "status": "accepted",
+    "repair_attempts": 0,
+    "artefact_failures": [],
+    "trace_failures": [],
+    "unverified": [],
+    "checks": {
+      "emfatic_valid": true,
+      "trace_resolved": true
+    }
+  },
+  "emf_model_creation": {
+    "status": "accepted",
+    "repair_attempts": 0,
+    "artefact_failures": [],
+    "trace_failures": [
+      "trace_resolved"
+    ],
+    "unverified": [],
+    "checks": {
+      "eol_executes": true,
+      "trace_resolved": false
+    }
+  },
+  "behaviour_model_creation": {
+    "status": "accepted",
+    "repair_attempts": 0,
+    "artefact_failures": [],
+    "trace_failures": [
+      "trace_resolved"
+    ],
+    "unverified": [],
+    "checks": {
+      "robochart_parses": true,
+      "stm_structure": true,
+      "behaviour_assembles": true,
+      "fdr4_refinement": true,
+      "trace_resolved": false
+    }
+  }
+}

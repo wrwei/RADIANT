@@ -1,0 +1,290 @@
+{
+    "dsl_trace": [
+        {
+            "requirement_gid": "SD1",
+            "Emfatic_class": "AUV_Module",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 91,
+                "line_end": 95,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD2",
+            "Emfatic_class": "AUV_Platform",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 69,
+                "line_end": 70,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD3",
+            "Emfatic_class": "AUV_Operator",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 75,
+                "line_end": 76,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD4",
+            "Emfatic_class": "LRE_Ctrl",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 78,
+                "line_end": 79,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD5",
+            "Emfatic_class": "AUV_Autopilot",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 81,
+                "line_end": 82,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "PT1",
+            "Emfatic_class": "nat",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "resolved": false
+            }
+        },
+        {
+            "requirement_gid": "PT2",
+            "Emfatic_class": "int",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "resolved": false
+            }
+        },
+        {
+            "requirement_gid": "PT3",
+            "Emfatic_class": "string",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "resolved": false
+            }
+        },
+        {
+            "requirement_gid": "PT4",
+            "Emfatic_class": "boolean",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "resolved": false
+            }
+        },
+        {
+            "requirement_gid": "PT5",
+            "Emfatic_class": "real",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "resolved": false
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Emfatic_class": "SVec",
+            "Emfatic_attributes": [
+                "attr real radial",
+                "attr real polar",
+                "attr real azimuth"
+            ],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 46,
+                "line_end": 50,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Emfatic_class": "Obstacle",
+            "Emfatic_attributes": [
+                "attr real ns_rel_dist",
+                "attr real ew_rel_dist",
+                "attr real depth",
+                "attr real id"
+            ],
+            "Emfatic_references": [
+                "val SVec obs_hdng"
+            ],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 52,
+                "line_end": 58,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CF3",
+            "Emfatic_class": "Close",
+            "Emfatic_attributes": [
+                "attr real horiz_cda",
+                "attr real vert_cda",
+                "attr nat id"
+            ],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 60,
+                "line_end": 64,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Emfatic_class": "Sensors",
+            "Emfatic_attributes": [
+                "attr real depth"
+            ],
+            "Emfatic_references": [
+                "val SVec hdng",
+                "val Obstacle obs"
+            ],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 16,
+                "line_end": 20,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Emfatic_class": "Inputs",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [
+                "op void endTask()",
+                "op void reqOCM()",
+                "op void reqMOM()",
+                "op void reqHCM()",
+                "op real reqVel()",
+                "op real reqHdng()"
+            ],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 22,
+                "line_end": 29,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Emfatic_class": "Outputs",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [
+                "op void advVel(real p)",
+                "op void advHdng(real p)"
+            ],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 31,
+                "line_end": 34,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface4",
+            "Emfatic_class": "Actuators",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 36,
+                "line_end": 37,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F1",
+            "Emfatic_class": "AUV_Module",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [
+                "op real odist(Obstacle o)"
+            ],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 91,
+                "line_end": 95,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F2",
+            "Emfatic_class": "AUV_Module",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [
+                "op real hdist(Obstacle o)"
+            ],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 91,
+                "line_end": 95,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Platform-F3",
+            "Emfatic_class": "AUV_Module",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [
+                "op real vdist(Obstacle o)"
+            ],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 91,
+                "line_end": 95,
+                "resolved": true
+            }
+        }
+    ]
+}

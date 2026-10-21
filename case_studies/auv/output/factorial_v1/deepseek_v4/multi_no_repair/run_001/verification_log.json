@@ -1,0 +1,48 @@
+[
+  {
+    "stage": "concept_extraction",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "4 unresolved trace entries (e.g. Interface2, Interface2, Interface3, Interface3)"
+      }
+    ],
+    "at": "2026-10-21T09:41:11+00:00"
+  },
+  {
+    "stage": "dsml_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "emfatic_valid",
+        "kind": "structural",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "emfatic syntax errors: Encountered \" \"datatype\" \"datatype \"\" at line 3, column 1.\nWas expecting:\n    <EOF> \n    "
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "5 unresolved trace entries (e.g. PT1, PT2, PT3, PT4, PT5)"
+      }
+    ],
+    "at": "2026-10-21T09:49:07+00:00"
+  }
+]

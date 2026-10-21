@@ -1,0 +1,28 @@
+# State Machine Quality Evaluation
+
+Primary metric: `behavior_micro_f1` over initial nodes, states, and transition edges. Diagnostic metrics cover transition identifiers, variables, constants, functions, triggers, conditions, and actions.
+
+## Per-run Results
+
+| Run | Syntax | States | Transitions | State F1 | Edge F1 | Behavior Micro F1 | Detail Micro F1 | Full Micro F1 | Error |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| run_001 | 1 | 4/4 | 17/16 | 1.0000 | 1.0000 | 1.0000 | 0.9787 | 0.9870 | - |
+
+## Summary
+
+| Metric | n | Mean | Std | Median | Min | Max |
+|---|---:|---:|---:|---:|---:|---:|
+| syntax_ok | 1 | 1.0000 | 0.0000 | 1.0000 | 1.0000 | 1.0000 |
+| state_f1 | 1 | 1.0000 | 0.0000 | 1.0000 | 1.0000 | 1.0000 |
+| initial_f1 | 1 | 1.0000 | 0.0000 | 1.0000 | 1.0000 | 1.0000 |
+| transition_id_f1 | 1 | 0.7273 | 0.0000 | 0.7273 | 0.7273 | 0.7273 |
+| transition_edge_f1 | 1 | 1.0000 | 0.0000 | 1.0000 | 1.0000 | 1.0000 |
+| behavior_micro_f1 | 1 | 1.0000 | 0.0000 | 1.0000 | 1.0000 | 1.0000 |
+| variable_f1 | 1 | 1.0000 | 0.0000 | 1.0000 | 1.0000 | 1.0000 |
+| constant_f1 | 1 | 1.0000 | 0.0000 | 1.0000 | 1.0000 | 1.0000 |
+| function_f1 | 1 | 1.0000 | 0.0000 | 1.0000 | 1.0000 | 1.0000 |
+| trigger_f1 | 1 | 1.0000 | 0.0000 | 1.0000 | 1.0000 | 1.0000 |
+| condition_f1 | 1 | 0.9412 | 0.0000 | 0.9412 | 0.9412 | 0.9412 |
+| action_f1 | 1 | 1.0000 | 0.0000 | 1.0000 | 1.0000 | 1.0000 |
+| detail_micro_f1 | 1 | 0.9787 | 0.0000 | 0.9787 | 0.9787 | 0.9787 |
+| full_micro_f1 | 1 | 0.9870 | 0.0000 | 0.9870 | 0.9870 | 0.9870 |

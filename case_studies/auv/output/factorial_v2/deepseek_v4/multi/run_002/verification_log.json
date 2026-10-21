@@ -1,0 +1,230 @@
+[
+  {
+    "stage": "concept_extraction",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "4 unresolved trace entries (e.g. Interface2, Interface2, Interface3, Interface3)"
+      }
+    ],
+    "at": "2026-10-21T10:17:25+00:00"
+  },
+  {
+    "stage": "dsml_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "emfatic_valid",
+        "kind": "structural",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "emfatic syntax errors: Encountered \" \"datatype\" \"datatype \"\" at line 3, column 1.\nWas expecting:\n    <EOF> \n    "
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "10 entries resolved"
+      }
+    ],
+    "at": "2026-10-21T10:24:41+00:00"
+  },
+  {
+    "stage": "dsml_creation",
+    "attempt": 1,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "emfatic_valid",
+        "kind": "structural",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "emfatic syntax errors: Encountered \" \"op\" \"op \"\" at line 36, column 5.\nWas expecting:\n    \"}\" ...\n    "
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "10 entries resolved"
+      }
+    ],
+    "at": "2026-10-21T10:30:58+00:00"
+  },
+  {
+    "stage": "dsml_creation",
+    "attempt": 2,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "emfatic_valid",
+        "kind": "structural",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "emfatic syntax errors: Encountered \" \"attr\" \"attr \"\" at line 62, column 5.\nWas expecting:\n    \"}\" ...\n    "
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "10 entries resolved"
+      }
+    ],
+    "at": "2026-10-21T10:33:43+00:00"
+  },
+  {
+    "stage": "dsml_creation",
+    "attempt": 3,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "emfatic_valid",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "emfatic syntax ok (0 warnings)"
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "10 entries resolved"
+      }
+    ],
+    "at": "2026-10-21T10:37:00+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "kind": "structural",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "Exception in thread \"main\" Type 'M!PrimitiveType' not found"
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "8 unresolved trace entries (e.g. CT2, CT2, CT2, CT2, CT2, CT3, CT3, CT3)"
+      }
+    ],
+    "at": "2026-10-21T14:20:11+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 1,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "kind": "structural",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "Exception in thread \"main\" The value of type 'class java.lang.Float' must be of type 'class java.lang.Double'"
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "8 unresolved trace entries (e.g. CT2, CT2, CT2, CT2, CT2, CT3, CT3, CT3)"
+      }
+    ],
+    "at": "2026-10-21T14:21:10+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 2,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "EOL executed; model conforms"
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "8 unresolved trace entries (e.g. CT2, CT2, CT2, CT2, CT2, CT3, CT3, CT3)"
+      }
+    ],
+    "at": "2026-10-21T14:22:26+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "4 state(s): every state has an outgoing transition; no autonomous self-loops; node names unique"
+      },
+      {
+        "name": "behaviour_assembles",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "assembled"
+      },
+      {
+        "name": "fdr4_refinement",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "18 entries resolved"
+      }
+    ],
+    "at": "2026-10-21T14:25:59+00:00"
+  }
+]

@@ -1,0 +1,186 @@
+[
+  {
+    "stage": "concept_extraction",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "4 unresolved trace entries (e.g. Interface2, Interface2, Interface3, Interface3)"
+      }
+    ],
+    "at": "2026-10-21T12:15:58+00:00"
+  },
+  {
+    "stage": "dsml_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "emfatic_valid",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "emfatic syntax ok (0 warnings)"
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "20 entries resolved"
+      }
+    ],
+    "at": "2026-10-21T12:23:24+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "kind": "structural",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "Exception in thread \"main\" Type 'M!Interface' not found"
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "7 unresolved trace entries (e.g. Interface2, Interface2, Interface2, Interface2, Interface2, Interface2, Interface2)"
+      }
+    ],
+    "at": "2026-10-21T12:31:56+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 1,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "kind": "structural",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "Exception in thread \"main\" Type 'M!InterfaceType' not found"
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "7 unresolved trace entries (e.g. Interface2, Interface2, Interface2, Interface2, Interface2, Interface2, Interface2)"
+      }
+    ],
+    "at": "2026-10-21T12:34:10+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 2,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "kind": "structural",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "Exception in thread \"main\" Type 'M!Interface' not found"
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "7 unresolved trace entries (e.g. Interface2, Interface2, Interface2, Interface2, Interface2, Interface2, Interface2)"
+      }
+    ],
+    "at": "2026-10-21T12:35:01+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 3,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "kind": "structural",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "Exception in thread \"main\" Type 'M!InterfaceType' not found"
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "7 unresolved trace entries (e.g. Interface2, Interface2, Interface2, Interface2, Interface2, Interface2, Interface2)"
+      }
+    ],
+    "at": "2026-10-21T12:36:42+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 4,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "kind": "structural",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "Exception in thread \"main\" Type 'M!Interface' not found"
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "7 unresolved trace entries (e.g. Interface2, Interface2, Interface2, Interface2, Interface2, Interface2, Interface2)"
+      }
+    ],
+    "at": "2026-10-21T12:37:06+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 5,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "kind": "structural",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "Exception in thread \"main\" Type 'M!InterfaceType' not found"
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "7 unresolved trace entries (e.g. Interface2, Interface2, Interface2, Interface2, Interface2, Interface2, Interface2)"
+      }
+    ],
+    "at": "2026-10-21T12:38:16+00:00"
+  }
+]

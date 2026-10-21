@@ -1,0 +1,115 @@
+[
+  {
+    "stage": "concept_extraction",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "4 unresolved trace entries (e.g. Interface2, Interface2, Interface3, Interface3)"
+      }
+    ],
+    "at": "2026-10-21T10:02:26+00:00"
+  },
+  {
+    "stage": "dsml_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "emfatic_valid",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "emfatic syntax ok (0 warnings)"
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "20 entries resolved"
+      }
+    ],
+    "at": "2026-10-21T10:10:09+00:00"
+  },
+  {
+    "stage": "emf_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "eol_executes",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "EOL executed; model conforms"
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "133 entries resolved"
+      }
+    ],
+    "at": "2026-10-21T10:20:04+00:00"
+  },
+  {
+    "stage": "behaviour_model_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": true,
+    "checks": [
+      {
+        "name": "robochart_parses",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "RoboChart parsed"
+      },
+      {
+        "name": "stm_structure",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "4 state(s): every state has an outgoing transition; no autonomous self-loops; node names unique"
+      },
+      {
+        "name": "behaviour_assembles",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "assembled"
+      },
+      {
+        "name": "fdr4_refinement",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "6 assertion(s) hold (deadlock/divergence-free)"
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": true,
+        "unverifiable": false,
+        "detail": "18 entries resolved"
+      }
+    ],
+    "at": "2026-10-21T10:24:57+00:00"
+  }
+]

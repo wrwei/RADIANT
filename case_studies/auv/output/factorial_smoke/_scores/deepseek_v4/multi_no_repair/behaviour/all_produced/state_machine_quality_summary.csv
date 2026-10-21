@@ -1,0 +1,15 @@
+metric,n,mean,std,median,min,max
+syntax_ok,1,1.0,0.0,1.0,1.0,1.0
+state_f1,1,1.0,0.0,1.0,1.0,1.0
+initial_f1,1,1.0,0.0,1.0,1.0,1.0
+transition_id_f1,1,1.0,0.0,1.0,1.0,1.0
+transition_edge_f1,1,1.0,0.0,1.0,1.0,1.0
+behavior_micro_f1,1,1.0,0.0,1.0,1.0,1.0
+variable_f1,1,1.0,0.0,1.0,1.0,1.0
+constant_f1,1,1.0,0.0,1.0,1.0,1.0
+function_f1,1,1.0,0.0,1.0,1.0,1.0
+trigger_f1,1,1.0,0.0,1.0,1.0,1.0
+condition_f1,1,1.0,0.0,1.0,1.0,1.0
+action_f1,1,1.0,0.0,1.0,1.0,1.0
+detail_micro_f1,1,1.0,0.0,1.0,1.0,1.0
+full_micro_f1,1,1.0,0.0,1.0,1.0,1.0

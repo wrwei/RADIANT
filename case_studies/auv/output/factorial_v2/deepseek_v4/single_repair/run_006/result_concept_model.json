@@ -1,0 +1,255 @@
+{
+    "concepts": [
+        {
+            "Concept": "Module",
+            "description": "A module is a self-contained unit of the AUV system."
+        },
+        {
+            "Concept": "Robotic Platform",
+            "description": "A robotic platform is a physical platform within the AUV system."
+        },
+        {
+            "Concept": "Interface",
+            "description": "An interface defines a set of values or events."
+        },
+        {
+            "Concept": "Controller",
+            "description": "A controller is a component that controls part of the AUV system."
+        },
+        {
+            "Concept": "Primitive Type",
+            "description": "A primitive type is a basic data type."
+        },
+        {
+            "Concept": "Composite Type",
+            "description": "A composite type is a data type composed of values."
+        },
+        {
+            "Concept": "Value",
+            "description": "A value is a data element of a composite type or interface."
+        },
+        {
+            "Concept": "Event",
+            "description": "An event is a signal or message used in an interface."
+        },
+        {
+            "Concept": "Parameter",
+            "description": "A parameter is an input to an event or function."
+        },
+        {
+            "Concept": "Return Value",
+            "description": "A return value is an output returned by an event or function."
+        },
+        {
+            "Concept": "Function",
+            "description": "A function is an operation that takes inputs and returns outputs."
+        }
+    ],
+    "instances": [
+        {
+            "Instance": "AUV_Module",
+            "Instance_of": "Module",
+            "description": "AUV_Module is the module developed for the AUV system."
+        },
+        {
+            "Instance": "AUV_Platform",
+            "Instance_of": "Robotic Platform",
+            "description": "AUV_Platform is the robotic platform contained in AUV_Module."
+        },
+        {
+            "Instance": "Sensors",
+            "Instance_of": "Interface",
+            "description": "Sensors is an interface used by AUV_Platform."
+        },
+        {
+            "Instance": "Actuators",
+            "Instance_of": "Interface",
+            "description": "Actuators is an interface used by AUV_Platform."
+        },
+        {
+            "Instance": "AUV_Operator",
+            "Instance_of": "Controller",
+            "description": "AUV_Operator is the controller contained in AUV_Module."
+        },
+        {
+            "Instance": "Inputs",
+            "Instance_of": "Interface",
+            "description": "Inputs is an interface used by AUV_Operator."
+        },
+        {
+            "Instance": "LRE_Ctrl",
+            "Instance_of": "Controller",
+            "description": "LRE_Ctrl is the Last Response Engine controller contained in AUV_Module."
+        },
+        {
+            "Instance": "Outputs",
+            "Instance_of": "Interface",
+            "description": "Outputs is an interface used by LRE_Ctrl."
+        },
+        {
+            "Instance": "AUV_Autopilot",
+            "Instance_of": "Controller",
+            "description": "AUV_Autopilot is the autopilot controller contained in AUV_Module."
+        },
+        {
+            "Instance": "nat",
+            "Instance_of": "Primitive Type",
+            "description": "nat is the primitive type for natural numbers."
+        },
+        {
+            "Instance": "int",
+            "Instance_of": "Primitive Type",
+            "description": "int is the primitive type for integers."
+        },
+        {
+            "Instance": "string",
+            "Instance_of": "Primitive Type",
+            "description": "string is the primitive type for string values."
+        },
+        {
+            "Instance": "boolean",
+            "Instance_of": "Primitive Type",
+            "description": "boolean is the primitive type for boolean values."
+        },
+        {
+            "Instance": "real",
+            "Instance_of": "Primitive Type",
+            "description": "real is the primitive type for real numbers."
+        },
+        {
+            "Instance": "SVec",
+            "Instance_of": "Composite Type",
+            "description": "SVec is a composite type representing a spherical vector."
+        },
+        {
+            "Instance": "radial",
+            "Instance_of": "Value",
+            "description": "radial is a value recorded in SVec."
+        },
+        {
+            "Instance": "polar",
+            "Instance_of": "Value",
+            "description": "polar is a value recorded in SVec."
+        },
+        {
+            "Instance": "azimuth",
+            "Instance_of": "Value",
+            "description": "azimuth is a value recorded in SVec."
+        },
+        {
+            "Instance": "Obstacle",
+            "Instance_of": "Composite Type",
+            "description": "Obstacle is a composite type representing an obstacle."
+        },
+        {
+            "Instance": "ns_rel_dist",
+            "Instance_of": "Value",
+            "description": "ns_rel_dist is a value recorded in Obstacle."
+        },
+        {
+            "Instance": "ew_rel_dist",
+            "Instance_of": "Value",
+            "description": "ew_rel_dist is a value recorded in Obstacle."
+        },
+        {
+            "Instance": "depth",
+            "Instance_of": "Value",
+            "description": "depth is a value recorded in Obstacle."
+        },
+        {
+            "Instance": "id",
+            "Instance_of": "Value",
+            "description": "id is a value recorded in Obstacle."
+        },
+        {
+            "Instance": "obs_hdng",
+            "Instance_of": "Value",
+            "description": "obs_hdng is a value recorded in Obstacle."
+        },
+        {
+            "Instance": "hdng",
+            "Instance_of": "Value",
+            "description": "hdng is a value contained in the Sensors interface."
+        },
+        {
+            "Instance": "obs",
+            "Instance_of": "Value",
+            "description": "obs is a value contained in the Sensors interface."
+        },
+        {
+            "Instance": "Intpus",
+            "Instance_of": "Interface",
+            "description": "Intpus is an interface that defines the specified events."
+        },
+        {
+            "Instance": "endTask",
+            "Instance_of": "Event",
+            "description": "endTask is an event that ends a task."
+        },
+        {
+            "Instance": "reqOCM",
+            "Instance_of": "Event",
+            "description": "reqOCM is an event that requests OCM."
+        },
+        {
+            "Instance": "reqMOM",
+            "Instance_of": "Event",
+            "description": "reqMOM is an event that requests MOM."
+        },
+        {
+            "Instance": "reqHCM",
+            "Instance_of": "Event",
+            "description": "reqHCM is an event that requests HCM."
+        },
+        {
+            "Instance": "reqVel",
+            "Instance_of": "Event",
+            "description": "reqVel is an event that requests velocity and returns a real value."
+        },
+        {
+            "Instance": "reqHdng",
+            "Instance_of": "Event",
+            "description": "reqHdng is an event that requests heading and returns a real value."
+        },
+        {
+            "Instance": "advVel",
+            "Instance_of": "Event",
+            "description": "advVel is an event that advises velocity and takes a real parameter."
+        },
+        {
+            "Instance": "advHdng",
+            "Instance_of": "Event",
+            "description": "advHdng is an event that advises heading and takes a real parameter."
+        },
+        {
+            "Instance": "Close",
+            "Instance_of": "Composite Type",
+            "description": "Close is a composite type representing closest distance of approach data."
+        },
+        {
+            "Instance": "horiz_cda",
+            "Instance_of": "Value",
+            "description": "horiz_cda is a value recorded in Close."
+        },
+        {
+            "Instance": "vert_cda",
+            "Instance_of": "Value",
+            "description": "vert_cda is a value recorded in Close."
+        },
+        {
+            "Instance": "odist",
+            "Instance_of": "Function",
+            "description": "odist returns the distance from the AUV to the obstacle."
+        },
+        {
+            "Instance": "hdist",
+            "Instance_of": "Function",
+            "description": "hdist returns the horizontal distance from the AUV to the obstacle."
+        },
+        {
+            "Instance": "vdist",
+            "Instance_of": "Function",
+            "description": "vdist returns the vertical distance from the AUV to the obstacle."
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+  "concept_extraction": {
+    "status": "accepted",
+    "repair_attempts": 0,
+    "artefact_failures": [],
+    "trace_failures": [
+      "trace_resolved"
+    ],
+    "unverified": [],
+    "checks": {
+      "schema": true,
+      "trace_resolved": false
+    }
+  },
+  "dsml_creation": {
+    "status": "accepted",
+    "repair_attempts": 3,
+    "artefact_failures": [],
+    "trace_failures": [],
+    "unverified": [],
+    "checks": {
+      "emfatic_valid": true,
+      "trace_resolved": true
+    }
+  },
+  "emf_model_creation": {
+    "status": "rejected",
+    "repair_attempts": 5,
+    "artefact_failures": [
+      "eol_executes: Exception in thread \"main\" Type 'M!CompositeType' not found"
+    ],
+    "trace_failures": [],
+    "unverified": [],
+    "checks": {
+      "eol_executes": false,
+      "trace_resolved": true
+    }
+  }
+}

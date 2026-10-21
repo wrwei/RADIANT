@@ -1,0 +1,13 @@
+{
+  "model": "deepseek_v4",
+  "variant": "single_repair",
+  "config": "/Users/ranwei/Git/RADIANT_Dev/config.factorial.yaml",
+  "instrument_commit": "0f44d301fddd473e0bf183a804cd24b9d420eb39",
+  "created_utc": "2026-10-21T08:31:27Z",
+  "stages": [
+    "concept",
+    "dsml",
+    "model",
+    "behaviour"
+  ]
+}

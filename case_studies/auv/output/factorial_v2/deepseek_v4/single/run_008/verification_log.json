@@ -1,0 +1,48 @@
+[
+  {
+    "stage": "concept_extraction",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "schema",
+        "kind": "structural",
+        "ok": true,
+        "unverifiable": false,
+        "detail": ""
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "87 unresolved trace entries (e.g. SD1, SD2, SD2, SD2, SD2, SD3, SD3, SD3)"
+      }
+    ],
+    "at": "2026-10-21T09:49:33+00:00"
+  },
+  {
+    "stage": "dsml_creation",
+    "attempt": 0,
+    "repair_changed_artefact": true,
+    "passed": false,
+    "checks": [
+      {
+        "name": "emfatic_valid",
+        "kind": "structural",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "emfatic syntax errors: Encountered \" \"abstract\" \"abstract \"\" at line 1, column 1.\nWas expecting:\n    \"package\" ...\n    "
+      },
+      {
+        "name": "trace_resolved",
+        "kind": "traceability",
+        "ok": false,
+        "unverifiable": false,
+        "detail": "missing trace file result_dsml_trace.json"
+      }
+    ],
+    "at": "2026-10-21T09:51:04+00:00"
+  }
+]

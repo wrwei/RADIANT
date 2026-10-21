@@ -1,0 +1,2 @@
+run_id,syntax_ok,pred_states,ref_states,pred_initials,ref_initials,pred_transitions,ref_transitions,state_f1,initial_f1,transition_id_f1,transition_edge_f1,behavior_micro_f1,variable_f1,constant_f1,function_f1,trigger_f1,condition_f1,action_f1,detail_micro_f1,full_micro_f1,error
+run_001,1.0,4,4,1,1,16,16,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,

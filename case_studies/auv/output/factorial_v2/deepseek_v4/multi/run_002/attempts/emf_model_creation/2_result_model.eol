@@ -1,0 +1,66 @@
+var auv_module = new M!Module();
+auv_module.name = "AUV_Module";
+
+var sensors = new M!Sensors();
+sensors.name = "Sensors";
+auv_module.interfaces.add(sensors);
+
+var actuators = new M!Actuators();
+actuators.name = "Actuators";
+auv_module.interfaces.add(actuators);
+
+var inputs = new M!Inputs();
+inputs.name = "Inputs";
+auv_module.interfaces.add(inputs);
+
+var outputs = new M!Outputs();
+outputs.name = "Outputs";
+auv_module.interfaces.add(outputs);
+
+var auv_platform = new M!RoboticPlatform();
+auv_platform.name = "AUV_Platform";
+auv_module.platforms.add(auv_platform);
+auv_platform.interfaces.add(sensors);
+auv_platform.interfaces.add(actuators);
+
+var auv_operator = new M!Controller();
+auv_operator.name = "AUV_Operator";
+auv_module.controllers.add(auv_operator);
+auv_operator.interfaces.add(inputs);
+
+var lre_ctrl = new M!Controller();
+lre_ctrl.name = "LRE_Ctrl";
+auv_module.controllers.add(lre_ctrl);
+lre_ctrl.interfaces.add(inputs);
+lre_ctrl.interfaces.add(outputs);
+
+var auv_autopilot = new M!Controller();
+auv_autopilot.name = "AUV_Autopilot";
+auv_module.controllers.add(auv_autopilot);
+auv_autopilot.interfaces.add(outputs);
+
+var hdng_svec = new M!SVec();
+hdng_svec.radial = 0.0d;
+hdng_svec.polar = 0.0d;
+hdng_svec.azimuth = 0.0d;
+sensors.hdng = hdng_svec;
+
+var obs_hdng_svec = new M!SVec();
+obs_hdng_svec.radial = 0.0d;
+obs_hdng_svec.polar = 0.0d;
+obs_hdng_svec.azimuth = 0.0d;
+
+var obstacle_instance = new M!Obstacle();
+obstacle_instance.ns_rel_dist = 0.0d;
+obstacle_instance.ew_rel_dist = 0.0d;
+obstacle_instance.depth = 0.0d;
+obstacle_instance.identifier = 0.0d;
+obstacle_instance.obs_hdng = obs_hdng_svec;
+
+sensors.depth = 0.0d;
+sensors.obs = obstacle_instance;
+
+var close_instance = new M!Close();
+close_instance.horiz_cda = 0.0d;
+close_instance.vert_cda = 0.0d;
+close_instance.identifier = 0;

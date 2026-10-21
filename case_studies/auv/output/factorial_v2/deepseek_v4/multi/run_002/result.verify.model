@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:auv="http://generated/auv">
+  <auv:Module name="AUV_Module">
+    <platforms name="AUV_Platform" interfaces="/0/@interfaces.0 /0/@interfaces.1"/>
+    <controllers name="AUV_Operator" interfaces="/0/@interfaces.2"/>
+    <controllers name="LRE_Ctrl" interfaces="/0/@interfaces.2 /0/@interfaces.3"/>
+    <controllers name="AUV_Autopilot" interfaces="/0/@interfaces.3"/>
+    <interfaces xsi:type="auv:Sensors" name="Sensors">
+      <hdng/>
+      <obs>
+        <obs_hdng/>
+      </obs>
+    </interfaces>
+    <interfaces xsi:type="auv:Actuators" name="Actuators"/>
+    <interfaces xsi:type="auv:Inputs" name="Inputs"/>
+    <interfaces xsi:type="auv:Outputs" name="Outputs"/>
+  </auv:Module>
+  <auv:Close/>
+</xmi:XMI>

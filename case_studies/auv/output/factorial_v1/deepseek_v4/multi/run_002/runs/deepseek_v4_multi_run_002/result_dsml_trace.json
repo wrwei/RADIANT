@@ -1,0 +1,176 @@
+{
+    "dsl_trace": [
+        {
+            "requirement_gid": "SD1",
+            "Emfatic_class": "Module",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [
+                "val RoboticPlatform[*] platforms",
+                "val Controller[*] controllers",
+                "val Interface[*] interfaces"
+            ],
+            "Emfatic_operations": [
+                "op real odist(Obstacle o)",
+                "op real hdist(Obstacle o)",
+                "op real vdist(Obstacle o)"
+            ],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 17,
+                "line_end": 24,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD2",
+            "Emfatic_class": "RoboticPlatform",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [
+                "ref Interface[*] interfaces"
+            ],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 26,
+                "line_end": 27,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "SD3",
+            "Emfatic_class": "Controller",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [
+                "ref Interface[*] interfaces"
+            ],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 29,
+                "line_end": 30,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface1",
+            "Emfatic_class": "Sensors",
+            "Emfatic_attributes": [
+                "attr real depth"
+            ],
+            "Emfatic_references": [
+                "val SVec hdng",
+                "val Obstacle obs"
+            ],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 35,
+                "line_end": 39,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface2",
+            "Emfatic_class": "Inputs",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [
+                "op endTask()",
+                "op reqOCM()",
+                "op reqMOM()",
+                "op reqHCM()",
+                "op real reqVel()",
+                "op real reqHdng()"
+            ],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 41,
+                "line_end": 48,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface3",
+            "Emfatic_class": "Outputs",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [
+                "op advVel(real v)",
+                "op advHdng(real h)"
+            ],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 50,
+                "line_end": 53,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "Interface4",
+            "Emfatic_class": "Actuators",
+            "Emfatic_attributes": [],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 55,
+                "line_end": 56,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT1",
+            "Emfatic_class": "SVec",
+            "Emfatic_attributes": [
+                "attr real radial",
+                "attr real polar",
+                "attr real azimuth"
+            ],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 58,
+                "line_end": 62,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CT2",
+            "Emfatic_class": "Obstacle",
+            "Emfatic_attributes": [
+                "attr real ns_rel_dist",
+                "attr real ew_rel_dist",
+                "attr real depth",
+                "attr real id"
+            ],
+            "Emfatic_references": [
+                "val SVec obs_hdng"
+            ],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 64,
+                "line_end": 70,
+                "resolved": true
+            }
+        },
+        {
+            "requirement_gid": "CF3",
+            "Emfatic_class": "Close",
+            "Emfatic_attributes": [
+                "attr real horiz_cda",
+                "attr real vert_cda",
+                "attr nat id"
+            ],
+            "Emfatic_references": [],
+            "Emfatic_operations": [],
+            "source": {
+                "file": "result_dsml.emf",
+                "line_start": 72,
+                "line_end": 76,
+                "resolved": true
+            }
+        }
+    ]
+}

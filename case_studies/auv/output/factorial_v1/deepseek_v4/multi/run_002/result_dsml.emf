@@ -1,0 +1,70 @@
+package auv;
+
+abstract class NamedElement {
+    attr String name;
+}
+
+abstract class InterfaceUser extends NamedElement {
+    ref Interface[*] interfaces;
+}
+
+class Module extends NamedElement {
+    val RoboticPlatform[*] platforms;
+    val Controller[*] controllers;
+    val Interface[*] interfaces;
+    op Double odist(Obstacle o);
+    op Double hdist(Obstacle o);
+    op Double vdist(Obstacle o);
+}
+
+class RoboticPlatform extends InterfaceUser {
+}
+
+class Controller extends InterfaceUser {
+}
+
+abstract class Interface extends NamedElement {
+}
+
+class Sensors extends Interface {
+    attr Double depth;
+    val SVec hdng;
+    val Obstacle obs;
+}
+
+class Inputs extends Interface {
+    op void endTask();
+    op void reqOCM();
+    op void reqMOM();
+    op void reqHCM();
+    op Double reqVel();
+    op Double reqHdng();
+}
+
+class Outputs extends Interface {
+    op void advVel(Double v);
+    op void advHdng(Double h);
+}
+
+class Actuators extends Interface {
+}
+
+class SVec {
+    attr Double radial;
+    attr Double polar;
+    attr Double azimuth;
+}
+
+class Obstacle {
+    attr Double ns_rel_dist;
+    attr Double ew_rel_dist;
+    attr Double depth;
+    attr Double identifier;
+    val SVec obs_hdng;
+}
+
+class Close {
+    attr Double horiz_cda;
+    attr Double vert_cda;
+    attr Integer identifier;
+}

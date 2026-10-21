@@ -1,0 +1,95 @@
+package auv;
+
+datatype nat;
+datatype int;
+datatype string;
+datatype boolean;
+datatype real;
+
+abstract class NamedElement {
+    attr String name;
+}
+
+abstract class Interface extends NamedElement {
+}
+
+class Sensors extends Interface {
+    attr real depth;
+    val SVec hdng;
+    val Obstacle obs;
+}
+
+class Inputs extends Interface {
+    op void endTask();
+    op void reqOCM();
+    op void reqMOM();
+    op void reqHCM();
+    op real reqVel();
+    op real reqHdng();
+}
+
+class Outputs extends Interface {
+    op void advVel(real p);
+    op void advHdng(real p);
+}
+
+class Actuators extends Interface {
+}
+
+abstract class InterfaceUser extends NamedElement {
+    ref Interface[*] interfaces;
+}
+
+abstract class CompositeType extends NamedElement {
+}
+
+class SVec extends CompositeType {
+    attr real radial;
+    attr real polar;
+    attr real azimuth;
+}
+
+class Obstacle extends CompositeType {
+    attr real ns_rel_dist;
+    attr real ew_rel_dist;
+    attr real depth;
+    attr real id;
+    val SVec obs_hdng;
+}
+
+class Close extends CompositeType {
+    attr real horiz_cda;
+    attr real vert_cda;
+    attr nat id;
+}
+
+abstract class RoboticPlatform extends InterfaceUser {
+}
+
+class AUV_Platform extends RoboticPlatform {
+}
+
+abstract class Controller extends InterfaceUser {
+}
+
+class AUV_Operator extends Controller {
+}
+
+class LRE_Ctrl extends Controller {
+}
+
+class AUV_Autopilot extends Controller {
+}
+
+abstract class Module extends NamedElement {
+    val RoboticPlatform[*] platforms;
+    val Controller[*] controllers;
+    val Interface[*] interfaces;
+    val CompositeType[*] compositeTypes;
+}
+
+class AUV_Module extends Module {
+    op real odist(Obstacle o);
+    op real hdist(Obstacle o);
+    op real vdist(Obstacle o);
+}
