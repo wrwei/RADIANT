@@ -1,0 +1,5 @@
+model,config,runs,runs_scored,n_changes,tp,fp,fn,ci_precision,ci_recall,ci_f1,arch_phase_spread_mean
+DeepSeek-V4,single,10,1,18,0,0,18,0.0,0.0,0.0,1.0
+DeepSeek-V4,single_repair,10,10,180,0,0,180,0.0,0.0,0.0,1.0
+DeepSeek-V4,multi_no_repair,10,9,162,160,0,2,1.0,0.9877,0.9938,3.0
+DeepSeek-V4,multi,10,9,162,142,0,20,1.0,0.8765,0.9342,2.78

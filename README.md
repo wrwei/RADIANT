@@ -51,6 +51,7 @@ attempt).
 | Table 1, June rows | `case_studies/auv/experiment/<model>/<arm>/run_*/` ; summary in `experiment/FINDINGS.md` |
 | Table 1, † rows (DeepSeek-V4, corrected harness) | `case_studies/auv/output/table1_v2/table1_v2.csv` ; `experiment/TABLE1_V2.md`, `BEHAVIOUR_RERUN_2026-10-19.md` |
 | Table 2 (resolvability, coverage) | trace models in `case_studies/auv/output/runs/web_20260530_*/` (three archived runs) |
+| Table 2, change impact; abstract (1,044 injected changes) | `malcom.evaluation/change_impact/june_2026/` (540 changes, June runs under `case_studies/auv/experiment/`), `table1_v2/` and `factorial_v2/` (504 changes, corrected-harness runs) ; expert reference in `reference_models/auv_independent_expert/` (`reference_traceability.json`, `result_behaviour_model.rct`) |
 | Table 3 (2x2: decomposition x gated repair) | `case_studies/auv/output/factorial_v2/` (as reported; repair arms' construction and behaviour regenerated with the completed repair prompt), `factorial_v1/` (first run), `factorial_smoke/` ; `factorial_v*/factorial_summary.csv` ; `experiment/FACTORIAL_V1.md`, `PRE_RUN_AUDIT_2026-10-21.md` |
 | Results: earlier controlled comparison (40/20/10; superseded by Table 3) | `case_studies/auv/output/rq2_v2_arms/`, `rq2_v2_repro_b*/` ; `experiment/RQ2_V2.md` |
 | Acceptance rule (rejected artefact ends the run); single-pass 1/20 | `case_studies/auv/output/halt_rule_rescore.json` ; `experiment/HALT_RULE_2026-10-21.md` |
