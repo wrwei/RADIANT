@@ -1,7 +1,45 @@
 {
-  "status": "pending",
-  "reviewer": "Ran Wei",
-  "assignment": "Author elected to review the cases; no case labels yet approved",
+  "schema": "radiant.impact_review_status.v1",
+  "status": "author_review_complete",
+  "reviewer": "Haochi Wang",
+  "reviewer_as_recorded": "haochi",
+  "review_date": "2026-10-28",
+  "review_file": "reviews/haochi-2026-10-28.json",
+  "review_sha256": "e04b30af98fdc9a7e1a4eef98c670e2dd3b115eccc7fce1a939c4fd76f010699",
   "original_label_sha256": "d0b00beb651be1fd1b7f9d188426e8dfb812f8140eadb476ba01dd03fba67d4f",
+  "review_record_status_as_exported": "draft_review_record",
+  "decision_basis": "All twelve explicit case decisions are accept; export status is retained verbatim in the original response.",
+  "case_count": 12,
+  "decision_counts": {
+    "accept": 12,
+    "revise": 0,
+    "uncertain": 0,
+    "blank": 0
+  },
+  "accepted_case_ids": [
+    "B01",
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B06",
+    "B07",
+    "B08",
+    "B09",
+    "B10",
+    "B11",
+    "B12"
+  ],
+  "label_changes": false,
+  "scores_changed": false,
+  "original_files_preserved": [
+    "benchmark.json",
+    "benchmark.sha256",
+    "results.json",
+    "review.html"
+  ],
+  "review_scope": "Coauthor acceptance of assistant-drafted affected/unaffected sets for twelve local edits on one archived run; not independent external validation.",
+  "review_notes": "All case notes are empty; no corrections or additional rationale were supplied.",
+  "prior_assignment": "Ran Wei had volunteered to review; this record documents Haochi Wang's returned review only.",
   "funding_status": "author will provide later; not a declaration of no funding"
 }

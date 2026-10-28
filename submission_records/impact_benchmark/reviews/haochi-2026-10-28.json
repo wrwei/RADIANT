@@ -1,0 +1,94 @@
+{
+  "schema": "radiant.impact_review.v1",
+  "benchmark_sha256": "d0b00beb651be1fd1b7f9d188426e8dfb812f8140eadb476ba01dd03fba67d4f",
+  "reviewer": "haochi",
+  "date": "2026-10-28",
+  "status": "draft_review_record",
+  "cases": [
+    {
+      "id": "B01",
+      "gid": "LRE-Var1",
+      "title": "Expand the prohibited-zone definition",
+      "decision": "accept",
+      "notes": ""
+    },
+    {
+      "id": "B02",
+      "gid": "LRE-Var2",
+      "title": "Change the collision-risk threshold",
+      "decision": "accept",
+      "notes": ""
+    },
+    {
+      "id": "B03",
+      "gid": "LRE-Var3",
+      "title": "Change static-obstacle caution distance",
+      "decision": "accept",
+      "notes": ""
+    },
+    {
+      "id": "B04",
+      "gid": "LRE-Var4",
+      "title": "Change the manoeuvre speed threshold",
+      "decision": "accept",
+      "notes": ""
+    },
+    {
+      "id": "B05",
+      "gid": "LRE-FR2",
+      "title": "Rename main operating mode",
+      "decision": "accept",
+      "notes": ""
+    },
+    {
+      "id": "B06",
+      "gid": "Interface2",
+      "title": "Rename the request for operator control",
+      "decision": "accept",
+      "notes": ""
+    },
+    {
+      "id": "B07",
+      "gid": "Interface3",
+      "title": "Rename the velocity-advice event",
+      "decision": "accept",
+      "notes": ""
+    },
+    {
+      "id": "B08",
+      "gid": "LRE-Beh8",
+      "title": "Constrain entry to collision avoidance",
+      "decision": "accept",
+      "notes": ""
+    },
+    {
+      "id": "B09",
+      "gid": "CT2",
+      "title": "Extend the Obstacle record layout",
+      "decision": "accept",
+      "notes": ""
+    },
+    {
+      "id": "B10",
+      "gid": "CT2",
+      "title": "Rename the Obstacle identifier field",
+      "decision": "accept",
+      "notes": ""
+    },
+    {
+      "id": "B11",
+      "gid": "SD2",
+      "title": "Detach the actuator interface",
+      "decision": "accept",
+      "notes": ""
+    },
+    {
+      "id": "B12",
+      "gid": "SD4",
+      "title": "Detach the LRE output interface",
+      "decision": "accept",
+      "notes": ""
+    }
+  ],
+  "exported_at": "2026-10-28T13:38:05.778Z"
+}

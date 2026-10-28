@@ -60,7 +60,7 @@ attempt). Every configuration emits concept traces; notation, construction and b
 | Supplementary Figure S2 (archived architectural change example) | June trace models under `case_studies/auv/experiment/`; its 540-injection annotation is historical |
 | Supplementary Table S7 (verification across cohorts) | `malcom.evaluation/requirement_properties/`: specification, five mutants, per-assertion verdicts and counterexample; 69 state machines / 68 completed controller verdicts / one timeout across cohorts |
 | Supplementary Table S8 (impact-scoring audit) | `submission_records/validated_impact/change_impact_validated.json` compares historical endpoint strings, actual named targets and strict validation; the historical CSV in `malcom.evaluation/change_impact/factorial_v2/` remains unchanged |
-| Supplementary Table S9 (provisional impact benchmark) | `submission_records/impact_benchmark/`; twelve concrete edits on one archived run, draft expected sets awaiting author review |
+| Supplementary Table S9 (impact pilot) | `submission_records/impact_benchmark/`; twelve concrete edits on one archived run; coauthor Haochi Wang accepted all expected sets without amendments |
 | Acceptance-rule history and earlier comparisons | `case_studies/auv/output/halt_rule_rescore.json`; `case_studies/auv/experiment/HALT_RULE_2026-10-21.md`, `RQ2_V2.md`; earlier comparison blocks are supporting/superseded |
 | June submission recovery | `submission_records/june_2026/`: source, figures and sixty-run inventory at paper commit `351213e`; Qwen single run 008 lacks a behaviour output |
 | Separate second-platform study | `case_studies/sranger/output/runs/sranger_deepseek_demo/`; `output/rerun/`; `case_studies/sranger/RERUN_2026-10.md`; five behaviour-stage regenerations |
@@ -98,13 +98,20 @@ The per-stage evaluation drivers that compute each metric from these files are p
 source code and are available on request with it. Every metric is a deterministic function
 of the files above.
 
-## Provisional impact benchmark
+## Impact pilot and coauthor review
 
 `submission_records/impact_benchmark/` contains frozen draft labels, their hash,
 a reviewer worksheet without predictions, and results for twelve local edits on
 `factorial_v2/deepseek_v4/multi/run_001`. Expected review sets were drafted from
-source by the implementation assistant and await Ran Wei's review. They are not
-independent expert ground truth. Archived requirement links recover 27 of 64
+source by the implementation assistant. Coauthor Haochi Wang accepted all twelve
+affected/unaffected sets on 28 October 2026, with no amendments or notes. His
+original export is preserved byte-for-byte in
+`submission_records/impact_benchmark/reviews/haochi-2026-10-28.json`;
+`review_status.json` records the matching benchmark hash and complete case identities.
+The form's exported status remains `draft_review_record`; all twelve explicit
+case decisions are `accept`. The original specification, worksheet and results
+retain their pre-review metadata, and no labels or scores changed. This is
+coauthor review, not independent external ground truth. Archived requirement links recover 27 of 64
 case-element targets with 18 extra candidates; supplying the intended element
 seeds recovers 64 with 11 extra candidates. The latter bypasses trace discovery
 and is not end-to-end accuracy. All scores are limited to the case's specified
