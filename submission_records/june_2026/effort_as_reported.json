@@ -1,0 +1,218 @@
+[
+  {
+    "participant_condition": "P1 (Man.)",
+    "cells_as_reported": [
+      "50/88\\%",
+      "160/86\\%",
+      "60/92\\%",
+      "240/91\\%",
+      "60/N/a"
+    ],
+    "column_order": [
+      "domain_notation",
+      "system_model",
+      "architecture",
+      "behaviour_model",
+      "change_impact"
+    ],
+    "source_line": 224
+  },
+  {
+    "participant_condition": "P2 (Man.)",
+    "cells_as_reported": [
+      "36/88\\%",
+      "123/87\\%",
+      "70/94\\%",
+      "120/94\\%",
+      "45/N/a"
+    ],
+    "column_order": [
+      "domain_notation",
+      "system_model",
+      "architecture",
+      "behaviour_model",
+      "change_impact"
+    ],
+    "source_line": 225
+  },
+  {
+    "participant_condition": "P3 (Man.)",
+    "cells_as_reported": [
+      "27/95\\%",
+      "99/93\\%",
+      "60/93\\%",
+      "117/93\\%",
+      "35/N/a"
+    ],
+    "column_order": [
+      "domain_notation",
+      "system_model",
+      "architecture",
+      "behaviour_model",
+      "change_impact"
+    ],
+    "source_line": 226
+  },
+  {
+    "participant_condition": "P4 (Man.)",
+    "cells_as_reported": [
+      "39/86\\%",
+      "120/89\\%",
+      "80/87\\%",
+      "200/87\\%",
+      "56/N/a"
+    ],
+    "column_order": [
+      "domain_notation",
+      "system_model",
+      "architecture",
+      "behaviour_model",
+      "change_impact"
+    ],
+    "source_line": 227
+  },
+  {
+    "participant_condition": "P5 (Man.)",
+    "cells_as_reported": [
+      "30/96\\%",
+      "90/93\\%",
+      "60/93\\%",
+      "130/93\\%",
+      "59/N/a"
+    ],
+    "column_order": [
+      "domain_notation",
+      "system_model",
+      "architecture",
+      "behaviour_model",
+      "change_impact"
+    ],
+    "source_line": 228
+  },
+  {
+    "participant_condition": "P6 (Man.)",
+    "cells_as_reported": [
+      "60/84\\%",
+      "153/86\\%",
+      "90/77\\%",
+      "200/77\\%",
+      "62/N/a"
+    ],
+    "column_order": [
+      "domain_notation",
+      "system_model",
+      "architecture",
+      "behaviour_model",
+      "change_impact"
+    ],
+    "source_line": 229
+  },
+  {
+    "participant_condition": "P1 (Auto.)",
+    "cells_as_reported": [
+      "8/95\\%",
+      "12/97\\%",
+      "$<$1/97\\%",
+      "12/96\\%",
+      "1/N/a"
+    ],
+    "column_order": [
+      "domain_notation",
+      "system_model",
+      "architecture",
+      "behaviour_model",
+      "change_impact"
+    ],
+    "source_line": 230
+  },
+  {
+    "participant_condition": "P2 (Auto.)",
+    "cells_as_reported": [
+      "6/95\\%",
+      "18/97\\%",
+      "$<$1/97\\%",
+      "8/97\\%",
+      "1/N/a"
+    ],
+    "column_order": [
+      "domain_notation",
+      "system_model",
+      "architecture",
+      "behaviour_model",
+      "change_impact"
+    ],
+    "source_line": 231
+  },
+  {
+    "participant_condition": "P3 (Auto.)",
+    "cells_as_reported": [
+      "8/97\\%",
+      "10/97\\%",
+      "$<$1/96\\%",
+      "5/97\\%",
+      "1/N/a"
+    ],
+    "column_order": [
+      "domain_notation",
+      "system_model",
+      "architecture",
+      "behaviour_model",
+      "change_impact"
+    ],
+    "source_line": 232
+  },
+  {
+    "participant_condition": "P4 (Auto.)",
+    "cells_as_reported": [
+      "6/95\\%",
+      "18/96\\%",
+      "$<$1/96\\%",
+      "10/97\\%",
+      "1/N/a"
+    ],
+    "column_order": [
+      "domain_notation",
+      "system_model",
+      "architecture",
+      "behaviour_model",
+      "change_impact"
+    ],
+    "source_line": 233
+  },
+  {
+    "participant_condition": "P5 (Auto.)",
+    "cells_as_reported": [
+      "3/97\\%",
+      "11/97\\%",
+      "$<$1/96\\%",
+      "5/96\\%",
+      "1/N/a"
+    ],
+    "column_order": [
+      "domain_notation",
+      "system_model",
+      "architecture",
+      "behaviour_model",
+      "change_impact"
+    ],
+    "source_line": 234
+  },
+  {
+    "participant_condition": "P6 (Auto.)",
+    "cells_as_reported": [
+      "6/93\\%",
+      "20/97\\%",
+      "$<$1/97\\%",
+      "15/97\\%",
+      "1/N/a"
+    ],
+    "column_order": [
+      "domain_notation",
+      "system_model",
+      "architecture",
+      "behaviour_model",
+      "change_impact"
+    ],
+    "source_line": 235
+  }
+]

@@ -1,0 +1,252 @@
+{
+  "schema": "radiant.impact_benchmark.v1",
+  "created_utc": "2026-10-28T11:57:05.017778+00:00",
+  "review_status": "provisional_assistant_draft",
+  "independent_review": null,
+  "labels_frozen_before_first_scoring": true,
+  "label_method": "Manually enumerated from archived source text before executing this benchmark; not derived by graph traversal. Drafted by the same assistant involved in implementation; not independent expert evidence.",
+  "selection": "First lexicographic accepted multi run in the primary factorial cohort; one deliberately bounded diagnostic case, not random or held out.",
+  "run": "case_studies/auv/output/factorial_v2/deepseek_v4/multi/run_001",
+  "scope": "Existing declarations in the named scoring file that require local inspection for the specified edit under the written rationale. Remaining declarations in that file are explicit negative controls. New elements, other files and dynamic/system-level consequences are unscored. Extra predictions are extra review candidates relative to this provisional boundary, not proved engineering false positives.",
+  "modes": {
+    "archived_requirement_links": "Real requirement-description edits, unmodified archived traces and baseline graph.",
+    "element_seeded_diagnostic": "Supply the manually identified element seed to the unchanged graph, bypassing missing requirement links for diagnosis only. Not end-to-end performance or repaired trace data."
+  },
+  "source_sha256": {
+    "result_concept_model.json": "62d7e2154dd5842e661c29ee74fd97e3488be1870e39a7591a3024cea99af240",
+    "result_dsml.emf": "2600718dd37ccaa9e4d6612d0eb687d4d1bd4803540e75cc8c32af777fe9c86e",
+    "result_model.eol": "fd4e0c58d7ec4925f5de7b6b6fb805b2973ca4d09d5a936a5cf1f1427f1c2128",
+    "result_behaviour_model.rct": "00021c489003408bd9275074674ad8c0500b63b30eccc3986b7b4c37c606a6f6",
+    "result_concept_trace.json": "5ed1db9e4c43d222886856dc98f92667a5c8092ef318e0998e4f0ba0628e7c5f",
+    "result_dsml_trace.json": "f4375eae02cb14a14498119a4aee65129addf1e9ffd7741b7f1e347499a1b282",
+    "result_model_trace.json": "bf4d89643f7079b88bf5da6e41633978bea29fff927595ecd081e0d4bd012164",
+    "result_behaviour_trace.json": "c92d8b7c70a6f39fdd96fbc224c9a4ef54853f8bbb9fa55a27785994337cb1e8",
+    "stage_status.json": "ec322bd0906e75d5424d245657ab86adf2f2b5c89d25dae85b60e41deaa22eda"
+  },
+  "requirements_sha256": {
+    "requirement_architecture.json": "cb098beae912a8fee6e3817b460f453c93ab7a50a630ef9eed79bf33f1695a18",
+    "requirement_behaviour.json": "bfb7a6f157de2554455bb1c60755e00fee2a7f3bf2f0d81ffae5df68dc68c851"
+  },
+  "changes": [
+    {
+      "id": "B01",
+      "gid": "LRE-Var1",
+      "title": "Expand the prohibited-zone definition",
+      "new_requirement_description": "LRE_Beh shall define boolean inOPEZ as true inside the exclusion zone or its new safety buffer.",
+      "scoring_file": "result_behaviour_model.rct",
+      "diagnostic_element_seeds": [
+        "variable:inOPEZ"
+      ],
+      "expected_review": [
+        "variable:inOPEZ",
+        "transition:t3",
+        "transition:t4",
+        "transition:t14"
+      ],
+      "rationale": "Inspect the declaration and all three guards reading inOPEZ; event-only transitions have no textual dependency on this flag."
+    },
+    {
+      "id": "B02",
+      "gid": "LRE-Var2",
+      "title": "Change the collision-risk threshold",
+      "new_requirement_description": "LRE_Beh shall set collisionRisk using a larger minimum separation threshold and non-negative TCPA.",
+      "scoring_file": "result_behaviour_model.rct",
+      "diagnostic_element_seeds": [
+        "variable:collisionRisk"
+      ],
+      "expected_review": [
+        "variable:collisionRisk",
+        "transition:t3",
+        "transition:t7",
+        "transition:t12",
+        "transition:t16"
+      ],
+      "rationale": "Inspect the risk flag and its four guard uses, including the negated exit guard. The threshold computation is abstracted outside this file and is unscored."
+    },
+    {
+      "id": "B03",
+      "gid": "LRE-Var3",
+      "title": "Change static-obstacle caution distance",
+      "new_requirement_description": "LRE_Beh shall set staticObstacleNear using a larger horizontal and vertical caution distance.",
+      "scoring_file": "result_behaviour_model.rct",
+      "diagnostic_element_seeds": [
+        "variable:staticObstacleNear"
+      ],
+      "expected_review": [
+        "variable:staticObstacleNear",
+        "transition:t3",
+        "transition:t8",
+        "transition:t9",
+        "transition:t11"
+      ],
+      "rationale": "Inspect the flag and its four guard uses; the actual distance computation is absent from this abstraction."
+    },
+    {
+      "id": "B04",
+      "gid": "LRE-Var4",
+      "title": "Change the manoeuvre speed threshold",
+      "new_requirement_description": "LRE_Beh shall define velocityHigh as true above the revised manoeuvre speed threshold.",
+      "scoring_file": "result_behaviour_model.rct",
+      "diagnostic_element_seeds": [
+        "variable:velocityHigh"
+      ],
+      "expected_review": [
+        "variable:velocityHigh",
+        "transition:t3",
+        "transition:t9"
+      ],
+      "rationale": "Inspect the variable and its two guard uses."
+    },
+    {
+      "id": "B05",
+      "gid": "LRE-FR2",
+      "title": "Rename main operating mode",
+      "new_requirement_description": "The LRE shall rename state MOM to MANOEUVRE, preserving its advVel entry event and all incident transitions.",
+      "scoring_file": "result_behaviour_model.rct",
+      "diagnostic_element_seeds": [
+        "state:MOM"
+      ],
+      "expected_review": [
+        "state:MOM",
+        "transition:t3",
+        "transition:t4",
+        "transition:t5",
+        "transition:t6",
+        "transition:t7",
+        "transition:t8",
+        "transition:t9",
+        "transition:t10",
+        "transition:t11"
+      ],
+      "rationale": "The state declaration and every from/to reference to MOM require inspection. References to other states alone do not."
+    },
+    {
+      "id": "B06",
+      "gid": "Interface2",
+      "title": "Rename the request for operator control",
+      "new_requirement_description": "The input interface shall rename reqOCM to requestOperatorControl, preserving all other event contracts.",
+      "scoring_file": "result_behaviour_model.rct",
+      "diagnostic_element_seeds": [
+        "event:reqOCM"
+      ],
+      "expected_review": [
+        "event:reqOCM",
+        "transition:t5",
+        "transition:t13",
+        "transition:t15"
+      ],
+      "rationale": "Within the behaviour file inspect the event declaration and its three trigger uses. Interface/construction edits are recorded outside this scoring boundary."
+    },
+    {
+      "id": "B07",
+      "gid": "Interface3",
+      "title": "Rename the velocity-advice event",
+      "new_requirement_description": "The output interface shall rename advVel to adviseVelocity, preserving its payload and all other event contracts.",
+      "scoring_file": "result_behaviour_model.rct",
+      "diagnostic_element_seeds": [
+        "event:advVel"
+      ],
+      "expected_review": [
+        "event:advVel",
+        "state:MOM",
+        "state:HCM",
+        "transition:t1",
+        "transition:t6"
+      ],
+      "rationale": "Inspect the event, two entry actions and two transition actions. Merely entering or leaving a state with that renamed action does not add a local edit obligation; conservative extra review candidates are counted separately."
+    },
+    {
+      "id": "B08",
+      "gid": "LRE-Beh8",
+      "title": "Constrain entry to collision avoidance",
+      "new_requirement_description": "The LRE shall transition from MOM to CAM when collisionRisk is true and inOPEZ is false.",
+      "scoring_file": "result_behaviour_model.rct",
+      "diagnostic_element_seeds": [
+        "transition:t7"
+      ],
+      "expected_review": [
+        "transition:t7"
+      ],
+      "rationale": "Only t7 changes in this artifact; both flag declarations and the two endpoint states already exist. Dynamic behavioural consequences outside this local edit boundary are unscored."
+    },
+    {
+      "id": "B09",
+      "gid": "CT2",
+      "title": "Extend the Obstacle record layout",
+      "new_requirement_description": "AUV_Module shall extend Obstacle with a new real-valued rel_dist field while retaining the existing fields.",
+      "scoring_file": "result_model.eol",
+      "diagnostic_element_seeds": [
+        "object:obstacleType"
+      ],
+      "expected_review": [
+        "object:obstacleType",
+        "object:obsSensorValue",
+        "object:sensorsInterface",
+        "object:auvPlatform",
+        "object:auv_module",
+        "object:odistParam",
+        "object:hdistParam",
+        "object:vdistParam",
+        "object:odistFunction",
+        "object:hdistFunction",
+        "object:vdistFunction"
+      ],
+      "rationale": "Inspect the record construction, all four typed consumers (obs and three function parameters), their containing interface/functions, the platform using Sensors, and the module assembly. The new field has no baseline node and is excluded. Existing unchanged field declarations are negative controls."
+    },
+    {
+      "id": "B10",
+      "gid": "CT2",
+      "title": "Rename the Obstacle identifier field",
+      "new_requirement_description": "AUV_Module shall rename Obstacle.id to obstacle_id while preserving its real type and all other fields.",
+      "scoring_file": "result_model.eol",
+      "diagnostic_element_seeds": [
+        "object:idObstacleValue"
+      ],
+      "expected_review": [
+        "object:idObstacleValue",
+        "object:obstacleType",
+        "object:obsSensorValue",
+        "object:sensorsInterface",
+        "object:auvPlatform",
+        "object:auv_module",
+        "object:odistParam",
+        "object:hdistParam",
+        "object:vdistParam",
+        "object:odistFunction",
+        "object:hdistFunction",
+        "object:vdistFunction"
+      ],
+      "rationale": "Inspect the renamed field plus the containing record contract and the same consumers/assembly boundary as B09. Other declarations named id (for Close) are not the renamed field."
+    },
+    {
+      "id": "B11",
+      "gid": "SD2",
+      "title": "Detach the actuator interface",
+      "new_requirement_description": "AUV_Module shall contain AUV_Platform using Sensors only; detach its Actuators interface without deleting the interface definition.",
+      "scoring_file": "result_model.eol",
+      "diagnostic_element_seeds": [
+        "object:auvPlatform"
+      ],
+      "expected_review": [
+        "object:auvPlatform",
+        "object:auv_module"
+      ],
+      "rationale": "Inspect the platform construction and containing module. Actuators remains defined by the module; changing the use relation does not require editing that declaration."
+    },
+    {
+      "id": "B12",
+      "gid": "SD4",
+      "title": "Detach the LRE output interface",
+      "new_requirement_description": "AUV_Module shall contain LRE_Ctrl using Inputs only; detach its Outputs interface without deleting Outputs or its other users.",
+      "scoring_file": "result_model.eol",
+      "diagnostic_element_seeds": [
+        "object:lreCtrl"
+      ],
+      "expected_review": [
+        "object:lreCtrl",
+        "object:auv_module"
+      ],
+      "rationale": "Inspect the controller construction and module assembly. Outputs, its events, and AUV_Autopilot remain declared and are negative controls."
+    }
+  ]
+}

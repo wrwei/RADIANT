@@ -1,0 +1,168 @@
+-- =====================================================================
+-- LRE requirement-level properties (RADIANT AUV case study)
+-- Written from case_studies/auv/requirements/requirement_behaviour.json
+-- ONLY (LRE-FR1..4, LRE-Beh1..18); independent of any generated model.
+-- Checked against {CTRL} (the generated state machine by default, or its controller
+-- with --level ctrl); the four hazard flags are environment-driven (set_EXT_* visible), and
+-- against module {MODULE} for the vacuity check of the module-level verdicts.
+--
+-- Interpretation choices (the requirements are silent or redundant):
+--  * Beh9, Beh10 and Beh11 are three separate MOM -> HCM transitions, as written
+--    (Beh9 and Beh11 are textually identical; neither is merged into Beh10).
+--  * No priority among simultaneously enabled transitions is stated, so the
+--    spec is nondeterministic where several are enabled.
+--  * Guard-only transitions are internal: the spec may move silently.
+--  * The environment may update any flag at any time. Initial flag values
+--    are unspecified, so SPEC_ANY allows all 16; the completeness check uses
+--    SPEC_INIT with the RoboChart default (all true).
+--  * The controller never assigns a flag. Termination is not visible (requirements are silent).
+-- =====================================================================
+include "{CSPFILE}"
+
+RQ_P_C = {CTRL}::O__(0)
+RQ_P_M = {MODULE}::O__(0)
+
+RQ_ReqVel  = {CTRL}::reqVel.in
+RQ_ReqHdng = {CTRL}::reqHdng.in
+RQ_ReqMOM  = {CTRL}::reqMOM.in
+RQ_ReqOCM  = {CTRL}::reqOCM.in
+RQ_EndTask = {CTRL}::endTask.in
+RQ_ReqHCM  = {CTRL}::reqHCM.in
+RQ_AdvVel  = {CTRL}::advVel.out
+RQ_AdvHdng = {CTRL}::advHdng.out
+
+RQ_Updates = {| {CTRL}::set_EXT_velocityHigh, {CTRL}::set_EXT_collisionRisk,
+             {CTRL}::set_EXT_staticObstacleNear, {CTRL}::set_EXT_inOPEZ |}
+
+-- Everything the requirements talk about, plus what they rule out
+-- (wrong-direction events, controller writes to a flag).
+RQ_Visible = {| {CTRL}::reqVel, {CTRL}::reqHdng, {CTRL}::reqMOM, {CTRL}::reqOCM,
+             {CTRL}::endTask, {CTRL}::reqHCM, {CTRL}::advVel, {CTRL}::advHdng,
+             {CTRL}::set_EXT_velocityHigh, {CTRL}::set_EXT_collisionRisk,
+             {CTRL}::set_EXT_staticObstacleNear, {CTRL}::set_EXT_inOPEZ,
+             {CTRL}::set_velocityHigh, {CTRL}::set_collisionRisk,
+             {CTRL}::set_staticObstacleNear, {CTRL}::set_inOPEZ |}
+
+RQ_IMPL = RQ_P_C \ diff(Events, RQ_Visible)
+
+-- flags: v = velocityHigh, c = collisionRisk, s = staticObstacleNear, o = inOPEZ
+datatype RQ_Mode = RQ_mOCM | RQ_mMOM | RQ_mHCM | RQ_mCAM
+
+RQ_GO(m, v, c, s, o) =
+  if m == RQ_mOCM then RQ_OCM(v, c, s, o) else
+  if m == RQ_mMOM then RQ_MOM(v, c, s, o) else
+  if m == RQ_mHCM then RQ_HCM(v, c, s, o) else RQ_CAM(v, c, s, o)
+
+-- flag updates in a stable mode
+RQ_US(m, v, c, s, o) =
+     {CTRL}::set_EXT_velocityHigh?x       -> RQ_GO(m, x, c, s, o)
+  [] {CTRL}::set_EXT_collisionRisk?x      -> RQ_GO(m, v, x, s, o)
+  [] {CTRL}::set_EXT_staticObstacleNear?x -> RQ_GO(m, v, c, x, o)
+  [] {CTRL}::set_EXT_inOPEZ?x             -> RQ_GO(m, v, c, s, x)
+
+-- a pending output e (transition or entry action) before settling in mode m
+RQ_PD(e, m, v, c, s, o) =
+     e -> RQ_GO(m, v, c, s, o)
+  [] {CTRL}::set_EXT_velocityHigh?x       -> RQ_PD(e, m, x, c, s, o)
+  [] {CTRL}::set_EXT_collisionRisk?x      -> RQ_PD(e, m, v, x, s, o)
+  [] {CTRL}::set_EXT_staticObstacleNear?x -> RQ_PD(e, m, v, c, x, o)
+  [] {CTRL}::set_EXT_inOPEZ?x             -> RQ_PD(e, m, v, c, s, x)
+
+-- internal choice among the enabled guard-only transitions (at least one enabled)
+RQ_CH2(b1, P1, b2, P2) = if b1 and b2 then P1 |~| P2 else if b1 then P1 else P2
+RQ_CH3(b1, P1, b2, P2, b3, P3) =
+  if not b1 then RQ_CH2(b2, P2, b3, P3)
+  else if b2 or b3 then P1 |~| RQ_CH2(b2, P2, b3, P3) else P1
+RQ_CH4(b1, P1, b2, P2, b3, P3, b4, P4) =
+  if not b1 then RQ_CH3(b2, P2, b3, P3, b4, P4)
+  else if b2 or b3 or b4 then P1 |~| RQ_CH3(b2, P2, b3, P3, b4, P4) else P1
+RQ_CH5(b1, P1, b2, P2, b3, P3, b4, P4, b5, P5) =
+  if not b1 then RQ_CH4(b2, P2, b3, P3, b4, P4, b5, P5)
+  else if b2 or b3 or b4 or b5 then P1 |~| RQ_CH4(b2, P2, b3, P3, b4, P4, b5, P5) else P1
+
+RQ_OCM(v, c, s, o) =                                                    -- LRE-FR1, Beh1
+     RQ_ReqVel  -> RQ_PD(RQ_AdvVel,  RQ_mOCM, v, c, s, o)                        -- LRE-Beh2
+  [] RQ_ReqHdng -> RQ_PD(RQ_AdvHdng, RQ_mOCM, v, c, s, o)                        -- LRE-Beh3
+  [] (not v and not c and not s and not o) &
+       RQ_ReqMOM -> RQ_PD(RQ_AdvVel, RQ_mMOM, v, c, s, o)                        -- LRE-Beh4, FR2 entry
+  [] RQ_US(RQ_mOCM, v, c, s, o)
+
+RQ_MOM(v, c, s, o) =
+  let Ext = RQ_ReqOCM  -> RQ_OCM(v, c, s, o)                               -- LRE-Beh6
+         [] RQ_EndTask -> RQ_PD(RQ_AdvVel, RQ_mOCM, v, c, s, o)                  -- LRE-Beh7
+         [] RQ_ReqHCM  -> RQ_PD(RQ_AdvVel, RQ_mHCM, v, c, s, o)                  -- LRE-Beh12, FR4 entry
+         [] RQ_US(RQ_mMOM, v, c, s, o)
+  within if o or c or s
+         then Ext [> RQ_CH5(o, RQ_OCM(v, c, s, o),                         -- LRE-Beh5
+                         c, RQ_CAM(v, c, s, o),                         -- LRE-Beh8
+                         v and s, RQ_PD(RQ_AdvVel, RQ_mHCM, v, c, s, o),      -- LRE-Beh9
+                         s, RQ_PD(RQ_AdvVel, RQ_mHCM, v, c, s, o),            -- LRE-Beh10
+                         v and s, RQ_PD(RQ_AdvVel, RQ_mHCM, v, c, s, o))      -- LRE-Beh11
+         else Ext
+
+RQ_HCM(v, c, s, o) =
+  let Ext = RQ_ReqOCM -> RQ_OCM(v, c, s, o)                                -- LRE-Beh15
+         [] RQ_US(RQ_mHCM, v, c, s, o)
+  within if not s or c or o
+         then Ext [> RQ_CH3(not s, RQ_PD(RQ_AdvVel, RQ_mMOM, v, c, s, o),        -- LRE-Beh13, FR2 entry
+                         c, RQ_CAM(v, c, s, o),                         -- LRE-Beh14
+                         o, RQ_OCM(v, c, s, o))                         -- LRE-Beh16
+         else Ext
+
+RQ_CAM(v, c, s, o) =
+  let Ext = RQ_ReqOCM -> RQ_OCM(v, c, s, o)                                -- LRE-Beh17
+         [] RQ_US(RQ_mCAM, v, c, s, o)
+  within if not c then Ext [> RQ_OCM(v, c, s, o) else Ext              -- LRE-Beh18
+
+RQ_SPEC_ANY  = |~| v : Bool, c : Bool, s : Bool, o : Bool @ RQ_OCM(v, c, s, o)
+RQ_SPEC_INIT = RQ_OCM(true, true, true, true)
+
+-- ---------------------------------------------------------------------
+-- R1 safety: every observable behaviour of the controller is allowed by the requirements
+assert RQ_SPEC_ANY [T= RQ_IMPL
+-- R2 responsiveness: the controller never refuses what the requirements oblige it to accept
+assert RQ_SPEC_ANY [F= RQ_IMPL
+-- R3 completeness: every behaviour the requirements allow is possible (RoboChart default initial flags)
+assert RQ_IMPL [T= RQ_SPEC_INIT
+-- R4 no divergence once internals are hidden
+assert RQ_IMPL :[divergence-free]
+
+-- ---------------------------------------------------------------------
+-- Named single-requirement properties (projected; easier to read on failure)
+RQ_RUN_(X) = [] e : X @ e -> RQ_RUN_(X)
+RQ_FreeExcept(X) = diff(RQ_Visible, X)
+
+-- S1 hazard gate (LRE-Beh4): reqMOM is accepted only when all four hazard flags are false
+RQ_S1(v, c, s, o) =
+     (not v and not c and not s and not o) & RQ_ReqMOM -> RQ_S1(v, c, s, o)
+  [] ([] e : RQ_FreeExcept(union({RQ_ReqMOM}, RQ_Updates)) @ e -> RQ_S1(v, c, s, o))
+  [] {CTRL}::set_EXT_velocityHigh?x       -> RQ_S1(x, c, s, o)
+  [] {CTRL}::set_EXT_collisionRisk?x      -> RQ_S1(v, x, s, o)
+  [] {CTRL}::set_EXT_staticObstacleNear?x -> RQ_S1(v, c, x, o)
+  [] {CTRL}::set_EXT_inOPEZ?x             -> RQ_S1(v, c, s, x)
+assert (|~| v : Bool, c : Bool, s : Bool, o : Bool @ RQ_S1(v, c, s, o)) [T= RQ_IMPL
+
+-- S2 advice response (LRE-Beh2, Beh3): reqVel is answered by advVel and reqHdng by advHdng,
+--    before any other input or advice (flag updates may interleave)
+RQ_S2 = RQ_ReqVel -> RQ_S2W(RQ_AdvVel) [] RQ_ReqHdng -> RQ_S2W(RQ_AdvHdng)
+     [] ([] e : RQ_FreeExcept({RQ_ReqVel, RQ_ReqHdng}) @ e -> RQ_S2)
+RQ_S2W(a) = a -> RQ_S2 [] ([] u : RQ_Updates @ u -> RQ_S2W(a))
+assert RQ_S2 [T= RQ_IMPL
+
+-- S3 operator override (LRE-Beh6, Beh15, Beh17): after reqOCM the controller is in OCM, so,
+--    until the next input, it cannot refuse reqVel (failures check; covers MOM, HCM and CAM)
+RQ_S3  = STOP |~| ([] e : RQ_Visible @ (if e == RQ_ReqOCM then e -> RQ_S3M else e -> RQ_S3))
+RQ_S3M = RQ_ReqVel -> RQ_S3
+      [] (STOP |~| ([] e : diff(RQ_Visible, {RQ_ReqVel}) @
+                     (if member(e, RQ_Updates) then e -> RQ_S3M else e -> RQ_S3)))
+assert RQ_S3 [F= RQ_IMPL
+
+-- ---------------------------------------------------------------------
+-- Vacuity witnesses at controller level (each SHOULD hold: modes are reachable)
+assert not RQ_RUN_(diff(RQ_Visible, {RQ_ReqMOM})) [T= RQ_IMPL     -- reqMOM accepted: MOM reachable
+assert not RQ_RUN_(diff(RQ_Visible, {RQ_ReqHCM})) [T= RQ_IMPL     -- reqHCM accepted: MOM reached, HCM entered
+assert not RQ_RUN_(diff(RQ_Visible, {RQ_EndTask})) [T= RQ_IMPL    -- endTask accepted
+
+-- Module level (what the pipeline's module-level deadlock/divergence verdicts explore):
+-- this one HOLDS if the module can never accept reqMOM, i.e. MOM, HCM and CAM are unreachable there
+assert RQ_RUN_(diff(Events, {{MODULE}::reqMOM.in})) [T= RQ_P_M

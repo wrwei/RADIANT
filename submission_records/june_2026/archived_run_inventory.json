@@ -1,0 +1,1980 @@
+[
+  {
+    "model": "deepseek_v4",
+    "configuration": "single",
+    "run": 1,
+    "path": "case_studies/auv/experiment/deepseek_v4/single/run_001",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 22284,
+        "sha256": "9d03853155e7f418d55942047aa7f3de4341c8beae1cdfc0dbb1bed087d26ca7"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1076,
+        "sha256": "ebf9162adccf8efce3a0b3ef0bbbcc09e9cd68bb0648a7fb9d1e3979ab2f760b"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 4971,
+        "sha256": "c33121e90cfe52f9990acec5de3fc35f7c29aadecf623ee10c54570959b3cc99"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1430,
+        "sha256": "5a718d8803dd1cd5406440acf347b56c239c7a937b2f6f0d79f42143baef0103"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 289,
+        "sha256": "51c5efd472067a71208780405abcebbb0ebf101a659d6d02cf245d753172a5d1"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "single",
+    "run": 2,
+    "path": "case_studies/auv/experiment/deepseek_v4/single/run_002",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 45487,
+        "sha256": "a617e879d8ed7640b24d3761d3d108d3bae84ca2b8e30d147f65c80343c00abd"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1137,
+        "sha256": "b7668583a649832dc80b77555cdb8a05793f6d17fc11d4340d78d7f0ba457be8"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5012,
+        "sha256": "280e9bfda460a6e6bd56f1414689fd0b892420452cf6fc3155b36cb7ae1672c4"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1412,
+        "sha256": "a470ab20dd6878afa0007bb8485b62492bb09dc8f1cac6c9341962025b229764"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 289,
+        "sha256": "28eb498a4ba59c65693a9e30d103d9d1d1f2fd9446b17187ae05d07e35881b52"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "single",
+    "run": 3,
+    "path": "case_studies/auv/experiment/deepseek_v4/single/run_003",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 19728,
+        "sha256": "c9357f2fd17cfd1c0040869cb20d785fa7ee5af58a77207f6f69431c82ba9e0c"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1032,
+        "sha256": "58dd730e32d32643e650b5cd1911add2fc55fedcb3d2ddfc12359373835bb782"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 4935,
+        "sha256": "9ed33d2045eb8a5cf20e841ac884e2e6d236a77ec41f4b06f3fe1c6f88b47828"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1416,
+        "sha256": "7babb8f44211cb7f9ae98b63966922d36bc2c1cbbf4d3d1e7a0ede15ea426630"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 289,
+        "sha256": "d4671f6e9fd62799eff5d023a64b907d99a235baf9f0fc9e65e6de4ebe40bcc8"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "single",
+    "run": 4,
+    "path": "case_studies/auv/experiment/deepseek_v4/single/run_004",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 20856,
+        "sha256": "96befd153a3b6e471c6530fed0ab4831bf7660f71ffe14a0393d1155a7d2ed3f"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1017,
+        "sha256": "210db29ae00bda6cbb10f5e96ffb069156e481fb2f4b9c5e33585be7f9ce9e98"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5683,
+        "sha256": "31aee022cd242f271864109394b6ade6f097c21b900eebc63bcef00f86a078c5"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1476,
+        "sha256": "78300cd1ecd699ed74ce0aee16317faba372039b908ebff67ea164c57774e19c"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 289,
+        "sha256": "270f395312a502c7233f59871f9f430406acbdd244c328648ca1cac5cc112d97"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "single",
+    "run": 5,
+    "path": "case_studies/auv/experiment/deepseek_v4/single/run_005",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 23576,
+        "sha256": "7e3a390b8389c11612a9599e19a8d86707de25b9fa25604eed031a31cd4e50ad"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 937,
+        "sha256": "f8d83991abbc108603b3f76f57bfa59d2dbe9345c5f13c27ad39e3070a59541f"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 4939,
+        "sha256": "42fd89d8590559c6725a850640b4180d968c6c10b9607d2d34531ee9b3af2ded"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1415,
+        "sha256": "7f38a25e386ed9d8269dff2ad037cbcd84e081d7fdf86cc8a42bd50a9d6f9c76"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 289,
+        "sha256": "59c45020bfafb6dcb14920ac4e83daa6cca135690051fa1b176d03b62991af56"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "single",
+    "run": 6,
+    "path": "case_studies/auv/experiment/deepseek_v4/single/run_006",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 28385,
+        "sha256": "7cf34dfbab3ea34f0bcab2dad34e3d9aba076b259b6692fda25d517c67775dfe"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1065,
+        "sha256": "980114e0d3e5111bb2dab8c37119f7f0b0194d19521ef625bd0e480c0321ee49"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 4983,
+        "sha256": "d11f10bc925217371b707f18abd32556237ffc74bcd41ba72d6209a49c5bccbc"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1412,
+        "sha256": "aa3ba94bc66bfa7704db5925aa09f11a38758d661b9b47b5f886d4fc49ef9ab0"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 289,
+        "sha256": "f1fb99ce2c712f84de69515d428bd4b0ef8ecd2e9ba521c7ba90db976cd988b8"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "single",
+    "run": 7,
+    "path": "case_studies/auv/experiment/deepseek_v4/single/run_007",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 23259,
+        "sha256": "39d6e2af6a1554f46547c98825fff0f163cfffb1c83a6a197f074a95408e346f"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1038,
+        "sha256": "fbbffa85760536163e7df937e65d9a8530e9e1ecc89f56a1210b42a2bf150978"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 4926,
+        "sha256": "a7141a4d861bed84ee466f30f3c3700899c578ad764233906ae636a3908059f7"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1415,
+        "sha256": "98e865f7619940efa789ba4a713697ce7d8133e968485fc1a33a13464f6eb389"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 289,
+        "sha256": "c628ececba8d6d09b534e82d13a7e3d6d35322fda572d74a06f0bc1c06efc471"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "single",
+    "run": 8,
+    "path": "case_studies/auv/experiment/deepseek_v4/single/run_008",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 31683,
+        "sha256": "29875086f2bc21213ad0e97933ac207c1ccf110f14b73d2193bfd7ad235a063a"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1119,
+        "sha256": "b185180d368eb00d1bc54878f56c8e0b35f387af0cc4b13529020901f919ce95"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 4956,
+        "sha256": "b074b9fe050b4c07f1e8c96f49c907ee3b10f09bbdd369b816653dabd2429d71"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1420,
+        "sha256": "f333ceef5ae5fae5fea6f94af00b73f8f0aa7b4d3baa359351525ed341283386"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 289,
+        "sha256": "5cb2c024c4d217f095f92895619f6c3f4b402a1b746051b5f59695d4d3f3b91a"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "single",
+    "run": 9,
+    "path": "case_studies/auv/experiment/deepseek_v4/single/run_009",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 25058,
+        "sha256": "749e61029c5972924f830fda76daebfa402120913c72d87abed6e7169f614107"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1039,
+        "sha256": "4a48bbe7c13f8f66836d3a5975e1320bdc17ab814ba8b2f3a0d9364e0834703e"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 4923,
+        "sha256": "b18a5c5db1f859d1898a995540698a5d5cbdd2c6ef961a93dd81f13c93dc2b0a"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1415,
+        "sha256": "7f38a25e386ed9d8269dff2ad037cbcd84e081d7fdf86cc8a42bd50a9d6f9c76"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 289,
+        "sha256": "f4164ceda2a9e344eb741825f12e82fe4270596d8741b42d10a0a4599ecbee41"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "single",
+    "run": 10,
+    "path": "case_studies/auv/experiment/deepseek_v4/single/run_010",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 36461,
+        "sha256": "fbfd3e1cbd0c037f3ec337d0d525a49e86ad8c7794dd25a44035041399f9c698"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1110,
+        "sha256": "5b9beda58fd99da8c20d000b656c9e927d90397bbc1960d2f611f3f17799652b"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 4894,
+        "sha256": "eb445b129e0f35087343e2cb129d03632a354449efbd676891e949a308139c59"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1412,
+        "sha256": "2cb34a98a1f30407f58f9cee6ea61f0e992496bc6b891093ffae2ca10c8a3b13"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 289,
+        "sha256": "26ab94c4ad5d40bbdb6df2a613f615125b67bb5563006288898a94d5b704c4ae"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "multi",
+    "run": 1,
+    "path": "case_studies/auv/experiment/deepseek_v4/multi/run_001",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 76540,
+        "sha256": "110555325af5bcfe7e98816d6fd07df2e3159546963bda0ca708f689325af822"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1054,
+        "sha256": "6633d055ad2f97340b479a95403eb66f008706d3ecfd923d50e44728f571bcdc"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5059,
+        "sha256": "d431b76e5269aa7c7eb5e02bda2d4ca004e3c38a1d7c9fa7c60c33052e274916"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1493,
+        "sha256": "feee9b8a03fb73a89497fe5378328382e7351a9cd3d265078e2efa5c0b4a5b1d"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 294,
+        "sha256": "1257393e7613c44e528ea54bbbfc8aaf3a38579030cd20e310a2f120247737a6"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "multi",
+    "run": 2,
+    "path": "case_studies/auv/experiment/deepseek_v4/multi/run_002",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 34157,
+        "sha256": "a5dc0b0d1c968e4cdf1bd269688027cf4dc0f60ae6e9abc9d06d24d3aced4a6c"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1077,
+        "sha256": "1340402e90248bef312fa383db8662e9ab16693996d87d0c780c59fa5fca8373"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5020,
+        "sha256": "59042dcd45221fc18dd5caf54b0fc655e90a4813c8fb61c0e17a6342af6e769c"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1601,
+        "sha256": "27a544e82aa09844a00761adb997ae6534c62041bb59d575c9b392f00f8f4bc5"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 294,
+        "sha256": "f51b26f7cec4e4b1cb02aca47ea022b80a9a73bc59ef8646895b7ae2a1b7d1d1"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "multi",
+    "run": 3,
+    "path": "case_studies/auv/experiment/deepseek_v4/multi/run_003",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 52447,
+        "sha256": "a9c4b183833e464952a9db873c9c934d248a308f7aca2d2a91f5b314f2ff2116"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1075,
+        "sha256": "f3bbf76a8dc1202d0deedb2dd761ed04882ced2fa95d18f21d0072c9eea7052f"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5138,
+        "sha256": "5bc4584cf9ebf4b2cd40775accf4c1fe00579359cdd289fad2adb757ab84d803"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1876,
+        "sha256": "7870b7e6db3f9385282d5c4c9dc13f41bf223849f6dc513422fbfa8a6fcaf0a6"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 294,
+        "sha256": "f41ab8a86bd81f7e14043cf580a57784fab9fb54b66cd0b6adb2424996480f6d"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "multi",
+    "run": 4,
+    "path": "case_studies/auv/experiment/deepseek_v4/multi/run_004",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 25039,
+        "sha256": "e6836a22b6a9bd9423d455787ecea12722e1851d1bb400c61d863af476b55be4"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1114,
+        "sha256": "b2eb0812f0fd5028ee9716d52adcb4d85d439c9edae6a1a3027099077cc3ef29"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5088,
+        "sha256": "f1c0df55123c24ee7ddadde1f91ff7c71c06c1a08b6ab207972f777b89ede742"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1506,
+        "sha256": "a2a0752df7a9604cf3f474c0a521ce33ad7e35ffe881b258d4e0855889bdd55b"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 294,
+        "sha256": "17ef0a36632a284f24f11f531650bd555fb4abccffca7af702f8bb24d56d1983"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "multi",
+    "run": 5,
+    "path": "case_studies/auv/experiment/deepseek_v4/multi/run_005",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 26641,
+        "sha256": "b0326597f68ea520e853045b3b5f76d465ce20b79d98f027fb11d46679047a8c"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 953,
+        "sha256": "d835b64e53bc7374d78914240f8dbb316c4b59c1ce4720be47a828b0ececbeb9"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5497,
+        "sha256": "84c6378f113a3f5b4c1484bac236043103f35a3517e41e95a8de6db1e9468043"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1599,
+        "sha256": "c0231ca162c5a897b1fa05e6ad50126f2d06ff83bf06d7a88fe1cb739d330331"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 294,
+        "sha256": "28c5723a2601ebc0346de78dd1e21aa740cef124be12330e2ea47b53bf469584"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "multi",
+    "run": 6,
+    "path": "case_studies/auv/experiment/deepseek_v4/multi/run_006",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 39143,
+        "sha256": "348e5c121d9a7b3059ceb1d8ce7496fbf20e43fd1fbfd9072356a55848796356"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1046,
+        "sha256": "8f5d0c3cde4e2f3ea31010f7e49c21f2b35b267c3f0463ab188d2bad380bdcd7"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 4919,
+        "sha256": "7de1f45e7a8e1f0493831396aa4eb4ef4e6ab0c5e71239c6c6c30f4632a894f8"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1598,
+        "sha256": "fdaf414bb461e30c2d8622e7718a462a3f4ebeb0fc544ba9ba1d4f2ad8b92c16"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 294,
+        "sha256": "f803e48b6686e4b32ce349f0602af5d898b6cfdd20c44a77729a32ac8415309c"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "multi",
+    "run": 7,
+    "path": "case_studies/auv/experiment/deepseek_v4/multi/run_007",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 31817,
+        "sha256": "581b7b65df16c38ff92c45c2486dd05191d2e80c3b8ac21149dc08ba314fbea2"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1125,
+        "sha256": "f3962cc60145657b8d2bd564cd82b01cef05995342c4626d3dac26f52e03eddb"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5177,
+        "sha256": "9b908761af88bcb00e87d61f9f420f9c157510a093ad9721e12191c90866cc81"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1598,
+        "sha256": "fdaf414bb461e30c2d8622e7718a462a3f4ebeb0fc544ba9ba1d4f2ad8b92c16"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 294,
+        "sha256": "2ed878c31081173a409e988ff5e65bc97d2deaba2471449f77696f25363f328e"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "multi",
+    "run": 8,
+    "path": "case_studies/auv/experiment/deepseek_v4/multi/run_008",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 37256,
+        "sha256": "5f8a40a57e2f9582b68699b356661e3511d5d43a08e9e4064e8c5ee111618635"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1074,
+        "sha256": "d20c7c7a6bc97a4f962f813393f51055b84ba3a09dc8afabe506724db88a1174"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5005,
+        "sha256": "50f73ae23754389c09e65a9ae24f5f97ddbb297cb439a42bdabad7b2c1166245"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1602,
+        "sha256": "f81cde482b39900957f7f7a9860f7ea8ac0facbe01a5bc31a72a6a2392b74830"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 294,
+        "sha256": "9e64e42a72f0e477d8695f40dcf7d3b8744b7b7f5fc35318e7b02055d0b7cebc"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "multi",
+    "run": 9,
+    "path": "case_studies/auv/experiment/deepseek_v4/multi/run_009",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 39757,
+        "sha256": "3b9dbbfeb316fc632123ea895f1b04838f072f8656722209de5d0565c397c62b"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1004,
+        "sha256": "4eac18e8e8b73e8d163fb91111f94b3d6fbea2e9a69f2e13643c23ff31b169e4"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5057,
+        "sha256": "df012df75ca9997b2276429397bc15885bdefddc149f57e9dbaf1e86683538cc"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1605,
+        "sha256": "01e82c22157a3c1a98ac8f9346eec440152329dd18f001321769898372c69881"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 294,
+        "sha256": "2fba25d39101a4e32f54baf71b1ac05db007f0eb613a1dd87c0d6c285745c082"
+      }
+    }
+  },
+  {
+    "model": "deepseek_v4",
+    "configuration": "multi",
+    "run": 10,
+    "path": "case_studies/auv/experiment/deepseek_v4/multi/run_010",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 55574,
+        "sha256": "72ff68063758af0d96684cd6e753097ad5a0ac8987d3f2f353351825239b6129"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 966,
+        "sha256": "b75557017dc406a634fdf6481d23d7ba41e83ce340ed76095a5aa01c83737987"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5101,
+        "sha256": "54b64340170f0a1b287b78275842c1a0e5a96f0cb1d6d8368d48ea116164a3cb"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1570,
+        "sha256": "251de4304bf9abf65b268ebb00aa9979bbe3195cf7c9816cbae0f5228c546672"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 294,
+        "sha256": "c1115ba1287ca1664d05284617784857abf4ac740b80ede5f7d3482a0e15bde9"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "single",
+    "run": 1,
+    "path": "case_studies/auv/experiment/qwen3_max/single/run_001",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 23911,
+        "sha256": "90581bf3c8231fe00b59f9ad068a1925e11d0417b181cd6fe9d08b9dfce518a3"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1095,
+        "sha256": "26f7f9def2597769ed31cc93c031d68e94ab77ca243fc093e593a6fa28374a86"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5050,
+        "sha256": "d5489950a23c49b2039a678a8e69fb32d7314c4f67f28d1dd04ed86a923bcf24"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1531,
+        "sha256": "57795664a709be714bf52d723d9d981fabf09f5e0e2363f92a1e829232263e8a"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 286,
+        "sha256": "8f8a08e67ef89dfe975d9df5ecb61819795cfe09df06d8f98bf9cedff15f841b"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "single",
+    "run": 2,
+    "path": "case_studies/auv/experiment/qwen3_max/single/run_002",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 23718,
+        "sha256": "70bdece34b0e1f9de1a785cfbd7e84b738069cb16338fdbe5db8974a2bc8b7de"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1095,
+        "sha256": "26f7f9def2597769ed31cc93c031d68e94ab77ca243fc093e593a6fa28374a86"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5168,
+        "sha256": "b3cddc534a98c4debd2226cf4b7f904de21a926226dbd8082ef0538b32e2e6e8"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1531,
+        "sha256": "57795664a709be714bf52d723d9d981fabf09f5e0e2363f92a1e829232263e8a"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 286,
+        "sha256": "55b3d530962c525bf862c03a9645acd79aae1b2d5b8e29c4f5238f75cdf214cc"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "single",
+    "run": 3,
+    "path": "case_studies/auv/experiment/qwen3_max/single/run_003",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 21759,
+        "sha256": "f971a80f76b6738ecca63b0f53d2ed42291d2bfbb0ef5625aaea092c9bd2c69b"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1075,
+        "sha256": "b40d1583414442c5f83f0dac7d7359e42ba3910822256a766174f510d8b18e55"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5156,
+        "sha256": "cde57b3625479e7fb91b89f3388226c4aba9a30156f7031914ede68f5ea947d0"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1493,
+        "sha256": "29fa7f5a69bd83b806d4b930e0606cd27fa9cf54d1f9cb85b6071078c50e29c4"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 286,
+        "sha256": "44930c179ba4a351525ac9ccc86bd18747278bc618ad1566444610e5c1aeacd4"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "single",
+    "run": 4,
+    "path": "case_studies/auv/experiment/qwen3_max/single/run_004",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 23866,
+        "sha256": "4aaab3e153624dcc6731d019378d56ea535e966be6f22b3c18a643b50f5aeb03"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1095,
+        "sha256": "26f7f9def2597769ed31cc93c031d68e94ab77ca243fc093e593a6fa28374a86"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5567,
+        "sha256": "f11cb567f390972f7d23d2557736ed89676b540deb7c1cfc8db1bec729e1a54c"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1493,
+        "sha256": "29fa7f5a69bd83b806d4b930e0606cd27fa9cf54d1f9cb85b6071078c50e29c4"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 286,
+        "sha256": "a8faff9341dd95699e762bb1a7f3ed27685788e9d6ddb365a8b99844a859e044"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "single",
+    "run": 5,
+    "path": "case_studies/auv/experiment/qwen3_max/single/run_005",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 21918,
+        "sha256": "c74e162cda30416d3b540453003453a856bc47a731c2336bf2c161e5fce8a486"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1095,
+        "sha256": "26f7f9def2597769ed31cc93c031d68e94ab77ca243fc093e593a6fa28374a86"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5104,
+        "sha256": "0feaefe8a911e752dd1e783559f42e39a5f3462e055764e75f78bc02fb48840c"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1493,
+        "sha256": "29fa7f5a69bd83b806d4b930e0606cd27fa9cf54d1f9cb85b6071078c50e29c4"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 286,
+        "sha256": "0ed65430f5536a394b05f5399805e06a27c608526f65166650c24a807377a00a"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "single",
+    "run": 6,
+    "path": "case_studies/auv/experiment/qwen3_max/single/run_006",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 22673,
+        "sha256": "c86195867640ab32339020aade8d16b19a4fca4820a29454aa4ea92cb41dec2f"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1095,
+        "sha256": "26f7f9def2597769ed31cc93c031d68e94ab77ca243fc093e593a6fa28374a86"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5621,
+        "sha256": "938c22ec78943fa19a8ddef538109ba81af7f24cd7f64ad0c799f7d05c6aa0ab"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1493,
+        "sha256": "29fa7f5a69bd83b806d4b930e0606cd27fa9cf54d1f9cb85b6071078c50e29c4"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 286,
+        "sha256": "ba34cb298412c141e851cc51ff3b40e23352b0577c264f5034cefe171c52e4b8"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "single",
+    "run": 7,
+    "path": "case_studies/auv/experiment/qwen3_max/single/run_007",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 22010,
+        "sha256": "48ba7c05817d6dea2e8d451695180c33306dfa60e61f5050861b34a08d4e4054"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1095,
+        "sha256": "26f7f9def2597769ed31cc93c031d68e94ab77ca243fc093e593a6fa28374a86"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5156,
+        "sha256": "cde57b3625479e7fb91b89f3388226c4aba9a30156f7031914ede68f5ea947d0"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1493,
+        "sha256": "29fa7f5a69bd83b806d4b930e0606cd27fa9cf54d1f9cb85b6071078c50e29c4"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 286,
+        "sha256": "8d9da1b566fbd3ec40f35be1a4f766a3c6513d7635051686f4d3de4c40041581"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "single",
+    "run": 8,
+    "path": "case_studies/auv/experiment/qwen3_max/single/run_008",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 21739,
+        "sha256": "cc254dc44727680fcf9080de79c165838130d1e07083f4664c62e4ddccec6874"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1095,
+        "sha256": "26f7f9def2597769ed31cc93c031d68e94ab77ca243fc093e593a6fa28374a86"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5111,
+        "sha256": "5d1fcdbdf77a70e550b2cc0640711364fb35e1a55290525e24b4911211bbd8f4"
+      },
+      "result_behaviour_model.rct": {
+        "status": "missing"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 212,
+        "sha256": "5a6130f0ca4a8a4e08962b4bd2dbfdf04ef3935405299876307fe1d60afb283e"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "single",
+    "run": 9,
+    "path": "case_studies/auv/experiment/qwen3_max/single/run_009",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 21824,
+        "sha256": "cefadef39b2486fe334b5a2ab31544685ff0c8e3b2d92c0656a850aabe6307b0"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1095,
+        "sha256": "26f7f9def2597769ed31cc93c031d68e94ab77ca243fc093e593a6fa28374a86"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5740,
+        "sha256": "0e48d9805a63f5c6d76f55474cde4535f5d462bad6884a5b77bc262c42dc009a"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1493,
+        "sha256": "29fa7f5a69bd83b806d4b930e0606cd27fa9cf54d1f9cb85b6071078c50e29c4"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 286,
+        "sha256": "6d80d3e0c385fea81edefb5fa95c9b9b62057fba603a765fd6924e8329e099af"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "single",
+    "run": 10,
+    "path": "case_studies/auv/experiment/qwen3_max/single/run_010",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 21864,
+        "sha256": "cf1cd09698aa6e1c9eec01497fff8ce38cf26c44720f4751ab18f6aac65ea1a3"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1095,
+        "sha256": "26f7f9def2597769ed31cc93c031d68e94ab77ca243fc093e593a6fa28374a86"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5108,
+        "sha256": "73f6256441520c808170733b9682e0b0ec65cbb8dde3d91ba9c608787e88ea06"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1493,
+        "sha256": "29fa7f5a69bd83b806d4b930e0606cd27fa9cf54d1f9cb85b6071078c50e29c4"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 286,
+        "sha256": "d7f7a186d81ad53b5ab3bbeef6db918e741c7acaf4713fba4f64044e478a8719"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "multi",
+    "run": 1,
+    "path": "case_studies/auv/experiment/qwen3_max/multi/run_001",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 22386,
+        "sha256": "9572dfc2b01a3fbf0c9c3c45e524e094180663ea3198e61c635742fbd4e69645"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1094,
+        "sha256": "276fa13657743ec82233b468ffb8d05d8b49233fe4758f85f477de6a66cff1f9"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5238,
+        "sha256": "316f6c0e7e701f415c013fe7626a62a08ef795ee9c4fd5c484835113ed0b1a39"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1412,
+        "sha256": "99a1355e7e77c2da7f4022d27e2e195966c23cd4a59ef02b9b1eaabc99a63177"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 292,
+        "sha256": "2898df4b31bb3973fbb6ae77512863469afd58f19a8c709a4b08d9aececef087"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "multi",
+    "run": 2,
+    "path": "case_studies/auv/experiment/qwen3_max/multi/run_002",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 30519,
+        "sha256": "69a5952212ffc3611f948689163cc229bfb04d345762152a3bbab741271375ee"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1120,
+        "sha256": "3a35554510ce5008d1b68da9aeb2852718f23dc8b5449bf0b3ebbde4ecacd7ac"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5106,
+        "sha256": "d768b27bcbac497ae62d4537069f1fe25b032a274f7641426655e1df86b47bc4"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1412,
+        "sha256": "99a1355e7e77c2da7f4022d27e2e195966c23cd4a59ef02b9b1eaabc99a63177"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 292,
+        "sha256": "bbb64da90532e7e218711bd7066987ac72bb8fedeb17685c43892ed8b14e9ebb"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "multi",
+    "run": 3,
+    "path": "case_studies/auv/experiment/qwen3_max/multi/run_003",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 22650,
+        "sha256": "87096c89ec1845410db8c4983acb2e118080a78698b2a1a48cad30b8259e85e0"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1122,
+        "sha256": "f30dad2e34fa52efa72f15375decd48808c329831af1fddd2aec6f9305329ffb"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5102,
+        "sha256": "9b1be80989c89eae7f3a272f98bd42224f0e7d03c34d73852600b9834ff850a3"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1493,
+        "sha256": "29fa7f5a69bd83b806d4b930e0606cd27fa9cf54d1f9cb85b6071078c50e29c4"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 292,
+        "sha256": "6167f1943ce5368b2974d410af82eadeea9a52d58be6c317b6d74e8b406a515d"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "multi",
+    "run": 4,
+    "path": "case_studies/auv/experiment/qwen3_max/multi/run_004",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 31492,
+        "sha256": "bb0890d1887538291d5bbbf937187bf8f87a32ce303ec4a6e1a9118cf28d7137"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1094,
+        "sha256": "276fa13657743ec82233b468ffb8d05d8b49233fe4758f85f477de6a66cff1f9"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5130,
+        "sha256": "ffeebe0cb5d30fd722e48864067416c122d13239ebc6c9ab12041c9d1472b853"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1412,
+        "sha256": "99a1355e7e77c2da7f4022d27e2e195966c23cd4a59ef02b9b1eaabc99a63177"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 292,
+        "sha256": "e0181ace1f42dc8d3c2ada7d967aa9c42f1d0a931869a3dce4e8f2b48f99832f"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "multi",
+    "run": 5,
+    "path": "case_studies/auv/experiment/qwen3_max/multi/run_005",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 22349,
+        "sha256": "b2eef813b4cff80bd5474866670e0419f4e3c09002925b8a64ae80b839d4871a"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1117,
+        "sha256": "dfbc77487df29939d6ea37a0b681f43ef9ee680e521396874177edc2974cf5fa"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5089,
+        "sha256": "25acd1f2a4aa9f6b977a58f5ca382864c4a1805e2f09a8f003370b2eeb601ac4"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1493,
+        "sha256": "29fa7f5a69bd83b806d4b930e0606cd27fa9cf54d1f9cb85b6071078c50e29c4"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 292,
+        "sha256": "6db5472ef562a538857406a789357d95c8ee010c5e044adef99f623c22f2a758"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "multi",
+    "run": 6,
+    "path": "case_studies/auv/experiment/qwen3_max/multi/run_006",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 29838,
+        "sha256": "e72ccdc114c09a497277388f448c2fda0957685df587a1724e0239efc26dd2e9"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1089,
+        "sha256": "4b81bb8a9dab33efc5bca8699244175c3adac4ce52792f04fe4ff775d3fd3ee7"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5106,
+        "sha256": "d768b27bcbac497ae62d4537069f1fe25b032a274f7641426655e1df86b47bc4"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1412,
+        "sha256": "aa3ba94bc66bfa7704db5925aa09f11a38758d661b9b47b5f886d4fc49ef9ab0"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 292,
+        "sha256": "995df9713678288035a5a2d4a1d9b591122f01b7cbf3d5fe30eec285567b8aa4"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "multi",
+    "run": 7,
+    "path": "case_studies/auv/experiment/qwen3_max/multi/run_007",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 29738,
+        "sha256": "e25740b41df0c7d34b54e78d3937b03d9df4c00765247f9c4abd86f4f1695d11"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1125,
+        "sha256": "a17d58bf9c4923d8cebd013f36cae233685196cd66f8e7121daefe0ff866286e"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5165,
+        "sha256": "4746b9a768634b29172eb8c6c32355eca69b27819588f0c301c84090733f4819"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1412,
+        "sha256": "99a1355e7e77c2da7f4022d27e2e195966c23cd4a59ef02b9b1eaabc99a63177"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 292,
+        "sha256": "295efcd152efa4714562a18f70a7f5105e665e276c2d4faa194b118548290031"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "multi",
+    "run": 8,
+    "path": "case_studies/auv/experiment/qwen3_max/multi/run_008",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 21660,
+        "sha256": "bda301b18a977f35ef8baf67eff5113947dce7631357f426adbc4c846aa40bb5"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1122,
+        "sha256": "f30dad2e34fa52efa72f15375decd48808c329831af1fddd2aec6f9305329ffb"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5106,
+        "sha256": "2c49bd7b515bd6a2bd69c40675fff7aed506a05caca85c3c114c07324c92d6ee"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1412,
+        "sha256": "99a1355e7e77c2da7f4022d27e2e195966c23cd4a59ef02b9b1eaabc99a63177"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 292,
+        "sha256": "ba605415a66b311531e131ce7714fbeef750d74350266744cbdd2d00ceb9bb77"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "multi",
+    "run": 9,
+    "path": "case_studies/auv/experiment/qwen3_max/multi/run_009",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 31293,
+        "sha256": "f24531d47866840d14fc39bf5db7acabb08d598453f062995348241ed7bad6b2"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1122,
+        "sha256": "f30dad2e34fa52efa72f15375decd48808c329831af1fddd2aec6f9305329ffb"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5106,
+        "sha256": "c2cd625ad7eb0025fa5ad82b2a71fe5b070e903f61a03292afc5960dd1a32caf"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1412,
+        "sha256": "99a1355e7e77c2da7f4022d27e2e195966c23cd4a59ef02b9b1eaabc99a63177"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 292,
+        "sha256": "20783823fd94eca64909a5beaca64079041b384f0915563dc6f6506a32a43600"
+      }
+    }
+  },
+  {
+    "model": "qwen3_max",
+    "configuration": "multi",
+    "run": 10,
+    "path": "case_studies/auv/experiment/qwen3_max/multi/run_010",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 31348,
+        "sha256": "536ec5c82983848d8eb763bac81242087b2d8bf28a33f93691a691cf48682fea"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1152,
+        "sha256": "1a55cdb928afaa98a2b681ee2a28ba154c246cc7d857c7f0d9e9b2d22e1930c5"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5114,
+        "sha256": "3bf2eaa8c602489f14be8cacc9e927d7d6e782e569754408c51db6473d2e173c"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1412,
+        "sha256": "99a1355e7e77c2da7f4022d27e2e195966c23cd4a59ef02b9b1eaabc99a63177"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 292,
+        "sha256": "8865999b709839850d419e0c371e3207f9f280e572528e442f7c3fa8137d9810"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "single",
+    "run": 1,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/single/run_001",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 27763,
+        "sha256": "1a2043b97acf56d5e4a200ad2e1734cc3f3ba497e790feed9fa5ee9f6bf4b06d"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1087,
+        "sha256": "48fe25eb6d7af44946a644df779286321b53fb001d5929edea40d7d9cc578aae"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5106,
+        "sha256": "385f3374b063080801151937565fe2e60ec661d474eee4fecb45382fac683663"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1543,
+        "sha256": "52f67d48274dba75dd866bd866c8887db67636125103f218de0fc6e3344ce5de"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 286,
+        "sha256": "dd71e79575ed483f5494e43e460389a09617eae49c7c0760e287cc3aaa597741"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "single",
+    "run": 2,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/single/run_002",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 26892,
+        "sha256": "417819d980ccc16f19c4943da1d64f657b2124ce7904c02d612b801f97fd5cc7"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1184,
+        "sha256": "957d81400d1c60c286b385bc02d0206b1d00bda9b8afaf2fc69ebf02a3842c59"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5471,
+        "sha256": "e61c7ef4c748f52d26349c5ca0141f6ef99198ae3a3a46005ce59a626df23d24"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1543,
+        "sha256": "66f11b68d24d8aa84b0ebf3ccf4e05d4459e2f8f325eda597656d0f9293f6468"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 286,
+        "sha256": "80ae97d0904d0c59d59e5848eb76494050650d1b59e2dbd5baddf3e6c0b180ef"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "single",
+    "run": 3,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/single/run_003",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 34746,
+        "sha256": "1fd15448dfd32a3ded67f18f589f152d3e2ff6218cc5fe77f12352e0ca4c1371"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1087,
+        "sha256": "48fe25eb6d7af44946a644df779286321b53fb001d5929edea40d7d9cc578aae"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5490,
+        "sha256": "a9a2a6dcd6d24486c82ab6f449073c89280d9e79ed7c0f7c113b79e7917a8a56"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1418,
+        "sha256": "518077fe7882c2d7325bf325748ef88f3627a3bad138f3166267cc9de65aaaa7"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 287,
+        "sha256": "4953e355d03e319b2a09072b25693c95504a7a7c379d732f0b9d620c346d6fea"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "single",
+    "run": 4,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/single/run_004",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 27701,
+        "sha256": "17d84064d9b4855970d7c7833379ef6686798e172e87e31210c8bebbf3b0121e"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1087,
+        "sha256": "48fe25eb6d7af44946a644df779286321b53fb001d5929edea40d7d9cc578aae"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5391,
+        "sha256": "9b30dbb3c3d599689d9804a553a2480aecfc280fb26710963e3888bdfce1133f"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1543,
+        "sha256": "52f67d48274dba75dd866bd866c8887db67636125103f218de0fc6e3344ce5de"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 286,
+        "sha256": "8f3082da12c69fac28d07e9b2cc3297d77d6526378b568ae3d3bb497fa664956"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "single",
+    "run": 5,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/single/run_005",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 26807,
+        "sha256": "4e4818990a84b0e847b94da4da355064b9e59d6160183fbc60fe6f6dbe6e6c7c"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1288,
+        "sha256": "75139ea78154ac278f63649c440599094676982c73360675bfc9aeb01bbe4df5"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5106,
+        "sha256": "385f3374b063080801151937565fe2e60ec661d474eee4fecb45382fac683663"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1418,
+        "sha256": "518077fe7882c2d7325bf325748ef88f3627a3bad138f3166267cc9de65aaaa7"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 286,
+        "sha256": "57646216a36d4f155620af818582a60aa84322db8524e9d3c6a33ab3676e7621"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "single",
+    "run": 6,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/single/run_006",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 27567,
+        "sha256": "15bb09e99513b79abaa4e7b8682124e83a4c1a58b2ef8c5e3b4d95ebe60f4253"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1087,
+        "sha256": "48fe25eb6d7af44946a644df779286321b53fb001d5929edea40d7d9cc578aae"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5495,
+        "sha256": "7a250ec8e230bff91c272928e7eda90170ab22e338abd874b9f5707d68efebcd"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1418,
+        "sha256": "518077fe7882c2d7325bf325748ef88f3627a3bad138f3166267cc9de65aaaa7"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 286,
+        "sha256": "00403e20f4be788429e4f196c69d4aa656e540430b1f164d597dfbc4f326a244"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "single",
+    "run": 7,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/single/run_007",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 36026,
+        "sha256": "07630abf3ebf4dc7717af63eb2b67dac92675e4d1949130767780afac9ceb131"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1288,
+        "sha256": "75139ea78154ac278f63649c440599094676982c73360675bfc9aeb01bbe4df5"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5347,
+        "sha256": "97460609d7f42af20f85b5a328a0ded6bbec2bfe285414ed31889a6b393fc4fb"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1418,
+        "sha256": "518077fe7882c2d7325bf325748ef88f3627a3bad138f3166267cc9de65aaaa7"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 287,
+        "sha256": "b2118843064e28fa3461914ec29923635e370148f0c4db48f50de8be2919de4b"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "single",
+    "run": 8,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/single/run_008",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 38303,
+        "sha256": "5541e18499cbda5f606de2021038f7251b42ebbb999a66508ddbb42319f494d7"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1193,
+        "sha256": "6219ebd6185d3ae926a1175aa6e9d981ec7ea94f8a00c67b6822039c6075e2d1"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5405,
+        "sha256": "d33b617af497e5e29b1dce7066259d0d2946705eea4b8dc894fd6c2999a36d0d"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1418,
+        "sha256": "518077fe7882c2d7325bf325748ef88f3627a3bad138f3166267cc9de65aaaa7"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 287,
+        "sha256": "73ab43624b583b90db2c7f2892e90a4367a94ecb2896d0d01cf64186a75eec20"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "single",
+    "run": 9,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/single/run_009",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 27672,
+        "sha256": "9290fb39a74a14fb31391e61688f34d070ec6fdbcfb9004a4502cd2ff53abb29"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1187,
+        "sha256": "c0c5f49c1a0abf068fb546bc5b6ed9db23f1c814941d10fee61a4389514578f7"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5357,
+        "sha256": "2d8a54a1e78cff962557dcdfe19fb432da5f1f15fdc3224cf9c91987afe23010"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1418,
+        "sha256": "dbbe7b25a064585dae36d580b937d70226ffa07a0f6ea2d61d3da14d3d60e47d"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 286,
+        "sha256": "2dd9e815bf34c3d8e426f2a1b012913e69b8ab8a2d806e654314adfd4813a178"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "single",
+    "run": 10,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/single/run_010",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 27113,
+        "sha256": "bfaa0979e062758fb91e1e03813df6c5761799426256e1e29348233e150ff956"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1223,
+        "sha256": "4db79dfd5a527e9781419d400128b2a31188f53194d8ecbeb4a465f915fc585e"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5358,
+        "sha256": "a4fb50f8726e0670926be44701da493d08d9452ee55f165c1f070a04b1a3faba"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1418,
+        "sha256": "ad23c2e498f67a5ab6c70942714a2f91f9e95be5b01b100aba01f3023581b1c5"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 286,
+        "sha256": "9bb1a13a19243d0cbc3f4dc70e248a2a9cceca6083ef9198b6d62445512c6655"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "multi",
+    "run": 1,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/multi/run_001",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 45332,
+        "sha256": "ceaea47dd4d2e383585898047dcac78e78b84e0005d35c981ba314dc90cd987a"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1222,
+        "sha256": "4a009dd7be85fcbca7433190b317fc9a87972b1f473fb1bd58713768bc883945"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5509,
+        "sha256": "4f9eba15557d9a167e2cd93018c5799fb2313d44f2dbee88f61f17f444e5f1bf"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1543,
+        "sha256": "049b8b113d30ebadde4c24dbb0682fbadfed3af18349b0d70280005221fc5f1c"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 298,
+        "sha256": "de33db080035df0c11e232d4af984a746fad38a34da72cd3381f2cd1327a54ee"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "multi",
+    "run": 2,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/multi/run_002",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 28360,
+        "sha256": "135e4a1a57874d7e292a058a7fd1a2afec4a94e52e4f34b19057fbeb4d401a5a"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1157,
+        "sha256": "55330a81833bc4add44755364268d56e0063128aca2a08a3152289a03b90c608"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5178,
+        "sha256": "6fa716a14a806470157b8959b04c68100ded76da0878a72434c72167056f69a2"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1418,
+        "sha256": "4369c8961e81c36bde09b113563b9de11839e6bd651cc9d330db8dfbd36534f6"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 297,
+        "sha256": "0c9c85b9989471ae7d1f603978bf7d636ace8bc5cace7aec07e8032ccd5528b8"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "multi",
+    "run": 3,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/multi/run_003",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 42146,
+        "sha256": "02df42ae8654346f6dc8b68f78befdacadc4d3580dea38cfaec773c93a0020ef"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1225,
+        "sha256": "c8332b4d9a25d189abceca2349a747ae2d651b2b9744b1c849403051603abf7f"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5223,
+        "sha256": "c2b3a7fe85551dd173677d56efde083ebcf24b41922aeee821fb407833cb3db0"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1543,
+        "sha256": "b3bb6c52e358be270b00d4aaebf455e9d82b89596f326245ec1bb6c351614086"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 294,
+        "sha256": "4ef47b395f5d8b3b7c8a6808a01e4652fea18ca329b74f4817c2f521c87a406a"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "multi",
+    "run": 4,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/multi/run_004",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 45852,
+        "sha256": "02c7344c00c11cbda65d1c790f54d8151097980588b15659983a19fe6f990104"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1228,
+        "sha256": "0474a57467b824bddfb50d732f4e31d00aa564dd57484214cc274cba72603520"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5202,
+        "sha256": "642c2a9be268b94826a578527cfacf65a9521fe677a0557e14f387d3f93ebb17"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1543,
+        "sha256": "049b8b113d30ebadde4c24dbb0682fbadfed3af18349b0d70280005221fc5f1c"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 298,
+        "sha256": "3f2b69998a80a7815f7ebbb4a4a393f3d3df94f42d2ccf7c49e35ffe42783c24"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "multi",
+    "run": 5,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/multi/run_005",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 32812,
+        "sha256": "abb56000ff26f95d1615c7ac5b23f8a1afe89123d7dc2088fc0ad3c67cf98226"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1228,
+        "sha256": "0474a57467b824bddfb50d732f4e31d00aa564dd57484214cc274cba72603520"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 6219,
+        "sha256": "b5cef36ea148cb04a2a4a39d00390c3c5494f9c80d447a31a8c095c6d1e95b35"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1543,
+        "sha256": "049b8b113d30ebadde4c24dbb0682fbadfed3af18349b0d70280005221fc5f1c"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 297,
+        "sha256": "d407d1662c0b50d29b80b39208dd4fa938af1409a8653780f47c1a93772bbb24"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "multi",
+    "run": 6,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/multi/run_006",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 44433,
+        "sha256": "6f229d69b84f1ba1cd723d58d2ddf3da06e91c0e0ef1f1e2a6113ab9d0ae3f67"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1234,
+        "sha256": "16b0979c43dcccf0261d7de021508a1cb7f2b66baaaefb0379f792cec43cb4ec"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5597,
+        "sha256": "f1da70b6d4ad0bdfca51aa066999bbc46791ba9cb9cc112eff484bca37902f05"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1543,
+        "sha256": "b3bb6c52e358be270b00d4aaebf455e9d82b89596f326245ec1bb6c351614086"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 294,
+        "sha256": "4f3b1da3adba4e3bd1fd17e2f6612b41c71bd0c553519838893eb3e7ba02058d"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "multi",
+    "run": 7,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/multi/run_007",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 45481,
+        "sha256": "9218e3fbc35eaae59f0b7513d2ad7d315e09032b5ba8db964b5b3ca5c544a903"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1225,
+        "sha256": "c8332b4d9a25d189abceca2349a747ae2d651b2b9744b1c849403051603abf7f"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5392,
+        "sha256": "cce25cf2158999a1a37a58fd4318ec258b901c8f604828f33ca0c7156af0f43b"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1543,
+        "sha256": "b3bb6c52e358be270b00d4aaebf455e9d82b89596f326245ec1bb6c351614086"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 295,
+        "sha256": "b1f310d176dec3e19cb40c0935c8b334ec2db1d406e25f84ed4c3c2cbdb12fef"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "multi",
+    "run": 8,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/multi/run_008",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 43417,
+        "sha256": "8ee99928e8793f9a66354d3ffd084248847920ea5cb9cab090ae59d32321747c"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1219,
+        "sha256": "2a505d907e5a7c03071da977d0c108f34722bad51a26c23fdc97ccbbf8a8d274"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5737,
+        "sha256": "523969e48fc2f324df6f43b58b51a595143417426b1e4a68f7b5db23b86f27a0"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1543,
+        "sha256": "b3bb6c52e358be270b00d4aaebf455e9d82b89596f326245ec1bb6c351614086"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 295,
+        "sha256": "c11a1036c5e587396e0201b5fb8597e0f7f6ba09af9d7015d02abf7d3b6cca2b"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "multi",
+    "run": 9,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/multi/run_009",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 44313,
+        "sha256": "3c2ffc2ac6e6a17caa75fe613adbe6dda7a7856ccb1518400fc6e49ed4107675"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1185,
+        "sha256": "d373570105c52cc5a395296f123cea1824f07813bfc930c19e56d57110054e60"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5368,
+        "sha256": "10a9cf3456581a539d4cecff98a43326bb33f9f688a53c9a78f96e6020ad7bfe"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1543,
+        "sha256": "b3bb6c52e358be270b00d4aaebf455e9d82b89596f326245ec1bb6c351614086"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 295,
+        "sha256": "4b58a3c6b72692ad3bdde1149e653f6b6e6208974110ef9ff37c30a51348443e"
+      }
+    }
+  },
+  {
+    "model": "claude_sonnet_46",
+    "configuration": "multi",
+    "run": 10,
+    "path": "case_studies/auv/experiment/claude_sonnet_46/multi/run_010",
+    "files": {
+      "result_concept_trace.json": {
+        "status": "present",
+        "bytes": 42916,
+        "sha256": "9aaca960565268c8575cf3bce98358b486bca851f42bc022af8318e9f694500a"
+      },
+      "result_dsml.emf": {
+        "status": "present",
+        "bytes": 1161,
+        "sha256": "a5e386ffa472f1d48d122d3fe0e281628a144b8a848370ff69d0759679dfda05"
+      },
+      "result_model.eol": {
+        "status": "present",
+        "bytes": 5334,
+        "sha256": "aae07ad3b2ff9c83ccacd9103e4f0d76ee3653c29afa4a6a5654cbd16cfc28ac"
+      },
+      "result_behaviour_model.rct": {
+        "status": "present",
+        "bytes": 1543,
+        "sha256": "52f67d48274dba75dd866bd866c8887db67636125103f218de0fc6e3344ce5de"
+      },
+      "tokens.json": {
+        "status": "present",
+        "bytes": 295,
+        "sha256": "bc9dbd31a42ee441f013bed961899482606f7c01ceb32b4c7dc3c7c986959c7d"
+      }
+    }
+  }
+]

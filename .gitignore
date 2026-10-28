@@ -3,3 +3,9 @@
 *.log
 MALCOMj/
 .tmp/
+
+# Python runtime caches and local credentials
+__pycache__/
+*.py[cod]
+.env
+.env.*

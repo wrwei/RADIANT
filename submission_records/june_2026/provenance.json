@@ -1,0 +1,27 @@
+{
+  "recovered_on": "2026-10-26",
+  "paid_model_calls": 0,
+  "paper_repository": "https://github.com/wrwei/TOSEM_MDE_LLM_New",
+  "paper_commit": "351213e9a2d14d4f4b370d63d3cccda60d5a7ffb",
+  "submission_snapshot_date": "2026-06-28",
+  "data_repository": "https://github.com/wrwei/RADIANT",
+  "data_commit": "2849d3529ef7ffd856c7f5e5511c816b72e48981",
+  "source_files_sha256": {
+    "source/4.evaluation.tex": "31d286eeea4ad2a6cb45604afca0b8d095897fb07cd6c79ba7e62e6f2eea999b",
+    "source/significantly.pdf": "0cb3cd5717e53cf70fff4df91d31d404d73c0841479ef68c025ea5ee4a31b030",
+    "source/significantly.png": "2b88b5586d37c1174420db764acc228d83d30b2477df38caa01fe71bd2b5ecb8"
+  },
+  "archived_input_file_counts": {
+    "architecture": 20,
+    "behaviour": 27
+  },
+  "interpretation": "Reported values are archival transcriptions, not newly validated estimates.",
+  "qualifications": [
+    "The June harness could load shared/reference upstream artefacts. Recovery does not correct that protocol.",
+    "QWEN3-max single run_008 has no archived behaviour artefact or behaviour token record. No replacement is fabricated.",
+    "The original Sonnet behaviour-link resolvability of 0.73 included placeholder entries; the current named-link metric is 1.00.",
+    "Original significance statements and figures predate later harness and scoring qualifications; retain as historical material.",
+    "Raw run artefacts remain in the data repository at the recorded paths and commit; this index avoids duplicating them.",
+    "The archived inputs contain 20 architecture-side and 27 behaviour-side requirements; the recovered manuscript's 17/30 split is not the input-file split."
+  ]
+}

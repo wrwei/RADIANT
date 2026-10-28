@@ -1,0 +1,6 @@
+layer,runs,runs_empty,links_emitted,links_resolved,resolvability,instance_emitted,instance_resolvability,typename_emitted,typename_resolvability,coverage_mean,coverage_min,coverage_max,effective_coverage_mean,recorded_agreement
+concept,7,0,714,660,0.9243697478991597,628,1.0,86,0.37209302325581395,1.0,1.0,1.0,1.0,1.0
+notation,7,0,195,195,1.0,195,1.0,0,,1.0,1.0,1.0,1.0,1.0
+model,5,0,421,421,1.0,421,1.0,0,,1.0,1.0,1.0,1.0,1.0
+behaviour,6,1,106,106,1.0,106,1.0,0,,0.6543209876543209,0.5925925925925926,0.6666666666666666,0.6543209876543209,1.0
+architectural (pooled),7,0,1330,1276,0.9593984962406015,1244,1.0,86,,1.0,1.0,1.0,,

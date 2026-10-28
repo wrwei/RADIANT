@@ -1,0 +1,268 @@
+\section{Feasibility Demonstration}
+\label{sec:eval}
+
+We evaluate RADIANT on the AUV case study introduced in Section~\ref{sec:case-intro} as a feasibility demonstration: the contribution is the requirement-driven, multi-agent generation methodology, and the aim is to show that it can produce accurate, traceable models end-to-end, to isolate the effect of the multi-agent decomposition, and to characterise where that effect is---and is not---realised across different LLMs.
+We pose five research questions.
+
+\subsection{Research Questions}
+\label{sec:eval:rqs}
+\begin{description}
+    \item[\textbf{RQ1: Accuracy.}] How accurate are RADIANT's generated artefacts (concept, DSML, model, behaviour) against an expert reference?
+    \item[\textbf{RQ2: Multi-agent necessity.}] Does the generate--check--refactor--trace multi-agent decomposition improve accuracy over a single-agent baseline?
+    \item[\textbf{RQ3: Traceability.}] Are the generated executable trace links correct and complete, and do they support automated change-impact analysis?
+    \item[\textbf{RQ4: Efficiency.}] How much development effort does RADIANT save versus manual modelling with the same MDE tooling?
+    \item[\textbf{RQ5: Generality.}] Does the same unchanged infrastructure apply across requirement models from different domains?
+\end{description}
+
+\subsection{End-to-End Demonstration on the AUV}
+\label{sec:demo}
+For this case study, we create an Eclipse modelling project that is publicly available~\footnote{All AUV artefacts referenced below (requirement model, the generated JSON, Concept/DSML/model/behaviour outputs, traceability transformations, and the EMF/RoboChart models) are in the public repository at \url{https://github.com/wrwei/RADIANT/tree/main/case_studies/auv}.}. We refer to the artefacts under this project in subsequent phases.
+
+% [AUV description + Figure (fig:steps24) moved to 2.background.tex; walkthrough below moves to 6.evaluation.tex]
+
+In \textbf{Phase~1} we author the requirement model in \textit{MALCOMj} and export it to JSON via a model-to-text transformation. \textbf{Phase~2} feeds this JSON to \textit{MALCOMp}'s Concept extraction, yielding a Concept JSON and a Req2Concept trace, which \textit{MALCOMj} transforms into Concept and \textit{Bifrost} models.
+\textbf{Phase~3} provides the requirement and Concept JSON to the DSML layer, producing an Emfatic metamodel and a Req2DSML trace, assembled into an Ecore metamodel and a \textit{Bifrost} model.
+\textbf{Phase~4} provides the requirement JSON and Emfatic source to the model-creation layer, producing an EOL program and a Req2Model trace; executing the EOL yields an EMF model conforming to the metamodel, together with its \textit{Bifrost} model.
+To fully exploit RoboChart and demonstrate interoperability, we then add a model-to-text transformation from the EMF model to a RoboChart model.
+
+For RADIANT \textbf{Phase 5}, since the AUV is safety critical, we demonstrate how state machines can be generated and formally verified by FDR.
+In this work, we focus on the behaviour model of the ``Last Response Engine'' (LRE), which provides run-time safety assurance for the AUV.
+Architecturally, the LRE sits between the operator and autopilot components.
+The operator, which can be a human or the navigation system, provides instructions to the LRE to support execution of tasks, such as requesting a particular heading and velocity.
+The autopilot controls the AUV actuators, and takes advice only from the LRE.
+The LRE’s job is to avoid hazardous behaviours, such as getting too close to an obstacle, or entering ``Object Proximity Exclusion Zones'' (OPEZ), and engaging evasive manoeuvres if necessary.
+The LRE functions in four modes: in Operator Control Mode (OCM) it is inactive, passing control inputs through to the autopilot; in Main Operating Mode (MOM) it takes control for normal operation at full speed; in High Caution Mode (HCM), nearing an obstacle, it drops velocity; and in Collision Avoidance Mode (CAM), on a potential collision, it manoeuvres away.
+The LRE has several high-level safety requirements, a number of examples from~\cite{foster2020formal} are:
+\begin{itemize}
+    \item The LRE shall enter MOM from OCM when the following conditions hold: (i) the velocity is less than 0.1ms$^{-1}$; (ii) the distance to a static obstacle is > 300mm; (iii) the distance to a dynamic obstacle is greater than 7500mm; (iv) the operator requests it; and (v) the AUV is not in an OPEZ.
+    \item On entering MOM, the LRE shall advise a velocity of 1ms$^{-1}$.
+\end{itemize}
+
+The states of LRE and the safety requirements can be expressed using a state machine, as shown in Figure~\ref{fig:LRE_STM}.
+Our aim in this phase is to generate the state machine from the requirement JSON in Phase 1.
+
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=.8\linewidth]{graphics/statemachine.png}
+    \caption{The state machine of the Last Response Engine modelled using RoboChart~\cite{foster2020formal}.}
+    \label{fig:LRE_STM}
+\end{figure}
+
+The state machine uses variables such as \textit{cobs} (closest obstacle), \textit{inOPEZ} (whether the AUV is in an Object Proximity Exclusion Zone), \textit{hvel}/\textit{vvel} (horizontal/vertical velocity), \textit{cstc}/\textit{cdyn} (closest static/dynamic obstacle) and \textit{depth}; constants such as \textit{MinSafeDist}; and functions \textit{odist}/\textit{hdist}/\textit{vdist}, which return the (horizontal/vertical) distance from the AUV to a given \textit{Obstacle}.
+
+In the requirement model we represent each variable, constant and function as a single requirement element, and each state and each inter-state transition condition as a single element (unlike the higher-level safety requirements listed above~\cite{foster2020formal}).
+With \textit{MALCOMp} we generate a CSP state-machine descriptor matching Figure~\ref{fig:LRE_STM}.
+
+In \textbf{Phase~6} we perform conventional MDE activities on the generated models: FDR checks the behaviour state machine for deadlock freedom and convergence~\cite{foster2020formal}; an Epsilon Validation Language (EVL) validation can be run whenever the model changes; and automated change-impact analysis, on an injected requirement change, identifies the affected elements across the generated models.
+As these are standard model-management activities, we omit the details.
+
+% For RADIANT \textbf{Phase 5}, the requirement JSON, the requirement JSON and the grammar for RoboChart~\footnote{Obtained from \url{https://github.com/UoY-RoboStar/robochart-textual}.} are provided to \textit{MALCOMp}'s behaviour model creation layer, which produces a source file for RoboChart that contains a state machine for the AUV's 
+
+% The assurance case for the AUV is developed based on an integrated RoboChart~\cite{miyazawa2016robochart} model, which includes the architecture of the AUV and the behaviour of its controllers, discussed in~\cite{foster2020formal}.
+% We also would like to show that it is possible, with the help of ACME, to automate the evaluation of model based assurance cases and have the assurance case \textit{drive} the development of the system.
+
+% It is to be noted that due to confidentiality and the complexity of the AUV, in this case study we only demonstrate activities in the system development and system assurance of ACCESS where the benefits of automation can be reflected.
+
+% The project brings together the UK expertise from: the National Oceanography Centre and Forth Engineering in Underwater Robotic Development; ROVCO on subsea operation, sensor development and subsea vision preception; the University of Manchester in mixed mode underwater communications; and D-RisQ in Software Verification.
+% \begin{figure}[ht]
+%     \centering
+% 	\includegraphics[width=.5\linewidth]{graphics/req_management.png}
+% 	\caption{Overall Architecture of the AUV.}
+% 	\label{fig:req_modelling}
+% \end{figure}
+
+% \begin{figure}[ht]
+%     \centering
+% 	\includegraphics[width=.4\linewidth]{graphics/AUV_Module.pdf}
+% 	\caption{Overall Architecture of the AUV.}
+% 	\label{fig:auv_architecture}
+% \end{figure}
+
+% \subsection{Behaviour model for the LRE}
+% The last response engine(LRE) provides run-time safety assurance. In the first phase, we defined detailed requirements models for the AUV system and the LRE. In the LRE requirements model, four distinct states (modes) are defined: "OCM" (Operation Control Mode), "MOM" (Main Operating Mode), "CAM" (Collision Avoidance Mode), and "HCM" (High Caution Mode). We also provide 18 requirements models to represent various LRE behaviors, specifying the conditions for transitions between different states. The aforementioned 22 requirements models constitute the functional requirements models for the LRE. In addition, we developed 15 non-functional requirements models to specify the variables and constants required for transitions between LRE states.
+
+% In Fig. \ref{fig:approach}, we use multi-agents framework to create a state machine for the LRE, shown in Fig. \ref{fig:LRE STM}. With the detailed prompts crafted for each agent, the generated RoboChart state machine effectively defines the four states of the LRE and 18  transitions between these states. Additionally, the multi-agent framework accurately extracted six event inputs: reqVel(the operator can request a velocity), reqHdng(request a new heading), reqMOM, reqOCM, reqHCM, endTask and two event outputs: advVel(send instructions to change velocity), advHdng(change a new heading).
+
+% The state machine defines the following variables, functions : hvel(the horizontal velocity of AUV), inOPEZ(Object Proximity Exclusion Zone), vvel(vertical velocity of AUV), cstc(closest static obstacle), cdyn(closest dynamic obstacle), CDA(Closest Distance of Approach), odist\textit{()}(distance from the AUV to the Obstacle), hdist\textit{()}(horizontal distance from the AUV to the Obstacle), vdist\textit{()}(vertical distance from the AUV to the Obstacle)
+
+
+
+\subsection{Evaluation Settings}\label{sec:eval:settings}
+\subsubsection{LLMs setting.}In MALCOMp the LLM is a swappable component, not the contribution.
+To test whether the pipeline generalises beyond a single model, we run it unchanged across three frontier models from different families and providers: one open-weight model, DeepSeek-V4~\cite{liu2024deepseek_v3}, and two proprietary, API-only models, QWEN3-max (Alibaba)~\cite{yang2025qwen3technicalreport} and Claude Sonnet~4.6 (Anthropic)~\cite{anthropic2025claudesonnet}.
+DeepSeek-V4 and QWEN3-max are run at temperature~0.0; for Claude the temperature is omitted, as the Anthropic API deprecates it for this model.
+To account for the stochasticity of LLM generation, each (model, configuration) cell is repeated ten times.
+
+
+
+\subsubsection{Statistical tests.}For each LLM we run ten Single-agent and ten Multi-agent repetitions, and compare the two configurations stage by stage, where a \emph{stage} is one of the five accuracy metrics reported in Table~\ref{tab:accuracy}.
+The two sets are independent samples (not matched pairs), and the per-stage scores are not normally distributed (Shapiro--Wilk); we therefore use the Mann--Whitney U (rank-sum) test for the continuous F1 stages and Fisher's exact test for the two binary-rate stages, all two-sided.
+
+\subsubsection{Metrics.}Since RADIANT generates multiple artefacts, we score four representative ones against the expert reference: the Concept model (JSON), the DSML metamodel (Emfatic), the model-creation code (EOL) together with the EMF model it builds, and the behaviour model (RoboChart, checked via its CSP semantics).
+
+For the \emph{Concept model}, we compute a set-based precision/recall/F1 over the extracted vocabulary facts $\{$Concept, Instance, Instance\_of$\}$ against the reference, using alias-aware canonicalisation (lower-casing and non-alphanumeric stripping) so auditable semantic equivalences are matched --- a transparent count of which concepts and instances were correctly extracted, missed, or hallucinated.
+
+For the \emph{DSML} (the Emfatic metamodel), we follow the matching strategy of prior work~\cite{chen2023comparative} and compute precision, recall and F1 over its key elements (classes, attributes and references): a true positive is a correctly matched element, a false positive an unmatched generated element, and a false negative a missed reference element.
+Each element is scored $S(x)=1$ for an exact or semantically-equivalent match, $0.5$ for a partial match, and $0$ otherwise.
+The matching rules are: (1) two \emph{classes} score $1$ if their names are identical or semantically equivalent, and $0.5$ if partially matched (one a subclass of the other, or with substantially different members); (2) two \emph{attributes} match if their parent classes match and their names are identical or semantically similar (e.g.\ \texttt{onSickLeave} and \texttt{isSick}); (3) two \emph{references} match whenever the association is correctly identified, regardless of whether it is declared \texttt{ref} (non-containment) or \texttt{val} (containment), since requirements rarely distinguish the two.
+
+For the \emph{model-creation code} (EOL) we do not score code similarity; instead we \emph{execute} it.
+Each run's generated Emfatic is converted to Ecore and the EOL program is run against it with the Epsilon engine; we then check that the resulting instance \emph{conforms} to the metamodel using EMF's generic \texttt{Diagnostician}, and score the produced model against the reference with set-based precision/recall/F1 over objects, attributes and links --- measuring whether the generated code actually builds a conformant model, not its textual resemblance.
+
+For the \emph{behaviour model} we compute set-based structural F1 over the state machine's states, initial node and transition edges (multiplicity-aware, so a dropped parallel transition is penalised), together with per-transition trigger, guard and action facts, against the reference; we additionally check deadlock-freedom and convergence with FDR.
+We report the structural metrics because the pipeline deliberately abstracts concrete guards into boolean variables for FDR-verifiability, so a full-fidelity semantic comparison would measure that intended abstraction rather than generation quality.
+
+\begin{table}[tbp]
+\caption{Accuracy of generated artefacts against the hand-authored expert reference, Single- vs Multi-agent, for three LLMs (mean over ten repetitions on the AUV case study). Concept and DSML are set-based F1; \emph{DSML syntax} is the fraction of syntactically-valid Emfatic; \emph{Model/EOL} is the fraction of runs whose EOL executes to a metamodel-conformant model; \emph{Behaviour} is multiplicity-aware structural F1 over the state machine.}
+\label{tab:accuracy}
+\centering
+\small
+\begin{tabular}{llccccc}
+\hline
+\textbf{Model} & \textbf{Config} & \begin{tabular}[c]{@{}c@{}}Concept\\ vocab F1\end{tabular} & \begin{tabular}[c]{@{}c@{}}DSML\\ syntax-valid\end{tabular} & \begin{tabular}[c]{@{}c@{}}DSML\\ class F1\end{tabular} & \begin{tabular}[c]{@{}c@{}}Model/EOL\\ exec.\ conform\end{tabular} & \begin{tabular}[c]{@{}c@{}}Behaviour\\ struct.\ F1\end{tabular} \\ \hline
+DeepSeek-V4 & Single & 0.90 & 0.50 & 0.93 & 0/10 & 0.97 \\
+DeepSeek-V4 & Multi & \textbf{0.95} & \textbf{1.00} & 0.91 & \textbf{10/10} & \textbf{1.00} \\ \hline
+QWEN3-max & Single & 0.84 & 0.00 & 0.88 & 0/10 & \textbf{1.00} \\
+QWEN3-max & Multi & 0.80 & \textbf{0.80} & \textbf{0.90} & \textbf{4/10} & 0.98 \\ \hline
+Claude Sonnet 4.6 & Single & 0.89 & 1.00 & 0.92 & 0/10 & 0.97 \\
+Claude Sonnet 4.6 & Multi & 0.88 & 1.00 & 0.86 & 0/10 & 0.97 \\ \hline
+\end{tabular}
+\end{table}
+\subsection{RQ1: Accuracy}
+For accuracy, we conduct pair-wise comparisons on the AUV case study against a hand-authored expert reference (the AUV Concept model, DSML, EMF model-creation EOL, EMF model, and behaviour model), produced by reasoning over the requirements and the MDE tooling without invoking any LLM\footnote{The requirement model is created by us and stays the same.}.
+For each of the three LLMs we repeat RADIANT ten times in two configurations: a \textit{Single agent} baseline (one direct call per layer using that layer's primary agent) and the default \textit{Multi agent} pipeline (each layer running the generate--check--refactor--trace agents of Section~\ref{sec:agentlayer}).
+Each generated artefact is scored against the reference using the metrics defined above.
+
+The results are summarised in Table~\ref{tab:accuracy}.
+Across the three models a consistent split emerges: the multi-agent decomposition reliably improves the \emph{syntactic and structural validity} of the downstream formal artefacts, whereas its effect on the \emph{semantic accuracy} of the upstream extraction is model-dependent.
+
+\paragraph{DeepSeek-V4 --- the multi-agent decomposition helps at every stage.} Concept vocabulary F1 rises from $0.90$ (single) to $0.95$ (multi); Emfatic syntactic validity rises from $0.50$ to $1.00$ as the check/refactor agents repair malformed metamodels; the generated EOL goes from never instantiating a conformant model ($0/10$ single) to building one in all ten runs ($10/10$ multi); and the behaviour state machine's structural F1 rises from $0.97$ to $1.00$ as the requirement-completeness gate recovers transitions the boolean abstraction would otherwise merge.
+Every difference favours the multi-agent configuration.
+
+\paragraph{QWEN3-max --- decisive gains on validity and executability, neutral on semantics.} The starkest validity effect appears here: every single-agent run emits an Emfatic metamodel that the Eclipse parser rejects (syntactic validity $0/10$), because the single agent omits the mandatory \texttt{package} declaration; the multi-agent check/refactor loop repairs the header and lifts validity to $0.80$.
+Conformant-model construction likewise improves from $0/10$ (single) to $4/10$ (multi): the multi-agent loop closes several of the EOL's feature-reference errors, though the remaining failures --- where the generated EOL writes to RoboChart feature names its own metamodel never declares --- are a residual code-generation weakness the decomposition cannot fully eliminate.
+On the semantic stages, by contrast, multi-agency is neutral: Concept vocabulary F1 is marginally lower under multi ($0.84 \to 0.80$, the collaborative loop slightly over-produces the vocabulary) and behaviour structural F1 is already near-perfect single-agent ($1.00$ vs $0.98$).
+
+\paragraph{Claude Sonnet~4.6 --- semantic gains absent and code generation the limiting factor.} Sonnet's check/refactor loop tends to over-produce, so on the DSML stage the multi-agent class F1 sits slightly below the single agent ($0.92 \to 0.86$) rather than improving on it, and the behaviour structural F1 merely ties ($0.97$).
+Most strikingly, Sonnet's EOL does not reliably execute --- $0/10$ conformant models for \emph{both} configurations --- failing with parse errors and feature references on the wrong class, a genuine code-generation weakness rather than a measurement artefact; here the decomposition has no executable artefact to improve.
+
+In short, the multi-agent decomposition reliably improves artefact \emph{validity} across models---and their \emph{executability} where the model's code generation permits---while its effect on semantic accuracy is model-dependent --- positive for DeepSeek-V4, neutral for QWEN3-max, absent for Sonnet~4.6, whose weak EOL generation also caps the pipeline regardless of configuration.
+We test these differences statistically in RQ2.
+
+
+\subsection{RQ2: Multi-Agent Necessity}
+This question isolates whether the multi-agent decomposition is \emph{necessary}, comparing the Multi- against the Single-Agent control over the ten repetitions per stage with the tests of Section~\ref{sec:eval:settings} (Mann--Whitney U for continuous F1, Fisher's exact for the binary-rate stages).
+
+The answer separates cleanly by the \emph{kind} of artefact (Figure~\ref{fig:analysis}), and that is the key result.
+The one effect that is \textbf{significant and in the multi-agent's favour for every model whose single agent leaves it imperfect} is \emph{DSML syntactic validity}: $0.50 \to 1.00$ for DeepSeek-V4 (Fisher $p=0.033$) and $0.00 \to 0.80$ for QWEN3-max ($p=7.1\times10^{-4}$); Sonnet~4.6 is already $1.00$ single-agent, so there is nothing to recover.
+Conformant-model \emph{construction} improves wherever the model's code generation makes it attainable, but its significance tracks the model: decisive for DeepSeek-V4 ($0/10 \to 10/10$, $p=1.1\times10^{-5}$), a positive but \emph{non-significant} trend for QWEN3-max ($0/10 \to 4/10$, $p=0.087$ at ten repetitions), and unattainable for Sonnet~4.6 ($0/10$ under both).
+On the \textbf{semantic} stages the picture is \emph{model-dependent}: multi-agency significantly improves DeepSeek-V4 (Concept vocabulary $0.90 \to 0.95$, $p=0.038$; behaviour structural F1 $0.97 \to 1.00$, $p=3.3\times10^{-5}$), but for QWEN3-max and Sonnet~4.6 it does not improve Concept (both differences non-significant), and their only significant semantic movements run \emph{against} multi-agency --- QWEN3-max's behaviour F1 dips $1.00 \to 0.98$ ($p=7.1\times10^{-4}$, a small but consistent drop from an already-perfect single-agent baseline) and Sonnet~4.6's DSML class F1 falls $0.92 \to 0.86$ ($p=1.1\times10^{-3}$) as its check/refactor loop over-produces.
+The remaining differences (e.g.\ DSML class F1 for DeepSeek-V4 and QWEN3-max) are not significant.
+
+We therefore answer RQ2 as: the multi-agent decomposition's most robust, model-independent contribution is to the \emph{syntactic validity} of the generated formal artefacts --- it reliably repairs invalid metamodels, which is exactly the work of the check/refactor loop.
+Its contribution to downstream \emph{executability} (conformant EMF models) is in the same direction but model-gated: significant only where the model's intrinsic code generation is strong enough (DeepSeek-V4), a non-significant trend for QWEN3-max, and unattainable for Sonnet~4.6. Its contribution to upstream \emph{semantic} accuracy is model-dependent and can even be mildly negative when a model's check/refactor loop over-produces.
+The benefit is thus a property of the model--pipeline interaction, not of the decomposition in isolation.
+
+\begin{figure}[tbp]
+    \centering
+	\includegraphics[width=\linewidth]{graphics/significantly.pdf}
+\caption{Per-stage Single- vs.\ Multi-agent scores per model (mean over ten repetitions). Stars mark significant differences in \emph{either} direction (Mann--Whitney U for continuous F1; Fisher's exact for binary rates): $p<0.05$: *, $p<0.01$: **, $p<0.001$: ***, $p<0.0001$: ****. Bar heights show direction; a ``0'' is a measured zero (e.g.\ Sonnet's $0/10$ EOL runs), not missing data.}
+	\label{fig:analysis}
+\end{figure}
+
+\subsection{RQ3: Traceability}
+\label{sec:eval:trace}
+Unlike approaches that recover trace links post hoc, every RADIANT phase emits a \textit{Bifrost} model linking each requirement to the elements it produces, so traceability is available \emph{by construction}.
+We assess it along two axes: the \emph{correctness and completeness} of the generated links, and their ability to \emph{support automated change-impact analysis}.
+Both are scored offline over the artefacts already produced for RQ1, with no further LLM calls.
+
+Traceability is itself a capability of the decomposition: trace links are emitted by the dedicated trace agent in each Multi-Agent layer, whereas the Single-Agent baseline produces no resolvable trace (only an unchecked concept listing).
+The numbers below thus characterise the default (Multi-Agent) pipeline, and the single-agent comparison is qualitative.
+
+\paragraph{Link correctness and completeness.} We score three quantities over the ten Multi-Agent runs per model.
+\emph{Accuracy}: for the behaviour layer, the generated (requirement, transition-edge) links reproduce the hand-authored expert trace (18 transitions) exactly (F1~$=1.00$ for all three models, matched on the edge since textual labels are immaterial); for the concept layer, the concept extraction's requirement-linked micro-F1 ($0.53$--$0.72$) \emph{is} the requirement$\rightarrow$concept link accuracy.
+\emph{Resolvability} (the fraction of links whose target is actually present in the artefact) is $1.00$ for concept, DSML and model across all models, and for behaviour $1.00$/$0.97$/$0.73$ (DeepSeek/QWEN/Sonnet) --- the generation weakness that depresses Sonnet's executable artefacts also leaves more of its behaviour links unresolved.
+\emph{Coverage} (requirements with $\geq 1$ link) is $\geq 0.98$ for the architecture-side layers; the one gap is behaviour ($0.67$ for DeepSeek and QWEN), as the behaviour trace links transitions but not the variable, constant and state requirements.
+
+\paragraph{Change-impact correctness.} Exercising the delivered facility (Section~\ref{sec:implementation}) end-to-end, we inject each of the eighteen behaviour requirements as a change and compare the impact set computed from each run's trace graph against the expert-intended impact.
+Over $180$ changes per model it attains precision, recall and F1 of $1.00$ --- flagging exactly the affected transition.
+Injecting the root architecture requirement instead propagates across the concept, DSML and model layers (three phases), demonstrating the cross-phase digital thread.
+The mechanism is exact; its practical reliability is bounded only by link resolvability (hence model-dependent), not by the computation.
+
+\begin{table}[H]
+\caption{Pre-study background survey responses from the six participants (P1--P6); each item was rated on a four-point experience scale: 1~=~\emph{novice} (0--6 months), 2~=~\emph{intermediate} (6 months--1 year), 3~=~\emph{experienced} (1--3 years), 4~=~\emph{expert} (${>}3$ years).}
+\label{tab:survey}
+\centering
+\small
+\begin{tabular}{clcccccc}
+\hline
+\textbf{\#} & \textbf{Experience with\ldots} & \textbf{P1} & \textbf{P2} & \textbf{P3} & \textbf{P4} & \textbf{P5} & \textbf{P6} \\ \hline
+Q1 & large language models (e.g.\ ChatGPT, Claude) & 2 & 1 & 2 & 3 & 2 & 3 \\
+Q2 & using LLMs to assist programming or modelling & 2 & 1 & 2 & 3 & 2 & 3 \\
+Q3 & model-driven engineering (MDE / MBSE) & 3 & 3 & 4 & 2 & 4 & 2 \\
+Q4 & Eclipse Emfatic or Ecore modelling & 3 & 3 & 4 & 2 & 4 & 2 \\
+Q5 & the Eclipse platform & 3 & 3 & 4 & 2 & 4 & 2 \\
+Q6 & formal methods (e.g.\ model checking, theorem proving) & 1 & 3 & 3 & 1 & 3 & 1 \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{RQ4: Efficiency}
+To evaluate efficiency, we invited six participants and surveyed their experience with LLMs, MDE, and formal methods (Table~\ref{tab:survey}). Given their diverse backgrounds, a warm-up phase of tutorials and a workshop gave all participants a comparable understanding. Each participant performed the task in both the manual and automated settings; to mitigate training effects we used a crossover design, one group manual-first and the other automated-first. The six span intermediate-to-expert MDE and novice-to-experienced formal-methods experience; Table~\ref{tab:efficiency} reports all of them, and we highlight two contrasting profiles---P1 (experienced in MDE but a novice in formal methods) and P2 (experienced in both).
+
+
+\begin{table}[tbp]
+\caption{Comparative experiment for efficiency evaluation. All participants start from the same given requirement model (the input to RADIANT); the automated setting fixes the pipeline to DeepSeek-V4.}
+\centering
+\begin{tabular}{lccccc}
+\hline
+\multirow{2}{*}{Participant} & \multicolumn{5}{c}{Time Spent (in minutes)/Accuracy (in percentage)} \\ \cline{2-6}
+                             & \begin{tabular}[c]{@{}c@{}}AUV\\ DSML\end{tabular}
+                             & \begin{tabular}[c]{@{}c@{}}EMF\\ Model\end{tabular}
+                             & \begin{tabular}[c]{@{}c@{}}RoboChart\\ Arch.\end{tabular}
+                             & \begin{tabular}[c]{@{}c@{}}Behaviour\\ Model\end{tabular}
+                             & \begin{tabular}[c]{@{}c@{}}Change Impact\\ Analysis\end{tabular} \\ \hline
+P1 (Man.)  & 50/88\%   & 160/86\%  & 60/92\%  & 240/91\% & 60/N/a       \\
+P2 (Man.)  & 36/88\%   & 123/87\%  & 70/94\%      & 120/94\%    & 45/N/a   \\
+P3 (Man.)  & 27/95\%   & 99/93\%  & 60/93\%      & 117/93\%    & 35/N/a   \\
+P4 (Man.)  & 39/86\%   & 120/89\%  & 80/87\%      & 200/87\%    & 56/N/a   \\
+P5 (Man.)  & 30/96\%   & 90/93\%  & 60/93\%      & 130/93\%    & 59/N/a   \\
+P6 (Man.)  & 60/84\%   & 153/86\%  & 90/77\%      & 200/77\%    & 62/N/a   \\
+P1 (Auto.) & 8/95\%    & 12/97\%   & $<$1/97\%     & 12/96\%   & 1/N/a    \\
+P2 (Auto.) & 6/95\%   & 18/97\%   & $<$1/97\%     & 8/97\%   & 1/N/a    \\
+P3 (Auto.) & 8/97\%    & 10/97\%   & $<$1/96\%     & 5/97\%   & 1/N/a    \\
+P4 (Auto.) & 6/95\%   & 18/96\%   & $<$1/96\%     & 10/97\%   & 1/N/a    \\
+P5 (Auto.) & 3/97\%    & 11/97\%   & $<$1/96\%     & 5/96\%   & 1/N/a    \\
+P6 (Auto.) & 6/93\%   & 20/97\%   & $<$1/97\%     & 15/97\%   & 1/N/a    \\
+\hline
+\end{tabular}
+\label{tab:efficiency}
+\end{table}
+
+All participants started from the same given requirement model---the input to RADIANT---and produced the downstream AUV models of Section~\ref{sec:demo}, scored against our reference answers; the \textit{Concept} model is an internal intermediate the pipeline consumes, so it is not among the artefacts they author by hand.
+We also asked the participants to perform a change impact analysis on the models based on one change in requirement.
+
+In the manual setting, the participants used only the provided MDE tooling (MALCOMj), together with the AUV description, the LRE state machine (Figure~\ref{fig:LRE_STM}) and a short RoboChart tutorial.
+The per-task times and accuracies are in Table~\ref{tab:efficiency}: accuracy is each artefact's element-level F1 against the expert reference (the metric of RQ1) as a percentage. 
+Two effects stand out beyond the numbers.
+P1, less experienced with the formalisms, had to revisit the DSML and EMF model after discovering design flaws (reflected in their 50- and 160-minute totals) and spent 240 minutes against the RoboChart manual to build the behaviour state machine --- versus P2's 120. 
+Both authored their RoboChart models by hand-writing Epsilon Generation Language (EGL) model-to-text transformations~\cite{rose2008epsilon}.
+For change impact, the participants were asked to add an attribute \texttt{rel\_dist} to the \texttt{Obstacle} composite type and traced its effects manually.
+
+In the automated setting, the participants ran RADIANT via MALCOM on that same requirement model with the pipeline fixed to DeepSeek-V4 (the strongest model above), checking and lightly editing the generated artefacts in far less time; the RoboChart transformation is simply executed, not hand-written.
+Because model and input are fixed, the generated artefacts are common across participants, so the automated times reflect review effort and the accuracies are the pipeline's rather than the individual's.
+For the behaviour model, MALCOM generates a state machine matching the control-flow structure of Figure~\ref{fig:LRE_STM}; as its guards are abstracted to boolean variables for FDR-verifiability, participants checked the structure and reinstated the concrete guards.
+For change impact, they only check the automated results.
+
+Setting aside the model-to-text transformation, the automated process cuts every participant's effort by roughly an order of magnitude---from $278$--$510$ manual minutes to $20$--$42$ automated minutes, a $10$--$15\times$ reduction (mean ${\approx}12.5\times$), at no cost in accuracy ($93$--$97\%$ automated vs.\ $77$--$96\%$ manual).
+
+
+\subsection{RQ5: Generality}
+
+For generality, we applied RADIANT to a second, independently-authored case study from a different robotic domain: \emph{SRanger}\footnote{Available at: \url{https://github.com/wrwei/RADIANT/tree/main/case_studies/sranger}.}, a small reactive ground robot that turns in place on detecting an obstacle, with an IR distance sensor, a differential-drive actuator, and a three-mode controller (Moving, Turning, Final).
+Its requirement model (23 requirements) was written for a separate code-generation study, not for RADIANT, and we reused the Multi-Agent layers of the AUV study \emph{unchanged}, including their prompts.
+
+Running the full pipeline (phases~2--5) end-to-end, every phase passed its check gate without any layer or prompt change: Concept extraction produced a 9-concept model covering all requirements; DSML creation a syntactically valid 13-class Emfatic metamodel; the EOL executed to a metamodel-conformant EMF model; and the behaviour layer produced a RoboChart state machine with exactly the three modes and seven transitions specified, verified deadlock-free and convergent by FDR.
+This second domain also revealed one trace-resolution gap we then fixed generally: concept names appearing in the requirement text only in lower-case or multi-word form were not matched; the AUV results are unaffected.
+
+We frame this as evidence of \textit{applicability across domains}, not measured accuracy: no expert reference was authored for SRanger, so we report no accuracy numbers for it.
+We claim only that the unmodified layers transfer and drive every phase --- including formal verification --- to a passing artefact.

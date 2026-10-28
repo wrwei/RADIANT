@@ -1,0 +1,80 @@
+[
+  {
+    "item": "Q1",
+    "question": "large language models (e.g.\\ ChatGPT, Claude)",
+    "P1_to_P6": [
+      2,
+      1,
+      2,
+      3,
+      2,
+      3
+    ],
+    "source_line": 200
+  },
+  {
+    "item": "Q2",
+    "question": "using LLMs to assist programming or modelling",
+    "P1_to_P6": [
+      2,
+      1,
+      2,
+      3,
+      2,
+      3
+    ],
+    "source_line": 201
+  },
+  {
+    "item": "Q3",
+    "question": "model-driven engineering (MDE / MBSE)",
+    "P1_to_P6": [
+      3,
+      3,
+      4,
+      2,
+      4,
+      2
+    ],
+    "source_line": 202
+  },
+  {
+    "item": "Q4",
+    "question": "Eclipse Emfatic or Ecore modelling",
+    "P1_to_P6": [
+      3,
+      3,
+      4,
+      2,
+      4,
+      2
+    ],
+    "source_line": 203
+  },
+  {
+    "item": "Q5",
+    "question": "the Eclipse platform",
+    "P1_to_P6": [
+      3,
+      3,
+      4,
+      2,
+      4,
+      2
+    ],
+    "source_line": 204
+  },
+  {
+    "item": "Q6",
+    "question": "formal methods (e.g.\\ model checking, theorem proving)",
+    "P1_to_P6": [
+      1,
+      3,
+      3,
+      1,
+      3,
+      1
+    ],
+    "source_line": 205
+  }
+]

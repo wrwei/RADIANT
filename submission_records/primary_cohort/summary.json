@@ -1,0 +1,1482 @@
+{
+  "primary_cohort": "factorial_v2",
+  "model": "deepseek_v4",
+  "runs": 40,
+  "runs_per_configuration": 10,
+  "paid_model_calls": 0,
+  "verification_scope": "R1-R4, S1-S3 and V1-V3 are ten state-machine properties. Archived evaluation rows additionally include M1, a module-level assertion confirming that reqMOM cannot occur; this is a reachability limitation, not an eleventh state-machine property.",
+  "protocol_qualification": "Existing corrected-harness analysis cohort: no-repair configurations are retained from the first factorial pass; repair configurations' construction and behaviour stages were regenerated from unchanged concept/notation outputs after completing the repair prompt. This is not a prospectively frozen experiment.",
+  "upstream_provenance": {
+    "records": 187,
+    "recorded_directory_blocks": {
+      "factorial_v1": 70,
+      "factorial_v2": 117
+    },
+    "matching_configuration_and_logical_run": true,
+    "recorded_files_byte_identical_to_primary_cohort_copies": true
+  },
+  "configurations": [
+    {
+      "model": "deepseek_v4",
+      "arm": "single",
+      "n": "10",
+      "concept accepted": "10/10",
+      "concept rejected/crashed/not run/missing": "0/0/0/0",
+      "concept repairs": "0",
+      "concept ok at attempt 0": "10/10",
+      "dsml accepted": "1/10",
+      "dsml rejected/crashed/not run/missing": "9/0/0/0",
+      "dsml repairs": "0",
+      "dsml ok at attempt 0": "1/10",
+      "model accepted": "1/10",
+      "model rejected/crashed/not run/missing": "0/0/9/0",
+      "model repairs": "0",
+      "model ok at attempt 0": "1/1",
+      "behaviour accepted": "1/10",
+      "behaviour rejected/crashed/not run/missing": "0/0/9/0",
+      "behaviour repairs": "0",
+      "behaviour ok at attempt 0": "1/1",
+      "FDR certified": "1/10",
+      "FDR no verdict (of runs reaching FDR)": "0/1",
+      "trace models (notation+construction)": "0/10",
+      "tokens (total)": "498481",
+      "concept F1 (accepted)": "0.96 (n=10)",
+      "concept F1 (all produced)": "0.96 (n=10)",
+      "notation-element F1 (accepted)": "0.92 (n=1)",
+      "notation-element F1 (all produced)": "0.90 (n=10)",
+      "behaviour F1 (accepted)": "0.98 (n=1)",
+      "behaviour F1 (all produced)": "0.98 (n=1)"
+    },
+    {
+      "model": "deepseek_v4",
+      "arm": "single_repair",
+      "n": "10",
+      "concept accepted": "10/10",
+      "concept rejected/crashed/not run/missing": "0/0/0/0",
+      "concept repairs": "0",
+      "concept ok at attempt 0": "10/10",
+      "dsml accepted": "10/10",
+      "dsml rejected/crashed/not run/missing": "0/0/0/0",
+      "dsml repairs": "10",
+      "dsml ok at attempt 0": "0/10",
+      "model accepted": "10/10",
+      "model rejected/crashed/not run/missing": "0/0/0/0",
+      "model repairs": "0",
+      "model ok at attempt 0": "10/10",
+      "behaviour accepted": "10/10",
+      "behaviour rejected/crashed/not run/missing": "0/0/0/0",
+      "behaviour repairs": "0",
+      "behaviour ok at attempt 0": "10/10",
+      "FDR certified": "10/10",
+      "FDR no verdict (of runs reaching FDR)": "0/10",
+      "trace models (notation+construction)": "0/10",
+      "tokens (total)": "851632",
+      "concept F1 (accepted)": "0.97 (n=10)",
+      "concept F1 (all produced)": "0.97 (n=10)",
+      "notation-element F1 (accepted)": "0.91 (n=10)",
+      "notation-element F1 (all produced)": "0.91 (n=10)",
+      "behaviour F1 (accepted)": "0.98 (n=10)",
+      "behaviour F1 (all produced)": "0.98 (n=10)"
+    },
+    {
+      "model": "deepseek_v4",
+      "arm": "multi_no_repair",
+      "n": "10",
+      "concept accepted": "10/10",
+      "concept rejected/crashed/not run/missing": "0/0/0/0",
+      "concept repairs": "0",
+      "concept ok at attempt 0": "10/10",
+      "dsml accepted": "9/10",
+      "dsml rejected/crashed/not run/missing": "1/0/0/0",
+      "dsml repairs": "0",
+      "dsml ok at attempt 0": "9/10",
+      "model accepted": "9/10",
+      "model rejected/crashed/not run/missing": "0/0/1/0",
+      "model repairs": "0",
+      "model ok at attempt 0": "9/9",
+      "behaviour accepted": "9/10",
+      "behaviour rejected/crashed/not run/missing": "0/0/1/0",
+      "behaviour repairs": "0",
+      "behaviour ok at attempt 0": "9/9",
+      "FDR certified": "9/10",
+      "FDR no verdict (of runs reaching FDR)": "0/9",
+      "trace models (notation+construction)": "9/10",
+      "tokens (total)": "2725449",
+      "concept F1 (accepted)": "0.96 (n=10)",
+      "concept F1 (all produced)": "0.96 (n=10)",
+      "notation-element F1 (accepted)": "0.87 (n=9)",
+      "notation-element F1 (all produced)": "0.82 (n=10)",
+      "behaviour F1 (accepted)": "0.98 (n=9)",
+      "behaviour F1 (all produced)": "0.98 (n=9)"
+    },
+    {
+      "model": "deepseek_v4",
+      "arm": "multi",
+      "n": "10",
+      "concept accepted": "10/10",
+      "concept rejected/crashed/not run/missing": "0/0/0/0",
+      "concept repairs": "0",
+      "concept ok at attempt 0": "10/10",
+      "dsml accepted": "10/10",
+      "dsml rejected/crashed/not run/missing": "0/0/0/0",
+      "dsml repairs": "3",
+      "dsml ok at attempt 0": "9/10",
+      "model accepted": "9/10",
+      "model rejected/crashed/not run/missing": "1/0/0/0",
+      "model repairs": "7",
+      "model ok at attempt 0": "8/10",
+      "behaviour accepted": "9/10",
+      "behaviour rejected/crashed/not run/missing": "0/0/1/0",
+      "behaviour repairs": "0",
+      "behaviour ok at attempt 0": "9/9",
+      "FDR certified": "9/10",
+      "FDR no verdict (of runs reaching FDR)": "0/9",
+      "trace models (notation+construction)": "10/10",
+      "tokens (total)": "2782361",
+      "concept F1 (accepted)": "0.97 (n=10)",
+      "concept F1 (all produced)": "0.97 (n=10)",
+      "notation-element F1 (accepted)": "0.80 (n=10)",
+      "notation-element F1 (all produced)": "0.80 (n=10)",
+      "behaviour F1 (accepted)": "0.98 (n=9)",
+      "behaviour F1 (all produced)": "0.98 (n=9)"
+    }
+  ],
+  "concept_traces": [
+    {
+      "block": "factorial_v2",
+      "model": "deepseek_v4",
+      "arm": "single",
+      "n": 10,
+      "dedup_vocabulary_f1": {
+        "mean": 0.9597813892475008,
+        "std_population": 0.04006832991379994,
+        "min": 0.8817204301075269,
+        "max": 1.0
+      },
+      "requirement_linked_micro_precision": {
+        "mean": 0.9419201323920875,
+        "std_population": 0.03011297579166581,
+        "min": 0.8829787234042553,
+        "max": 1.0
+      },
+      "requirement_linked_micro_recall": {
+        "mean": 0.8891566265060241,
+        "std_population": 0.1850721632705776,
+        "min": 0.4457831325301205,
+        "max": 1.0
+      },
+      "requirement_linked_micro_f1": {
+        "mean": 0.9042168790174406,
+        "std_population": 0.12164473736452322,
+        "min": 0.596774193548387,
+        "max": 1.0
+      },
+      "requirement_linked_macro_f1": {
+        "mean": 0.9111811862887714,
+        "std_population": 0.11819645219890978,
+        "min": 0.6147222222222222,
+        "max": 1.0
+      },
+      "requirement_linked_exact_match_rate": {
+        "mean": 0.6799999999999999,
+        "std_population": 0.33704599092705434,
+        "min": 0.05,
+        "max": 1.0
+      },
+      "dedup_alias_f1": {
+        "mean": 0.9042168790174406,
+        "std_population": 0.12164473736452322,
+        "min": 0.596774193548387,
+        "max": 1.0
+      },
+      "duplicate_rate": {
+        "mean": 0.009333333333333334,
+        "std_population": 0.028,
+        "min": 0.0,
+        "max": 0.09333333333333334
+      },
+      "instance_edge_precision": {
+        "mean": 1.0,
+        "std_population": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "instance_edge_recall": {
+        "mean": 0.8891566265060241,
+        "std_population": 0.1850721632705776,
+        "min": 0.4457831325301205,
+        "max": 1.0
+      },
+      "instance_edge_f1": {
+        "mean": 0.9293170361669848,
+        "std_population": 0.12305307761981638,
+        "min": 0.6166666666666667,
+        "max": 1.0
+      },
+      "typed_instance_edge_precision": {
+        "mean": 1.0,
+        "std_population": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "typed_instance_edge_recall": {
+        "mean": 0.8891566265060241,
+        "std_population": 0.1850721632705776,
+        "min": 0.4457831325301205,
+        "max": 1.0
+      },
+      "typed_instance_edge_f1": {
+        "mean": 0.9293170361669848,
+        "std_population": 0.12305307761981638,
+        "min": 0.6166666666666667,
+        "max": 1.0
+      },
+      "frequent_missing_tuples": [
+        {
+          "tuple": [
+            "cf3",
+            "module",
+            "auvmodule",
+            "module"
+          ],
+          "runs": 2
+        },
+        {
+          "tuple": [
+            "cf3",
+            "primitivetype",
+            "nat",
+            "primitivetype"
+          ],
+          "runs": 2
+        },
+        {
+          "tuple": [
+            "cf3",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 2
+        },
+        {
+          "tuple": [
+            "cf3",
+            "value",
+            "horizcda",
+            "value"
+          ],
+          "runs": 2
+        },
+        {
+          "tuple": [
+            "cf3",
+            "value",
+            "id",
+            "value"
+          ],
+          "runs": 2
+        },
+        {
+          "tuple": [
+            "cf3",
+            "value",
+            "vertcda",
+            "value"
+          ],
+          "runs": 2
+        },
+        {
+          "tuple": [
+            "ct1",
+            "module",
+            "auvmodule",
+            "module"
+          ],
+          "runs": 2
+        },
+        {
+          "tuple": [
+            "ct1",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 2
+        },
+        {
+          "tuple": [
+            "ct1",
+            "value",
+            "azimuth",
+            "value"
+          ],
+          "runs": 2
+        },
+        {
+          "tuple": [
+            "ct1",
+            "value",
+            "polar",
+            "value"
+          ],
+          "runs": 2
+        }
+      ],
+      "frequent_extra_tuples": [
+        {
+          "tuple": [
+            "interface2",
+            "parameter",
+            "",
+            ""
+          ],
+          "runs": 9
+        },
+        {
+          "tuple": [
+            "interface2",
+            "returnvalue",
+            "",
+            ""
+          ],
+          "runs": 9
+        },
+        {
+          "tuple": [
+            "interface3",
+            "parameter",
+            "",
+            ""
+          ],
+          "runs": 9
+        },
+        {
+          "tuple": [
+            "interface3",
+            "returnvalue",
+            "",
+            ""
+          ],
+          "runs": 9
+        },
+        {
+          "tuple": [
+            "sd1",
+            "auv",
+            "",
+            ""
+          ],
+          "runs": 2
+        },
+        {
+          "tuple": [
+            "platformf1",
+            "auv",
+            "",
+            ""
+          ],
+          "runs": 1
+        },
+        {
+          "tuple": [
+            "platformf1",
+            "obstacle",
+            "",
+            ""
+          ],
+          "runs": 1
+        },
+        {
+          "tuple": [
+            "platformf2",
+            "auv",
+            "",
+            ""
+          ],
+          "runs": 1
+        },
+        {
+          "tuple": [
+            "platformf2",
+            "obstacle",
+            "",
+            ""
+          ],
+          "runs": 1
+        },
+        {
+          "tuple": [
+            "platformf3",
+            "auv",
+            "",
+            ""
+          ],
+          "runs": 1
+        }
+      ]
+    },
+    {
+      "block": "factorial_v2",
+      "model": "deepseek_v4",
+      "arm": "single_repair",
+      "n": 10,
+      "dedup_vocabulary_f1": {
+        "mean": 0.9705249841872232,
+        "std_population": 0.029601518026565455,
+        "min": 0.8817204301075269,
+        "max": 0.9803921568627451
+      },
+      "requirement_linked_micro_precision": {
+        "mean": 0.9501100513573,
+        "std_population": 0.011738811445341146,
+        "min": 0.9148936170212766,
+        "max": 0.9540229885057471
+      },
+      "requirement_linked_micro_recall": {
+        "mean": 0.9518072289156626,
+        "std_population": 0.14457831325301204,
+        "min": 0.5180722891566265,
+        "max": 1.0
+      },
+      "requirement_linked_micro_f1": {
+        "mean": 0.9449773755656107,
+        "std_population": 0.09447963800904974,
+        "min": 0.6615384615384615,
+        "max": 0.976470588235294
+      },
+      "requirement_linked_macro_f1": {
+        "mean": 0.9563293650793652,
+        "std_population": 0.09101190476190477,
+        "min": 0.6832936507936508,
+        "max": 0.9866666666666667
+      },
+      "requirement_linked_exact_match_rate": {
+        "mean": 0.8150000000000001,
+        "std_population": 0.255,
+        "min": 0.05,
+        "max": 0.9
+      },
+      "dedup_alias_f1": {
+        "mean": 0.9449773755656107,
+        "std_population": 0.09447963800904974,
+        "min": 0.6615384615384615,
+        "max": 0.976470588235294
+      },
+      "duplicate_rate": {
+        "mean": 0.0,
+        "std_population": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "instance_edge_precision": {
+        "mean": 1.0,
+        "std_population": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "instance_edge_recall": {
+        "mean": 0.9518072289156626,
+        "std_population": 0.14457831325301204,
+        "min": 0.5180722891566265,
+        "max": 1.0
+      },
+      "instance_edge_f1": {
+        "mean": 0.9682539682539681,
+        "std_population": 0.09523809523809523,
+        "min": 0.6825396825396826,
+        "max": 1.0
+      },
+      "typed_instance_edge_precision": {
+        "mean": 1.0,
+        "std_population": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "typed_instance_edge_recall": {
+        "mean": 0.9518072289156626,
+        "std_population": 0.14457831325301204,
+        "min": 0.5180722891566265,
+        "max": 1.0
+      },
+      "typed_instance_edge_f1": {
+        "mean": 0.9682539682539681,
+        "std_population": 0.09523809523809523,
+        "min": 0.6825396825396826,
+        "max": 1.0
+      },
+      "frequent_missing_tuples": [
+        {
+          "tuple": [
+            "cf3",
+            "module",
+            "auvmodule",
+            "module"
+          ],
+          "runs": 1
+        },
+        {
+          "tuple": [
+            "cf3",
+            "primitivetype",
+            "nat",
+            "primitivetype"
+          ],
+          "runs": 1
+        },
+        {
+          "tuple": [
+            "cf3",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 1
+        },
+        {
+          "tuple": [
+            "cf3",
+            "value",
+            "horizcda",
+            "value"
+          ],
+          "runs": 1
+        },
+        {
+          "tuple": [
+            "cf3",
+            "value",
+            "id",
+            "value"
+          ],
+          "runs": 1
+        },
+        {
+          "tuple": [
+            "cf3",
+            "value",
+            "vertcda",
+            "value"
+          ],
+          "runs": 1
+        },
+        {
+          "tuple": [
+            "ct1",
+            "module",
+            "auvmodule",
+            "module"
+          ],
+          "runs": 1
+        },
+        {
+          "tuple": [
+            "ct1",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 1
+        },
+        {
+          "tuple": [
+            "ct1",
+            "value",
+            "azimuth",
+            "value"
+          ],
+          "runs": 1
+        },
+        {
+          "tuple": [
+            "ct1",
+            "value",
+            "polar",
+            "value"
+          ],
+          "runs": 1
+        }
+      ],
+      "frequent_extra_tuples": [
+        {
+          "tuple": [
+            "interface2",
+            "parameter",
+            "",
+            ""
+          ],
+          "runs": 10
+        },
+        {
+          "tuple": [
+            "interface2",
+            "returnvalue",
+            "",
+            ""
+          ],
+          "runs": 10
+        },
+        {
+          "tuple": [
+            "interface3",
+            "parameter",
+            "",
+            ""
+          ],
+          "runs": 10
+        },
+        {
+          "tuple": [
+            "interface3",
+            "returnvalue",
+            "",
+            ""
+          ],
+          "runs": 10
+        }
+      ]
+    },
+    {
+      "block": "factorial_v2",
+      "model": "deepseek_v4",
+      "arm": "multi_no_repair",
+      "n": 10,
+      "dedup_vocabulary_f1": {
+        "mean": 0.9608985341709498,
+        "std_population": 0.040687461087811995,
+        "min": 0.8823529411764707,
+        "max": 1.0
+      },
+      "requirement_linked_micro_precision": {
+        "mean": 0.9200051216531946,
+        "std_population": 0.0737460691856147,
+        "min": 0.7816091954022989,
+        "max": 1.0
+      },
+      "requirement_linked_micro_recall": {
+        "mean": 0.8903614457831326,
+        "std_population": 0.15924137907405317,
+        "min": 0.4939759036144578,
+        "max": 1.0
+      },
+      "requirement_linked_micro_f1": {
+        "mean": 0.895174672028137,
+        "std_population": 0.10643021145742851,
+        "min": 0.6612903225806451,
+        "max": 1.0
+      },
+      "requirement_linked_macro_f1": {
+        "mean": 0.8844428683201903,
+        "std_population": 0.11943315183631564,
+        "min": 0.6335227272727273,
+        "max": 1.0
+      },
+      "requirement_linked_exact_match_rate": {
+        "mean": 0.585,
+        "std_population": 0.35074919814591166,
+        "min": 0.05,
+        "max": 1.0
+      },
+      "dedup_alias_f1": {
+        "mean": 0.895174672028137,
+        "std_population": 0.10643021145742851,
+        "min": 0.6612903225806451,
+        "max": 1.0
+      },
+      "duplicate_rate": {
+        "mean": 0.0,
+        "std_population": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "instance_edge_precision": {
+        "mean": 1.0,
+        "std_population": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "instance_edge_recall": {
+        "mean": 0.9265060240963855,
+        "std_population": 0.15951461431115277,
+        "min": 0.4939759036144578,
+        "max": 1.0
+      },
+      "instance_edge_f1": {
+        "mean": 0.9532038621900373,
+        "std_population": 0.10465727999856288,
+        "min": 0.6612903225806451,
+        "max": 1.0
+      },
+      "typed_instance_edge_precision": {
+        "mean": 0.9638554216867469,
+        "std_population": 0.07228915662650603,
+        "min": 0.8192771084337349,
+        "max": 1.0
+      },
+      "typed_instance_edge_recall": {
+        "mean": 0.8903614457831326,
+        "std_population": 0.15924137907405317,
+        "min": 0.4939759036144578,
+        "max": 1.0
+      },
+      "typed_instance_edge_f1": {
+        "mean": 0.9170592838767841,
+        "std_population": 0.11311947262434154,
+        "min": 0.6612903225806451,
+        "max": 1.0
+      },
+      "frequent_missing_tuples": [
+        {
+          "tuple": [
+            "cf3",
+            "primitivetype",
+            "nat",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "cf3",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "ct1",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "ct2",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "interface1",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "interface2",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "interface3",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "platformf1",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "platformf2",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "platformf3",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        }
+      ],
+      "frequent_extra_tuples": [
+        {
+          "tuple": [
+            "interface2",
+            "parameter",
+            "",
+            ""
+          ],
+          "runs": 8
+        },
+        {
+          "tuple": [
+            "interface2",
+            "returnvalue",
+            "",
+            ""
+          ],
+          "runs": 8
+        },
+        {
+          "tuple": [
+            "interface3",
+            "parameter",
+            "",
+            ""
+          ],
+          "runs": 8
+        },
+        {
+          "tuple": [
+            "interface3",
+            "returnvalue",
+            "",
+            ""
+          ],
+          "runs": 8
+        },
+        {
+          "tuple": [
+            "sd1",
+            "auv",
+            "",
+            ""
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "cf3",
+            "primitivetype",
+            "nat",
+            ""
+          ],
+          "runs": 2
+        },
+        {
+          "tuple": [
+            "cf3",
+            "primitivetype",
+            "real",
+            ""
+          ],
+          "runs": 2
+        },
+        {
+          "tuple": [
+            "ct1",
+            "primitivetype",
+            "real",
+            ""
+          ],
+          "runs": 2
+        },
+        {
+          "tuple": [
+            "ct2",
+            "primitivetype",
+            "real",
+            ""
+          ],
+          "runs": 2
+        },
+        {
+          "tuple": [
+            "interface1",
+            "primitivetype",
+            "real",
+            ""
+          ],
+          "runs": 2
+        }
+      ]
+    },
+    {
+      "block": "factorial_v2",
+      "model": "deepseek_v4",
+      "arm": "multi",
+      "n": 10,
+      "dedup_vocabulary_f1": {
+        "mean": 0.9697106592880436,
+        "std_population": 0.03079326529370968,
+        "min": 0.8823529411764707,
+        "max": 1.0
+      },
+      "requirement_linked_micro_precision": {
+        "mean": 0.9304855697005368,
+        "std_population": 0.06081001172194888,
+        "min": 0.7816091954022989,
+        "max": 1.0
+      },
+      "requirement_linked_micro_recall": {
+        "mean": 0.8903614457831326,
+        "std_population": 0.18283504690442234,
+        "min": 0.5060240963855421,
+        "max": 1.0
+      },
+      "requirement_linked_micro_f1": {
+        "mean": 0.8956605864778219,
+        "std_population": 0.10972884521398872,
+        "min": 0.6719999999999999,
+        "max": 0.976470588235294
+      },
+      "requirement_linked_macro_f1": {
+        "mean": 0.890735028860029,
+        "std_population": 0.12709018124405247,
+        "min": 0.6309469696969697,
+        "max": 0.9866666666666667
+      },
+      "requirement_linked_exact_match_rate": {
+        "mean": 0.61,
+        "std_population": 0.3292415526630866,
+        "min": 0.05,
+        "max": 0.9
+      },
+      "dedup_alias_f1": {
+        "mean": 0.8956605864778219,
+        "std_population": 0.10972884521398872,
+        "min": 0.6719999999999999,
+        "max": 0.976470588235294
+      },
+      "duplicate_rate": {
+        "mean": 0.0,
+        "std_population": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "instance_edge_precision": {
+        "mean": 1.0,
+        "std_population": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "instance_edge_recall": {
+        "mean": 0.908433734939759,
+        "std_population": 0.18384452588156602,
+        "min": 0.5060240963855421,
+        "max": 1.0
+      },
+      "instance_edge_f1": {
+        "mean": 0.9404824427480916,
+        "std_population": 0.11980959491566538,
+        "min": 0.672,
+        "max": 1.0
+      },
+      "typed_instance_edge_precision": {
+        "mean": 0.9819277108433735,
+        "std_population": 0.054216867469879526,
+        "min": 0.8192771084337349,
+        "max": 1.0
+      },
+      "typed_instance_edge_recall": {
+        "mean": 0.8903614457831326,
+        "std_population": 0.18283504690442234,
+        "min": 0.5060240963855421,
+        "max": 1.0
+      },
+      "typed_instance_edge_f1": {
+        "mean": 0.922410153591465,
+        "std_population": 0.123055153256567,
+        "min": 0.672,
+        "max": 1.0
+      },
+      "frequent_missing_tuples": [
+        {
+          "tuple": [
+            "cf3",
+            "primitivetype",
+            "nat",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "cf3",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "ct1",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "ct2",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "interface1",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "interface2",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "interface3",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "platformf1",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "platformf2",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "platformf3",
+            "primitivetype",
+            "real",
+            "primitivetype"
+          ],
+          "runs": 3
+        }
+      ],
+      "frequent_extra_tuples": [
+        {
+          "tuple": [
+            "interface2",
+            "parameter",
+            "",
+            ""
+          ],
+          "runs": 8
+        },
+        {
+          "tuple": [
+            "interface2",
+            "returnvalue",
+            "",
+            ""
+          ],
+          "runs": 8
+        },
+        {
+          "tuple": [
+            "interface3",
+            "parameter",
+            "",
+            ""
+          ],
+          "runs": 8
+        },
+        {
+          "tuple": [
+            "interface3",
+            "returnvalue",
+            "",
+            ""
+          ],
+          "runs": 8
+        },
+        {
+          "tuple": [
+            "platformf1",
+            "auv",
+            "",
+            ""
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "platformf2",
+            "auv",
+            "",
+            ""
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "platformf3",
+            "auv",
+            "",
+            ""
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "sd1",
+            "auv",
+            "",
+            ""
+          ],
+          "runs": 3
+        },
+        {
+          "tuple": [
+            "cf3",
+            "primitivetype",
+            "nat",
+            ""
+          ],
+          "runs": 1
+        },
+        {
+          "tuple": [
+            "cf3",
+            "primitivetype",
+            "real",
+            ""
+          ],
+          "runs": 1
+        }
+      ]
+    }
+  ],
+  "change_impact": {
+    "primary": {
+      "tp": 302,
+      "fp": 0,
+      "fn": 22,
+      "n_changes": 324,
+      "runs_scored": 18,
+      "precision": 1.0,
+      "recall": 0.9320987654320988,
+      "f1": 0.9648562300319489
+    },
+    "by_configuration": [
+      {
+        "model": "DeepSeek-V4",
+        "config": "multi_no_repair",
+        "runs": "10",
+        "runs_scored": "9",
+        "n_changes": "162",
+        "tp": "160",
+        "fp": "0",
+        "fn": "2",
+        "ci_precision": "1.0",
+        "ci_recall": "0.9877",
+        "ci_f1": "0.9938",
+        "arch_phase_spread_mean": "3.0"
+      },
+      {
+        "model": "DeepSeek-V4",
+        "config": "multi",
+        "runs": "10",
+        "runs_scored": "9",
+        "n_changes": "162",
+        "tp": "142",
+        "fp": "0",
+        "fn": "20",
+        "ci_precision": "1.0",
+        "ci_recall": "0.8765",
+        "ci_f1": "0.9342",
+        "arch_phase_spread_mean": "2.78"
+      }
+    ],
+    "secondary_corrected_pool": {
+      "tp": 462,
+      "fp": 0,
+      "fn": 42,
+      "n_changes": 504,
+      "runs_scored": 28,
+      "precision": 1.0,
+      "recall": 0.9166666666666666,
+      "f1": 0.9565217391304348
+    }
+  },
+  "verification": {
+    "state_machine": {
+      "attempted_models": 29,
+      "models_with_property_verdicts": 29,
+      "all_properties_pass": 29,
+      "R1_R2_S1_all_fail": 0,
+      "no_property_verdict": []
+    },
+    "controller": {
+      "attempted_models": 29,
+      "models_with_property_verdicts": 28,
+      "all_properties_pass": 0,
+      "R1_R2_S1_all_fail": 28,
+      "no_property_verdict": [
+        {
+          "model": "deepseek_v4",
+          "arm": "multi_no_repair",
+          "run": "run_010",
+          "errors": [
+            "Command '['C:\\\\Program Files\\\\fdr\\\\bin\\\\refines.exe', '--format', 'framed_json', 'C:\\\\Users\\\\willr\\\\AppData\\\\Local\\\\Temp\\\\radiant_reqprops_e_insflq\\\\factorial_v2__deepseek_v4__multi_no_repair__run_010\\\\csp-gen\\\\requirements_check.csp']' timed out after 900 seconds"
+          ]
+        }
+      ]
+    }
+  },
+  "supporting_verification_cohorts": {
+    "table1_v2": {
+      "state_machine": {
+        "attempted_models": 10,
+        "models_with_property_verdicts": 10,
+        "all_properties_pass": 10,
+        "R1_R2_S1_all_fail": 0,
+        "no_property_verdict": []
+      },
+      "controller": {
+        "attempted_models": 10,
+        "models_with_property_verdicts": 10,
+        "all_properties_pass": 0,
+        "R1_R2_S1_all_fail": 10,
+        "no_property_verdict": []
+      }
+    },
+    "june_2026": {
+      "state_machine": {
+        "attempted_models": 30,
+        "models_with_property_verdicts": 30,
+        "all_properties_pass": 30,
+        "R1_R2_S1_all_fail": 0,
+        "no_property_verdict": []
+      },
+      "controller": {
+        "attempted_models": 30,
+        "models_with_property_verdicts": 30,
+        "all_properties_pass": 0,
+        "R1_R2_S1_all_fail": 30,
+        "no_property_verdict": []
+      }
+    }
+  },
+  "sources": [
+    {
+      "path": "case_studies/auv/output/factorial_v2/factorial_summary.csv",
+      "sha256": "17ccf4ba8b083340b025e60e104e3b971582bde13402afdb76d959088cd04a53"
+    },
+    {
+      "path": "malcom.evaluation/change_impact/factorial_v2/change_impact_summary.csv",
+      "sha256": "d51b054dfff48617760f5bd72bf371955ea56b70fcc94743e765ba519b2fc24a"
+    },
+    {
+      "path": "malcom.evaluation/change_impact/table1_v2/change_impact_summary.csv",
+      "sha256": "344e45a4a8f081a42f1d5e12d7ba3e2f9b9180b50d0e2838916745b6bf27156d"
+    },
+    {
+      "path": "malcom.evaluation/requirement_properties/results/requirement_properties_per_assertion_stm_split.csv",
+      "sha256": "cd98b1494516b820aedbe1b1b981beb52a4e894ae9d91b4d090495b51c0a7a0d"
+    },
+    {
+      "path": "malcom.evaluation/requirement_properties/results/requirement_properties_per_assertion_ctrl_full.csv",
+      "sha256": "92ac409efb3bfe63e9d95715fbceaf381afda079f5c5feb8de1db3a0fb5c4ef3"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi/run_001/upstream_inputs.json",
+      "sha256": "61ec1e32bd126fe493131d93e3524542f7a8f493c0c4c59619ae6b3dc94d0add"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi/run_002/upstream_inputs.json",
+      "sha256": "842b8223cf0d5ee664d3ea72180b4ee487516c6578db1a5f5160804a02e96059"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi/run_003/upstream_inputs.json",
+      "sha256": "957d60e03c870572cdd9c6a30bc1df40ae2e41738f72bb1cdf5605e5ba26e7f9"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi/run_004/upstream_inputs.json",
+      "sha256": "70ece03ef8f7f96182aa1eff3971e1fb6940d225dc579d016d4c46d8a899e96d"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi/run_005/upstream_inputs.json",
+      "sha256": "1a38319d64cb91b03b70840503336618d446fd5b74d6d936ad46aef251a0df78"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi/run_006/upstream_inputs.json",
+      "sha256": "a1fd0ec85fb6b2070a81e647f52581162151f531eb956942d3ad9d0da4200eb9"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi/run_007/upstream_inputs.json",
+      "sha256": "c50329dd88668c8313d624b604606b9845f983649be2cdb8c0f6a7b72611a41b"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi/run_008/upstream_inputs.json",
+      "sha256": "db22926dc338b612670aa4eaed7ea7e614a9c80b4ab477e2c13f78b8a1962beb"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi/run_009/upstream_inputs.json",
+      "sha256": "b545c82d3c99601337f73a18a189744a20a1e411442f0f68fd631e5914633944"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi/run_010/upstream_inputs.json",
+      "sha256": "f8d1560f1014ef07d15b32b6265c99884cd2598da16b85b66ef745d45daa6b8d"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi_no_repair/run_001/upstream_inputs.json",
+      "sha256": "ab895da8af59dfb7ab041e9753ec49eeb217a85c3190041555d46478751eff35"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi_no_repair/run_002/upstream_inputs.json",
+      "sha256": "9f477f31ccba75cfbe7d945466e191d925ff405b9f1ecfd5d1078f5e5248c4cd"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi_no_repair/run_003/upstream_inputs.json",
+      "sha256": "ec80f3155d2929e6bedda530bd3329d052b3b9917094df61bfd9fc9152da2405"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi_no_repair/run_004/upstream_inputs.json",
+      "sha256": "1757ed4556784f91766d5749bb4e5629e0300e33bdeeed977691bdc242d6ac37"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi_no_repair/run_005/upstream_inputs.json",
+      "sha256": "b0676a663b79caea5e1d19ba7f54c1590c2154a512d7b72b27107e5fd0b95fd8"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi_no_repair/run_006/upstream_inputs.json",
+      "sha256": "4cebd6ab0d3529f08c4648ed45ce40a43135cbd24f4a7c3fa99a71ab7e0ffb37"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi_no_repair/run_007/upstream_inputs.json",
+      "sha256": "12383a6847691e14be1d1e383eff267f42d7d481890e5e2c273aa8ac6fa0d33c"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi_no_repair/run_008/upstream_inputs.json",
+      "sha256": "073d1eafcbbf0b15f07d6cb7dd9439f53475aa3ab4494f900e6206ba77cbb55d"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi_no_repair/run_009/upstream_inputs.json",
+      "sha256": "40738d0ac335caa5d1f649668ec584d68be3699de26201a9c40fc65dfbbf20fe"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/multi_no_repair/run_010/upstream_inputs.json",
+      "sha256": "b5a4f77aa75f62e025682ce4652c7f1005193b66d7ce2536f64cd34d08a934a9"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single/run_001/upstream_inputs.json",
+      "sha256": "fab78729bf8786394523425eba3c078706ccaad76de93c39400961022b2088ce"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single/run_002/upstream_inputs.json",
+      "sha256": "90251aadbed57f3cb55d89ce31064bbb3a0f0b0b4303ea46c8270c430322bf57"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single/run_003/upstream_inputs.json",
+      "sha256": "85310d6354fddf106366e72fc031a0a8f159b1ffb3f028d0d0f6905c521e517a"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single/run_004/upstream_inputs.json",
+      "sha256": "5dcf1912847be1c36e961a3f6b51be01c9a5fc3e5404b41aa1378cd814afe2ff"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single/run_005/upstream_inputs.json",
+      "sha256": "c4606a4c12b31e5ef7e8add734c21234b2bf779df06311a629907cdd883619ef"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single/run_006/upstream_inputs.json",
+      "sha256": "ccdff06783d225ab224d8e351f6212c57f6d3f580dff7877624545bbab0974cb"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single/run_007/upstream_inputs.json",
+      "sha256": "54c84cfc7c8c4eefca3bdb47fa8773a0e752faa9ba34519a97d30cef5ee31ae6"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single/run_008/upstream_inputs.json",
+      "sha256": "1dfdb61f62963f5998c5aba902abe98da33761d32d47c44182fffb8f7cf5b484"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single/run_009/upstream_inputs.json",
+      "sha256": "3feb8ebc6e348838de8d77e8c96dcbfe31c09f1ee9329742082467ae4967d318"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single/run_010/upstream_inputs.json",
+      "sha256": "b39058e9c86562fdfcf785e95e770d95c22971209487704a66abeb10d2fc64ba"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single_repair/run_001/upstream_inputs.json",
+      "sha256": "115d48a47076b7cd5d44fec3b86d8f04a7f1f110ed971b239c239e32884d962a"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single_repair/run_002/upstream_inputs.json",
+      "sha256": "dc9825b95700d3d61ff58c93374a088ccd728914ed08320fdf7ae2a17d6423ea"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single_repair/run_003/upstream_inputs.json",
+      "sha256": "2b1f13cb7ad47e639fb59572d3980f3c5dfa3c9d064227804b6988426182924b"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single_repair/run_004/upstream_inputs.json",
+      "sha256": "cbb9f6a71d207f3c4e3abb05d22a745aa05f0364dfefe9ffe8d1ff05a707a31c"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single_repair/run_005/upstream_inputs.json",
+      "sha256": "fd2c02727a338ba27978db01376535b84aab02a5630742e029742acc5af331b8"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single_repair/run_006/upstream_inputs.json",
+      "sha256": "e06b2de5a7d3a41679f2fc4661725d2c269fbf6ab19418384e49757ad154bb32"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single_repair/run_007/upstream_inputs.json",
+      "sha256": "7d0c3f79c95886130a87d783fa87912ea62a8171c3939a8e76745e2a85948258"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single_repair/run_008/upstream_inputs.json",
+      "sha256": "0cae3744330bfd2cac72a7c8d8dce84be4bbb170f4835206337953cb5f46d24c"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single_repair/run_009/upstream_inputs.json",
+      "sha256": "db79d7c3825d17dc5a0c1108fab2b234b9d4870df7e41348614a46df5ce3ed7f"
+    },
+    {
+      "path": "case_studies/auv/output/factorial_v2/deepseek_v4/single_repair/run_010/upstream_inputs.json",
+      "sha256": "40f1e79c2bf31cdb1a8625eb30aa83bbd233a16f97404d5d2e6197138f6366fa"
+    }
+  ],
+  "concept_analysis_sha256": "ef98071b4494655004c28649403ab7200736d3417e0c02da8b219f7124bb9519"
+}

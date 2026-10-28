@@ -1,0 +1,68 @@
+[
+  {
+    "model": "DeepSeek-V4",
+    "configuration": "Single",
+    "concept_f1": "0.90",
+    "notation_valid_fraction": "0.50",
+    "notation_element_f1": "0.93",
+    "construction_executes": "0/10",
+    "behaviour_f1": "0.97",
+    "reported_repetitions": 10,
+    "source_line": 123
+  },
+  {
+    "model": "DeepSeek-V4",
+    "configuration": "Multi",
+    "concept_f1": "0.95",
+    "notation_valid_fraction": "1.00",
+    "notation_element_f1": "0.91",
+    "construction_executes": "10/10",
+    "behaviour_f1": "1.00",
+    "reported_repetitions": 10,
+    "source_line": 124
+  },
+  {
+    "model": "QWEN3-max",
+    "configuration": "Single",
+    "concept_f1": "0.84",
+    "notation_valid_fraction": "0.00",
+    "notation_element_f1": "0.88",
+    "construction_executes": "0/10",
+    "behaviour_f1": "1.00",
+    "reported_repetitions": 10,
+    "source_line": 125
+  },
+  {
+    "model": "QWEN3-max",
+    "configuration": "Multi",
+    "concept_f1": "0.80",
+    "notation_valid_fraction": "0.80",
+    "notation_element_f1": "0.90",
+    "construction_executes": "4/10",
+    "behaviour_f1": "0.98",
+    "reported_repetitions": 10,
+    "source_line": 126
+  },
+  {
+    "model": "Claude Sonnet 4.6",
+    "configuration": "Single",
+    "concept_f1": "0.89",
+    "notation_valid_fraction": "1.00",
+    "notation_element_f1": "0.92",
+    "construction_executes": "0/10",
+    "behaviour_f1": "0.97",
+    "reported_repetitions": 10,
+    "source_line": 127
+  },
+  {
+    "model": "Claude Sonnet 4.6",
+    "configuration": "Multi",
+    "concept_f1": "0.88",
+    "notation_valid_fraction": "1.00",
+    "notation_element_f1": "0.86",
+    "construction_executes": "0/10",
+    "behaviour_f1": "0.97",
+    "reported_repetitions": 10,
+    "source_line": 128
+  }
+]

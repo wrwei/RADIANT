@@ -1,0 +1,4688 @@
+{
+  "archived_inputs_modified": false,
+  "changes": [
+    {
+      "expected_review": [
+        "variable:inOPEZ",
+        "transition:t3",
+        "transition:t4",
+        "transition:t14"
+      ],
+      "expected_unaffected": [
+        "event:advHdng",
+        "event:advVel",
+        "event:endTask",
+        "event:reqHCM",
+        "event:reqHdng",
+        "event:reqMOM",
+        "event:reqOCM",
+        "event:reqVel",
+        "initial:i0",
+        "state:CAM",
+        "state:HCM",
+        "state:MOM",
+        "state:OCM",
+        "state_machine:LRE_Beh",
+        "transition:t0",
+        "transition:t1",
+        "transition:t10",
+        "transition:t11",
+        "transition:t12",
+        "transition:t13",
+        "transition:t15",
+        "transition:t16",
+        "transition:t2",
+        "transition:t5",
+        "transition:t6",
+        "transition:t7",
+        "transition:t8",
+        "transition:t9",
+        "variable:collisionRisk",
+        "variable:staticObstacleNear",
+        "variable:velocityHigh"
+      ],
+      "gid": "lrevar1",
+      "id": "B01",
+      "inventory": [
+        "event:advHdng",
+        "event:advVel",
+        "event:endTask",
+        "event:reqHCM",
+        "event:reqHdng",
+        "event:reqMOM",
+        "event:reqOCM",
+        "event:reqVel",
+        "initial:i0",
+        "state:CAM",
+        "state:HCM",
+        "state:MOM",
+        "state:OCM",
+        "state_machine:LRE_Beh",
+        "transition:t0",
+        "transition:t1",
+        "transition:t10",
+        "transition:t11",
+        "transition:t12",
+        "transition:t13",
+        "transition:t14",
+        "transition:t15",
+        "transition:t16",
+        "transition:t2",
+        "transition:t3",
+        "transition:t4",
+        "transition:t5",
+        "transition:t6",
+        "transition:t7",
+        "transition:t8",
+        "transition:t9",
+        "variable:collisionRisk",
+        "variable:inOPEZ",
+        "variable:staticObstacleNear",
+        "variable:velocityHigh"
+      ],
+      "missing_or_ambiguous_diagnostic_seeds": [],
+      "modes": {
+        "archived_requirement_links": {
+          "extra_review_candidates": [],
+          "f1": 0.0,
+          "fn": 4,
+          "fp": 0,
+          "missed_review_targets": [
+            "transition:t14",
+            "transition:t3",
+            "transition:t4",
+            "variable:inOPEZ"
+          ],
+          "outside_scoring_scope": [],
+          "precision": null,
+          "predicted": [],
+          "recall": 0.0,
+          "recovered": [],
+          "tn": 31,
+          "tp": 0,
+          "witnesses": {}
+        },
+        "element_seeded_diagnostic": {
+          "extra_review_candidates": [],
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "missed_review_targets": [],
+          "outside_scoring_scope": [],
+          "precision": 1.0,
+          "predicted": [
+            "transition:t14",
+            "transition:t3",
+            "transition:t4",
+            "variable:inOPEZ"
+          ],
+          "recall": 1.0,
+          "recovered": [
+            "transition:t14",
+            "transition:t3",
+            "transition:t4",
+            "variable:inOPEZ"
+          ],
+          "tn": 31,
+          "tp": 4,
+          "witnesses": {
+            "transition:t14": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 33,
+                  "reference": "inOPEZ"
+                },
+                "relation": "condition_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/variable:inOPEZ",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t14"
+              }
+            ],
+            "transition:t3": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 22,
+                  "reference": "inOPEZ"
+                },
+                "relation": "condition_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/variable:inOPEZ",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t3"
+              }
+            ],
+            "transition:t4": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 23,
+                  "reference": "inOPEZ"
+                },
+                "relation": "condition_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/variable:inOPEZ",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t4"
+              }
+            ],
+            "variable:inOPEZ": []
+          }
+        }
+      },
+      "rejected_traces": [],
+      "scoring_file": "result_behaviour_model.rct",
+      "title": "Expand the prohibited-zone definition",
+      "trace_coverage": "untraced"
+    },
+    {
+      "expected_review": [
+        "variable:collisionRisk",
+        "transition:t3",
+        "transition:t7",
+        "transition:t12",
+        "transition:t16"
+      ],
+      "expected_unaffected": [
+        "event:advHdng",
+        "event:advVel",
+        "event:endTask",
+        "event:reqHCM",
+        "event:reqHdng",
+        "event:reqMOM",
+        "event:reqOCM",
+        "event:reqVel",
+        "initial:i0",
+        "state:CAM",
+        "state:HCM",
+        "state:MOM",
+        "state:OCM",
+        "state_machine:LRE_Beh",
+        "transition:t0",
+        "transition:t1",
+        "transition:t10",
+        "transition:t11",
+        "transition:t13",
+        "transition:t14",
+        "transition:t15",
+        "transition:t2",
+        "transition:t4",
+        "transition:t5",
+        "transition:t6",
+        "transition:t8",
+        "transition:t9",
+        "variable:inOPEZ",
+        "variable:staticObstacleNear",
+        "variable:velocityHigh"
+      ],
+      "gid": "lrevar2",
+      "id": "B02",
+      "inventory": [
+        "event:advHdng",
+        "event:advVel",
+        "event:endTask",
+        "event:reqHCM",
+        "event:reqHdng",
+        "event:reqMOM",
+        "event:reqOCM",
+        "event:reqVel",
+        "initial:i0",
+        "state:CAM",
+        "state:HCM",
+        "state:MOM",
+        "state:OCM",
+        "state_machine:LRE_Beh",
+        "transition:t0",
+        "transition:t1",
+        "transition:t10",
+        "transition:t11",
+        "transition:t12",
+        "transition:t13",
+        "transition:t14",
+        "transition:t15",
+        "transition:t16",
+        "transition:t2",
+        "transition:t3",
+        "transition:t4",
+        "transition:t5",
+        "transition:t6",
+        "transition:t7",
+        "transition:t8",
+        "transition:t9",
+        "variable:collisionRisk",
+        "variable:inOPEZ",
+        "variable:staticObstacleNear",
+        "variable:velocityHigh"
+      ],
+      "missing_or_ambiguous_diagnostic_seeds": [],
+      "modes": {
+        "archived_requirement_links": {
+          "extra_review_candidates": [],
+          "f1": 0.0,
+          "fn": 5,
+          "fp": 0,
+          "missed_review_targets": [
+            "transition:t12",
+            "transition:t16",
+            "transition:t3",
+            "transition:t7",
+            "variable:collisionRisk"
+          ],
+          "outside_scoring_scope": [],
+          "precision": null,
+          "predicted": [],
+          "recall": 0.0,
+          "recovered": [],
+          "tn": 30,
+          "tp": 0,
+          "witnesses": {}
+        },
+        "element_seeded_diagnostic": {
+          "extra_review_candidates": [],
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "missed_review_targets": [],
+          "outside_scoring_scope": [],
+          "precision": 1.0,
+          "predicted": [
+            "transition:t12",
+            "transition:t16",
+            "transition:t3",
+            "transition:t7",
+            "variable:collisionRisk"
+          ],
+          "recall": 1.0,
+          "recovered": [
+            "transition:t12",
+            "transition:t16",
+            "transition:t3",
+            "transition:t7",
+            "variable:collisionRisk"
+          ],
+          "tn": 30,
+          "tp": 5,
+          "witnesses": {
+            "transition:t12": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 31,
+                  "reference": "collisionRisk"
+                },
+                "relation": "condition_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/variable:collisionRisk",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t12"
+              }
+            ],
+            "transition:t16": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 35,
+                  "reference": "collisionRisk"
+                },
+                "relation": "condition_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/variable:collisionRisk",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t16"
+              }
+            ],
+            "transition:t3": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 22,
+                  "reference": "collisionRisk"
+                },
+                "relation": "condition_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/variable:collisionRisk",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t3"
+              }
+            ],
+            "transition:t7": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 26,
+                  "reference": "collisionRisk"
+                },
+                "relation": "condition_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/variable:collisionRisk",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t7"
+              }
+            ],
+            "variable:collisionRisk": []
+          }
+        }
+      },
+      "rejected_traces": [],
+      "scoring_file": "result_behaviour_model.rct",
+      "title": "Change the collision-risk threshold",
+      "trace_coverage": "untraced"
+    },
+    {
+      "expected_review": [
+        "variable:staticObstacleNear",
+        "transition:t3",
+        "transition:t8",
+        "transition:t9",
+        "transition:t11"
+      ],
+      "expected_unaffected": [
+        "event:advHdng",
+        "event:advVel",
+        "event:endTask",
+        "event:reqHCM",
+        "event:reqHdng",
+        "event:reqMOM",
+        "event:reqOCM",
+        "event:reqVel",
+        "initial:i0",
+        "state:CAM",
+        "state:HCM",
+        "state:MOM",
+        "state:OCM",
+        "state_machine:LRE_Beh",
+        "transition:t0",
+        "transition:t1",
+        "transition:t10",
+        "transition:t12",
+        "transition:t13",
+        "transition:t14",
+        "transition:t15",
+        "transition:t16",
+        "transition:t2",
+        "transition:t4",
+        "transition:t5",
+        "transition:t6",
+        "transition:t7",
+        "variable:collisionRisk",
+        "variable:inOPEZ",
+        "variable:velocityHigh"
+      ],
+      "gid": "lrevar3",
+      "id": "B03",
+      "inventory": [
+        "event:advHdng",
+        "event:advVel",
+        "event:endTask",
+        "event:reqHCM",
+        "event:reqHdng",
+        "event:reqMOM",
+        "event:reqOCM",
+        "event:reqVel",
+        "initial:i0",
+        "state:CAM",
+        "state:HCM",
+        "state:MOM",
+        "state:OCM",
+        "state_machine:LRE_Beh",
+        "transition:t0",
+        "transition:t1",
+        "transition:t10",
+        "transition:t11",
+        "transition:t12",
+        "transition:t13",
+        "transition:t14",
+        "transition:t15",
+        "transition:t16",
+        "transition:t2",
+        "transition:t3",
+        "transition:t4",
+        "transition:t5",
+        "transition:t6",
+        "transition:t7",
+        "transition:t8",
+        "transition:t9",
+        "variable:collisionRisk",
+        "variable:inOPEZ",
+        "variable:staticObstacleNear",
+        "variable:velocityHigh"
+      ],
+      "missing_or_ambiguous_diagnostic_seeds": [],
+      "modes": {
+        "archived_requirement_links": {
+          "extra_review_candidates": [],
+          "f1": 0.0,
+          "fn": 5,
+          "fp": 0,
+          "missed_review_targets": [
+            "transition:t11",
+            "transition:t3",
+            "transition:t8",
+            "transition:t9",
+            "variable:staticObstacleNear"
+          ],
+          "outside_scoring_scope": [],
+          "precision": null,
+          "predicted": [],
+          "recall": 0.0,
+          "recovered": [],
+          "tn": 30,
+          "tp": 0,
+          "witnesses": {}
+        },
+        "element_seeded_diagnostic": {
+          "extra_review_candidates": [],
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "missed_review_targets": [],
+          "outside_scoring_scope": [],
+          "precision": 1.0,
+          "predicted": [
+            "transition:t11",
+            "transition:t3",
+            "transition:t8",
+            "transition:t9",
+            "variable:staticObstacleNear"
+          ],
+          "recall": 1.0,
+          "recovered": [
+            "transition:t11",
+            "transition:t3",
+            "transition:t8",
+            "transition:t9",
+            "variable:staticObstacleNear"
+          ],
+          "tn": 30,
+          "tp": 5,
+          "witnesses": {
+            "transition:t11": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 30,
+                  "reference": "staticObstacleNear"
+                },
+                "relation": "condition_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/variable:staticObstacleNear",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t11"
+              }
+            ],
+            "transition:t3": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 22,
+                  "reference": "staticObstacleNear"
+                },
+                "relation": "condition_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/variable:staticObstacleNear",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t3"
+              }
+            ],
+            "transition:t8": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 27,
+                  "reference": "staticObstacleNear"
+                },
+                "relation": "condition_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/variable:staticObstacleNear",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t8"
+              }
+            ],
+            "transition:t9": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 28,
+                  "reference": "staticObstacleNear"
+                },
+                "relation": "condition_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/variable:staticObstacleNear",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t9"
+              }
+            ],
+            "variable:staticObstacleNear": []
+          }
+        }
+      },
+      "rejected_traces": [],
+      "scoring_file": "result_behaviour_model.rct",
+      "title": "Change static-obstacle caution distance",
+      "trace_coverage": "untraced"
+    },
+    {
+      "expected_review": [
+        "variable:velocityHigh",
+        "transition:t3",
+        "transition:t9"
+      ],
+      "expected_unaffected": [
+        "event:advHdng",
+        "event:advVel",
+        "event:endTask",
+        "event:reqHCM",
+        "event:reqHdng",
+        "event:reqMOM",
+        "event:reqOCM",
+        "event:reqVel",
+        "initial:i0",
+        "state:CAM",
+        "state:HCM",
+        "state:MOM",
+        "state:OCM",
+        "state_machine:LRE_Beh",
+        "transition:t0",
+        "transition:t1",
+        "transition:t10",
+        "transition:t11",
+        "transition:t12",
+        "transition:t13",
+        "transition:t14",
+        "transition:t15",
+        "transition:t16",
+        "transition:t2",
+        "transition:t4",
+        "transition:t5",
+        "transition:t6",
+        "transition:t7",
+        "transition:t8",
+        "variable:collisionRisk",
+        "variable:inOPEZ",
+        "variable:staticObstacleNear"
+      ],
+      "gid": "lrevar4",
+      "id": "B04",
+      "inventory": [
+        "event:advHdng",
+        "event:advVel",
+        "event:endTask",
+        "event:reqHCM",
+        "event:reqHdng",
+        "event:reqMOM",
+        "event:reqOCM",
+        "event:reqVel",
+        "initial:i0",
+        "state:CAM",
+        "state:HCM",
+        "state:MOM",
+        "state:OCM",
+        "state_machine:LRE_Beh",
+        "transition:t0",
+        "transition:t1",
+        "transition:t10",
+        "transition:t11",
+        "transition:t12",
+        "transition:t13",
+        "transition:t14",
+        "transition:t15",
+        "transition:t16",
+        "transition:t2",
+        "transition:t3",
+        "transition:t4",
+        "transition:t5",
+        "transition:t6",
+        "transition:t7",
+        "transition:t8",
+        "transition:t9",
+        "variable:collisionRisk",
+        "variable:inOPEZ",
+        "variable:staticObstacleNear",
+        "variable:velocityHigh"
+      ],
+      "missing_or_ambiguous_diagnostic_seeds": [],
+      "modes": {
+        "archived_requirement_links": {
+          "extra_review_candidates": [],
+          "f1": 0.0,
+          "fn": 3,
+          "fp": 0,
+          "missed_review_targets": [
+            "transition:t3",
+            "transition:t9",
+            "variable:velocityHigh"
+          ],
+          "outside_scoring_scope": [],
+          "precision": null,
+          "predicted": [],
+          "recall": 0.0,
+          "recovered": [],
+          "tn": 32,
+          "tp": 0,
+          "witnesses": {}
+        },
+        "element_seeded_diagnostic": {
+          "extra_review_candidates": [],
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "missed_review_targets": [],
+          "outside_scoring_scope": [],
+          "precision": 1.0,
+          "predicted": [
+            "transition:t3",
+            "transition:t9",
+            "variable:velocityHigh"
+          ],
+          "recall": 1.0,
+          "recovered": [
+            "transition:t3",
+            "transition:t9",
+            "variable:velocityHigh"
+          ],
+          "tn": 32,
+          "tp": 3,
+          "witnesses": {
+            "transition:t3": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 22,
+                  "reference": "velocityHigh"
+                },
+                "relation": "condition_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/variable:velocityHigh",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t3"
+              }
+            ],
+            "transition:t9": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 28,
+                  "reference": "velocityHigh"
+                },
+                "relation": "condition_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/variable:velocityHigh",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t9"
+              }
+            ],
+            "variable:velocityHigh": []
+          }
+        }
+      },
+      "rejected_traces": [],
+      "scoring_file": "result_behaviour_model.rct",
+      "title": "Change the manoeuvre speed threshold",
+      "trace_coverage": "untraced"
+    },
+    {
+      "expected_review": [
+        "state:MOM",
+        "transition:t3",
+        "transition:t4",
+        "transition:t5",
+        "transition:t6",
+        "transition:t7",
+        "transition:t8",
+        "transition:t9",
+        "transition:t10",
+        "transition:t11"
+      ],
+      "expected_unaffected": [
+        "event:advHdng",
+        "event:advVel",
+        "event:endTask",
+        "event:reqHCM",
+        "event:reqHdng",
+        "event:reqMOM",
+        "event:reqOCM",
+        "event:reqVel",
+        "initial:i0",
+        "state:CAM",
+        "state:HCM",
+        "state:OCM",
+        "state_machine:LRE_Beh",
+        "transition:t0",
+        "transition:t1",
+        "transition:t12",
+        "transition:t13",
+        "transition:t14",
+        "transition:t15",
+        "transition:t16",
+        "transition:t2",
+        "variable:collisionRisk",
+        "variable:inOPEZ",
+        "variable:staticObstacleNear",
+        "variable:velocityHigh"
+      ],
+      "gid": "lrefr2",
+      "id": "B05",
+      "inventory": [
+        "event:advHdng",
+        "event:advVel",
+        "event:endTask",
+        "event:reqHCM",
+        "event:reqHdng",
+        "event:reqMOM",
+        "event:reqOCM",
+        "event:reqVel",
+        "initial:i0",
+        "state:CAM",
+        "state:HCM",
+        "state:MOM",
+        "state:OCM",
+        "state_machine:LRE_Beh",
+        "transition:t0",
+        "transition:t1",
+        "transition:t10",
+        "transition:t11",
+        "transition:t12",
+        "transition:t13",
+        "transition:t14",
+        "transition:t15",
+        "transition:t16",
+        "transition:t2",
+        "transition:t3",
+        "transition:t4",
+        "transition:t5",
+        "transition:t6",
+        "transition:t7",
+        "transition:t8",
+        "transition:t9",
+        "variable:collisionRisk",
+        "variable:inOPEZ",
+        "variable:staticObstacleNear",
+        "variable:velocityHigh"
+      ],
+      "missing_or_ambiguous_diagnostic_seeds": [],
+      "modes": {
+        "archived_requirement_links": {
+          "extra_review_candidates": [],
+          "f1": 0.0,
+          "fn": 10,
+          "fp": 0,
+          "missed_review_targets": [
+            "state:MOM",
+            "transition:t10",
+            "transition:t11",
+            "transition:t3",
+            "transition:t4",
+            "transition:t5",
+            "transition:t6",
+            "transition:t7",
+            "transition:t8",
+            "transition:t9"
+          ],
+          "outside_scoring_scope": [],
+          "precision": null,
+          "predicted": [],
+          "recall": 0.0,
+          "recovered": [],
+          "tn": 25,
+          "tp": 0,
+          "witnesses": {}
+        },
+        "element_seeded_diagnostic": {
+          "extra_review_candidates": [],
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "missed_review_targets": [],
+          "outside_scoring_scope": [],
+          "precision": 1.0,
+          "predicted": [
+            "state:MOM",
+            "transition:t10",
+            "transition:t11",
+            "transition:t3",
+            "transition:t4",
+            "transition:t5",
+            "transition:t6",
+            "transition:t7",
+            "transition:t8",
+            "transition:t9"
+          ],
+          "recall": 1.0,
+          "recovered": [
+            "state:MOM",
+            "transition:t10",
+            "transition:t11",
+            "transition:t3",
+            "transition:t4",
+            "transition:t5",
+            "transition:t6",
+            "transition:t7",
+            "transition:t8",
+            "transition:t9"
+          ],
+          "tn": 25,
+          "tp": 10,
+          "witnesses": {
+            "state:MOM": [],
+            "transition:t10": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 29,
+                  "reference": "MOM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:MOM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t10"
+              }
+            ],
+            "transition:t11": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 30,
+                  "reference": "MOM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:MOM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t11"
+              }
+            ],
+            "transition:t3": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 22,
+                  "reference": "MOM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:MOM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t3"
+              }
+            ],
+            "transition:t4": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 23,
+                  "reference": "MOM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:MOM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t4"
+              }
+            ],
+            "transition:t5": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 24,
+                  "reference": "MOM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:MOM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t5"
+              }
+            ],
+            "transition:t6": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 25,
+                  "reference": "MOM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:MOM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t6"
+              }
+            ],
+            "transition:t7": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 26,
+                  "reference": "MOM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:MOM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t7"
+              }
+            ],
+            "transition:t8": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 27,
+                  "reference": "MOM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:MOM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t8"
+              }
+            ],
+            "transition:t9": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 28,
+                  "reference": "MOM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:MOM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t9"
+              }
+            ]
+          }
+        }
+      },
+      "rejected_traces": [],
+      "scoring_file": "result_behaviour_model.rct",
+      "title": "Rename main operating mode",
+      "trace_coverage": "untraced"
+    },
+    {
+      "expected_review": [
+        "event:reqOCM",
+        "transition:t5",
+        "transition:t13",
+        "transition:t15"
+      ],
+      "expected_unaffected": [
+        "event:advHdng",
+        "event:advVel",
+        "event:endTask",
+        "event:reqHCM",
+        "event:reqHdng",
+        "event:reqMOM",
+        "event:reqVel",
+        "initial:i0",
+        "state:CAM",
+        "state:HCM",
+        "state:MOM",
+        "state:OCM",
+        "state_machine:LRE_Beh",
+        "transition:t0",
+        "transition:t1",
+        "transition:t10",
+        "transition:t11",
+        "transition:t12",
+        "transition:t14",
+        "transition:t16",
+        "transition:t2",
+        "transition:t3",
+        "transition:t4",
+        "transition:t6",
+        "transition:t7",
+        "transition:t8",
+        "transition:t9",
+        "variable:collisionRisk",
+        "variable:inOPEZ",
+        "variable:staticObstacleNear",
+        "variable:velocityHigh"
+      ],
+      "gid": "interface2",
+      "id": "B06",
+      "inventory": [
+        "event:advHdng",
+        "event:advVel",
+        "event:endTask",
+        "event:reqHCM",
+        "event:reqHdng",
+        "event:reqMOM",
+        "event:reqOCM",
+        "event:reqVel",
+        "initial:i0",
+        "state:CAM",
+        "state:HCM",
+        "state:MOM",
+        "state:OCM",
+        "state_machine:LRE_Beh",
+        "transition:t0",
+        "transition:t1",
+        "transition:t10",
+        "transition:t11",
+        "transition:t12",
+        "transition:t13",
+        "transition:t14",
+        "transition:t15",
+        "transition:t16",
+        "transition:t2",
+        "transition:t3",
+        "transition:t4",
+        "transition:t5",
+        "transition:t6",
+        "transition:t7",
+        "transition:t8",
+        "transition:t9",
+        "variable:collisionRisk",
+        "variable:inOPEZ",
+        "variable:staticObstacleNear",
+        "variable:velocityHigh"
+      ],
+      "missing_or_ambiguous_diagnostic_seeds": [],
+      "modes": {
+        "archived_requirement_links": {
+          "extra_review_candidates": [],
+          "f1": 0.0,
+          "fn": 4,
+          "fp": 0,
+          "missed_review_targets": [
+            "event:reqOCM",
+            "transition:t13",
+            "transition:t15",
+            "transition:t5"
+          ],
+          "outside_scoring_scope": [
+            "result_concept_model.json::concepts::concept::Parameter",
+            "result_concept_model.json::concepts::concept::ReturnValue",
+            "result_concept_model.json::instances::instance::AUV_Module",
+            "result_concept_model.json::instances::instance::Intpus",
+            "result_concept_model.json::instances::instance::endTask",
+            "result_concept_model.json::instances::instance::reqHCM",
+            "result_concept_model.json::instances::instance::reqHdng",
+            "result_concept_model.json::instances::instance::reqMOM",
+            "result_concept_model.json::instances::instance::reqOCM",
+            "result_concept_model.json::instances::instance::reqVel",
+            "result_dsml.emf::Interface::reference::events",
+            "result_dsml.emf::Interface::reference::values",
+            "result_dsml.emf::InterfaceUser::reference::interfaces",
+            "result_dsml.emf::Module::reference::interfaces",
+            "result_dsml.emf::package::class::Interface",
+            "result_model.eol::program::object::actuatorsInterface",
+            "result_model.eol::program::object::auvAutopilot",
+            "result_model.eol::program::object::auvOperator",
+            "result_model.eol::program::object::auvPlatform",
+            "result_model.eol::program::object::auv_module",
+            "result_model.eol::program::object::endTaskEvent",
+            "result_model.eol::program::object::inputsInterface",
+            "result_model.eol::program::object::intpusInterface",
+            "result_model.eol::program::object::lreCtrl",
+            "result_model.eol::program::object::outputsInterface",
+            "result_model.eol::program::object::reqHCMEvent",
+            "result_model.eol::program::object::reqHdngEvent",
+            "result_model.eol::program::object::reqMOMEvent",
+            "result_model.eol::program::object::reqOCMEvent",
+            "result_model.eol::program::object::reqVelEvent",
+            "result_model.eol::program::object::sensorsInterface"
+          ],
+          "precision": null,
+          "predicted": [],
+          "recall": 0.0,
+          "recovered": [],
+          "tn": 31,
+          "tp": 0,
+          "witnesses": {}
+        },
+        "element_seeded_diagnostic": {
+          "extra_review_candidates": [],
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "missed_review_targets": [],
+          "outside_scoring_scope": [],
+          "precision": 1.0,
+          "predicted": [
+            "event:reqOCM",
+            "transition:t13",
+            "transition:t15",
+            "transition:t5"
+          ],
+          "recall": 1.0,
+          "recovered": [
+            "event:reqOCM",
+            "transition:t13",
+            "transition:t15",
+            "transition:t5"
+          ],
+          "tn": 31,
+          "tp": 4,
+          "witnesses": {
+            "event:reqOCM": [],
+            "transition:t13": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 32,
+                  "reference": "reqOCM"
+                },
+                "relation": "trigger_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:reqOCM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t13"
+              }
+            ],
+            "transition:t15": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 34,
+                  "reference": "reqOCM"
+                },
+                "relation": "trigger_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:reqOCM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t15"
+              }
+            ],
+            "transition:t5": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 24,
+                  "reference": "reqOCM"
+                },
+                "relation": "trigger_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:reqOCM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t5"
+              }
+            ]
+          }
+        }
+      },
+      "rejected_traces": [
+        {
+          "diagnostics": [
+            {
+              "code": "inconsistent",
+              "message": "Trace concept/type disagrees with the instance's recorded type.",
+              "severity": "error"
+            }
+          ],
+          "entry_index": 58,
+          "file": "result_concept_trace.json",
+          "gid": "interface2",
+          "phase": "concept",
+          "status": "inconsistent",
+          "targets": []
+        },
+        {
+          "diagnostics": [
+            {
+              "code": "ambiguous",
+              "message": "Construction declaration identity is missing or not unique.",
+              "severity": "error"
+            }
+          ],
+          "entry_index": 55,
+          "file": "result_model_trace.json",
+          "gid": "interface2",
+          "phase": "model",
+          "status": "ambiguous",
+          "targets": []
+        },
+        {
+          "diagnostics": [
+            {
+              "code": "ambiguous",
+              "message": "Construction declaration identity is missing or not unique.",
+              "severity": "error"
+            }
+          ],
+          "entry_index": 58,
+          "file": "result_model_trace.json",
+          "gid": "interface2",
+          "phase": "model",
+          "status": "ambiguous",
+          "targets": []
+        }
+      ],
+      "scoring_file": "result_behaviour_model.rct",
+      "title": "Rename the request for operator control",
+      "trace_coverage": "partial_or_unverified_semantic_coverage"
+    },
+    {
+      "expected_review": [
+        "event:advVel",
+        "state:MOM",
+        "state:HCM",
+        "transition:t1",
+        "transition:t6"
+      ],
+      "expected_unaffected": [
+        "event:advHdng",
+        "event:endTask",
+        "event:reqHCM",
+        "event:reqHdng",
+        "event:reqMOM",
+        "event:reqOCM",
+        "event:reqVel",
+        "initial:i0",
+        "state:CAM",
+        "state:OCM",
+        "state_machine:LRE_Beh",
+        "transition:t0",
+        "transition:t10",
+        "transition:t11",
+        "transition:t12",
+        "transition:t13",
+        "transition:t14",
+        "transition:t15",
+        "transition:t16",
+        "transition:t2",
+        "transition:t3",
+        "transition:t4",
+        "transition:t5",
+        "transition:t7",
+        "transition:t8",
+        "transition:t9",
+        "variable:collisionRisk",
+        "variable:inOPEZ",
+        "variable:staticObstacleNear",
+        "variable:velocityHigh"
+      ],
+      "gid": "interface3",
+      "id": "B07",
+      "inventory": [
+        "event:advHdng",
+        "event:advVel",
+        "event:endTask",
+        "event:reqHCM",
+        "event:reqHdng",
+        "event:reqMOM",
+        "event:reqOCM",
+        "event:reqVel",
+        "initial:i0",
+        "state:CAM",
+        "state:HCM",
+        "state:MOM",
+        "state:OCM",
+        "state_machine:LRE_Beh",
+        "transition:t0",
+        "transition:t1",
+        "transition:t10",
+        "transition:t11",
+        "transition:t12",
+        "transition:t13",
+        "transition:t14",
+        "transition:t15",
+        "transition:t16",
+        "transition:t2",
+        "transition:t3",
+        "transition:t4",
+        "transition:t5",
+        "transition:t6",
+        "transition:t7",
+        "transition:t8",
+        "transition:t9",
+        "variable:collisionRisk",
+        "variable:inOPEZ",
+        "variable:staticObstacleNear",
+        "variable:velocityHigh"
+      ],
+      "missing_or_ambiguous_diagnostic_seeds": [],
+      "modes": {
+        "archived_requirement_links": {
+          "extra_review_candidates": [],
+          "f1": 0.0,
+          "fn": 5,
+          "fp": 0,
+          "missed_review_targets": [
+            "event:advVel",
+            "state:HCM",
+            "state:MOM",
+            "transition:t1",
+            "transition:t6"
+          ],
+          "outside_scoring_scope": [
+            "result_concept_model.json::concepts::concept::Parameter",
+            "result_concept_model.json::concepts::concept::ReturnValue",
+            "result_concept_model.json::instances::instance::AUV_Module",
+            "result_concept_model.json::instances::instance::Outputs",
+            "result_concept_model.json::instances::instance::advHdng",
+            "result_concept_model.json::instances::instance::advVel",
+            "result_dsml.emf::Interface::reference::events",
+            "result_dsml.emf::Interface::reference::values",
+            "result_dsml.emf::InterfaceUser::reference::interfaces",
+            "result_dsml.emf::Module::reference::interfaces",
+            "result_dsml.emf::package::class::Interface",
+            "result_model.eol::program::object::actuatorsInterface",
+            "result_model.eol::program::object::advHdngEvent",
+            "result_model.eol::program::object::advHdngParam",
+            "result_model.eol::program::object::advVelEvent",
+            "result_model.eol::program::object::advVelParam",
+            "result_model.eol::program::object::auvAutopilot",
+            "result_model.eol::program::object::auvOperator",
+            "result_model.eol::program::object::auvPlatform",
+            "result_model.eol::program::object::auv_module",
+            "result_model.eol::program::object::inputsInterface",
+            "result_model.eol::program::object::intpusInterface",
+            "result_model.eol::program::object::lreCtrl",
+            "result_model.eol::program::object::outputsInterface",
+            "result_model.eol::program::object::sensorsInterface"
+          ],
+          "precision": null,
+          "predicted": [],
+          "recall": 0.0,
+          "recovered": [],
+          "tn": 30,
+          "tp": 0,
+          "witnesses": {}
+        },
+        "element_seeded_diagnostic": {
+          "extra_review_candidates": [
+            "transition:t10",
+            "transition:t11",
+            "transition:t12",
+            "transition:t13",
+            "transition:t14",
+            "transition:t3",
+            "transition:t4",
+            "transition:t5",
+            "transition:t7",
+            "transition:t8",
+            "transition:t9"
+          ],
+          "f1": 0.47619047619047616,
+          "fn": 0,
+          "fp": 11,
+          "missed_review_targets": [],
+          "outside_scoring_scope": [],
+          "precision": 0.3125,
+          "predicted": [
+            "event:advVel",
+            "state:HCM",
+            "state:MOM",
+            "transition:t1",
+            "transition:t10",
+            "transition:t11",
+            "transition:t12",
+            "transition:t13",
+            "transition:t14",
+            "transition:t3",
+            "transition:t4",
+            "transition:t5",
+            "transition:t6",
+            "transition:t7",
+            "transition:t8",
+            "transition:t9"
+          ],
+          "recall": 1.0,
+          "recovered": [
+            "event:advVel",
+            "state:HCM",
+            "state:MOM",
+            "transition:t1",
+            "transition:t6"
+          ],
+          "tn": 19,
+          "tp": 5,
+          "witnesses": {
+            "event:advVel": [],
+            "state:HCM": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 18,
+                  "reference": "advVel"
+                },
+                "relation": "entry_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:advVel",
+                "target": "result_behaviour_model.rct#LRE_Beh/state:HCM"
+              }
+            ],
+            "state:MOM": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 16,
+                  "reference": "advVel"
+                },
+                "relation": "entry_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:advVel",
+                "target": "result_behaviour_model.rct#LRE_Beh/state:MOM"
+              }
+            ],
+            "transition:t1": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 20,
+                  "reference": "advVel"
+                },
+                "relation": "action_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:advVel",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t1"
+              }
+            ],
+            "transition:t10": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 18,
+                  "reference": "advVel"
+                },
+                "relation": "entry_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:advVel",
+                "target": "result_behaviour_model.rct#LRE_Beh/state:HCM"
+              },
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 29,
+                  "reference": "HCM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:HCM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t10"
+              }
+            ],
+            "transition:t11": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 18,
+                  "reference": "advVel"
+                },
+                "relation": "entry_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:advVel",
+                "target": "result_behaviour_model.rct#LRE_Beh/state:HCM"
+              },
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 30,
+                  "reference": "HCM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:HCM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t11"
+              }
+            ],
+            "transition:t12": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 18,
+                  "reference": "advVel"
+                },
+                "relation": "entry_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:advVel",
+                "target": "result_behaviour_model.rct#LRE_Beh/state:HCM"
+              },
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 31,
+                  "reference": "HCM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:HCM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t12"
+              }
+            ],
+            "transition:t13": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 18,
+                  "reference": "advVel"
+                },
+                "relation": "entry_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:advVel",
+                "target": "result_behaviour_model.rct#LRE_Beh/state:HCM"
+              },
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 32,
+                  "reference": "HCM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:HCM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t13"
+              }
+            ],
+            "transition:t14": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 18,
+                  "reference": "advVel"
+                },
+                "relation": "entry_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:advVel",
+                "target": "result_behaviour_model.rct#LRE_Beh/state:HCM"
+              },
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 33,
+                  "reference": "HCM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:HCM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t14"
+              }
+            ],
+            "transition:t3": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 16,
+                  "reference": "advVel"
+                },
+                "relation": "entry_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:advVel",
+                "target": "result_behaviour_model.rct#LRE_Beh/state:MOM"
+              },
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 22,
+                  "reference": "MOM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:MOM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t3"
+              }
+            ],
+            "transition:t4": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 16,
+                  "reference": "advVel"
+                },
+                "relation": "entry_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:advVel",
+                "target": "result_behaviour_model.rct#LRE_Beh/state:MOM"
+              },
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 23,
+                  "reference": "MOM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:MOM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t4"
+              }
+            ],
+            "transition:t5": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 16,
+                  "reference": "advVel"
+                },
+                "relation": "entry_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:advVel",
+                "target": "result_behaviour_model.rct#LRE_Beh/state:MOM"
+              },
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 24,
+                  "reference": "MOM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:MOM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t5"
+              }
+            ],
+            "transition:t6": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 25,
+                  "reference": "advVel"
+                },
+                "relation": "action_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:advVel",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t6"
+              }
+            ],
+            "transition:t7": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 16,
+                  "reference": "advVel"
+                },
+                "relation": "entry_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:advVel",
+                "target": "result_behaviour_model.rct#LRE_Beh/state:MOM"
+              },
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 26,
+                  "reference": "MOM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:MOM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t7"
+              }
+            ],
+            "transition:t8": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 18,
+                  "reference": "advVel"
+                },
+                "relation": "entry_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:advVel",
+                "target": "result_behaviour_model.rct#LRE_Beh/state:HCM"
+              },
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 27,
+                  "reference": "HCM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:HCM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t8"
+              }
+            ],
+            "transition:t9": [
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 18,
+                  "reference": "advVel"
+                },
+                "relation": "entry_reference",
+                "source": "result_behaviour_model.rct#LRE_Beh/event:advVel",
+                "target": "result_behaviour_model.rct#LRE_Beh/state:HCM"
+              },
+              {
+                "evidence": {
+                  "file": "result_behaviour_model.rct",
+                  "line_start": 28,
+                  "reference": "HCM"
+                },
+                "relation": "state_incidence",
+                "source": "result_behaviour_model.rct#LRE_Beh/state:HCM",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t9"
+              }
+            ]
+          }
+        }
+      },
+      "rejected_traces": [
+        {
+          "diagnostics": [
+            {
+              "code": "inconsistent",
+              "message": "Trace concept/type disagrees with the instance's recorded type.",
+              "severity": "error"
+            }
+          ],
+          "entry_index": 65,
+          "file": "result_concept_trace.json",
+          "gid": "interface3",
+          "phase": "concept",
+          "status": "inconsistent",
+          "targets": []
+        }
+      ],
+      "scoring_file": "result_behaviour_model.rct",
+      "title": "Rename the velocity-advice event",
+      "trace_coverage": "partial_or_unverified_semantic_coverage"
+    },
+    {
+      "expected_review": [
+        "transition:t7"
+      ],
+      "expected_unaffected": [
+        "event:advHdng",
+        "event:advVel",
+        "event:endTask",
+        "event:reqHCM",
+        "event:reqHdng",
+        "event:reqMOM",
+        "event:reqOCM",
+        "event:reqVel",
+        "initial:i0",
+        "state:CAM",
+        "state:HCM",
+        "state:MOM",
+        "state:OCM",
+        "state_machine:LRE_Beh",
+        "transition:t0",
+        "transition:t1",
+        "transition:t10",
+        "transition:t11",
+        "transition:t12",
+        "transition:t13",
+        "transition:t14",
+        "transition:t15",
+        "transition:t16",
+        "transition:t2",
+        "transition:t3",
+        "transition:t4",
+        "transition:t5",
+        "transition:t6",
+        "transition:t8",
+        "transition:t9",
+        "variable:collisionRisk",
+        "variable:inOPEZ",
+        "variable:staticObstacleNear",
+        "variable:velocityHigh"
+      ],
+      "gid": "lrebeh8",
+      "id": "B08",
+      "inventory": [
+        "event:advHdng",
+        "event:advVel",
+        "event:endTask",
+        "event:reqHCM",
+        "event:reqHdng",
+        "event:reqMOM",
+        "event:reqOCM",
+        "event:reqVel",
+        "initial:i0",
+        "state:CAM",
+        "state:HCM",
+        "state:MOM",
+        "state:OCM",
+        "state_machine:LRE_Beh",
+        "transition:t0",
+        "transition:t1",
+        "transition:t10",
+        "transition:t11",
+        "transition:t12",
+        "transition:t13",
+        "transition:t14",
+        "transition:t15",
+        "transition:t16",
+        "transition:t2",
+        "transition:t3",
+        "transition:t4",
+        "transition:t5",
+        "transition:t6",
+        "transition:t7",
+        "transition:t8",
+        "transition:t9",
+        "variable:collisionRisk",
+        "variable:inOPEZ",
+        "variable:staticObstacleNear",
+        "variable:velocityHigh"
+      ],
+      "missing_or_ambiguous_diagnostic_seeds": [],
+      "modes": {
+        "archived_requirement_links": {
+          "extra_review_candidates": [],
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "missed_review_targets": [],
+          "outside_scoring_scope": [],
+          "precision": 1.0,
+          "predicted": [
+            "transition:t7"
+          ],
+          "recall": 1.0,
+          "recovered": [
+            "transition:t7"
+          ],
+          "tn": 34,
+          "tp": 1,
+          "witnesses": {
+            "transition:t7": [
+              {
+                "evidence": {
+                  "entry_index": 7,
+                  "file": "result_behaviour_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:lrebeh8",
+                "target": "result_behaviour_model.rct#LRE_Beh/transition:t7"
+              }
+            ]
+          }
+        },
+        "element_seeded_diagnostic": {
+          "extra_review_candidates": [],
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "missed_review_targets": [],
+          "outside_scoring_scope": [],
+          "precision": 1.0,
+          "predicted": [
+            "transition:t7"
+          ],
+          "recall": 1.0,
+          "recovered": [
+            "transition:t7"
+          ],
+          "tn": 34,
+          "tp": 1,
+          "witnesses": {
+            "transition:t7": []
+          }
+        }
+      },
+      "rejected_traces": [],
+      "scoring_file": "result_behaviour_model.rct",
+      "title": "Constrain entry to collision avoidance",
+      "trace_coverage": "partial_or_unverified_semantic_coverage"
+    },
+    {
+      "expected_review": [
+        "object:obstacleType",
+        "object:obsSensorValue",
+        "object:sensorsInterface",
+        "object:auvPlatform",
+        "object:auv_module",
+        "object:odistParam",
+        "object:hdistParam",
+        "object:vdistParam",
+        "object:odistFunction",
+        "object:hdistFunction",
+        "object:vdistFunction"
+      ],
+      "expected_unaffected": [
+        "object:actuatorsInterface",
+        "object:advHdngEvent",
+        "object:advHdngParam",
+        "object:advVelEvent",
+        "object:advVelParam",
+        "object:auvAutopilot",
+        "object:auvOperator",
+        "object:azimuthValue",
+        "object:booleanType",
+        "object:closeType",
+        "object:depthObstacleValue",
+        "object:depthSensorValue",
+        "object:endTaskEvent",
+        "object:ewRelDistValue",
+        "object:hdistReturn",
+        "object:hdngSensorValue",
+        "object:horizCdaValue",
+        "object:idCloseValue",
+        "object:idObstacleValue",
+        "object:inputsInterface",
+        "object:intType",
+        "object:intpusInterface",
+        "object:lreCtrl",
+        "object:natType",
+        "object:nsRelDistValue",
+        "object:obsHdngValue",
+        "object:odistReturn",
+        "object:outputsInterface",
+        "object:polarValue",
+        "object:radialValue",
+        "object:realType",
+        "object:reqHCMEvent",
+        "object:reqHdngEvent",
+        "object:reqHdngReturn",
+        "object:reqMOMEvent",
+        "object:reqOCMEvent",
+        "object:reqVelEvent",
+        "object:reqVelReturn",
+        "object:stringType",
+        "object:svecType",
+        "object:vdistReturn",
+        "object:vertCdaValue"
+      ],
+      "gid": "ct2",
+      "id": "B09",
+      "inventory": [
+        "object:actuatorsInterface",
+        "object:advHdngEvent",
+        "object:advHdngParam",
+        "object:advVelEvent",
+        "object:advVelParam",
+        "object:auvAutopilot",
+        "object:auvOperator",
+        "object:auvPlatform",
+        "object:auv_module",
+        "object:azimuthValue",
+        "object:booleanType",
+        "object:closeType",
+        "object:depthObstacleValue",
+        "object:depthSensorValue",
+        "object:endTaskEvent",
+        "object:ewRelDistValue",
+        "object:hdistFunction",
+        "object:hdistParam",
+        "object:hdistReturn",
+        "object:hdngSensorValue",
+        "object:horizCdaValue",
+        "object:idCloseValue",
+        "object:idObstacleValue",
+        "object:inputsInterface",
+        "object:intType",
+        "object:intpusInterface",
+        "object:lreCtrl",
+        "object:natType",
+        "object:nsRelDistValue",
+        "object:obsHdngValue",
+        "object:obsSensorValue",
+        "object:obstacleType",
+        "object:odistFunction",
+        "object:odistParam",
+        "object:odistReturn",
+        "object:outputsInterface",
+        "object:polarValue",
+        "object:radialValue",
+        "object:realType",
+        "object:reqHCMEvent",
+        "object:reqHdngEvent",
+        "object:reqHdngReturn",
+        "object:reqMOMEvent",
+        "object:reqOCMEvent",
+        "object:reqVelEvent",
+        "object:reqVelReturn",
+        "object:sensorsInterface",
+        "object:stringType",
+        "object:svecType",
+        "object:vdistFunction",
+        "object:vdistParam",
+        "object:vdistReturn",
+        "object:vertCdaValue"
+      ],
+      "missing_or_ambiguous_diagnostic_seeds": [],
+      "modes": {
+        "archived_requirement_links": {
+          "extra_review_candidates": [
+            "object:closeType",
+            "object:ewRelDistValue",
+            "object:hdngSensorValue",
+            "object:nsRelDistValue",
+            "object:obsHdngValue",
+            "object:svecType"
+          ],
+          "f1": 0.7857142857142857,
+          "fn": 0,
+          "fp": 6,
+          "missed_review_targets": [],
+          "outside_scoring_scope": [
+            "result_concept_model.json::instances::instance::AUV_Module",
+            "result_concept_model.json::instances::instance::Obstacle",
+            "result_concept_model.json::instances::instance::SVec",
+            "result_concept_model.json::instances::instance::depth",
+            "result_concept_model.json::instances::instance::ew_rel_dist",
+            "result_concept_model.json::instances::instance::id",
+            "result_concept_model.json::instances::instance::ns_rel_dist",
+            "result_concept_model.json::instances::instance::obs_hdng",
+            "result_dsml.emf::CompositeType::reference::values",
+            "result_dsml.emf::Module::reference::compositeTypes",
+            "result_dsml.emf::package::class::CompositeType"
+          ],
+          "precision": 0.6470588235294118,
+          "predicted": [
+            "object:auvPlatform",
+            "object:auv_module",
+            "object:closeType",
+            "object:ewRelDistValue",
+            "object:hdistFunction",
+            "object:hdistParam",
+            "object:hdngSensorValue",
+            "object:nsRelDistValue",
+            "object:obsHdngValue",
+            "object:obsSensorValue",
+            "object:obstacleType",
+            "object:odistFunction",
+            "object:odistParam",
+            "object:sensorsInterface",
+            "object:svecType",
+            "object:vdistFunction",
+            "object:vdistParam"
+          ],
+          "recall": 1.0,
+          "recovered": [
+            "object:auvPlatform",
+            "object:auv_module",
+            "object:hdistFunction",
+            "object:hdistParam",
+            "object:obsSensorValue",
+            "object:obstacleType",
+            "object:odistFunction",
+            "object:odistParam",
+            "object:sensorsInterface",
+            "object:vdistFunction",
+            "object:vdistParam"
+          ],
+          "tn": 36,
+          "tp": 11,
+          "witnesses": {
+            "object:auvPlatform": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 107,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::obsSensorValue"
+              },
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 111,
+                  "target_declaration": "obsSensorValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obsSensorValue",
+                "target": "result_model.eol::program::object::sensorsInterface"
+              },
+              {
+                "evidence": {
+                  "feature": "interfaces",
+                  "file": "result_model.eol",
+                  "line_start": 187,
+                  "target_declaration": "sensorsInterface"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::sensorsInterface",
+                "target": "result_model.eol::program::object::auvPlatform"
+              }
+            ],
+            "object:auv_module": [
+              {
+                "evidence": {
+                  "entry_index": 30,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::auv_module"
+              }
+            ],
+            "object:closeType": [
+              {
+                "evidence": {
+                  "entry_index": 11,
+                  "file": "result_dsml_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_dsml.emf::CompositeType::reference::values"
+              },
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 91
+                },
+                "relation": "uses_feature",
+                "source": "result_dsml.emf::CompositeType::reference::values",
+                "target": "result_model.eol::program::object::closeType"
+              }
+            ],
+            "object:ewRelDistValue": [
+              {
+                "evidence": {
+                  "entry_index": 21,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::ewRelDistValue"
+              }
+            ],
+            "object:hdistFunction": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 226,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::hdistParam"
+              },
+              {
+                "evidence": {
+                  "feature": "parameters",
+                  "file": "result_model.eol",
+                  "line_start": 227,
+                  "target_declaration": "hdistParam"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::hdistParam",
+                "target": "result_model.eol::program::object::hdistFunction"
+              }
+            ],
+            "object:hdistParam": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 226,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::hdistParam"
+              }
+            ],
+            "object:hdngSensorValue": [
+              {
+                "evidence": {
+                  "entry_index": 11,
+                  "file": "result_dsml_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_dsml.emf::CompositeType::reference::values"
+              },
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 41
+                },
+                "relation": "uses_feature",
+                "source": "result_dsml.emf::CompositeType::reference::values",
+                "target": "result_model.eol::program::object::svecType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 103,
+                  "target_declaration": "svecType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::svecType",
+                "target": "result_model.eol::program::object::hdngSensorValue"
+              }
+            ],
+            "object:nsRelDistValue": [
+              {
+                "evidence": {
+                  "entry_index": 20,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::nsRelDistValue"
+              }
+            ],
+            "object:obsHdngValue": [
+              {
+                "evidence": {
+                  "entry_index": 24,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obsHdngValue"
+              }
+            ],
+            "object:obsSensorValue": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 107,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::obsSensorValue"
+              }
+            ],
+            "object:obstacleType": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              }
+            ],
+            "object:odistFunction": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 212,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::odistParam"
+              },
+              {
+                "evidence": {
+                  "feature": "parameters",
+                  "file": "result_model.eol",
+                  "line_start": 213,
+                  "target_declaration": "odistParam"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::odistParam",
+                "target": "result_model.eol::program::object::odistFunction"
+              }
+            ],
+            "object:odistParam": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 212,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::odistParam"
+              }
+            ],
+            "object:sensorsInterface": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 107,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::obsSensorValue"
+              },
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 111,
+                  "target_declaration": "obsSensorValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obsSensorValue",
+                "target": "result_model.eol::program::object::sensorsInterface"
+              }
+            ],
+            "object:svecType": [
+              {
+                "evidence": {
+                  "entry_index": 11,
+                  "file": "result_dsml_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_dsml.emf::CompositeType::reference::values"
+              },
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 41
+                },
+                "relation": "uses_feature",
+                "source": "result_dsml.emf::CompositeType::reference::values",
+                "target": "result_model.eol::program::object::svecType"
+              }
+            ],
+            "object:vdistFunction": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 240,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::vdistParam"
+              },
+              {
+                "evidence": {
+                  "feature": "parameters",
+                  "file": "result_model.eol",
+                  "line_start": 241,
+                  "target_declaration": "vdistParam"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::vdistParam",
+                "target": "result_model.eol::program::object::vdistFunction"
+              }
+            ],
+            "object:vdistParam": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 240,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::vdistParam"
+              }
+            ]
+          }
+        },
+        "element_seeded_diagnostic": {
+          "extra_review_candidates": [],
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "missed_review_targets": [],
+          "outside_scoring_scope": [],
+          "precision": 1.0,
+          "predicted": [
+            "object:auvPlatform",
+            "object:auv_module",
+            "object:hdistFunction",
+            "object:hdistParam",
+            "object:obsSensorValue",
+            "object:obstacleType",
+            "object:odistFunction",
+            "object:odistParam",
+            "object:sensorsInterface",
+            "object:vdistFunction",
+            "object:vdistParam"
+          ],
+          "recall": 1.0,
+          "recovered": [
+            "object:auvPlatform",
+            "object:auv_module",
+            "object:hdistFunction",
+            "object:hdistParam",
+            "object:obsSensorValue",
+            "object:obstacleType",
+            "object:odistFunction",
+            "object:odistParam",
+            "object:sensorsInterface",
+            "object:vdistFunction",
+            "object:vdistParam"
+          ],
+          "tn": 42,
+          "tp": 11,
+          "witnesses": {
+            "object:auvPlatform": [
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 107,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::obsSensorValue"
+              },
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 111,
+                  "target_declaration": "obsSensorValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obsSensorValue",
+                "target": "result_model.eol::program::object::sensorsInterface"
+              },
+              {
+                "evidence": {
+                  "feature": "interfaces",
+                  "file": "result_model.eol",
+                  "line_start": 187,
+                  "target_declaration": "sensorsInterface"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::sensorsInterface",
+                "target": "result_model.eol::program::object::auvPlatform"
+              }
+            ],
+            "object:auv_module": [
+              {
+                "evidence": {
+                  "feature": "compositeTypes",
+                  "file": "result_model.eol",
+                  "line_start": 72,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::auv_module"
+              }
+            ],
+            "object:hdistFunction": [
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 226,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::hdistParam"
+              },
+              {
+                "evidence": {
+                  "feature": "parameters",
+                  "file": "result_model.eol",
+                  "line_start": 227,
+                  "target_declaration": "hdistParam"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::hdistParam",
+                "target": "result_model.eol::program::object::hdistFunction"
+              }
+            ],
+            "object:hdistParam": [
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 226,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::hdistParam"
+              }
+            ],
+            "object:obsSensorValue": [
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 107,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::obsSensorValue"
+              }
+            ],
+            "object:obstacleType": [],
+            "object:odistFunction": [
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 212,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::odistParam"
+              },
+              {
+                "evidence": {
+                  "feature": "parameters",
+                  "file": "result_model.eol",
+                  "line_start": 213,
+                  "target_declaration": "odistParam"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::odistParam",
+                "target": "result_model.eol::program::object::odistFunction"
+              }
+            ],
+            "object:odistParam": [
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 212,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::odistParam"
+              }
+            ],
+            "object:sensorsInterface": [
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 107,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::obsSensorValue"
+              },
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 111,
+                  "target_declaration": "obsSensorValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obsSensorValue",
+                "target": "result_model.eol::program::object::sensorsInterface"
+              }
+            ],
+            "object:vdistFunction": [
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 240,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::vdistParam"
+              },
+              {
+                "evidence": {
+                  "feature": "parameters",
+                  "file": "result_model.eol",
+                  "line_start": 241,
+                  "target_declaration": "vdistParam"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::vdistParam",
+                "target": "result_model.eol::program::object::vdistFunction"
+              }
+            ],
+            "object:vdistParam": [
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 240,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::vdistParam"
+              }
+            ]
+          }
+        }
+      },
+      "rejected_traces": [
+        {
+          "diagnostics": [
+            {
+              "code": "inconsistent",
+              "message": "Trace concept/type disagrees with the instance's recorded type.",
+              "severity": "error"
+            }
+          ],
+          "entry_index": 38,
+          "file": "result_concept_trace.json",
+          "gid": "ct2",
+          "phase": "concept",
+          "status": "inconsistent",
+          "targets": []
+        },
+        {
+          "diagnostics": [
+            {
+              "code": "ambiguous",
+              "message": "Construction declaration identity is missing or not unique.",
+              "severity": "error"
+            }
+          ],
+          "entry_index": 22,
+          "file": "result_model_trace.json",
+          "gid": "ct2",
+          "phase": "model",
+          "status": "ambiguous",
+          "targets": []
+        },
+        {
+          "diagnostics": [
+            {
+              "code": "ambiguous",
+              "message": "Construction declaration identity is missing or not unique.",
+              "severity": "error"
+            }
+          ],
+          "entry_index": 23,
+          "file": "result_model_trace.json",
+          "gid": "ct2",
+          "phase": "model",
+          "status": "ambiguous",
+          "targets": []
+        }
+      ],
+      "scoring_file": "result_model.eol",
+      "title": "Extend the Obstacle record layout",
+      "trace_coverage": "partial_or_unverified_semantic_coverage"
+    },
+    {
+      "expected_review": [
+        "object:idObstacleValue",
+        "object:obstacleType",
+        "object:obsSensorValue",
+        "object:sensorsInterface",
+        "object:auvPlatform",
+        "object:auv_module",
+        "object:odistParam",
+        "object:hdistParam",
+        "object:vdistParam",
+        "object:odistFunction",
+        "object:hdistFunction",
+        "object:vdistFunction"
+      ],
+      "expected_unaffected": [
+        "object:actuatorsInterface",
+        "object:advHdngEvent",
+        "object:advHdngParam",
+        "object:advVelEvent",
+        "object:advVelParam",
+        "object:auvAutopilot",
+        "object:auvOperator",
+        "object:azimuthValue",
+        "object:booleanType",
+        "object:closeType",
+        "object:depthObstacleValue",
+        "object:depthSensorValue",
+        "object:endTaskEvent",
+        "object:ewRelDistValue",
+        "object:hdistReturn",
+        "object:hdngSensorValue",
+        "object:horizCdaValue",
+        "object:idCloseValue",
+        "object:inputsInterface",
+        "object:intType",
+        "object:intpusInterface",
+        "object:lreCtrl",
+        "object:natType",
+        "object:nsRelDistValue",
+        "object:obsHdngValue",
+        "object:odistReturn",
+        "object:outputsInterface",
+        "object:polarValue",
+        "object:radialValue",
+        "object:realType",
+        "object:reqHCMEvent",
+        "object:reqHdngEvent",
+        "object:reqHdngReturn",
+        "object:reqMOMEvent",
+        "object:reqOCMEvent",
+        "object:reqVelEvent",
+        "object:reqVelReturn",
+        "object:stringType",
+        "object:svecType",
+        "object:vdistReturn",
+        "object:vertCdaValue"
+      ],
+      "gid": "ct2",
+      "id": "B10",
+      "inventory": [
+        "object:actuatorsInterface",
+        "object:advHdngEvent",
+        "object:advHdngParam",
+        "object:advVelEvent",
+        "object:advVelParam",
+        "object:auvAutopilot",
+        "object:auvOperator",
+        "object:auvPlatform",
+        "object:auv_module",
+        "object:azimuthValue",
+        "object:booleanType",
+        "object:closeType",
+        "object:depthObstacleValue",
+        "object:depthSensorValue",
+        "object:endTaskEvent",
+        "object:ewRelDistValue",
+        "object:hdistFunction",
+        "object:hdistParam",
+        "object:hdistReturn",
+        "object:hdngSensorValue",
+        "object:horizCdaValue",
+        "object:idCloseValue",
+        "object:idObstacleValue",
+        "object:inputsInterface",
+        "object:intType",
+        "object:intpusInterface",
+        "object:lreCtrl",
+        "object:natType",
+        "object:nsRelDistValue",
+        "object:obsHdngValue",
+        "object:obsSensorValue",
+        "object:obstacleType",
+        "object:odistFunction",
+        "object:odistParam",
+        "object:odistReturn",
+        "object:outputsInterface",
+        "object:polarValue",
+        "object:radialValue",
+        "object:realType",
+        "object:reqHCMEvent",
+        "object:reqHdngEvent",
+        "object:reqHdngReturn",
+        "object:reqMOMEvent",
+        "object:reqOCMEvent",
+        "object:reqVelEvent",
+        "object:reqVelReturn",
+        "object:sensorsInterface",
+        "object:stringType",
+        "object:svecType",
+        "object:vdistFunction",
+        "object:vdistParam",
+        "object:vdistReturn",
+        "object:vertCdaValue"
+      ],
+      "missing_or_ambiguous_diagnostic_seeds": [],
+      "modes": {
+        "archived_requirement_links": {
+          "extra_review_candidates": [
+            "object:closeType",
+            "object:ewRelDistValue",
+            "object:hdngSensorValue",
+            "object:nsRelDistValue",
+            "object:obsHdngValue",
+            "object:svecType"
+          ],
+          "f1": 0.7586206896551724,
+          "fn": 1,
+          "fp": 6,
+          "missed_review_targets": [
+            "object:idObstacleValue"
+          ],
+          "outside_scoring_scope": [
+            "result_concept_model.json::instances::instance::AUV_Module",
+            "result_concept_model.json::instances::instance::Obstacle",
+            "result_concept_model.json::instances::instance::SVec",
+            "result_concept_model.json::instances::instance::depth",
+            "result_concept_model.json::instances::instance::ew_rel_dist",
+            "result_concept_model.json::instances::instance::id",
+            "result_concept_model.json::instances::instance::ns_rel_dist",
+            "result_concept_model.json::instances::instance::obs_hdng",
+            "result_dsml.emf::CompositeType::reference::values",
+            "result_dsml.emf::Module::reference::compositeTypes",
+            "result_dsml.emf::package::class::CompositeType"
+          ],
+          "precision": 0.6470588235294118,
+          "predicted": [
+            "object:auvPlatform",
+            "object:auv_module",
+            "object:closeType",
+            "object:ewRelDistValue",
+            "object:hdistFunction",
+            "object:hdistParam",
+            "object:hdngSensorValue",
+            "object:nsRelDistValue",
+            "object:obsHdngValue",
+            "object:obsSensorValue",
+            "object:obstacleType",
+            "object:odistFunction",
+            "object:odistParam",
+            "object:sensorsInterface",
+            "object:svecType",
+            "object:vdistFunction",
+            "object:vdistParam"
+          ],
+          "recall": 0.9166666666666666,
+          "recovered": [
+            "object:auvPlatform",
+            "object:auv_module",
+            "object:hdistFunction",
+            "object:hdistParam",
+            "object:obsSensorValue",
+            "object:obstacleType",
+            "object:odistFunction",
+            "object:odistParam",
+            "object:sensorsInterface",
+            "object:vdistFunction",
+            "object:vdistParam"
+          ],
+          "tn": 35,
+          "tp": 11,
+          "witnesses": {
+            "object:auvPlatform": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 107,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::obsSensorValue"
+              },
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 111,
+                  "target_declaration": "obsSensorValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obsSensorValue",
+                "target": "result_model.eol::program::object::sensorsInterface"
+              },
+              {
+                "evidence": {
+                  "feature": "interfaces",
+                  "file": "result_model.eol",
+                  "line_start": 187,
+                  "target_declaration": "sensorsInterface"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::sensorsInterface",
+                "target": "result_model.eol::program::object::auvPlatform"
+              }
+            ],
+            "object:auv_module": [
+              {
+                "evidence": {
+                  "entry_index": 30,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::auv_module"
+              }
+            ],
+            "object:closeType": [
+              {
+                "evidence": {
+                  "entry_index": 11,
+                  "file": "result_dsml_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_dsml.emf::CompositeType::reference::values"
+              },
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 91
+                },
+                "relation": "uses_feature",
+                "source": "result_dsml.emf::CompositeType::reference::values",
+                "target": "result_model.eol::program::object::closeType"
+              }
+            ],
+            "object:ewRelDistValue": [
+              {
+                "evidence": {
+                  "entry_index": 21,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::ewRelDistValue"
+              }
+            ],
+            "object:hdistFunction": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 226,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::hdistParam"
+              },
+              {
+                "evidence": {
+                  "feature": "parameters",
+                  "file": "result_model.eol",
+                  "line_start": 227,
+                  "target_declaration": "hdistParam"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::hdistParam",
+                "target": "result_model.eol::program::object::hdistFunction"
+              }
+            ],
+            "object:hdistParam": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 226,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::hdistParam"
+              }
+            ],
+            "object:hdngSensorValue": [
+              {
+                "evidence": {
+                  "entry_index": 11,
+                  "file": "result_dsml_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_dsml.emf::CompositeType::reference::values"
+              },
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 41
+                },
+                "relation": "uses_feature",
+                "source": "result_dsml.emf::CompositeType::reference::values",
+                "target": "result_model.eol::program::object::svecType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 103,
+                  "target_declaration": "svecType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::svecType",
+                "target": "result_model.eol::program::object::hdngSensorValue"
+              }
+            ],
+            "object:nsRelDistValue": [
+              {
+                "evidence": {
+                  "entry_index": 20,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::nsRelDistValue"
+              }
+            ],
+            "object:obsHdngValue": [
+              {
+                "evidence": {
+                  "entry_index": 24,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obsHdngValue"
+              }
+            ],
+            "object:obsSensorValue": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 107,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::obsSensorValue"
+              }
+            ],
+            "object:obstacleType": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              }
+            ],
+            "object:odistFunction": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 212,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::odistParam"
+              },
+              {
+                "evidence": {
+                  "feature": "parameters",
+                  "file": "result_model.eol",
+                  "line_start": 213,
+                  "target_declaration": "odistParam"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::odistParam",
+                "target": "result_model.eol::program::object::odistFunction"
+              }
+            ],
+            "object:odistParam": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 212,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::odistParam"
+              }
+            ],
+            "object:sensorsInterface": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 107,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::obsSensorValue"
+              },
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 111,
+                  "target_declaration": "obsSensorValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obsSensorValue",
+                "target": "result_model.eol::program::object::sensorsInterface"
+              }
+            ],
+            "object:svecType": [
+              {
+                "evidence": {
+                  "entry_index": 11,
+                  "file": "result_dsml_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_dsml.emf::CompositeType::reference::values"
+              },
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 41
+                },
+                "relation": "uses_feature",
+                "source": "result_dsml.emf::CompositeType::reference::values",
+                "target": "result_model.eol::program::object::svecType"
+              }
+            ],
+            "object:vdistFunction": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 240,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::vdistParam"
+              },
+              {
+                "evidence": {
+                  "feature": "parameters",
+                  "file": "result_model.eol",
+                  "line_start": 241,
+                  "target_declaration": "vdistParam"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::vdistParam",
+                "target": "result_model.eol::program::object::vdistFunction"
+              }
+            ],
+            "object:vdistParam": [
+              {
+                "evidence": {
+                  "entry_index": 19,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:ct2",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 240,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::vdistParam"
+              }
+            ]
+          }
+        },
+        "element_seeded_diagnostic": {
+          "extra_review_candidates": [],
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "missed_review_targets": [],
+          "outside_scoring_scope": [],
+          "precision": 1.0,
+          "predicted": [
+            "object:auvPlatform",
+            "object:auv_module",
+            "object:hdistFunction",
+            "object:hdistParam",
+            "object:idObstacleValue",
+            "object:obsSensorValue",
+            "object:obstacleType",
+            "object:odistFunction",
+            "object:odistParam",
+            "object:sensorsInterface",
+            "object:vdistFunction",
+            "object:vdistParam"
+          ],
+          "recall": 1.0,
+          "recovered": [
+            "object:auvPlatform",
+            "object:auv_module",
+            "object:hdistFunction",
+            "object:hdistParam",
+            "object:idObstacleValue",
+            "object:obsSensorValue",
+            "object:obstacleType",
+            "object:odistFunction",
+            "object:odistParam",
+            "object:sensorsInterface",
+            "object:vdistFunction",
+            "object:vdistParam"
+          ],
+          "tn": 41,
+          "tp": 12,
+          "witnesses": {
+            "object:auvPlatform": [
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 70,
+                  "target_declaration": "idObstacleValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::idObstacleValue",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 107,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::obsSensorValue"
+              },
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 111,
+                  "target_declaration": "obsSensorValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obsSensorValue",
+                "target": "result_model.eol::program::object::sensorsInterface"
+              },
+              {
+                "evidence": {
+                  "feature": "interfaces",
+                  "file": "result_model.eol",
+                  "line_start": 187,
+                  "target_declaration": "sensorsInterface"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::sensorsInterface",
+                "target": "result_model.eol::program::object::auvPlatform"
+              }
+            ],
+            "object:auv_module": [
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 70,
+                  "target_declaration": "idObstacleValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::idObstacleValue",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "compositeTypes",
+                  "file": "result_model.eol",
+                  "line_start": 72,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::auv_module"
+              }
+            ],
+            "object:hdistFunction": [
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 70,
+                  "target_declaration": "idObstacleValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::idObstacleValue",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 226,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::hdistParam"
+              },
+              {
+                "evidence": {
+                  "feature": "parameters",
+                  "file": "result_model.eol",
+                  "line_start": 227,
+                  "target_declaration": "hdistParam"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::hdistParam",
+                "target": "result_model.eol::program::object::hdistFunction"
+              }
+            ],
+            "object:hdistParam": [
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 70,
+                  "target_declaration": "idObstacleValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::idObstacleValue",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 226,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::hdistParam"
+              }
+            ],
+            "object:idObstacleValue": [],
+            "object:obsSensorValue": [
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 70,
+                  "target_declaration": "idObstacleValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::idObstacleValue",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 107,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::obsSensorValue"
+              }
+            ],
+            "object:obstacleType": [
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 70,
+                  "target_declaration": "idObstacleValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::idObstacleValue",
+                "target": "result_model.eol::program::object::obstacleType"
+              }
+            ],
+            "object:odistFunction": [
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 70,
+                  "target_declaration": "idObstacleValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::idObstacleValue",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 212,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::odistParam"
+              },
+              {
+                "evidence": {
+                  "feature": "parameters",
+                  "file": "result_model.eol",
+                  "line_start": 213,
+                  "target_declaration": "odistParam"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::odistParam",
+                "target": "result_model.eol::program::object::odistFunction"
+              }
+            ],
+            "object:odistParam": [
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 70,
+                  "target_declaration": "idObstacleValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::idObstacleValue",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 212,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::odistParam"
+              }
+            ],
+            "object:sensorsInterface": [
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 70,
+                  "target_declaration": "idObstacleValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::idObstacleValue",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 107,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::obsSensorValue"
+              },
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 111,
+                  "target_declaration": "obsSensorValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obsSensorValue",
+                "target": "result_model.eol::program::object::sensorsInterface"
+              }
+            ],
+            "object:vdistFunction": [
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 70,
+                  "target_declaration": "idObstacleValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::idObstacleValue",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 240,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::vdistParam"
+              },
+              {
+                "evidence": {
+                  "feature": "parameters",
+                  "file": "result_model.eol",
+                  "line_start": 241,
+                  "target_declaration": "vdistParam"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::vdistParam",
+                "target": "result_model.eol::program::object::vdistFunction"
+              }
+            ],
+            "object:vdistParam": [
+              {
+                "evidence": {
+                  "feature": "values",
+                  "file": "result_model.eol",
+                  "line_start": 70,
+                  "target_declaration": "idObstacleValue"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::idObstacleValue",
+                "target": "result_model.eol::program::object::obstacleType"
+              },
+              {
+                "evidence": {
+                  "feature": "type",
+                  "file": "result_model.eol",
+                  "line_start": 240,
+                  "target_declaration": "obstacleType"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::obstacleType",
+                "target": "result_model.eol::program::object::vdistParam"
+              }
+            ]
+          }
+        }
+      },
+      "rejected_traces": [
+        {
+          "diagnostics": [
+            {
+              "code": "inconsistent",
+              "message": "Trace concept/type disagrees with the instance's recorded type.",
+              "severity": "error"
+            }
+          ],
+          "entry_index": 38,
+          "file": "result_concept_trace.json",
+          "gid": "ct2",
+          "phase": "concept",
+          "status": "inconsistent",
+          "targets": []
+        },
+        {
+          "diagnostics": [
+            {
+              "code": "ambiguous",
+              "message": "Construction declaration identity is missing or not unique.",
+              "severity": "error"
+            }
+          ],
+          "entry_index": 22,
+          "file": "result_model_trace.json",
+          "gid": "ct2",
+          "phase": "model",
+          "status": "ambiguous",
+          "targets": []
+        },
+        {
+          "diagnostics": [
+            {
+              "code": "ambiguous",
+              "message": "Construction declaration identity is missing or not unique.",
+              "severity": "error"
+            }
+          ],
+          "entry_index": 23,
+          "file": "result_model_trace.json",
+          "gid": "ct2",
+          "phase": "model",
+          "status": "ambiguous",
+          "targets": []
+        }
+      ],
+      "scoring_file": "result_model.eol",
+      "title": "Rename the Obstacle identifier field",
+      "trace_coverage": "partial_or_unverified_semantic_coverage"
+    },
+    {
+      "expected_review": [
+        "object:auvPlatform",
+        "object:auv_module"
+      ],
+      "expected_unaffected": [
+        "object:actuatorsInterface",
+        "object:advHdngEvent",
+        "object:advHdngParam",
+        "object:advVelEvent",
+        "object:advVelParam",
+        "object:auvAutopilot",
+        "object:auvOperator",
+        "object:azimuthValue",
+        "object:booleanType",
+        "object:closeType",
+        "object:depthObstacleValue",
+        "object:depthSensorValue",
+        "object:endTaskEvent",
+        "object:ewRelDistValue",
+        "object:hdistFunction",
+        "object:hdistParam",
+        "object:hdistReturn",
+        "object:hdngSensorValue",
+        "object:horizCdaValue",
+        "object:idCloseValue",
+        "object:idObstacleValue",
+        "object:inputsInterface",
+        "object:intType",
+        "object:intpusInterface",
+        "object:lreCtrl",
+        "object:natType",
+        "object:nsRelDistValue",
+        "object:obsHdngValue",
+        "object:obsSensorValue",
+        "object:obstacleType",
+        "object:odistFunction",
+        "object:odistParam",
+        "object:odistReturn",
+        "object:outputsInterface",
+        "object:polarValue",
+        "object:radialValue",
+        "object:realType",
+        "object:reqHCMEvent",
+        "object:reqHdngEvent",
+        "object:reqHdngReturn",
+        "object:reqMOMEvent",
+        "object:reqOCMEvent",
+        "object:reqVelEvent",
+        "object:reqVelReturn",
+        "object:sensorsInterface",
+        "object:stringType",
+        "object:svecType",
+        "object:vdistFunction",
+        "object:vdistParam",
+        "object:vdistReturn",
+        "object:vertCdaValue"
+      ],
+      "gid": "sd2",
+      "id": "B11",
+      "inventory": [
+        "object:actuatorsInterface",
+        "object:advHdngEvent",
+        "object:advHdngParam",
+        "object:advVelEvent",
+        "object:advVelParam",
+        "object:auvAutopilot",
+        "object:auvOperator",
+        "object:auvPlatform",
+        "object:auv_module",
+        "object:azimuthValue",
+        "object:booleanType",
+        "object:closeType",
+        "object:depthObstacleValue",
+        "object:depthSensorValue",
+        "object:endTaskEvent",
+        "object:ewRelDistValue",
+        "object:hdistFunction",
+        "object:hdistParam",
+        "object:hdistReturn",
+        "object:hdngSensorValue",
+        "object:horizCdaValue",
+        "object:idCloseValue",
+        "object:idObstacleValue",
+        "object:inputsInterface",
+        "object:intType",
+        "object:intpusInterface",
+        "object:lreCtrl",
+        "object:natType",
+        "object:nsRelDistValue",
+        "object:obsHdngValue",
+        "object:obsSensorValue",
+        "object:obstacleType",
+        "object:odistFunction",
+        "object:odistParam",
+        "object:odistReturn",
+        "object:outputsInterface",
+        "object:polarValue",
+        "object:radialValue",
+        "object:realType",
+        "object:reqHCMEvent",
+        "object:reqHdngEvent",
+        "object:reqHdngReturn",
+        "object:reqMOMEvent",
+        "object:reqOCMEvent",
+        "object:reqVelEvent",
+        "object:reqVelReturn",
+        "object:sensorsInterface",
+        "object:stringType",
+        "object:svecType",
+        "object:vdistFunction",
+        "object:vdistParam",
+        "object:vdistReturn",
+        "object:vertCdaValue"
+      ],
+      "missing_or_ambiguous_diagnostic_seeds": [],
+      "modes": {
+        "archived_requirement_links": {
+          "extra_review_candidates": [
+            "object:auvAutopilot",
+            "object:auvOperator",
+            "object:lreCtrl"
+          ],
+          "f1": 0.5714285714285714,
+          "fn": 0,
+          "fp": 3,
+          "missed_review_targets": [],
+          "outside_scoring_scope": [
+            "result_concept_model.json::instances::instance::AUV_Module",
+            "result_concept_model.json::instances::instance::AUV_Platform",
+            "result_concept_model.json::instances::instance::Actuators",
+            "result_concept_model.json::instances::instance::Sensors",
+            "result_dsml.emf::InterfaceUser::reference::interfaces",
+            "result_dsml.emf::Module::reference::platforms",
+            "result_dsml.emf::package::class::RoboticPlatform"
+          ],
+          "precision": 0.4,
+          "predicted": [
+            "object:auvAutopilot",
+            "object:auvOperator",
+            "object:auvPlatform",
+            "object:auv_module",
+            "object:lreCtrl"
+          ],
+          "recall": 1.0,
+          "recovered": [
+            "object:auvPlatform",
+            "object:auv_module"
+          ],
+          "tn": 48,
+          "tp": 2,
+          "witnesses": {
+            "object:auvAutopilot": [
+              {
+                "evidence": {
+                  "entry_index": 1,
+                  "file": "result_dsml_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:sd2",
+                "target": "result_dsml.emf::InterfaceUser::reference::interfaces"
+              },
+              {
+                "evidence": {
+                  "feature": "interfaces",
+                  "file": "result_model.eol",
+                  "line_start": 204
+                },
+                "relation": "uses_feature",
+                "source": "result_dsml.emf::InterfaceUser::reference::interfaces",
+                "target": "result_model.eol::program::object::auvAutopilot"
+              }
+            ],
+            "object:auvOperator": [
+              {
+                "evidence": {
+                  "entry_index": 1,
+                  "file": "result_dsml_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:sd2",
+                "target": "result_dsml.emf::InterfaceUser::reference::interfaces"
+              },
+              {
+                "evidence": {
+                  "feature": "interfaces",
+                  "file": "result_model.eol",
+                  "line_start": 193
+                },
+                "relation": "uses_feature",
+                "source": "result_dsml.emf::InterfaceUser::reference::interfaces",
+                "target": "result_model.eol::program::object::auvOperator"
+              }
+            ],
+            "object:auvPlatform": [
+              {
+                "evidence": {
+                  "entry_index": 79,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:sd2",
+                "target": "result_model.eol::program::object::auvPlatform"
+              }
+            ],
+            "object:auv_module": [
+              {
+                "evidence": {
+                  "entry_index": 82,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:sd2",
+                "target": "result_model.eol::program::object::auv_module"
+              }
+            ],
+            "object:lreCtrl": [
+              {
+                "evidence": {
+                  "entry_index": 1,
+                  "file": "result_dsml_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:sd2",
+                "target": "result_dsml.emf::InterfaceUser::reference::interfaces"
+              },
+              {
+                "evidence": {
+                  "feature": "interfaces",
+                  "file": "result_model.eol",
+                  "line_start": 199
+                },
+                "relation": "uses_feature",
+                "source": "result_dsml.emf::InterfaceUser::reference::interfaces",
+                "target": "result_model.eol::program::object::lreCtrl"
+              }
+            ]
+          }
+        },
+        "element_seeded_diagnostic": {
+          "extra_review_candidates": [],
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "missed_review_targets": [],
+          "outside_scoring_scope": [],
+          "precision": 1.0,
+          "predicted": [
+            "object:auvPlatform",
+            "object:auv_module"
+          ],
+          "recall": 1.0,
+          "recovered": [
+            "object:auvPlatform",
+            "object:auv_module"
+          ],
+          "tn": 51,
+          "tp": 2,
+          "witnesses": {
+            "object:auvPlatform": [],
+            "object:auv_module": [
+              {
+                "evidence": {
+                  "feature": "platforms",
+                  "file": "result_model.eol",
+                  "line_start": 189,
+                  "target_declaration": "auvPlatform"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::auvPlatform",
+                "target": "result_model.eol::program::object::auv_module"
+              }
+            ]
+          }
+        }
+      },
+      "rejected_traces": [],
+      "scoring_file": "result_model.eol",
+      "title": "Detach the actuator interface",
+      "trace_coverage": "partial_or_unverified_semantic_coverage"
+    },
+    {
+      "expected_review": [
+        "object:lreCtrl",
+        "object:auv_module"
+      ],
+      "expected_unaffected": [
+        "object:actuatorsInterface",
+        "object:advHdngEvent",
+        "object:advHdngParam",
+        "object:advVelEvent",
+        "object:advVelParam",
+        "object:auvAutopilot",
+        "object:auvOperator",
+        "object:auvPlatform",
+        "object:azimuthValue",
+        "object:booleanType",
+        "object:closeType",
+        "object:depthObstacleValue",
+        "object:depthSensorValue",
+        "object:endTaskEvent",
+        "object:ewRelDistValue",
+        "object:hdistFunction",
+        "object:hdistParam",
+        "object:hdistReturn",
+        "object:hdngSensorValue",
+        "object:horizCdaValue",
+        "object:idCloseValue",
+        "object:idObstacleValue",
+        "object:inputsInterface",
+        "object:intType",
+        "object:intpusInterface",
+        "object:natType",
+        "object:nsRelDistValue",
+        "object:obsHdngValue",
+        "object:obsSensorValue",
+        "object:obstacleType",
+        "object:odistFunction",
+        "object:odistParam",
+        "object:odistReturn",
+        "object:outputsInterface",
+        "object:polarValue",
+        "object:radialValue",
+        "object:realType",
+        "object:reqHCMEvent",
+        "object:reqHdngEvent",
+        "object:reqHdngReturn",
+        "object:reqMOMEvent",
+        "object:reqOCMEvent",
+        "object:reqVelEvent",
+        "object:reqVelReturn",
+        "object:sensorsInterface",
+        "object:stringType",
+        "object:svecType",
+        "object:vdistFunction",
+        "object:vdistParam",
+        "object:vdistReturn",
+        "object:vertCdaValue"
+      ],
+      "gid": "sd4",
+      "id": "B12",
+      "inventory": [
+        "object:actuatorsInterface",
+        "object:advHdngEvent",
+        "object:advHdngParam",
+        "object:advVelEvent",
+        "object:advVelParam",
+        "object:auvAutopilot",
+        "object:auvOperator",
+        "object:auvPlatform",
+        "object:auv_module",
+        "object:azimuthValue",
+        "object:booleanType",
+        "object:closeType",
+        "object:depthObstacleValue",
+        "object:depthSensorValue",
+        "object:endTaskEvent",
+        "object:ewRelDistValue",
+        "object:hdistFunction",
+        "object:hdistParam",
+        "object:hdistReturn",
+        "object:hdngSensorValue",
+        "object:horizCdaValue",
+        "object:idCloseValue",
+        "object:idObstacleValue",
+        "object:inputsInterface",
+        "object:intType",
+        "object:intpusInterface",
+        "object:lreCtrl",
+        "object:natType",
+        "object:nsRelDistValue",
+        "object:obsHdngValue",
+        "object:obsSensorValue",
+        "object:obstacleType",
+        "object:odistFunction",
+        "object:odistParam",
+        "object:odistReturn",
+        "object:outputsInterface",
+        "object:polarValue",
+        "object:radialValue",
+        "object:realType",
+        "object:reqHCMEvent",
+        "object:reqHdngEvent",
+        "object:reqHdngReturn",
+        "object:reqMOMEvent",
+        "object:reqOCMEvent",
+        "object:reqVelEvent",
+        "object:reqVelReturn",
+        "object:sensorsInterface",
+        "object:stringType",
+        "object:svecType",
+        "object:vdistFunction",
+        "object:vdistParam",
+        "object:vdistReturn",
+        "object:vertCdaValue"
+      ],
+      "missing_or_ambiguous_diagnostic_seeds": [],
+      "modes": {
+        "archived_requirement_links": {
+          "extra_review_candidates": [
+            "object:auvAutopilot",
+            "object:auvOperator",
+            "object:auvPlatform"
+          ],
+          "f1": 0.5714285714285714,
+          "fn": 0,
+          "fp": 3,
+          "missed_review_targets": [],
+          "outside_scoring_scope": [
+            "result_concept_model.json::instances::instance::AUV_Module",
+            "result_concept_model.json::instances::instance::Inputs",
+            "result_concept_model.json::instances::instance::LRE_Ctrl",
+            "result_concept_model.json::instances::instance::Outputs",
+            "result_dsml.emf::InterfaceUser::reference::interfaces",
+            "result_dsml.emf::Module::reference::controllers",
+            "result_dsml.emf::package::class::Controller"
+          ],
+          "precision": 0.4,
+          "predicted": [
+            "object:auvAutopilot",
+            "object:auvOperator",
+            "object:auvPlatform",
+            "object:auv_module",
+            "object:lreCtrl"
+          ],
+          "recall": 1.0,
+          "recovered": [
+            "object:auv_module",
+            "object:lreCtrl"
+          ],
+          "tn": 48,
+          "tp": 2,
+          "witnesses": {
+            "object:auvAutopilot": [
+              {
+                "evidence": {
+                  "entry_index": 3,
+                  "file": "result_dsml_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:sd4",
+                "target": "result_dsml.emf::InterfaceUser::reference::interfaces"
+              },
+              {
+                "evidence": {
+                  "feature": "interfaces",
+                  "file": "result_model.eol",
+                  "line_start": 204
+                },
+                "relation": "uses_feature",
+                "source": "result_dsml.emf::InterfaceUser::reference::interfaces",
+                "target": "result_model.eol::program::object::auvAutopilot"
+              }
+            ],
+            "object:auvOperator": [
+              {
+                "evidence": {
+                  "entry_index": 3,
+                  "file": "result_dsml_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:sd4",
+                "target": "result_dsml.emf::InterfaceUser::reference::interfaces"
+              },
+              {
+                "evidence": {
+                  "feature": "interfaces",
+                  "file": "result_model.eol",
+                  "line_start": 193
+                },
+                "relation": "uses_feature",
+                "source": "result_dsml.emf::InterfaceUser::reference::interfaces",
+                "target": "result_model.eol::program::object::auvOperator"
+              }
+            ],
+            "object:auvPlatform": [
+              {
+                "evidence": {
+                  "entry_index": 3,
+                  "file": "result_dsml_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:sd4",
+                "target": "result_dsml.emf::InterfaceUser::reference::interfaces"
+              },
+              {
+                "evidence": {
+                  "feature": "interfaces",
+                  "file": "result_model.eol",
+                  "line_start": 188
+                },
+                "relation": "uses_feature",
+                "source": "result_dsml.emf::InterfaceUser::reference::interfaces",
+                "target": "result_model.eol::program::object::auvPlatform"
+              }
+            ],
+            "object:auv_module": [
+              {
+                "evidence": {
+                  "entry_index": 89,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:sd4",
+                "target": "result_model.eol::program::object::auv_module"
+              }
+            ],
+            "object:lreCtrl": [
+              {
+                "evidence": {
+                  "entry_index": 86,
+                  "file": "result_model_trace.json",
+                  "validation": "target identity and supplied structural fields"
+                },
+                "relation": "requirement_trace",
+                "source": "req:sd4",
+                "target": "result_model.eol::program::object::lreCtrl"
+              }
+            ]
+          }
+        },
+        "element_seeded_diagnostic": {
+          "extra_review_candidates": [],
+          "f1": 1.0,
+          "fn": 0,
+          "fp": 0,
+          "missed_review_targets": [],
+          "outside_scoring_scope": [],
+          "precision": 1.0,
+          "predicted": [
+            "object:auv_module",
+            "object:lreCtrl"
+          ],
+          "recall": 1.0,
+          "recovered": [
+            "object:auv_module",
+            "object:lreCtrl"
+          ],
+          "tn": 51,
+          "tp": 2,
+          "witnesses": {
+            "object:auv_module": [
+              {
+                "evidence": {
+                  "feature": "controllers",
+                  "file": "result_model.eol",
+                  "line_start": 200,
+                  "target_declaration": "lreCtrl"
+                },
+                "relation": "object_reference",
+                "source": "result_model.eol::program::object::lreCtrl",
+                "target": "result_model.eol::program::object::auv_module"
+              }
+            ],
+            "object:lreCtrl": []
+          }
+        }
+      },
+      "rejected_traces": [],
+      "scoring_file": "result_model.eol",
+      "title": "Detach the LRE output interface",
+      "trace_coverage": "partial_or_unverified_semantic_coverage"
+    }
+  ],
+  "diagnostics": [
+    {
+      "code": "inconsistent",
+      "diagnostics": [],
+      "entry_index": 16,
+      "file": "result_concept_trace.json",
+      "gid": "pt1",
+      "message": "Trace concept/type disagrees with the instance's recorded type.",
+      "phase": "concept",
+      "severity": "error",
+      "status": "inconsistent",
+      "targets": []
+    },
+    {
+      "code": "inconsistent",
+      "diagnostics": [],
+      "entry_index": 18,
+      "file": "result_concept_trace.json",
+      "gid": "pt2",
+      "message": "Trace concept/type disagrees with the instance's recorded type.",
+      "phase": "concept",
+      "severity": "error",
+      "status": "inconsistent",
+      "targets": []
+    },
+    {
+      "code": "inconsistent",
+      "diagnostics": [],
+      "entry_index": 20,
+      "file": "result_concept_trace.json",
+      "gid": "pt3",
+      "message": "Trace concept/type disagrees with the instance's recorded type.",
+      "phase": "concept",
+      "severity": "error",
+      "status": "inconsistent",
+      "targets": []
+    },
+    {
+      "code": "inconsistent",
+      "diagnostics": [],
+      "entry_index": 22,
+      "file": "result_concept_trace.json",
+      "gid": "pt4",
+      "message": "Trace concept/type disagrees with the instance's recorded type.",
+      "phase": "concept",
+      "severity": "error",
+      "status": "inconsistent",
+      "targets": []
+    },
+    {
+      "code": "inconsistent",
+      "diagnostics": [],
+      "entry_index": 24,
+      "file": "result_concept_trace.json",
+      "gid": "pt5",
+      "message": "Trace concept/type disagrees with the instance's recorded type.",
+      "phase": "concept",
+      "severity": "error",
+      "status": "inconsistent",
+      "targets": []
+    },
+    {
+      "code": "inconsistent",
+      "diagnostics": [],
+      "entry_index": 30,
+      "file": "result_concept_trace.json",
+      "gid": "ct1",
+      "message": "Trace concept/type disagrees with the instance's recorded type.",
+      "phase": "concept",
+      "severity": "error",
+      "status": "inconsistent",
+      "targets": []
+    },
+    {
+      "code": "inconsistent",
+      "diagnostics": [],
+      "entry_index": 38,
+      "file": "result_concept_trace.json",
+      "gid": "ct2",
+      "message": "Trace concept/type disagrees with the instance's recorded type.",
+      "phase": "concept",
+      "severity": "error",
+      "status": "inconsistent",
+      "targets": []
+    },
+    {
+      "code": "inconsistent",
+      "diagnostics": [],
+      "entry_index": 45,
+      "file": "result_concept_trace.json",
+      "gid": "interface1",
+      "message": "Trace concept/type disagrees with the instance's recorded type.",
+      "phase": "concept",
+      "severity": "error",
+      "status": "inconsistent",
+      "targets": []
+    },
+    {
+      "code": "inconsistent",
+      "diagnostics": [],
+      "entry_index": 58,
+      "file": "result_concept_trace.json",
+      "gid": "interface2",
+      "message": "Trace concept/type disagrees with the instance's recorded type.",
+      "phase": "concept",
+      "severity": "error",
+      "status": "inconsistent",
+      "targets": []
+    },
+    {
+      "code": "inconsistent",
+      "diagnostics": [],
+      "entry_index": 65,
+      "file": "result_concept_trace.json",
+      "gid": "interface3",
+      "message": "Trace concept/type disagrees with the instance's recorded type.",
+      "phase": "concept",
+      "severity": "error",
+      "status": "inconsistent",
+      "targets": []
+    },
+    {
+      "code": "inconsistent",
+      "diagnostics": [],
+      "entry_index": 73,
+      "file": "result_concept_trace.json",
+      "gid": "cf3",
+      "message": "Trace concept/type disagrees with the instance's recorded type.",
+      "phase": "concept",
+      "severity": "error",
+      "status": "inconsistent",
+      "targets": []
+    },
+    {
+      "code": "inconsistent",
+      "diagnostics": [],
+      "entry_index": 74,
+      "file": "result_concept_trace.json",
+      "gid": "cf3",
+      "message": "Trace concept/type disagrees with the instance's recorded type.",
+      "phase": "concept",
+      "severity": "error",
+      "status": "inconsistent",
+      "targets": []
+    },
+    {
+      "code": "inconsistent",
+      "diagnostics": [],
+      "entry_index": 78,
+      "file": "result_concept_trace.json",
+      "gid": "platformf1",
+      "message": "Trace concept/type disagrees with the instance's recorded type.",
+      "phase": "concept",
+      "severity": "error",
+      "status": "inconsistent",
+      "targets": []
+    },
+    {
+      "code": "inconsistent",
+      "diagnostics": [],
+      "entry_index": 82,
+      "file": "result_concept_trace.json",
+      "gid": "platformf2",
+      "message": "Trace concept/type disagrees with the instance's recorded type.",
+      "phase": "concept",
+      "severity": "error",
+      "status": "inconsistent",
+      "targets": []
+    },
+    {
+      "code": "inconsistent",
+      "diagnostics": [],
+      "entry_index": 86,
+      "file": "result_concept_trace.json",
+      "gid": "platformf3",
+      "message": "Trace concept/type disagrees with the instance's recorded type.",
+      "phase": "concept",
+      "severity": "error",
+      "status": "inconsistent",
+      "targets": []
+    },
+    {
+      "code": "ambiguous",
+      "diagnostics": [],
+      "entry_index": 22,
+      "file": "result_model_trace.json",
+      "gid": "ct2",
+      "message": "Construction declaration identity is missing or not unique.",
+      "phase": "model",
+      "severity": "error",
+      "status": "ambiguous",
+      "targets": []
+    },
+    {
+      "code": "ambiguous",
+      "diagnostics": [],
+      "entry_index": 23,
+      "file": "result_model_trace.json",
+      "gid": "ct2",
+      "message": "Construction declaration identity is missing or not unique.",
+      "phase": "model",
+      "severity": "error",
+      "status": "ambiguous",
+      "targets": []
+    },
+    {
+      "code": "ambiguous",
+      "diagnostics": [],
+      "entry_index": 34,
+      "file": "result_model_trace.json",
+      "gid": "cf3",
+      "message": "Construction declaration identity is missing or not unique.",
+      "phase": "model",
+      "severity": "error",
+      "status": "ambiguous",
+      "targets": []
+    },
+    {
+      "code": "ambiguous",
+      "diagnostics": [],
+      "entry_index": 40,
+      "file": "result_model_trace.json",
+      "gid": "interface1",
+      "message": "Construction declaration identity is missing or not unique.",
+      "phase": "model",
+      "severity": "error",
+      "status": "ambiguous",
+      "targets": []
+    },
+    {
+      "code": "ambiguous",
+      "diagnostics": [],
+      "entry_index": 55,
+      "file": "result_model_trace.json",
+      "gid": "interface2",
+      "message": "Construction declaration identity is missing or not unique.",
+      "phase": "model",
+      "severity": "error",
+      "status": "ambiguous",
+      "targets": []
+    },
+    {
+      "code": "ambiguous",
+      "diagnostics": [],
+      "entry_index": 58,
+      "file": "result_model_trace.json",
+      "gid": "interface2",
+      "message": "Construction declaration identity is missing or not unique.",
+      "phase": "model",
+      "severity": "error",
+      "status": "ambiguous",
+      "targets": []
+    },
+    {
+      "code": "ambiguous",
+      "diagnostics": [],
+      "entry_index": 94,
+      "file": "result_model_trace.json",
+      "gid": "platformf1",
+      "message": "Construction declaration identity is missing or not unique.",
+      "phase": "model",
+      "severity": "error",
+      "status": "ambiguous",
+      "targets": []
+    },
+    {
+      "code": "ambiguous",
+      "diagnostics": [],
+      "entry_index": 96,
+      "file": "result_model_trace.json",
+      "gid": "platformf1",
+      "message": "Construction declaration identity is missing or not unique.",
+      "phase": "model",
+      "severity": "error",
+      "status": "ambiguous",
+      "targets": []
+    },
+    {
+      "code": "ambiguous",
+      "diagnostics": [],
+      "entry_index": 100,
+      "file": "result_model_trace.json",
+      "gid": "platformf2",
+      "message": "Construction declaration identity is missing or not unique.",
+      "phase": "model",
+      "severity": "error",
+      "status": "ambiguous",
+      "targets": []
+    },
+    {
+      "code": "ambiguous",
+      "diagnostics": [],
+      "entry_index": 102,
+      "file": "result_model_trace.json",
+      "gid": "platformf2",
+      "message": "Construction declaration identity is missing or not unique.",
+      "phase": "model",
+      "severity": "error",
+      "status": "ambiguous",
+      "targets": []
+    },
+    {
+      "code": "ambiguous",
+      "diagnostics": [],
+      "entry_index": 106,
+      "file": "result_model_trace.json",
+      "gid": "platformf3",
+      "message": "Construction declaration identity is missing or not unique.",
+      "phase": "model",
+      "severity": "error",
+      "status": "ambiguous",
+      "targets": []
+    },
+    {
+      "code": "ambiguous",
+      "diagnostics": [],
+      "entry_index": 108,
+      "file": "result_model_trace.json",
+      "gid": "platformf3",
+      "message": "Construction declaration identity is missing or not unique.",
+      "phase": "model",
+      "severity": "error",
+      "status": "ambiguous",
+      "targets": []
+    }
+  ],
+  "independent_review": null,
+  "limitations": [
+    "Provisional labels by the implementation assistant; expert adjudication pending.",
+    "One selected run; changes share elements and are not independent samples.",
+    "Conditional element seeds bypass trace discovery and cannot be reported as end-to-end accuracy.",
+    "Unscored files, new declarations and system-level consequences are outside this local review boundary.",
+    "No parser, graph relation or expected set was tuned to these benchmark scores."
+  ],
+  "n_archived_runs": 1,
+  "n_changes": 12,
+  "paid_model_calls": 0,
+  "provenance": {
+    "benchmark_sha256": "d0b00beb651be1fd1b7f9d188426e8dfb812f8140eadb476ba01dd03fba67d4f",
+    "graph_sha256": "3cfaf469c2acd055441a0e12dd5cb28a2fcd3cade4965f2b22f6b3932f2f6156",
+    "implementation_sha256": {
+      "MALCOMp/impact_architecture.py": "35e1686edb4a1b7f9c589aa447133a1b52dc474e348a01debb6a2507f8c02fff",
+      "MALCOMp/impact_behaviour.py": "bc20d4f76fafa5d25dd9f6d545e4010f3b55f3f2deedddf9a0f3c86bd896af6d",
+      "MALCOMp/impact_graph.py": "a8ab9309245fb379d70c29958481d7550749910a82e1082951f2f5d0a8e2358e",
+      "scripts/evaluate_impact_benchmark.py": "4fa441f64f8e17cdbad53bf2cd6917e288ade2be56dad76d4e78a50e734b6014",
+      "scripts/impact_worksheet.html.in": "f4fdc3c049502407eb2ff75b13dd7845a29587dee1755f532bd02cc40453365a"
+    },
+    "requirements_sha256": {
+      "requirement_architecture.json": "cb098beae912a8fee6e3817b460f453c93ab7a50a630ef9eed79bf33f1695a18",
+      "requirement_behaviour.json": "bfb7a6f157de2554455bb1c60755e00fee2a7f3bf2f0d81ffae5df68dc68c851"
+    },
+    "run": "case_studies/auv/output/factorial_v2/deepseek_v4/multi/run_001",
+    "source_sha256": {
+      "result_behaviour_model.rct": "00021c489003408bd9275074674ad8c0500b63b30eccc3986b7b4c37c606a6f6",
+      "result_behaviour_trace.json": "c92d8b7c70a6f39fdd96fbc224c9a4ef54853f8bbb9fa55a27785994337cb1e8",
+      "result_concept_model.json": "62d7e2154dd5842e661c29ee74fd97e3488be1870e39a7591a3024cea99af240",
+      "result_concept_trace.json": "5ed1db9e4c43d222886856dc98f92667a5c8092ef318e0998e4f0ba0628e7c5f",
+      "result_dsml.emf": "2600718dd37ccaa9e4d6612d0eb687d4d1bd4803540e75cc8c32af777fe9c86e",
+      "result_dsml_trace.json": "f4375eae02cb14a14498119a4aee65129addf1e9ffd7741b7f1e347499a1b282",
+      "result_model.eol": "fd4e0c58d7ec4925f5de7b6b6fb805b2973ca4d09d5a936a5cf1f1427f1c2128",
+      "result_model_trace.json": "bf4d89643f7079b88bf5da6e41633978bea29fff927595ecd081e0d4bd012164",
+      "stage_status.json": "ec322bd0906e75d5424d245657ab86adf2f2b5c89d25dae85b60e41deaa22eda"
+    }
+  },
+  "review_status": "provisional_assistant_draft",
+  "schema": "radiant.impact_benchmark_results.v1",
+  "scope": "Existing declarations in the named scoring file that require local inspection for the specified edit under the written rationale. Remaining declarations in that file are explicit negative controls. New elements, other files and dynamic/system-level consequences are unscored. Extra predictions are extra review candidates relative to this provisional boundary, not proved engineering false positives.",
+  "summary": {
+    "archived_requirement_links": {
+      "f1": 0.4954128440366973,
+      "fn": 37,
+      "fp": 18,
+      "precision": 0.6,
+      "recall": 0.421875,
+      "tn": 410,
+      "tp": 27
+    },
+    "element_seeded_diagnostic": {
+      "f1": 0.920863309352518,
+      "fn": 0,
+      "fp": 11,
+      "precision": 0.8533333333333334,
+      "recall": 1.0,
+      "tn": 417,
+      "tp": 64
+    }
+  }
+}
