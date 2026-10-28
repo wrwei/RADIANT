@@ -1,0 +1,8 @@
+{
+  "clean_cases": 29,
+  "mutants": 5,
+  "requirement_failures": [],
+  "unreachable_modules": [],
+  "undetected_mutants": [],
+  "complete": true
+}

@@ -5,3 +5,4 @@
 # Keep the archived mutant inputs and recovered paper source byte-identical.
 malcom.evaluation/requirement_properties/inputs/mutants/*.rct whitespace=-blank-at-eof
 submission_records/june_2026/source/* whitespace=-blank-at-eol
+submission_records/controller_integration_repair/models/*.rct whitespace=-blank-at-eof

@@ -61,6 +61,7 @@ attempt). Every configuration emits concept traces; notation, construction and b
 | Supplementary Table S7 (verification across cohorts) | `malcom.evaluation/requirement_properties/`: specification, five mutants, per-assertion verdicts and counterexample; 69 state machines / 68 completed controller verdicts / one timeout across cohorts |
 | Supplementary Table S8 (impact-scoring audit) | `submission_records/validated_impact/change_impact_validated.json` compares historical endpoint strings, actual named targets and strict validation; the historical CSV in `malcom.evaluation/change_impact/factorial_v2/` remains unchanged |
 | Supplementary Table S9 (impact pilot) | `submission_records/impact_benchmark/`; twelve concrete edits on one archived run; coauthor Haochi Wang accepted all expected sets without amendments |
+| Supplementary Table S10 (post-hoc integration repair) | `submission_records/controller_integration_repair/`; all ten requirement properties pass at three levels for 29 archived models under an explicit atomic input policy; five faults remain detected |
 | Acceptance-rule history and earlier comparisons | `case_studies/auv/output/halt_rule_rescore.json`; `case_studies/auv/experiment/HALT_RULE_2026-10-21.md`, `RQ2_V2.md`; earlier comparison blocks are supporting/superseded |
 | June submission recovery | `submission_records/june_2026/`: source, figures and sixty-run inventory at paper commit `351213e`; Qwen single run 008 lacks a behaviour output |
 | Separate second-platform study | `case_studies/sranger/output/runs/sranger_deepseek_demo/`; `output/rerun/`; `case_studies/sranger/RERUN_2026-10.md`; five behaviour-stage regenerations |
@@ -124,3 +125,15 @@ resolvability and coverage analysis of nine May/June archived runs. It uses the
 historical permissive locators and is separate from the primary forty-run
 factorial cohort and the strict target-validation audit. The original CSVs and
 report are retained without changing their measurements.
+
+## Separate controller integration repair
+
+`submission_records/controller_integration_repair/` preserves a derived integration
+repair of the 29 accepted primary-cohort models. Platform-provided read-only
+inputs and an explicit atomic untimed CSP policy remove the stale-input window
+and frozen module inputs. All ten requirement properties pass at all three
+levels; all five seeded faults remain detected at all three levels. The native
+RoboChart semantics, original counterexamples and forty-run outcomes remain
+separate and unchanged. The corrected `.rct` alone uses native semantics in stock
+RoboTool; the atomic adapter is part of the verified revised integration. This
+is post-hoc implementation evidence on existing models, with no LLM calls.
