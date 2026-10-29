@@ -1,0 +1,48 @@
+{
+  "schema": "radiant.integration_review_response.v1",
+  "packet_id": "controller-integration-2026-10-28-v1",
+  "review_sha256": "c11e61aead127465f686560602fd7664a9db391fdfb5cc406717b243244b7e50",
+  "revisions": {
+    "paper": "4c04c1edf1d58ce719bb60a944fb1580b5208b4a",
+    "source": "f9ad3c1c83040bee773f22b2e9573856c410e5bc",
+    "data": "18efe18dac923cc8389d52d896d14990fae245dc"
+  },
+  "reviewer": "haochi",
+  "date": "2026-10-29",
+  "status": "review_response",
+  "answered_count": 5,
+  "questions": [
+    {
+      "id": "I01",
+      "title": "When should a received hazard update take effect?",
+      "decision": "uncertain",
+      "notes": "The immediate-update interpretation is reasonable, but I am unsure whether it matches the intended controller design because LRE-Beh4 does not specify input sampling or delivery timing."
+    },
+    {
+      "id": "I02",
+      "title": "Should the platform supply the four hazard flags?",
+      "decision": "agree",
+      "notes": ""
+    },
+    {
+      "id": "I03",
+      "title": "Is the revised synchronous integration acceptable?",
+      "decision": "agree",
+      "notes": ""
+    },
+    {
+      "id": "I04",
+      "title": "Do the results support the stated, bounded claim?",
+      "decision": "agree",
+      "notes": ""
+    },
+    {
+      "id": "I05",
+      "title": "Can the paper use this scoped statement?",
+      "decision": "agree",
+      "notes": ""
+    }
+  ],
+  "general_notes": "",
+  "exported_at": "2026-10-29T12:47:16.981Z"
+}

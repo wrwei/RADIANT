@@ -137,3 +137,10 @@ RoboChart semantics, original counterexamples and forty-run outcomes remain
 separate and unchanged. The corrected `.rct` alone uses native semantics in stock
 RoboTool; the atomic adapter is part of the verified revised integration. This
 is post-hoc implementation evidence on existing models, with no LLM calls.
+
+On 29 October 2026, coauthor Haochi Wang agreed with four of the five integration
+review items and marked the immediate-update interpretation uncertain because the
+requirements leave sampling and delivery timing unspecified. His original response
+and validation record are included in that directory. This completes coauthor
+review with the intended input timing unresolved; the repair results remain
+conditional on the explicit atomic-input contract.

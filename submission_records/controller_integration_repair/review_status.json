@@ -1,0 +1,68 @@
+{
+  "schema": "radiant.integration_review_status.v1",
+  "packet_id": "controller-integration-2026-10-28-v1",
+  "review_sha256": "c11e61aead127465f686560602fd7664a9db391fdfb5cc406717b243244b7e50",
+  "prepared_on": "2026-10-28",
+  "requested_reviewer": "Haochi Wang",
+  "reviewer": "Haochi Wang",
+  "reviewer_as_recorded": "haochi",
+  "review_date": "2026-10-29",
+  "received_on": "2026-10-29",
+  "exported_at": "2026-10-29T12:47:16.981Z",
+  "status": "coauthor_review_complete_with_open_question",
+  "response_received": true,
+  "response_sha256": "86e1a0cf9171d2604665b473f48d033ee4e54e61bf57342c5e1edc6bb19391a5",
+  "response_path_in_paper": "data/controller_integration_repair/reviews/haochi-2026-10-29.json",
+  "response_path_in_replication_data": "submission_records/controller_integration_repair/reviews/haochi-2026-10-29.json",
+  "review_record_status_as_exported": "review_response",
+  "decisions_recorded": 5,
+  "questions": [
+    "I01",
+    "I02",
+    "I03",
+    "I04",
+    "I05"
+  ],
+  "decision_counts": {
+    "agree": 4,
+    "revise": 0,
+    "uncertain": 1,
+    "blank": 0
+  },
+  "agreed_question_ids": [
+    "I02",
+    "I03",
+    "I04",
+    "I05"
+  ],
+  "uncertain_question_ids": [
+    "I01"
+  ],
+  "all_questions_agreed": false,
+  "design_intent_confirmed": false,
+  "unresolved_questions": [
+    {
+      "id": "I01",
+      "question": "When should a received hazard update take effect?",
+      "reviewer_note": "The immediate-update interpretation is reasonable, but I am unsure whether it matches the intended controller design because LRE-Beh4 does not specify input sampling or delivery timing.",
+      "implication": "Immediate updates remain an explicit analysis/design assumption; agreement with the scoped policy and reporting does not confirm the intended controller input timing."
+    }
+  ],
+  "revisions_reviewed": {
+    "paper": "4c04c1edf1d58ce719bb60a944fb1580b5208b4a",
+    "source": "f9ad3c1c83040bee773f22b2e9573856c410e5bc",
+    "data": "18efe18dac923cc8389d52d896d14990fae245dc"
+  },
+  "validation": "Matching frozen specification SHA-256, packet ID and all three revisions; exactly five unique matching IDs/titles; complete explicit decisions.",
+  "scope": "Review of the intended atomic-input contract, provider ownership, integration policy and bounded reporting; separate from impact-benchmark adjudication.",
+  "prior_impact_review_applies": false,
+  "independent_external_validation": false,
+  "frozen_files_preserved": [
+    "review.json",
+    "review.sha256",
+    "index.html"
+  ],
+  "formal_results_changed": false,
+  "input_contract_changed": false,
+  "model_calls": 0
+}

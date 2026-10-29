@@ -60,3 +60,19 @@ Original native controller counterexamples remain under
 `malcom.evaluation/requirement_properties/results/raw/ctrl/`. The primary cohort's
 original pass/fail counts, accepted-run selection, trace scores and frozen impact
 benchmark have not been overwritten.
+
+## Coauthor review — 29 October 2026
+
+Haochi Wang reviewed five frozen integration decisions. He agreed with platform
+input ownership (I02), the scoped synchronous integration (I03), the evidence
+limits (I04) and proposed reporting (I05). He marked the immediate-update
+interpretation (I01) **uncertain**: LRE-Beh4 specifies neither input sampling nor
+delivery timing, so he could not confirm that it matches the intended controller
+design. Immediate propagation remains an explicit assumption of the revised
+analysis; the four agreements do not resolve that design-intent question.
+
+`reviews/haochi-2026-10-29.json` preserves his original export byte-for-byte.
+`review_status.json` validates the packet hash, revisions and five complete
+decisions, and retains the I01 note verbatim. This is completed coauthor review
+with an open architectural question, not independent external validation.
+No models, input policy, oracle or formal results changed in response.
